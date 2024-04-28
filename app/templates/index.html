@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_date'), {
+      order: [[3, 'asc'],[1,'asc']],
+
+    });
+  })
+
+  $('#sort_date').DataTable( {
+    columnDefs: [ {
+      targets: 0,
+      render: DataTable.render.ellipsis( 10 )
+    } ]
+  } );
+</script>
+
+<br>
+<div class="site_body">
+  <!-- <h5>View sermons</h5> -->
+
+  <table class='table is-striped' id="sort_date">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Publication Year</th>
+        <th scope="col">Publication Place</th>
+        <th scope="col">Subjects</th>
+        <th scope="col">ESTC ID</th>
+        <th scope="col">STC ID</th>
+        <th scope="col">TCP ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for s in sermons%}
+        <tr>
+          <td>{{s.title}}</td>
+          <td>{{s.authors}}</td>
+          <td>{{s.publisher}}</td>
+          <td>{{s.pubyear}}</td>
+          <td>{{s.pubplace}}</td>
+          <td>{{s.subject_headings}}</td>
+          <td>{{s.estc}}</td>
+          <td>{{s.stc}}</td>
+          <td>{{s.tcpID}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+
+</div>
+
+
+</div>
+
+{% endblock %}

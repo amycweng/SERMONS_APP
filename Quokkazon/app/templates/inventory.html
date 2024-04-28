@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+<!--Page for viewing a table of all the products in a seller's own inventory-->
+
+{% block content %}
+<div class = "index-div">
+<br>
+<div style="color: aliceblue; text-align: right; margin-bottom: 25px">
+  {% if current_user.is_authenticated and is_seller %}
+    <a href="{{ url_for('products.add_products') }}" type="button" class="btn btn-dark">Add products</a>
+  {% endif %}
+</div>
+
+{% if current_user.is_authenticated %}
+  {% if is_seller %}
+  <h2>My Inventory:</h2>
+  
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+  <script>
+    $(document).ready(function(){ $('#sortable').DataTable(); });
+  </script>
+  
+  <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li style="color:red">{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </p>
+
+  <table class='table table-hover table-bordered container' id='sortable'>
+    <thead class="quokka-brown">
+      <tr>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Number for sale</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in avail_inventory %}
+        <tr>
+          <th scope="row">
+            <a href="{{ url_for('products.product_detail',product_id=item.pid) }}">{{product_class.get_name(item.pid)}}</a>
+          </th>
+          <td>${{item.price}}</td>
+          <td>{{item.quantity}}</td>
+          <td>{{item.num_for_sale}}</td>
+          <td>
+              <form action="{{ url_for('inventory.edit', product_id=item.pid, oq=item.quantity, on=item.num_for_sale, op=item.price) }}">
+                    <input class="btn btn-gray-inventory" type="submit" value="Edit"/> 
+              </form>
+              {% if item.pid in products %}
+                </br>
+                <a type="button" class="btn btn-gray-inventory" href="{{ url_for('products.edit_product', product_id=item.pid) }}">Edit Product</a>
+              {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% else %}
+    <p align="center">Only registered sellers can have an inventory!</p>
+  {% endif %}
+{% else %}
+<p><a href="{{ url_for('users.login') }}">Log in</a> to see your inventory!</p>
+{% endif %}
+</div>
+{% endblock %}

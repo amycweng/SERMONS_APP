@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h1 style="text-align: center;">Edit Product</h1>
+<br>
+
+<form class="add-product-form" action="{{ url_for('products.edit_product', product_id=product_id)}}" method="POST" enctype="multipart/form-data">
+    <label for="name">Product name:</label><br>
+    <input type="text" id="name" name="name" value="{{ product.name }}" required><br>
+
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" required>{{ product.description }}</textarea><br>
+
+    <label for="currentImage">Current Image:</label><br>
+    {% if product.image %}
+        <img id="edit-image" src="{{ url_for('static', filename=product.image) }}" alt="{{ product.altTxt }}">
+    {% else %}
+        <p>No current image</p>
+    {% endif %}
+    <br>
+
+    <label for="image">Image:</label><br>
+    <input type="file" id="image" name="image" accept="image/*"><br>
+
+    <label for="altTxt">Alt Text:</label>
+    <input type="text" id="altTxt" name="altTxt" value="{{ product.altTxt }}" required><br>
+
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        {% for category in categories %}
+            <option value="{{ category.cid }}" {% if category.cid == product.cid %} selected {% endif %}>{{ category.name }}</option>
+        {% endfor %}
+    </select>
+
+    <input type="submit" value="Edit product">
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,151 @@
+#SaleBanner  {
+	float:left;
+	width:100%;
+	position:relative;
+	margin:0;
+    margin-bottom:20px;
+	overflow:hidden;
+	min-height: 258px;
+	height:auto;
+	background-color: #d71f36;
+}
+#SaleBannerWrapper{
+	max-width:760px;
+	margin:9px auto;
+	overflow:hidden;
+}
+#SaleBanner .Left {
+	width:375px;
+	display:block;
+	text-decoration: none;
+	margin:0 auto;
+}
+#SaleBanner .Right {
+	width:375px;
+	display:block;
+	text-decoration: none;
+	margin: 0 auto;
+}
+#SaleBanner .textarea {
+	margin:0;
+	padding:10px 0 0;
+	text-align:center;
+	width:100%;
+}
+#SaleBanner .textarea h1 {
+	color:#fff;
+	font:2.4em/0.8em Arial,Helvetica,sans-serif;
+	letter-spacing:0.35em;
+	text-transform:uppercase;
+	margin:0;
+}
+#SaleBanner .textarea h1 span {
+font:1.5em/1em Arial,Helvetica,sans-serif;
+	display:block;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+margin-top:6px;
+letter-spacing:0;
+font-weight:bold;
+}
+#SaleBanner .textarea h2 {    
+  color: #ffffff;
+  font-weight: normal;
+	font:6em/1em Arial,Helvetica,sans-serif;
+  padding: 10px 0;   
+  margin: 0 7%;    
+  position: relative;
+
+}
+#SaleBanner .textarea h2 span.Text1 {
+	  font:0.4em/0.85em Arial,Helvetica,sans-serif;
+	  font-weight: normal;  
+	color:#FFF;
+	width: 52px;
+	text-transform: uppercase;
+	  display:block;
+	  float:left;  
+}
+#SaleBanner .textarea h2 span.Text2 {
+	  font:1.7em/0.76em Arial,Helvetica,sans-serif;
+	  font-weight: normal;  
+	color:#FFF;
+	  display:inline-block;  
+}
+#SaleBanner .textarea h2 span.Text3 {
+	  font:1em/0.8em Arial,Helvetica,sans-serif;
+	  font-weight: normal;  
+	color:#FFF;
+	  display:inline-block;
+	  float:right;  
+}
+#SaleBanner .textarea h2 span.Text4 {
+	  font:0.5em/0.9em Arial,Helvetica,sans-serif;
+	  font-weight: normal;  
+	color:#FFF;
+	text-transform: uppercase;
+	  display:inline-block;
+	  float:right;
+	  position:absolute;
+	  right:0;
+	  top:89px;  
+}
+#SaleBanner .Right nav{
+	width: 100%;
+}
+#SaleBanner .Right nav a { 
+	float: left;    
+    width: 49.5%;
+    margin:0 auto;
+    font:1.1em/1em Arial,Helvetica,sans-serif;
+    color:#FFF;     
+    padding:21px 0;     
+    text-transform:uppercase;     
+    text-align: center;     
+    letter-spacing: 0.05em;     
+    display: inline-block;     
+    text-decoration: none;;
+}
+#SaleBanner .Right nav a.Top {		border-top: 1px solid rgba(255,255,255, 0.5)}
+#SaleBanner .Right nav a.Left {		border-left: 1px solid rgba(255,255,255, 0.5); border-right: 1px solid rgba(255,255,255, 0.5);}
+#SaleBanner .Right nav a.Right { 	border-right: 1px solid rgba(255,255,255, 0.5);}
+#SaleBanner .Right nav a.Bottom { 	border-bottom: 1px solid rgba(255,255,255, 0.5);}
+
+/* ------------------------------
+DESKTOP QUERIES
+---------------------------------*/
+@media only screen and (min-width : 767px) {
+
+#SaleBanner .Left {
+    display: block;
+    float: left;
+}
+#SaleBanner .Right nav a {	width: 49.5%;}
+#SaleBanner .Right {float:left; margin-left:10px;}
+}
+
+/* ------------------------------
+FADE EFFECT - Just for hover effect do not change/add to the below style
+---------------------------------*/
+#SaleBanner .Right nav a.Button {
+	width:99.5%;
+	border: 1px solid rgba(255,255,255,1);
+}
+#SaleBanner .Right nav a:hover {
+    background-color:#000;
+    color:#fff;   
+}
+
+/* ------------------------------
+FADE EFFECT - Just for hover effect do not change/add to the below style
+---------------------------------*/
+#SaleBanner .hvr-fade {
+  backface-visibility: hidden;
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  display: inline-block;
+  overflow: hidden;
+  transform: translateZ(0px);
+  transition-duration: 0.3s;
+  transition-property: color, background-color;
+  vertical-align: middle;
+}

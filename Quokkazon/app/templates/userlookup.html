@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Lookup</title>
+    <style>
+        .user-lookup-search .page-div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .user-lookup-search .search-form {
+            display: inline-block; /* Aligns form elements inline */
+        }
+        .user-lookup-search .long-search-input {
+            border: 2px solid #804a03; /* Adds a brown outline */
+            padding: 8px; /* Optional: Adds some space inside the search box */
+        }
+        .user-lookup-search .long-search-button {
+            border: 2px solid #804a03; /* Adds a brown outline */
+            padding: 8px;
+        }
+    </style>
+
+<body>
+    <div class="user-lookup-search">
+        <div class="page-div">
+            <div>
+                <h2>User Lookup</h2>
+                <form action="{{ url_for('users.search_results') }}" method="POST" class="search-form">
+                    <input class="long-search-input" type="text" name="search_term" value="{{ search_term }}" placeholder=" Search by Name">
+                    <button type="submit" class="long-search-button custom-right-border-radius">
+                        <i class="fas fa-search"></i>     
+                    </button>
+                    
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}

@@ -1,0 +1,130 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="index-div">
+<br><br>
+{% if current_user.is_authenticated %}
+<h2>My Cart:</h2>
+<!--table of everything in the cart-->
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Seller</th>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Save for Later?</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    {% if item.saved_for_later == "0" %}
+      <tr>
+        <td><a href="{{ url_for('feedback.public_profile', user_id=item.sid)}}">{{seller_names[item.sid]}}</a></td>
+        <td><a href="{{ url_for('products.product_detail',product_id=item.pid) }}">{{product_names[item.pid]}}</a></td>
+        <td>{{item.quantity}} <form action="{{ url_for('cart.cart_update_quantity')}}"
+          method="POST">
+          Change Quantity: <input type="number" name="quantity">
+          <input type="hidden" name="product_id" value="{{item.pid}}"/> 
+          <input type="hidden" name="seller_id" value="{{item.sid}}"/> 
+          <input type="submit" value="Update">
+      </form></td>
+        <td>{{item.price}}</td>
+        <td><form action="{{ url_for('cart.cart_update_saved')}}"
+          method="POST">
+          <input type="hidden" name="product_id" value="{{item.pid}}"/> 
+          <input type="hidden" name="seller_id" value="{{item.sid}}"/> 
+          <input type="hidden" name="saved_for_later" value="{{item.saved_for_later}}"/>
+          <input type="submit" value="Save for Later"/>
+        </form></td>
+        <td>
+          <form action="{{ url_for('cart.cart_remove', seller_id=item.sid, product_id=item.pid)}}"
+            method="POST">
+            <input type="submit" value="Remove"/> 
+          </form></td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+<h2>Saved for Later:</h2>
+<!--table of everything in the cart-->
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Seller</th>
+      <th scope="col">Product</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Move to Cart?</th>
+      <th scope="col">Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    {% if item.saved_for_later == "1"%}
+      <tr>
+        <td><a href="{{ url_for('feedback.public_profile', user_id=item.sid)}}">{{seller_names[item.sid]}}</a></td>
+        <td><a href="{{ url_for('products.product_detail',product_id=item.pid) }}">{{product_names[item.pid]}}</a></td>
+        <td>{{item.price}}</td>
+        <td><form action="{{ url_for('cart.cart_update_saved')}}"
+          method="POST">
+          <input type="hidden" name="product_id" value="{{item.pid}}"/> 
+          <input type="hidden" name="seller_id" value="{{item.sid}}"/> 
+          <input type="hidden" name="saved_for_later" value="{{item.saved_for_later}}"/>
+          <input type="submit" value="Move to Cart"/>
+        </form></td>
+        <td>
+          <form action="{{ url_for('cart.cart_remove', seller_id=item.sid, product_id=item.pid)}}"
+            method="POST">
+            <input type="submit" value="Remove"/> 
+          </form></td>
+      </tr>
+      {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><a href="{{ url_for('users.login') }}">Log in</a> to see your cart!</p>
+{% endif %}
+<h2> Total Price: ${{'{:.2f}'.format(totalprice)}}</h2>
+<form action="{{ url_for('cart.cart_submit')}}"
+            method="POST">
+            <input type="submit" value="Submit Order"/>
+            <input type="hidden" name="total" value = {{totalprice}}/>
+
+</form>
+<form action="{{ url_for('cart.cart_viewOrders')}}">
+            <input type="submit" value="View Submitted Orders"/>
+</form>
+</div>
+<!--shows popup on duplicate entry, non-positive quantity, or order>balance-->
+{% with messages = get_flashed_messages() %}
+      {% if messages %}
+          <div id="popup" class="popup">
+              <div class="popup-content">
+                  <span class="close" onclick="closePopup()">&times;</span>
+                  <ul>
+                      {% for message in messages %}
+                          <li>{{ message }}</li>
+                      {% endfor %}
+                  </ul>
+              </div>
+          </div>
+      {% endif %}
+  {% endwith %}
+
+  <script>
+      function closePopup() {
+          document.getElementById('popup').style.display = 'none';
+      }
+  </script>
+  <!--add place to input coupon code for discount and add another boolean parameter-->
+  <!--to ensure you can't use that code god i want to kms-->
+  <form action="{{ url_for('cart.cart_discount')}}"
+  method="POST">
+  Enter Promotional Code: <input type="text" name="code">
+  <input type="submit" value="Apply">
+</form>
+</div>
+{% endblock %}

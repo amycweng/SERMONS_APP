@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Early English Printed Sermons</title>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/sale.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+  <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<script>
+  function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+  }
+
+  // Prevent double clicks on submit buttons in forms 
+  $(document).ready(function(){
+    $("form").submit(function() {
+          $(this).submit(function() {
+              return false;
+          });
+          return true;
+      }); 
+  }); 
+  
+  // Close the dropdown menu if the user clicks outside of it
+  window.onclick = function(event) {
+    if (!event.target.matches('.dropbtn')) {
+      var dropdowns = document.getElementsByClassName("cat-dropdown-content");
+      var i;
+      for (i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+          openDropdown.classList.remove('show');
+        }
+      }
+    }
+    var anchors = document.getElementsByTagName('a');
+
+    for(var i = 0, len = anchors.length; i < len; i++) {
+      var thisAnchor = anchors[i];
+        thisAnchor.onclick = function () {
+            var btn = this.parentNode.parentNode.getElementsByTagName('button')[0];
+            btn.innerHTML = this.innerHTML;
+      }
+    }
+  }
+</script>
+
+
+<body>
+    <div class="sidenav">
+      {% block msg %}
+        <img class = "header-image" src="/static/images/stpauls.png" alt = "Sermon" width="1280" height = "300">
+        <br><br>
+        <header>
+          <div class = "header-content">
+            <h3 style="color:rgb(255, 255, 255)"><a id="page-title" href="{{ url_for('index.index') }}" style = "color: white;font-size:30px;">Early English Printed Sermons</a></h3>
+          </div>
+          <div class="banner-header"> 
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Quotations and Paraphrases</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Citations over Time</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Preacher Networks</a>
+
+          </div>
+      </header>
+      {% endblock %}
+    </div>
+  </body>
+
+
+  <div>
+    {% block content %}{% endblock %}
+  </div>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-7">
+        <h6>About</h6>
+        <p class="text-justify">This site is dedicated to exploring scriptural citations and quotations in English printed sermons from the sixteenth and seventeenth centuries.</p>
+        <p>Image courtesy of the <a href="https://mapoflondon.uvic.ca/agas.htm"><u>Agas Map of Early Modern London</u></a> </p>
+      </div>
+
+      <div class="col-sm-12 col-md-4">
+        <h6>More Information</h6>
+        <ul class="footer-links">
+          <li><a href="https://sites.duke.edu/earlymodernlondon/">Early Modern London</a></li>
+          <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/">Sermons and the Public</a></li>
+          <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/marginalia/">Biblical Citations in Sermon Marginalia</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        <p class="copyright-text">Copyright &copy; 
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</html>

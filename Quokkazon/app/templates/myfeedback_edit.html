@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<div class="page-div">
+<body>   
+<br>
+
+
+<!-- Product Feedback Editing Page -->
+{% for item in pfeedback %}
+<a style="color:grey;" href="{{ url_for('products.product_detail',product_id=item.pid) }}"> < Product Details</a>
+
+<h3>My Feedback for Product {{item.pid}}: {{item.name}}</h3>
+
+<form action="{{ url_for('feedback.product_remove_feedback',product_id=item.pid) }}"
+                method="POST">
+                <input type="submit" value="Delete Feedback" class="btn-red-feedback"/> 
+</form>
+<br>
+
+
+<p>Time Updated: {{item.date_time}}</p>
+<p><b>Current Rating</b>: {{item.rating}} <br>  
+<em>New Rating:</em><br>
+<form action="{{ url_for('feedback.product_rating_edit') }}" method="POST">
+    <input type="number" name="rating" id="rating" min="1" max="5" REQUIRED>
+    <input type="hidden" id="pid" name="pid" value="{{item.pid}}">
+    <input type="submit" value="Submit" class="btn btn-gray-inventory"> 
+    </form>
+</p>
+
+
+<p><b>Review</b>:
+</p>
+<form action="{{ url_for('feedback.product_review_edit') }}" method="POST" class="my_button">
+ <textarea id="review" name="review" rows="4" cols="50" REQUIRED>{{item.review}}</textarea>
+ <input type="hidden" id="pid" name="pid" value="{{item.pid}}">
+<br><input type="submit" value="Submit" class="btn btn-gray-inventory"> 
+</form>
+<form action="{{ url_for('feedback.product_remove_review') }}" method="POST">
+    <input type="hidden" id="pid" name="pid" value="{{item.pid}}">
+    <input type="submit" value="Delete Review" class="btn-red-feedback"/> 
+</form>
+<br>
+<form action="{{ url_for('feedback.product_image_edit') }}" method="POST" enctype="multipart/form-data">
+    <label for="image"><b>Image:</b></label><br>
+    <input type="hidden" id="pid" name="pid" value="{{item.pid}}">
+    <input type="file" id="image" name="image" accept="image/*" required><br>
+    <input type="submit" value ="Submit" class="btn btn-gray-inventory"/> 
+</form>
+
+<form action="{{ url_for('feedback.product_remove_image') }}"method="POST">
+    <input type="hidden" id="pid" name="pid" value="{{item.pid}}">
+    <input type="submit" value="Delete Image" class="btn-red-feedback"/> 
+</form>
+<br>
+{% if item.image %}
+    <img id="edit-image" src="{{ url_for('static', filename=item.image) }}">
+{% else %}
+    <p>No image attached to review.</p>
+{% endif %}
+
+
+</body>
+{% endfor %}
+
+
+<!-- Seller Feedback Editing Page -->
+{% for item in sfeedback %}
+<a style="color:grey;" href="{{ url_for('feedback.public_profile',user_id=item.sid) }}"> < Seller Profile</a>
+
+<h3>My Feedback for Seller {{item.sid}}: {{item.name}}</h3>
+<form action="{{ url_for('feedback.seller_remove_feedback') }}"
+                method="POST">
+                <input type="hidden" id="sid" name="sid" value="{{item.sid}}">
+                <input type="submit" value="Delete" class="btn-red-feedback"/> 
+</form>
+<p>Time Updated: {{item.date_time}}</p>
+<p><b>Current Rating</b>: {{item.rating}} <br>  
+<em>New Rating:</em><br>
+<form action="{{ url_for('feedback.seller_rating_edit') }}" method="POST">
+    <input type="number" name="rating" id="rating" min="1" max="5" REQUIRED>
+    <input type="hidden" id="sid" name="sid" value="{{item.sid}}">
+    <input type="submit" value="Submit" class="btn btn-gray-inventory"> 
+    </form>
+</p>
+
+
+<p><b>Review</b>:</p>
+<br>
+<form action="{{ url_for('feedback.seller_review_edit') }}" method="POST">
+ <textarea id="review" name="review" rows="4" cols="50" REQUIRED>{{item.review}}</textarea>
+ <input type="hidden" id="sid" name="sid" value="{{item.sid}}">
+<br><input type="submit" value="Submit" class="btn btn-gray-inventory"> 
+    </form>
+<form action="{{ url_for('feedback.seller_remove_review',seller_id=item.sid) }}"
+method="POST">
+    <input type="hidden" id="sid" name="sid" value="{{item.sid}}">
+    <input type="submit" value="Delete Review" class="btn-red-feedback"/> 
+</form>
+</body>
+{% endfor %}
+
+{% else %}
+<p><a href="{{ url_for('users.login') }}">Log in</a> to see your feedback!</p>
+
+{% endif %}
+</div>
+  {% endblock %}
+  
+  
+  

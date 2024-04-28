@@ -1,0 +1,205 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+{% if current_user.is_authenticated %}
+<!--doctype html-->
+<html>
+<div class="page-div">
+<head>
+    <title>{{ current_user.firstname }} {{ current_user.lastname }} - Profile</title>
+</head>
+<body>
+    <!-- Edit Info Button -->
+    <div style="float: right">
+      <a href="{{ url_for('profile.edit_profile') }}" class="btn btn-dark">Edit Info</a>
+      <a href="{{ url_for('profile.top_up') }}" class="btn btn-dark">Top Up Balance</a>
+      <a href="{{ url_for('feedback.my_feedback', uid=current_user.id)  }}" class="btn btn-dark">Manage My Feedback</a>
+      <a href="{{ url_for('feedback.public_profile', user_id=current_user.id)}}" class="btn btn-dark">My Public Profile</a>
+    </div>
+    <div class="container profile">
+        <br><br>
+        <h1> My Profile</h1>
+        <div class="row">
+            <div class="col-md-8">
+          <br>
+                <p><strong>User ID:</strong> {{ current_user.id }}</p>
+                <p><strong>Balance:</strong> ${{ current_user.balance }}</p>
+                <p><strong>Name: </strong> {{ current_user.firstname }} {{ current_user.lastname }}</p>
+                <p><strong>Email:</strong> {{ current_user.email }}</p>
+                <p><strong>Phone Number:</strong> {{ current_user.phone_number }}</p>
+                <p><strong>Address:</strong> {{ current_user.address }}</p>
+                <p><strong>Feedback for Sellers:</strong> You have left an average rating of <b>{{feedback_for_other_sellers[0]}} for {{feedback_for_other_sellers[1]}} other sellers</b>.</p>
+                <p><strong>Feedback for Products:</strong> You have left an average rating of <b>{{feedback_for_products[0]}} for {{feedback_for_products[1]}} products.</b></p>
+
+            </div>
+        </div>
+    </div>
+    
+    {% if not is_seller %}
+    <!-- Register as seller button  -->
+    <form action="/register_seller">
+        <button button style="margin:10px;" name=update_info>Register as Seller</button>
+    </form>
+    
+    {% else %}
+    <!--If user is a seller, show analytics graphs for their top selling products, their number of orders over time, and their average seller rating over time-->
+    {% if order_count_graph or order_freq_graph or ratings_graph %}
+      <div style="width: 1540px; margin: 0 auto">
+        <div id='orderCountGraph' class='chart'></div>
+        <div id='orderFreqGraph' class='chart'></div>
+        <div id='ratingsGraph' class='chart'></div>
+      </div>
+    {% endif %}
+    {% if not summary %}
+    <p style="text-indent: 65px; color:#804a03";><b>No users have left feedback for you yet.</b></p>
+    
+    {% else %}
+
+    <hr>
+  <!-- Feedback for you left by other users -->
+    <!-- Show feedback table for this seller -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+    <script>
+    $(document).ready(function(){
+        // initialize a DataTable sorted by the 'Last Updated' column 
+        // in reverse chronological order by default.
+        new DataTable($('#sortable'), {
+        order: [[4, 'desc'],[0,'asc']] 
+    });
+    })
+    </script>
+  <p><b>Feedback for Me</b></p>
+  <p style="color:#804a03;">Average Rating By Other Users: {{summary[0]}} by {{summary[1]}} users</p>
+  <div class="star-rating">
+      {% if 1 <= summary[0] < 1.5 %}
+      <span>★</span>★★★★   
+      {% elif 1.5 <= summary[0] < 2.5 %}
+      <span>★★</span>★★★   
+      {% elif 2.5 <= summary[0] < 3.5 %}
+      <span>★★★</span>★★       
+      {% elif 3.5 <= summary[0] < 4.5 %}
+      <span>★★★★</span>★       
+      {% elif 4.5 <= summary[0] <= 5 %}
+      <span>★★★★★</span> 
+      {% else %}
+      ★★★★★
+      {% endif %}               
+  </div>
+  <br>
+
+<p><b>Top 3 Most Upvoted Reviews About Me</b></p>
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Review</th>
+      <th scope="col">Upvotes for Review</th>
+      <th scope="col">Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in top3 %}
+      <tr>
+        <td>
+          <a href="{{ url_for('feedback.public_profile', user_id=item.uid)}}">{{ item.name }}</a>
+        </td>
+        <td>{{item.rating}}</td>
+        <td>{{item.review}}</td>
+        <td>{{supvotes[(item.uid,item.sid)]}}
+          {% if current_user.is_authenticated %}
+            {% if my_supvotes[(item.uid,item.sid)] %}
+            <form action="{{ url_for('feedback.remove_upvote_seller_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="seller" value="{{ item.sid }}"/>
+              <input type="hidden" name="page" value="myprofile"/>
+              <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+            </form>
+            {% else %}
+            <form action="{{ url_for('feedback.upvote_seller_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="seller" value="{{ item.sid }}"/>
+              <input type="hidden" name="page" value="myprofile"/>
+              <input type="submit" value="Upvote &#8593;" /> 
+            </form>
+            <br>
+            {% endif %}
+          {% endif %}
+        </td>
+        <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p><b>All Feedback for Me</b></p>
+  <table class='table table-hover table-bordered container' id="sortable">
+    <thead class="quokka-brown">
+      <tr>
+        <th scope="col">User's Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Review</th>
+        <th scope="col">Upvotes for Review</th>
+        <th scope="col">Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in sfeedback %}
+        <tr>
+          <td>{{item.name}}</td>
+          <td>{{item.rating}}</td>
+          <td>{{item.review}}</td>
+          <td>{{supvotes[(item.uid,item.sid)]}}
+            {% if current_user.is_authenticated %}
+              {% if my_supvotes[(item.uid,item.sid)] %}
+              <form action="{{ url_for('feedback.remove_upvote_seller_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="seller" value="{{ item.sid }}"/>
+                <input type="hidden" name="page" value="myprofile"/>
+                <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+              </form>
+              {% else %}
+              <form action="{{ url_for('feedback.upvote_seller_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="seller" value="{{ item.sid }}"/>
+                <input type="hidden" name="page" value="myprofile"/>
+                <input type="submit" value="Upvote &#8593;" /> 
+              </form>
+              <br>
+              {% endif %}
+            {% endif %}
+          </td>
+          <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+   {% endif %}
+    {% endif %}
+</body>
+
+<script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+<script type='text/javascript'>
+  var orderCountGraph = {{ order_count_graph | safe }};
+  var orderFreqGraph = {{ order_freq_graph | safe }};
+  var ratingsGraph = {{ ratings_graph | safe }};
+  var config = {staticPlot: true}
+  Plotly.setPlotConfig(config);
+  Plotly.plot('orderCountGraph',orderCountGraph);
+  Plotly.plot('orderFreqGraph',orderFreqGraph);
+  Plotly.plot('ratingsGraph',ratingsGraph);
+</script>
+
+</html>
+{% else %}
+<p>User is not authenticated.</p>
+{% endif %}
+</div>
+{% endblock %}

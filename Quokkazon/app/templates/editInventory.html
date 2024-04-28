@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-div">
+<br>
+<h1 style="text-align: center">{{ product_name }}</h1>
+<br>
+
+<!--Form for editing the price, quantity, and number for sale of a product or removing a product only within a seller's own inventory, does not affect the same product in other sellers' inventories-->
+<form action="" class="add-product-form" method="post">
+  {{ form.hidden_tag() }}
+  <p>
+    {{ form.quantity.label }}<br/>
+    {{ form.quantity(size=32, value=old_quantity) }}<br/>
+    {% for error in form.quantity.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {{ form.num_for_sale.label }}<br/>
+    {{ form.num_for_sale(size=32, value=old_num_for_sale) }}<br/>
+    {% for error in form.num_for_sale.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {{ form.price.label }}<br/>
+    {{ form.price(size=32, value=old_price) }}<br/>
+    {% for error in form.price.errors %}
+    <span style="color: red;">[{{ error }}]</span>
+    {% endfor %}
+  </p>
+  <p>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+      {% for message in messages %}
+      <li>{{ message }}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+  </p>
+  {{ form.save(class_="btn btn-black") }}
+  <a class="btn btn-secondary" href="{{ url_for('inventory.inventory') }}" role="button">Cancel</a><br><br>
+  <a class="btn btn-red" href="{{ url_for('inventory.delete', product_id=product_id) }}"role="button">Delete</a>
+</form>
+</div>
+{% endblock %}

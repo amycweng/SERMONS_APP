@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br><br>
+{% if current_user.is_authenticated %}
+<h2>Order</h2>
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Seller</th>
+      <th scope="col">Product</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Date Fulfilled</th>
+      <th scope="col">Contact</th>
+    </tr>
+  </thead>
+  <!-- table with same info as cart table + date  -->
+  <tbody>
+    {% for item in items %}
+      <tr>
+        <td>{{item.order_id}}</td>
+        <td> 
+          <a href="{{ url_for('feedback.public_profile', user_id=item.sid)}}">{{ seller_names[item.sid] }}</a>
+          <!-- Link to feedback editing or submission form  -->
+          {% if seller_feedback_exists[item.sid] %}
+          <form action="{{ url_for('feedback.seller_feedback_edit', seller_id=item.sid) }}"
+                method="POST">
+                <input type="submit" value="Edit Feedback"  style="background-color: #137a56; color: #ffffff"/> 
+          </form>
+          {% else %}
+          <form action="{{ url_for('feedback.seller_submission_form', seller_id=item.sid) }}"
+                method="POST">
+                <input type="submit" value="Add Feedback"  style="background-color:darkred; color: #ffffff"/> 
+          </form>
+          {% endif %}
+        </td>
+        <td> 
+          <a href="{{ url_for('products.product_detail',product_id=item.pid) }}">{{product_names[item.pid]}}</a>
+            <!-- Link to feedback editing or submission form  -->
+            {% if product_feedback_exists[item.pid] %}
+            <form action="{{ url_for('feedback.product_feedback_edit', product_id=item.pid) }}"
+                  method="POST">
+                  <input type="submit" value="Edit Feedback"  style="background-color: #137a56; color: #ffffff"/> 
+            </form>
+            {% else %}
+            <form action="{{ url_for('feedback.product_submission_form', product_id=item.pid,name=product_names[item.pid]) }}"
+                  method="POST">
+                  <input type="submit" value="Add Feedback"  style="background-color: darkred; color: #ffffff"/> 
+            </form>
+            {% endif %}
+        </td>
+        <td>{{item.quantity}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.date_fulfilled}}</td>
+        <td> 
+          <form action="{{ url_for('messages.message_thread',other_user=item.sid) }}" method="POST">
+            <input type="submit" value="Message Seller" > 
+          </form>
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p><a href="{{ url_for('users.login') }}">Log in</a> to see your order!</p>
+{% endif %}
+<h2> Final Price: ${{'{:.2f}'.format(totalprice)}}</h2>
+{% if all_fulfilled %}
+  <h3>Order Status: Fulfilled</h3>
+{% else %}
+  <h3>Order Status: Not Fulfilled</h3>
+{% endif %}
+{% endblock %}

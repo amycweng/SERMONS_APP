@@ -1,0 +1,274 @@
+<!-- https://codepen.io/himaan/pen/gOMawjq-->
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-div">
+
+<br>
+<section id="product-info">
+
+    <div class="item-image-parent">
+        <div class="item-list-vertical">
+            <div class="thumb-box">
+                <img src="{{url_for('static', filename=product.image)}}" alt="thumbnail" />
+            </div>
+            <div class="thumb-box">
+                <img src="{{url_for('static', filename=product.image)}}" alt="thumbnail" />
+            </div>
+            <div class="thumb-box">
+                <img src="{{url_for('static', filename=product.image)}}" alt="thumbnail" />
+            </div>
+            <div class="thumb-box">
+                <img src="{{url_for('static', filename=product.image)}}" alt="thumbnail" />
+            </div>
+
+        </div>
+        <div class="item-image-main">
+            <img src="{{url_for('static', filename=product.image)}}" alt="default" />
+        </div>
+    </div>
+    <div class="item-info-parent">
+        <div class="main-info">
+          {% if is_seller and not order_freq_graph %}
+          <div style="display: inline-block; float: right;">
+            <form action="{{ url_for('inventory.add', product_id=product.pid) }}" method="POST">
+              <input type="submit" value="Add to Inventory"/> 
+            </form>
+          </div>
+          {% endif %}
+            <h4 style="color:black; text-align: left; margin-left: 25px;">{{product.name}}</h4>
+            {% if summary[0]%}
+            <div class="star-rating">
+              {% if 1 <= summary[0] < 1.5 %}
+              <span>★</span>★★★★   
+              {% elif 1.5 <= summary[0] < 2.5 %}
+              <span>★★</span>★★★   
+              {% elif 2.5 <= summary[0] < 3.5 %}
+              <span>★★★</span>★★       
+              {% elif 3.5 <= summary[0] < 4.5 %}
+              <span>★★★★</span>★       
+              {% elif 4.5 <= summary[0] <= 5 %}
+              <span>★★★★★</span> 
+              {% endif %}
+            </div>
+            <p>Average Rating: {{summary[0]}} by {{summary[1]}} users</p>
+
+            {% else %}
+            <div class="star-rating">
+              ★★★★★
+            </div>
+            {% endif %}            
+
+            <div class="select-items">
+                <div class="description">
+                    <p>Description: {{product.description}}</p>
+                </div>
+            </div>
+            {% if current_user.is_authenticated %}
+            <p>Select an option:</p>
+            {% endif %}
+            <div name="selected_option">
+                {% if inv_len == 0 %}
+                    <p style="color:red;"> This item is out of stock</p>
+                {% else %}
+                    {% if current_user.is_authenticated %}
+                    {% for i in inventory %}                        
+                        <p style="text-align: center; display:inline;">
+                          <a href="{{ url_for('feedback.public_profile', user_id=i.sid)}}">{{ seller_names[i.sid] }}</a>:
+                          ${{i.price}} ({{i.num_for_sale}} left!)
+                          <br> Seller's Average Rating: {{seller_summary[i.sid][0]}} by {{seller_summary[i.sid][1]}} users
+                        </p>
+                        <form action="{{ url_for('cart.cart_add')}}" method="POST">
+                            <input type="hidden" name="product_id" value="{{ i.pid }}"/>
+                            <input type="hidden" name="seller_id" value="{{ i.sid }}"/>
+                            <input type="hidden" name="saved_for_later" value="0"/>
+  
+                            <label style="color: black;" or ="quantity">Quantity:</label>
+                            <input type="number" name="quantity" id="quantity" value = "1"/>
+                            <input type="submit" value="Add to Cart"/>
+                        </form>
+                        <form action="{{ url_for('cart.cart_add')}}" method="POST">
+                          <input type="hidden" name="product_id" value="{{ i.pid }}"/>
+                          <input type="hidden" name="seller_id" value="{{ i.sid }}"/>
+                          <input type="hidden" name="saved_for_later" value="1"/>
+                          <input type="hidden" name="quantity" value = "1"/>
+                          <input type="submit" value="Save for Later"/>
+                      </form>
+                    {% endfor %}
+                    {% else %}
+                    {% for i in inventory %}          
+                      <br><p style="text-align: center; display:inline;">
+                        <a href="{{ url_for('feedback.public_profile', user_id=i.sid)}}">{{ seller_names[i.sid] }}</a>
+                        (<em>id: </em>{{ i.sid }}): ${{i.price}} ({{i.num_for_sale}} left!)
+                        <br> Seller's Average Rating: {{seller_summary[i.sid][0]}} by {{seller_summary[i.sid][1]}} users
+                      </p>
+                      <br>
+                    {% endfor %}
+                    <p><br><b>Log in to add items to cart! </b> </p>
+                    <br>
+                    {% endif %}
+                    
+                {% endif %}
+            </div>
+            <br>
+            {% if order_freq_graph %}
+              <!--If the product is in the seller's inventory, show a graph depicting its order frequency over time-->
+              <div id='orderFreqGraph' class='chart'></div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+  <div id="reviews">
+    <hr>
+    <h3>Feedback for Product</h3>
+    {% if current_user.is_authenticated %}
+    
+    {% if has_purchased %}
+    <p style="color:#804a03;  display:inline;"> You last purchased this product {{humanize_time(has_purchased[0][0])}} </p>
+
+    {% if not my_product_feedback %}
+    <form action="{{ url_for('feedback.product_submission_form', product_id=product.pid,name=product.name) }}"
+    method="POST">
+    <input type="submit" value="Leave feedback for this product" style="background-color: darkred; color: #ffffff"/> 
+    </form>
+    {% else %}
+    <form action="{{ url_for('feedback.product_feedback_edit', product_id=product.pid) }}"
+    method="POST">
+    <input type="submit" value="Manage my feedback for this product" style="background-color: #137a56; color: #ffffff"/> 
+    </form>
+    {% endif %}
+    {% endif %}
+    
+    {% endif %}
+
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the 'Last Updated' column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sortable_product_reviews'), {
+    order: [[4, 'desc'],[0,'asc']] 
+  });
+  })
+</script>
+
+<p><b>Top 3 Most Upvoted Reviews</b></p>
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Review</th>
+      <th scope="col">Upvotes for Review</th>
+      <th scope="col">Last Updated</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in top3 %}
+      <tr>
+        <td>
+          <a href="{{ url_for('feedback.public_profile', user_id=item.uid)}}">{{ item.name }}</a>
+        </td>
+        <td>{{item.rating}}</td>
+        <td>{{item.review}}</td>
+        <td>{{pupvotes[(item.uid,item.pid)]}}
+          {% if current_user.is_authenticated %}
+            {% if myupvotes[(item.uid,item.pid)] %}
+            <form action="{{ url_for('feedback.remove_upvote_product_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="reviewed" value="{{ item.pid }}"/>
+              <input type="hidden" id="page" name="page" value="upvote">
+              <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+            </form>
+            {% else %}
+            <form action="{{ url_for('feedback.upvote_product_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="reviewed" value="{{ item.pid }}"/>
+              <input type="hidden" id="page" name="page" value="upvote">
+              <input type="submit" value="Upvote &#8593;" /> 
+            </form>
+            <br>
+            {% endif %}
+          {% endif %}
+        </td>
+        <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+        <td>  
+          {% if item.image %}
+          <img id="feedback-image" src="{{ url_for('static', filename=item.image) }}">
+          {% endif %}
+        </td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+
+<p><b>All Feedback</b></p>
+  <table class='table table-hover table-bordered container' id="sortable_product_reviews">
+    <thead class="quokka-brown">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Review</th>
+        <th scope="col">Upvotes for Review</th>
+        <th scope="col">Last Updated</th>
+        <th scope="col">Image</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in pfeedback %}
+        <tr>
+          <td>
+            <a href="{{ url_for('feedback.public_profile', user_id=item.uid)}}">{{ item.name }}</a>
+          </td>
+          <td>{{item.rating}}</td>
+          <td>{{item.review}}</td>
+          <td>{{pupvotes[(item.uid,item.pid)]}}
+            {% if current_user.is_authenticated %}
+              {% if myupvotes[(item.uid,item.pid)] %}
+              <form action="{{ url_for('feedback.remove_upvote_product_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="reviewed" value="{{ item.pid }}"/>
+                <input type="hidden" id="page" name="page" value="upvote">
+                <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+              </form>
+              {% else %}
+              <form action="{{ url_for('feedback.upvote_product_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="reviewed" value="{{ item.pid }}"/>
+                <input type="hidden" id="page" name="page" value="upvote">
+                <input type="submit" value="Upvote &#8593;" /> 
+              </form>
+              <br>
+              {% endif %}
+            {% endif %}
+          </td>
+          <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+          <td>  
+            {% if item.image %}
+            <img id="feedback-image" src="{{ url_for('static', filename=item.image) }}">
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+
+  <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+  <script type='text/javascript'>
+    var orderFreqGraph = {{ order_freq_graph | safe }};
+    var config = {staticPlot: true}
+    Plotly.setPlotConfig(config);
+    Plotly.plot('orderFreqGraph',orderFreqGraph);
+  </script>
+
+{% endblock %}

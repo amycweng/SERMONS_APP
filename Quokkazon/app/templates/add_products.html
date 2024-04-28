@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<h1 style="text-align: center;">Add New Product</h1>
+<br>
+
+<!--Form for creating new products for the Seller's inventory but also for other sellers to use-->
+<form class="add-product-form" action="{{ url_for('products.add_products')}}" method="POST" enctype="multipart/form-data">
+    <label for="name">Product name:</label><br>
+    <input type="text" id="name" name="name" required>
+    <br>
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" required></textarea>
+    </br>
+    <label for="image">Image:</label><br>
+    <input type="file" id="image" name="image" accept="image/*" required>
+    </br><br>
+    <label for="altTxt">Alt Text:</label>
+    <input type="text" id="altTxt" name="altTxt" required>
+    </br>
+    <label for="category">Category:</label>
+    <select id="category" name="category" required>
+        {% for category in categories %}
+            <option value= "{{category.cid}}" > {{category.name}} </option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Add product">
+</form>
+
+{% endblock %}

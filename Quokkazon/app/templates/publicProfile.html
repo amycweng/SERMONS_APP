@@ -1,0 +1,185 @@
+<!-- https://codepen.io/himaan/pen/gOMawjq-->
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-div">
+<br>    
+  <h3>{{ first_name }} {{ last_name }}</h3>
+  <p><strong>Email:</strong> {{ email }}</p>
+  <p>{{first_name}} has left an average rating of <b>{{feedback_for_other_sellers[0]}} for {{feedback_for_other_sellers[1]}} other sellers</b> and an average rating of <b>{{feedback_for_products[0]}} for {{feedback_for_products[1]}} products.</b> </p>
+  <p> <a href="{{ url_for('feedback.my_feedback', uid=user_id)}}">See the feedback submitted by {{first_name}} {{last_name}}</a> </p>
+  {% if current_user.is_authenticated and current_user.id != user_id %}
+  <form action="{{ url_for('messages.message_thread',other_user=user_id) }}" method="POST">
+    <input type="submit" value="Message {{first_name}}" > 
+  </form>
+  {% endif %}
+  
+
+  {% if not summary and user_is_seller %}
+<p style="color:#804a03";><b>No users have left feedback for {{first_name}} yet.</b></p>
+{% endif %}
+
+<br>
+{% if summary %}
+  <p style="color:#804a03";><b>{{first_name}}'s Average Rating: {{summary[0]}} by {{summary[1]}} users</b></p>
+  <div class="star-rating">
+    {% if 1 <= summary[0] < 1.5 %}
+    <span>★</span>★★★★   
+    {% elif 1.5 <= summary[0] < 2.5 %}
+    <span>★★</span>★★★   
+    {% elif 2.5 <= summary[0] < 3.5 %}
+    <span>★★★</span>★★       
+    {% elif 3.5 <= summary[0] < 4.5 %}
+    <span>★★★★</span>★       
+    {% elif 4.5 <= summary[0] <= 5 %}
+    <span>★★★★★</span> 
+    {% endif %}      
+</div>
+
+<br>
+
+<!-- show link to the Seller Feedback Editing Form if the current logged in user has bought from this seller-->
+{% if current_user.is_authenticated %}
+    {% if has_purchased %}
+
+    <p style="color:#804a03;  display:inline;"> You purchased the following items from this seller:   </p>
+    {% for item in has_purchased%}
+        <br>&bull; 
+        <a href="{{ url_for('products.product_detail', product_id=item[0])}}">{{item[1]}} </a>
+        (<em>id:</em> {{item[0]}}), {{humanize_time(item[2])}} 
+    {% endfor %}
+
+
+    {% if not my_seller_feedback %}
+    <form action="{{ url_for('feedback.seller_submission_form', seller_id=user_id) }}"
+    method="POST">
+    <input type="submit" value="Leave feedback for {{first_name}}" style="background-color: darkred; color: #ffffff"/> 
+    </form>
+    {% else %}
+    <form action="{{ url_for('feedback.seller_feedback_edit', seller_id=user_id) }}"
+    method="POST">
+    <input type="submit" value="Manage my feedback for {{first_name}}" style="background-color: #137a56; color: #ffffff"/> 
+    </form>
+    <br>
+    {% endif %}
+    {% endif %}
+    
+    {% endif %}
+
+
+  <!-- Show table of reviews -->
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the 'Last Updated' column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sortable'), {
+    order: [[4, 'desc'],[0,'asc']]
+  });
+  })
+</script>
+
+<p><b>Top 3 Most Upvoted Reviews About {{first_name}}</b></p>
+<table class='table table-hover table-bordered container'>
+  <thead class="quokka-brown">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Review</th>
+      <th scope="col">Upvotes for Review</th>
+      <th scope="col">Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in top3 %}
+      <tr>
+        <td>
+          <a href="{{ url_for('feedback.public_profile', user_id=item.uid)}}">{{ item.name }}</a>
+        </td>
+        <td>{{item.rating}}</td>
+        <td>{{item.review}}</td>
+        <td>{{supvotes[(item.uid,item.sid)]}}
+          {% if current_user.is_authenticated %}
+            {% if myupvotes[(item.uid,item.sid)] %}
+            <form action="{{ url_for('feedback.remove_upvote_seller_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="seller" value="{{ item.sid }}"/>
+              <input type="hidden" name="page" value="publicprofile"/>
+              <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+            </form>
+            {% else %}
+            <form action="{{ url_for('feedback.upvote_seller_review') }}"
+            method="POST">
+              <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+              <input type="hidden" name="seller" value="{{ item.sid }}"/>
+              <input type="hidden" name="page" value="publicprofile"/>
+              <input type="submit" value="Upvote &#8593;" /> 
+            </form>
+            <br>
+            {% endif %}
+          {% endif %}
+        </td>
+        <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<p><b>All Feedback for {{first_name}}</b></p>
+  <table class='table table-hover table-bordered container' id="sortable">
+    <thead class="quokka-brown">
+      <tr>
+        <th scope="col">User's Name</th>
+        <th scope="col">Rating</th>
+        <th scope="col">Review</th>
+        <th scope="col">Upvotes for Review</th>
+        <th scope="col">Last Updated</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in sfeedback %}
+        <tr>
+          <td>
+            <a href="{{ url_for('feedback.public_profile', user_id=item.uid)}}">{{ item.name }}</a>
+          </td>
+          <td>{{item.rating}}</td>
+          <td>{{item.review}}</td>
+          <td>{{supvotes[(item.uid,item.sid)]}}
+            {% if current_user.is_authenticated %}
+              {% if myupvotes[(item.uid,item.sid)] %}
+              <form action="{{ url_for('feedback.remove_upvote_seller_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="seller" value="{{ item.sid }}"/>
+                <input type="hidden" name="page" value="publicprofile"/>
+                <input type="submit" value="Upvoted &#8593;" style="background-color: #137a56; color: #ffffff"/> 
+              </form>
+              {% else %}
+              <form action="{{ url_for('feedback.upvote_seller_review') }}"
+              method="POST">
+                <input type="hidden" name="reviewer" value="{{ item.uid }}"/>
+                <input type="hidden" name="seller" value="{{ item.sid }}"/>
+                <input type="hidden" name="page" value="publicprofile"/>
+                <input type="submit" value="Upvote &#8593;" /> 
+              </form>
+              <br>
+              {% endif %}
+            {% endif %}
+          </td>
+          <td>{{item.date_time}} <p style = "color:#804a03;">{{humanize_time(item.date_time)}}</p></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+{% endif %}
+
+{% if not user_is_seller %}
+<p style="color:#804a03";><b>{{first_name}} is not a seller.</b></p>
+{% endif %}
+</div>
+{% endblock %}
