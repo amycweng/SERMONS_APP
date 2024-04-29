@@ -14,18 +14,10 @@
     });
   })
 
-  $('#sort_date').DataTable( {
-    columnDefs: [ {
-      targets: 0,
-      render: DataTable.render.ellipsis( 10 )
-    } ]
-  } );
 </script>
 
 <br>
 <div class="site_body">
-  <!-- <h5>View sermons</h5> -->
-
   <table class='table is-striped' id="sort_date">
     <thead class="grey_table" >
       <tr>
@@ -43,7 +35,9 @@
     <tbody>
       {% for s in sermons%}
         <tr>
-          <td>{{s.title}}</td>
+          <td>
+            <a href="{{ url_for('sermon.get_citations',tcpID=s.tcpID) }}"><b>{{s.title}}</b></a>
+          </td>
           <td>{{s.authors}}</td>
           <td>{{s.publisher}}</td>
           <td>{{s.pubyear}}</td>

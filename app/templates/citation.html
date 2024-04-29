@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_sidx'), {
+      order: [[0, 'asc']],
+
+    });
+  })
+</script>
+
+<br>
+
+<div class="site_body">
+  <h4><i>{{metadata[0].title}}</i></h4>
+  <h5>{{metadata[0].authors}}</h5>
+  <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
+  <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
+  <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
+  <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+  <img src="/static/images/border4.png">
+  
+  <br>
+  <table class='table is-striped' id="sort_sidx">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Index of Segment</th>
+        <th scope="col">Location</th>
+        <th scope="col">Parsed Citations</th>
+        <th scope="col">Unparsable Citations</th>
+        <th scope="col">Original Phrase (lightly preprocessed)</th>
+        <th scope="col">Text of Covering Segment</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in citations%}
+        <tr>
+          <td>{{c.sidx}}</td>
+          <td>{{c.loc}}</td>
+          <td>{{c.citation}}</td>
+          <td>{{c.outlier}}</td>
+          <td>{{c.replaced}}</td>
+          <td>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}"><u><b>View</b></u></a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+
+</div>
+
+{% endblock %}

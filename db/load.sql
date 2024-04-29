@@ -15,5 +15,4 @@
 \COPY Marginalia FROM 'pre-Elizabethan/A7_margin.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Marginalia FROM 'pre-Elizabethan/B_margin.csv' WITH DELIMITER ',' NULL '' CSV
 
-\COPY InTextCitation FROM 'pre-Elizabethan/citations_body.csv' WITH DELIMITER ',' NULL '' CSV
-\COPY MarginalCitation FROM 'pre-Elizabethan/citations_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Citation FROM 'pre-Elizabethan/citations.csv' WITH DELIMITER ',' NULL '' CSV

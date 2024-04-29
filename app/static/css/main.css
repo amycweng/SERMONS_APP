@@ -6,9 +6,11 @@ body {
 }
 
 a {
-    color:#7f8ec5;
+    color:#7b7d85;
 }
-
+a:hover {
+  color:#7b7d85;
+}
 .main-head {
     height: 150px;
     background: #FFF;
@@ -19,6 +21,17 @@ a {
   padding-left: 75px;
   padding-right: 75px;
   padding-bottom: 25px
+}
+
+.site_body img {
+  width: 400px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
 .sidenav {
@@ -47,13 +60,13 @@ a {
     color: #fff;
 }
 
-.btn-gray-inventory{
+.btn-gray {
   border: none;
   color: white;
   background-color: gray;
 }
 
-.btn-gray-inventory:hover {
+.btn-gray:hover {
   color:white;
   text-decoration: none;
   background-color: rgb(70, 70, 70);
@@ -76,7 +89,7 @@ a {
   color: white;
 }
 
-img {
+.sidenav img {
   width: 100vw; /* Set width to 100% of viewport width */
   height: auto; /* Maintain aspect ratio */
   display: block; /* Ensure the image is treated as a block-level element */
@@ -96,7 +109,9 @@ section {
     display: table;
     width: 100%;
     font-size: 18px;
+    color:#a4a3a3;
 }
+
 
 .left-half {
     background-color: #ff9e2c;
@@ -584,7 +599,7 @@ section {
   padding:45px 0 20px;
   font-size:15px;
   line-height:24px;
-  color:#737373;
+  color:#cccaca;
   min-height: 50vh;
   display: flex;
   flex-direction: column; 
@@ -608,11 +623,11 @@ section {
 }
 .site-footer a
 {
-  color:#737373;
+  color:#a4a3a3;
 }
 .site-footer a:hover
 {
-  color:#3366cc;
+  color:#7b7d85;
   text-decoration:none;
 }
 .footer-links
@@ -626,11 +641,11 @@ section {
 }
 .footer-links a
 {
-  color:#737373
+  color:#a4a3a3
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
 {
-  color:#3366cc;
+  color:#7b7d85;
   text-decoration:none;
 }
 .footer-links.inline li
@@ -805,188 +820,3 @@ section {
     margin-bottom:0;
   }
   
-  /* Credit to https://epicbootstrap.com/snippets/footer-basic */
-
-
-  .site-footer
-{
-  background-color:#26272b;
-  padding:45px 0 20px;
-  font-size:15px;
-  line-height:24px;
-  color:#737373;
-}
-.site-footer hr
-{
-  border-top-color:#bbb;
-  opacity:0.5
-}
-.site-footer hr.small
-{
-  margin:20px 0
-}
-.site-footer h6
-{
-  color:#fff;
-  font-size:16px;
-  text-transform:uppercase;
-  margin-top:5px;
-  letter-spacing:2px
-}
-.site-footer a
-{
-  color:#737373;
-}
-.site-footer a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links
-{
-  padding-left:0;
-  list-style:none
-}
-.footer-links li
-{
-  display:block
-}
-.footer-links a
-{
-  color:#737373
-}
-.footer-links a:active,.footer-links a:focus,.footer-links a:hover
-{
-  color:#3366cc;
-  text-decoration:none;
-}
-.footer-links.inline li
-{
-  display:inline-block
-}
-.site-footer .social-icons
-{
-  text-align:right
-}
-.site-footer .social-icons a
-{
-  width:40px;
-  height:40px;
-  line-height:40px;
-  margin-left:6px;
-  margin-right:0;
-  border-radius:100%;
-  background-color:#33353d
-}
-.copyright-text
-{
-  margin:0
-}
-@media (max-width:991px)
-{
-  .site-footer [class^=col-]
-  {
-    margin-bottom:30px
-  }
-}
-@media (max-width:767px)
-{
-  .site-footer
-  {
-    padding-bottom:0
-  }
-  .site-footer .copyright-text,.site-footer .social-icons
-  {
-    text-align:center
-  }
-}
-.social-icons
-{
-  padding-left:0;
-  margin-bottom:0;
-  list-style:none
-}
-.social-icons li
-{
-  display:inline-block;
-  margin-bottom:4px
-}
-.social-icons li.title
-{
-  margin-right:15px;
-  text-transform:uppercase;
-  color:#96a2b2;
-  font-weight:700;
-  font-size:13px
-}
-.social-icons a{
-  background-color:#eceeef;
-  color:#818a91;
-  font-size:16px;
-  display:inline-block;
-  line-height:44px;
-  width:44px;
-  height:44px;
-  text-align:center;
-  margin-right:8px;
-  border-radius:100%;
-  -webkit-transition:all .2s linear;
-  -o-transition:all .2s linear;
-  transition:all .2s linear
-}
-.social-icons a:active,.social-icons a:focus,.social-icons a:hover
-{
-  color:#fff;
-  background-color:#29aafe
-}
-.social-icons.size-sm a
-{
-  line-height:34px;
-  height:34px;
-  width:34px;
-  font-size:14px
-}
-.social-icons a.facebook:hover
-{
-  background-color:#3b5998
-}
-.social-icons a.twitter:hover
-{
-  background-color:#00aced
-}
-.social-icons a.linkedin:hover
-{
-  background-color:#007bb6
-}
-.social-icons a.dribbble:hover
-{
-  background-color:#ea4c89
-}
-@media (max-width:767px)
-{
-  .social-icons li.title
-  {
-    display:block;
-    margin-right:0;
-    font-weight:600
-  }
-}
-
-.chart {
-    display: block;
-    margin: 0 auto;
-    height: 400px;
-    width: 40vw;
-}
-
-#edit-image {
-  max-width: 100%;
-}
-
-#feedback-image {
-  max-width: 200px;
-}
-
-.add-product-form {
-  max-width: 500px;
-}

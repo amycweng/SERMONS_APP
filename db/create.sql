@@ -18,7 +18,7 @@ CREATE TABLE Segment(
   section INT NOT NULL,-- index of the section within the book 
   loc INT, -- page number or the image reference number on which this segment begins 
   loc_type VARCHAR(30), -- whether location is a page or image
-  pid INT NOT NULL, -- index of the paragraph in which this segment is located  
+  pidx INT NOT NULL, -- index of the paragraph in which this segment is located  
   tokens TEXT NOT NULL, -- the tokenized segment 
   lemmatized TEXT NOT NULL, -- the lemmata 
   PRIMARY KEY (tcpID, sidx)
@@ -35,27 +35,16 @@ CREATE TABLE Marginalia(
 );
 
 
-CREATE TABLE InTextCitation(
+CREATE TABLE Citation(
   -- Primary key is the TCP id, segment index, citation index 
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
   sidx INT NOT NULL, -- segment in which the citation is located 
+  loc TEXT NOT NULL, -- Whether the citation is in the text or margins; if the latter, then indicate 'Note #'
   cidx INT NOT NULL, -- index of the citation within the segment  
   citation TEXT NOT NULL, -- parsed citation
   outlier TEXT, -- parts that cannot be parsed
   replaced TEXT, -- the cleaned tokens that were standardized and parsed  
-  PRIMARY KEY (tcpID, sidx, cidx)
-);
-
-CREATE TABLE MarginalCitation(
-  -- Primary key is the TCP id, segment index, note index, citation index  
-  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
-  sidx INT NOT NULL, -- segment in which the citation is located
-  nidx INT NOT NULL, -- index of the note in which the citation is located  
-  cidx INT NOT NULL, -- index of the citation within the note   
-  citation TEXT NOT NULL, -- parsed citation
-  outlier TEXT, -- parts that cannot be parsed 
-  replaced TEXT, -- the cleaned tokens that were standardized and parsed 
-  PRIMARY KEY (tcpID, sidx, nidx, cidx)
+  PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
 
 ----------------------------------------------------------------------

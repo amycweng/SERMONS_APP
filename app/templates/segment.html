@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_sidx'), {
+      order: [[0, 'asc']],
+
+    });
+  })
+</script>
+
+<br>
+<div class="site_body">
+  <h4><i>{{metadata[0].title}}</i></h4>
+  <h5>{{metadata[0].authors}}</h5>
+  <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
+  <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
+  <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
+  <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+  <img src="/static/images/border4.png">
+  
+  <br>
+  <table class='table is-striped'>
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Text (tokenized)</th>
+        <th scope="col">Parsed Citations </th>
+        {% if t_outlier %}
+            <th scope="col">Unparsable Citations</th>
+        {% endif %}
+        <th scope="col">Index of Segment</th>
+        <th scope="col">Index of Sermon</th>
+        <th scope="col">Index of Paragraph</th>
+        <th scope="col">Page or Reference Image Number</th>
+        <th scope="col">Modify</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{s.tokens}}</td> 
+        <td>{{"; ".join(citations['in-text'])}}   
+        </td>   
+        {% if t_outlier %}
+            <td>{{"; ".join(citations['t_outlier'])}}</td> 
+        {% endif %}
+        <td>{{s.sidx}}</td>
+        <td>{{s.section}}</td>
+        <td>{{s.pidx}}</td>
+        <td>{{s.loc_type.lower().capitalize()}} {{s.loc}}</td>
+        <td>
+            <form action="{{ url_for('index.index') }}" method="POST" >
+                <input type="submit" value="Edit" class="btn-gray"/> 
+               </form>    
+        </td>   
+    </tr>
+    </tbody>
+  </table>
+
+  {% if has_notes %}
+    <table class='table is-striped' id="sort_sidx" >
+        <thead class="grey_table">
+        <tr>
+            <th scope="col">Index of Marginal Note</th>
+            <th scope="col">Text (tokenized)</th>
+            <th scope="col">Parsed Citations</th>
+            {% if t_outlier %}
+                <th scope="col">Unparsable Citations</th>
+            {% endif %}  
+            <th scope="col">Modify</th>
+        </tr>
+        </thead>
+        <tbody >
+        {% for n in notes %}
+            <tr>
+                <td>Note {{n.nidx}}</td>
+                <td>{{n.tokens}}</td> 
+                <td>{{citations['marginal'][n.nidx]}}</td>   
+                {% if t_outlier %}
+                    <td>{{"; ".join(citations['m_outlier'])}}</td> 
+                {% endif %}
+                <td>
+                    <form action="{{ url_for('index.index') }}" method="POST" >
+                    <input type="submit" value="Edit" class="btn-gray"/> 
+                   </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+  {% endif %}  
+</div>
+
+</div>
+
+{% endblock %}
