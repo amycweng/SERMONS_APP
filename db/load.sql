@@ -16,3 +16,5 @@
 \COPY Marginalia FROM 'pre-Elizabethan/B_margin.csv' WITH DELIMITER ',' NULL '' CSV
 
 \COPY Citation FROM 'pre-Elizabethan/citations.csv' WITH DELIMITER ',' NULL '' CSV
+
+\COPY Bible FROM 'kjv.csv' WITH DELIMITER ',' NULL '' CSV

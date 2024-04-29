@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_sidx'), {
+      order: [[0, 'asc']],
+
+    });
+  })
+</script>
+
+<div class="site_body">
+<br>
+<table class='table is-striped' id="sort_sidx">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Index within Segment</th>
+        <th scope="col">Parsed Citations</th>
+        <th scope="col">Unparsable Citations</th>
+        <th scope="col">Original Phrase (lightly preprocessed)</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for c in citations %}
+        <tr>
+          <td>{{c.cidx}}</td>
+          <td>
+            <form action="{{ url_for('index.index') }}" method="POST" class="my_button">
+                <textarea id="citation" name="Parsed Citations" rows="2" cols="10" REQUIRED>{{c.citation}}</textarea>
+               <br><input type="submit" value="Submit" class="btn-gray"> 
+               </form>
+          </td>
+          <td>{{c.outlier}}</td>
+          <td>{{c.replaced}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+
+</div>
+
+{% endblock %}

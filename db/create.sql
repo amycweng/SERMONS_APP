@@ -47,6 +47,15 @@ CREATE TABLE Citation(
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
 
+CREATE TABLE Bible(
+  verse_id VARCHAR(500) NOT NULL PRIMARY KEY,
+  bible_version VARCHAR(30) NOT NULL, 
+  part VARCHAR(500) NOT NULL,
+  book VARCHAR(100) NOT NULL,
+  chapter INT NOT NULL,
+  verse INT NOT NULL,
+  verse_text TEXT NOT NULL
+);
 ----------------------------------------------------------------------
 
 CREATE FUNCTION MarginalConstraint() RETURNS TRIGGER AS $$

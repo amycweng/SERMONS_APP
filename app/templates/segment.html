@@ -44,17 +44,17 @@
     <tbody>
     <tr>
         <td>{{s.tokens}}</td> 
-        <td>{{"; ".join(citations['in-text'])}}   
+        <td>{{"; ".join(citations['in-text'][0])}}   
         </td>   
         {% if t_outlier %}
-            <td>{{"; ".join(citations['t_outlier'])}}</td> 
+            <td>{{"; ".join(citations['t_outlier'][0])}}</td> 
         {% endif %}
         <td>{{s.sidx}}</td>
         <td>{{s.section}}</td>
         <td>{{s.pidx}}</td>
         <td>{{s.loc_type.lower().capitalize()}} {{s.loc}}</td>
         <td>
-            <form action="{{ url_for('index.index') }}" method="POST" >
+            <form action="{{ url_for('sermon.edit_citations',tcpID=s.tcpID, sidx=s.sidx, loc ='In-Text')}}" method="POST" >
                 <input type="submit" value="Edit" class="btn-gray"/> 
                </form>    
         </td>   
@@ -69,7 +69,7 @@
             <th scope="col">Index of Marginal Note</th>
             <th scope="col">Text (tokenized)</th>
             <th scope="col">Parsed Citations</th>
-            {% if t_outlier %}
+            {% if m_outlier %}
                 <th scope="col">Unparsable Citations</th>
             {% endif %}  
             <th scope="col">Modify</th>
@@ -80,14 +80,14 @@
             <tr>
                 <td>Note {{n.nidx}}</td>
                 <td>{{n.tokens}}</td> 
-                <td>{{citations['marginal'][n.nidx]}}</td>   
-                {% if t_outlier %}
-                    <td>{{"; ".join(citations['m_outlier'])}}</td> 
+                <td>{{"; ".join(citations['marginal'][n.nidx])}}</td>   
+                {% if m_outlier %}
+                    <td>{{"; ".join(citations['m_outlier'][n.nidx])}}</td> 
                 {% endif %}
                 <td>
-                    <form action="{{ url_for('index.index') }}" method="POST" >
-                    <input type="submit" value="Edit" class="btn-gray"/> 
-                   </form>
+                    <form action="{{ url_for('sermon.edit_citations',tcpID=s.tcpID, sidx=s.sidx, loc=n.nidx)}}" method="POST" >
+                        <input type="submit" value="Edit" class="btn-gray"/> 
+                       </form> 
                 </td>
             </tr>
         {% endfor %}

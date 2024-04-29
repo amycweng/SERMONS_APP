@@ -31,3 +31,17 @@ class Citation:
         tcpID=tcpID,
         sidx=sidx)
         return [Citation(*row) for row in rows]
+    
+    @staticmethod
+    def get_by_tcpID_sidx_loc(tcpID,sidx,loc):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Citation as c
+        WHERE c.tcpID = :tcpID 
+        AND c.sidx = :sidx
+        AND c.loc = :loc
+        ''',
+        tcpID=tcpID,
+        sidx=sidx,
+        loc=loc)
+        return [Citation(*row) for row in rows]
