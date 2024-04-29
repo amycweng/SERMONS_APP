@@ -31,6 +31,7 @@ CREATE TABLE Marginalia(
   nidx INT NOT NULL, -- index of the note within the segment  
   tokens TEXT NOT NULL, -- the tokenized segment 
   lemmatized TEXT NOT NULL, -- the lemmata 
+  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, nidx)
 );
 
@@ -41,11 +42,13 @@ CREATE TABLE Citation(
   sidx INT NOT NULL, -- segment in which the citation is located 
   loc TEXT NOT NULL, -- Whether the citation is in the text or margins; if the latter, then indicate 'Note #'
   cidx INT NOT NULL, -- index of the citation within the segment  
-  citation TEXT NOT NULL, -- parsed citation
-  outlier TEXT, -- parts that cannot be parsed
   replaced TEXT, -- the cleaned tokens that were standardized and parsed  
+  citation TEXT, -- parsed citation
+  outlier TEXT, -- parts that cannot be parsed
+  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
+
 
 CREATE TABLE Bible(
   verse_id VARCHAR(500) NOT NULL PRIMARY KEY,
@@ -56,6 +59,27 @@ CREATE TABLE Bible(
   verse INT NOT NULL,
   verse_text TEXT NOT NULL
 );
+
+CREATE TABLE BiblePhrase(
+  vidx NOT NULL PRIMARY KEY,  
+  phrase TEXT NOT NULL,
+);
+
+CREATE TABLE BiblePhraseLabel(
+  vidx NOT NULL REFERENCES BiblePhrase(vidx),  
+  verse_id VARCHAR(500) NOT NULL REFERENCES Bible(verse_id),
+  PRIMARY KEY (vidx,verse_id)
+);
+
+CREATE TABLE PossibleQuoteParaphrase(
+  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
+  sidx INT NOT NULL, -- segment in which the hit is located 
+  loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
+  vidx INT NOT NULL REFERENCES BiblePhrase(vidx), -- verse phrase index   
+  score DECIMAL NOT NULL, -- the cleaned tokens that were standardized and parsed  
+  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
+  PRIMARY KEY (tcpID, sidx, loc, cidx)
+)
 ----------------------------------------------------------------------
 
 CREATE FUNCTION MarginalConstraint() RETURNS TRIGGER AS $$
