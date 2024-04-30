@@ -61,12 +61,12 @@ CREATE TABLE Bible(
 );
 
 CREATE TABLE BiblePhrase(
-  vidx NOT NULL PRIMARY KEY,  
-  phrase TEXT NOT NULL,
+  vidx INT NOT NULL PRIMARY KEY,  
+  phrase TEXT NOT NULL
 );
 
 CREATE TABLE BiblePhraseLabel(
-  vidx NOT NULL REFERENCES BiblePhrase(vidx),  
+  vidx INT NOT NULL REFERENCES BiblePhrase(vidx),  
   verse_id VARCHAR(500) NOT NULL REFERENCES Bible(verse_id),
   PRIMARY KEY (vidx,verse_id)
 );
@@ -76,10 +76,11 @@ CREATE TABLE PossibleQuoteParaphrase(
   sidx INT NOT NULL, -- segment in which the hit is located 
   loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
   vidx INT NOT NULL REFERENCES BiblePhrase(vidx), -- verse phrase index   
-  score DECIMAL NOT NULL, -- the cleaned tokens that were standardized and parsed  
-  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
-  PRIMARY KEY (tcpID, sidx, loc, cidx)
-)
+  score DECIMAL NOT NULL, -- cross attention score 
+  freq INT NOT NULL,
+  PRIMARY KEY (tcpID, sidx, loc, vidx), 
+  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
+);
 ----------------------------------------------------------------------
 
 CREATE FUNCTION MarginalConstraint() RETURNS TRIGGER AS $$

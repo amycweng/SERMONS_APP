@@ -2,7 +2,7 @@ from flask import render_template
 from flask import request, redirect, url_for
 import os 
 from .models.text import Text, Marginalia
-from .models.citation import Citation
+from .models.reference import Citation, QuoteParaphrse
 from .models.metadata import Metadata
 
 from flask import Blueprint
@@ -12,7 +12,8 @@ bp = Blueprint('sermon', __name__)
 def get_citations(tcpID):
     metadata = Metadata.get_by_tcpID(tcpID)
     citations = Citation.get_by_tcpID(tcpID) 
-    return render_template('citation.html',
+    hits =
+    return render_template('sermon.html',
                         citations = citations,
                         metadata=metadata)
 

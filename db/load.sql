@@ -18,3 +18,7 @@
 \COPY Citation FROM 'pre-Elizabethan/citations.csv' WITH DELIMITER ',' NULL '' CSV
 
 \COPY Bible FROM 'kjv.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY BiblePhrase FROM 'bible_phrases.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY BiblePhraseLabel FROM 'bible_phrase_indices.csv' WITH DELIMITER ',' NULL '' CSV
+
+\COPY PossibleQuoteParaphrase FROM 'possible_quotes_paraphrases.csv' WITH DELIMITER ',' NULL '' CSV
