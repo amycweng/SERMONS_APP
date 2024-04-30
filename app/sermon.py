@@ -2,7 +2,7 @@ from flask import render_template
 from flask import request, redirect, url_for
 import os 
 from .models.text import Text, Marginalia
-from .models.reference import Citation, QuoteParaphrse
+from .models.reference import Citation, QuoteParaphrase
 from .models.metadata import Metadata
 
 from flask import Blueprint
@@ -12,10 +12,11 @@ bp = Blueprint('sermon', __name__)
 def get_citations(tcpID):
     metadata = Metadata.get_by_tcpID(tcpID)
     citations = Citation.get_by_tcpID(tcpID) 
-    hits =
+    possible_qp = QuoteParaphrase.get_by_tcpID(tcpID)
     return render_template('sermon.html',
                         citations = citations,
-                        metadata=metadata)
+                        metadata=metadata,
+                        possible_qp=possible_qp)
 
 @bp.route('/<tcpID>/citations/<int:sidx>/<loc>/edit', methods=['POST','GET'])
 def edit_citations(tcpID,sidx,loc):
