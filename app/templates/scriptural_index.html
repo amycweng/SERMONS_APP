@@ -9,13 +9,22 @@
     // initialize a DataTable sorted by the date column 
     // in reverse chronological order by default. Break ties alphabetically by name. 
     new DataTable($('#sort_sidx'), {
-      order: [[1, 'asc']],
+      order: [[0, 'asc']],
+
+    });
+  })
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_similarity'), {
+      order: [[4, 'desc']],
 
     });
   })
 </script>
 
 <br>
+
 <div class="site_body">
   <h4>
     <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><i>{{metadata[0].title}}</i></a>
@@ -28,81 +37,65 @@
   <img src="/static/images/border4.png"><img src="/static/images/border4.png">
   
   <br>
-  <h4>Segment {{sidx}} located on {{loc_type.lower().capitalize()}} {{loc}}</h4>
+  <h4><i>Possible Citations</i></h4>
+
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Text (tokenized)</th>
+        <th scope="col">Index of Segment</th>
         <th scope="col">Location</th>
-
+        <th scope="col">Index of Citation in Segment</th>
+        <th scope="col">Parsed Citation(s)</th>
+        <th scope="col">Unparsable Citation(s)</th>
+        <th scope="col">Original Phrase (lightly preprocessed)</th>
+        <th scope="col">Text of Segment and Notes</th>
       </tr>
     </thead>
     <tbody>
-      {% for s in segment %}
-      <tr>
-          <td>{{s[0]}}</td> 
-          <td>{{s[1]}}</td>
+      {% for c in citations%}
+        <tr>
+          <td>{{c.sidx}}</td>
+          <td>{{c.loc}}</td>
+          <td>{{c.cidx}}</td>
+          <td>{{c.citation}}</td>
+          <td>{{c.outlier}}</td>
+          <td>{{c.replaced}}</td>
+          <td>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}"><u><b>View</b></u></a>
+          </td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
 
-    <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
-    <h4>Possible Citations </h4>
-    <h5><a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Add</b></u></a>  
-    </h5>
-    <table class='table is-striped' id="sort_sidx">
-      <thead class="grey_table" >
-        <tr>
-          <th scope="col">Location</th>
-          <th scope="col">Original Phrase (slightly preprocessed)</th>
-          <th scope="col">Parsed Citations </th>
-          {% if t_outlier %}
-          <th scope="col">Unparsable Citations</th>
-          {% endif %}
-          <th scope="col"></th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for c in citations%}
-          <tr>
-            <td>{{c[-1]}}</td>
-            <td>{{c[1]}} <br>
-            <td>{{c[0]}} <br>
-            </td>   
-            {% if t_outlier %}
-                <td>{{"; ".join(c_dict['t_outlier'][0])}}</td> 
-            {% endif %}
-            <td>              
-              <a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Edit</b></u></a>  
-            </td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  
   <br>
-  <h4>Possible Quotations or Paraphrases</h4>
-  <h5><a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Add</b></u></a>  
-  </h5>
+  <h4><i>Possible Quotations or Paraphrases</i></h4>
   <table class='table is-striped' id="sort_similarity">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Location</th>
+        <th scope="col">Index of Segment and Location</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
-        <th scope="col">Subphrase of Verse (lemmatized)</th>
+        <th scope="col">Subphrase of Verse</th>
         <th scope="col">Similarity Score</th>
+        <th scope="col">Candidate Text</th>
         <th scope="col">Remove</th>
       </tr>
     </thead>
     <tbody>
       {% for q in possible_qp %}
         <tr>
-          <td>{{q.loc}}</td>
+          <td>{{q.sidx}} <br> {{q.loc}}</td>
           <td>{{q.label}}</td>
           <td>{{q.full}}</td>
           <td>{{q.phrase}}</td>
           <td>{{q.score}}</td>
+          <td>{{qp_segments[(q.tcpID,q.sidx,q.loc)]}}
+            <br>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment Information</b></u></a>
+          </td>
           <td>
             <form action="{{ url_for('sermon.edit_citations',tcpID=q.tcpID, sidx=q.sidx, loc ='In-Text')}}" method="POST" >
                 <input type="submit" value="Remove" class="btn-gray"/> 
@@ -112,7 +105,6 @@
       {% endfor %}
     </tbody>
   </table>
-      
 </div>
 
 </div>

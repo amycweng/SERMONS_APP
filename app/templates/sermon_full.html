@@ -1,0 +1,90 @@
+{% extends "base2.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_sidx'), {
+      order: [[1, 'asc']],
+
+    });
+  })
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the date column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sort_sidx2'), {
+      order: [[0, 'asc']],
+
+    });
+  })
+</script>
+
+<br>
+<div class="site_body">
+    <h4>
+        <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><i>{{metadata[0].title}}</i></a>
+      </h4>
+      <h5>{{metadata[0].authors}}</h5>
+      <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
+      <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
+      <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
+      <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+   <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
+  <br>
+  <h4><i>Full Text</i></h4>
+  <table class='table is-striped' id='sort_sidx'>
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Text (tokenized)</th>
+        <th scope="col">Index of Segment</th>
+        <th scope="col">Index of Sermon</th>
+        <th scope="col">Index of Paragraph</th>
+        <th scope="col">Page or Reference Image Number</th>
+        <th scope="col">References</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for s in segments %}
+        <tr>
+            <td>{{s.tokens}}</td> 
+            <td>{{s.sidx}}</td>
+            <td>{{s.section}}</td>
+            <td>{{s.pidx}}</td>
+            <td>{{s.loc_type.lower().capitalize()}} {{s.loc}}</td>
+            <td>
+                <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=s.tcpID,sidx=s.sidx) }}"><u><b>View</b></u></a>
+              </td>
+         </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
+  <br>
+  <h4><i>Marginalia</i></h4>
+    <table class='table is-striped' id="sort_sidx2" >
+        <thead class="grey_table">
+        <tr>
+            <th scope="col">Index of Segment</th>
+            <th scope="col">Index of Note</th>
+            <th scope="col">Text (tokenized)</th>
+        </tr>
+        </thead>
+        <tbody >
+        {% for n in notes %}
+            <tr>
+                <td>{{n.sidx}}</td>
+                <td>{{n.nidx}}</td>
+                <td>{{n.tokens}}</td> 
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+{% endblock %}

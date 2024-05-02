@@ -12,6 +12,16 @@ class Text:
         self.lemmatized = lemmatized
 
     @staticmethod
+    def get_by_tcpID(tcpID):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Segment as s 
+        WHERE s.tcpID = :tcpID
+        ''',
+        tcpID=tcpID)
+        return [Text(*row) for row in rows]
+
+    @staticmethod
     def get_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
         SELECT *
@@ -30,7 +40,17 @@ class Marginalia:
         self.nidx = nidx
         self.tokens = tokens 
         self.lemmatized = lemmatized
-
+    
+    @staticmethod
+    def get_by_tcpID(tcpID):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Marginalia as s 
+        WHERE s.tcpID = :tcpID
+        ''',
+        tcpID=tcpID)
+        return [Marginalia(*row) for row in rows]
+    
     @staticmethod
     def get_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
@@ -41,4 +61,18 @@ class Marginalia:
         ''',
         tcpID=tcpID,
         sidx=sidx)
+        return [Marginalia(*row) for row in rows]
+    
+    @staticmethod
+    def get_by_tcpID_sidx_nidx(tcpID,sidx,nidx):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Marginalia as s 
+        WHERE s.tcpID = :tcpID
+        AND s.sidx = :sidx
+        AND s.nidx = :nidx 
+        ''',
+        tcpID=tcpID,
+        sidx=sidx,
+        nidx=nidx)
         return [Marginalia(*row) for row in rows]
