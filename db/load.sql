@@ -1,5 +1,6 @@
 \COPY Sermon FROM 'sermons.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Sermon FROM 'sermons_missing.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Author FROM 'authors.csv' WITH DELIMITER ',' NULL '' CSV
 
 \COPY Segment FROM 'pre-Elizabethan/A0_body.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Segment FROM 'pre-Elizabethan/A1_body.csv' WITH DELIMITER ',' NULL '' CSV

@@ -1,6 +1,7 @@
 from flask import render_template
 from flask import request, redirect, url_for
-import os 
+
+import re
 from .models.text import Text, Marginalia
 from .models.reference import Citation, QuoteParaphrase
 from .models.metadata import Metadata
@@ -8,7 +9,7 @@ from .models.metadata import Metadata
 from flask import Blueprint
 bp = Blueprint('sermon', __name__)
 
-@bp.route('/<tcpID>/citations', methods=['POST','GET'])
+@bp.route('/<tcpID>/references', methods=['POST','GET'])
 def get_citations(tcpID):
     metadata = Metadata.get_by_tcpID(tcpID)
     citations = Citation.get_by_tcpID(tcpID) 
@@ -37,14 +38,40 @@ def full_text(tcpID):
     return render_template('sermon_full.html',
                         metadata=metadata,
                         segments = segments,
-                        notes=notes,)
+                        notes=notes)
 
-@bp.route('/<tcpID>/citations/<int:sidx>/<loc>/edit', methods=['POST','GET'])
+@bp.route('/<tcpID>/references/<int:sidx>/<loc>/edit', methods=['POST','GET'])
 def edit_citations(tcpID,sidx,loc):
     if loc != "In-Text": loc = f"Note {loc}"
     citations = Citation.get_by_tcpID_sidx_loc(tcpID,sidx,loc) 
     return render_template('citation_edit.html',
                         citations = citations)
+
+
+@bp.route('/<tcpID>/remove/<int:sidx>/<int:vidx>', methods=['POST','GET'])
+def remove_qp(tcpID,sidx,vidx):
+    if request.method == 'POST':
+        QuoteParaphrase.remove_by_tcpID_sidx_vidx(tcpID,sidx,vidx)  
+        page = request.form['page']
+        if page == 'segment':
+            return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
+    return redirect(url_for('sermon.get_citations',tcpID=tcpID))
+
+
+@bp.route('/index', methods=['POST','GET'])
+def get_all():
+    citations = Citation.get_all()
+    return render_template('scriptural_index.html',
+                        citations = citations)
+
+@bp.route('/index/<label>', methods=['POST','GET'])
+def get_by_label(label):
+    citations = Citation.get_by_label(label)
+    label = re.sub("\%","",label)
+    return render_template('scriptural_index.html',
+                        citations = citations,
+                        label=label)
+
 
 @bp.route('/<tcpID>/<int:sidx>', methods=['POST','GET'])
 def get_segment_and_notes(tcpID,sidx):
@@ -52,10 +79,10 @@ def get_segment_and_notes(tcpID,sidx):
     segment = []
     s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
     sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
-    segment.append((s.tokens, "In-Text"))
+    segment.append((s.tokens, s.lemmatized,"In-Text"))
     notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
     for n in notes: 
-        segment.append((n.tokens, f"Note {n.nidx}"))
+        segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
     
     citations_list = Citation.get_by_tcpID_sidx(tcpID,sidx)
     c_dict = {'in-text':{0:[]},'marginal':{},'t_outlier':{0:[]},'m_outlier':{}}
@@ -101,6 +128,40 @@ def get_segment_and_notes(tcpID,sidx):
                         has_citations_margin=has_citations_margin,
                         possible_qp = possible_qp)
 
-@bp.route('/paraphrases')
+@bp.route('/search', methods=['POST','GET'])
 def semantic_search():
-    return None
+    verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    if request.method == 'POST':
+        verse_id = request.form['verse']
+        verse_text, phrases = QuoteParaphrase.get_bible_verse(verse_id)                
+
+        return render_template('search.html',
+                               verse_ids=verse_ids,
+                               verse_id=verse_id,
+                               verse_text=verse_text, 
+                               phrases=phrases)
+    return render_template('search.html',verse_ids=verse_ids)
+
+@bp.route('/search/verse', methods=['POST','GET'])
+def semantic_search_verse():
+    verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    if request.method == 'POST':
+        verse_id = request.form['verse']
+        if len(verse_id) == 0: 
+            verse_text, phrases = None,[]
+        else: 
+            verse_text, phrases = QuoteParaphrase.get_bible_verse(verse_id)    
+        phrase = request.form['phrase']
+        k = int(request.form['k'])
+        results = QuoteParaphrase.search_bible_phrase('pre-Elizabethan',phrase,'text',k)
+        m_k = int(request.form['m_k'])
+        marginal_results = QuoteParaphrase.search_bible_phrase('pre-Elizabethan',phrase,'marginalia',m_k)
+        return render_template('search.html',
+                               verse_ids=verse_ids,
+                               results=results,
+                               phrase=phrase,
+                               marginal_results = marginal_results,
+                               verse_id=verse_id,
+                               verse_text=verse_text,
+                               phrases=phrases)
+    return render_template('search.html',verse_ids=verse_ids)

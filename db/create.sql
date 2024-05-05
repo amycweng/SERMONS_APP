@@ -11,6 +11,11 @@ CREATE TABLE Sermon(
   pubyear VARCHAR(30) NOT NULL -- year of publication 
 );
 
+CREATE TABLE Author(
+  author TEXT NOT NULL PRIMARY KEY, -- unique author 
+  tcpIDs text NOT NULL 
+);
+
 CREATE TABLE Segment(
   -- Primary key is the TCP id and segment index 
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID), -- foreign key
@@ -41,10 +46,10 @@ CREATE TABLE Citation(
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
   sidx INT NOT NULL, -- segment in which the citation is located 
   loc TEXT NOT NULL, -- Whether the citation is in the text or margins; if the latter, then indicate 'Note #'
-  cidx INT NOT NULL, -- index of the citation within the segment  
-  replaced TEXT, -- the cleaned tokens that were standardized and parsed  
-  citation TEXT, -- parsed citation
+  cidx INT NOT NULL, -- index of the citation within the segment
+  citation TEXT, -- parsed citation  
   outlier TEXT, -- parts that cannot be parsed
+  replaced TEXT, -- the cleaned tokens that were standardized and parsed  
   FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );

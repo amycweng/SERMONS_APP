@@ -6,34 +6,29 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
   $(document).ready(function(){
-    // initialize a DataTable sorted by the date column 
-    // in reverse chronological order by default. Break ties alphabetically by name. 
     new DataTable($('#sort_sidx'), {
       order: [[0, 'asc']],
-
     });
-  })
-  $(document).ready(function(){
-    // initialize a DataTable sorted by the date column 
-    // in reverse chronological order by default. Break ties alphabetically by name. 
     new DataTable($('#sort_similarity'), {
       order: [[4, 'desc']],
-
     });
   })
+
 </script>
 
 <br>
 
 <div class="site_body">
-  <h4>
-    <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><i>{{metadata[0].title}}</i></a>
-  </h4>
+  <h4><i>{{metadata[0].title}}</i></h4>
   <h5>{{metadata[0].authors}}</h5>
   <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
   <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
   <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
   <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+  <h6>   
+     <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a>
+      <!-- <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a> -->
+    </h6>  
   <img src="/static/images/border4.png"><img src="/static/images/border4.png">
   
   <br>
@@ -95,9 +90,10 @@
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment Information</b></u></a>
           </td>
           <td>
-            <form action="{{ url_for('sermon.edit_citations',tcpID=q.tcpID, sidx=q.sidx, loc ='In-Text')}}" method="POST" >
-                <input type="submit" value="Remove" class="btn-gray"/> 
-               </form>    
+            <form action="{{ url_for('sermon.remove_qp',tcpID=q.tcpID, sidx=q.sidx, vidx=q.vidx)}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="sermon">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
           </td>   
         </tr>
       {% endfor %}

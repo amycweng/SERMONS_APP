@@ -1,6 +1,5 @@
 from sqlalchemy import create_engine, text
 
-
 class DB:
     """Hosts all functions for querying the database.
 

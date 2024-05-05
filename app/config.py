@@ -14,3 +14,5 @@ class Config(object):
                 os.environ.get('DB_PORT'),
                 os.environ.get('DB_NAME'))
     SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+

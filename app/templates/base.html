@@ -60,14 +60,15 @@
       <br><br>
         <header>
           <div class = "header-content">
-            <h3 style="color:rgb(255, 255, 255)"><a id="page-title" href="{{ url_for('index.index') }}" style = "color: white;font-size:30px;">Early English Printed Sermons</a></h3>
+            <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
           </div>
           <div class="banner-header"> 
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata of Sermons</a>
+            <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Metadata</a>
+            <a href="{{ url_for('sermon.get_all') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Citations Over Time</a>
+            <a href="{{ url_for('sermon.semantic_search') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
             <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Preachers</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
 
           </div>
       </header>

@@ -45,6 +45,24 @@ class Citation:
         sidx=sidx,
         loc=loc)
         return [Citation(*row) for row in rows]
+    
+    @staticmethod
+    def get_by_label(label):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Citation as c
+        WHERE c.citation LIKE :label
+        ''',
+        label=label)
+        return [Citation(*row) for row in rows]
+    
+    @staticmethod
+    def get_all():
+        rows = app.db.execute('''
+        SELECT *
+        FROM Citation as c
+        ''')
+        return [Citation(*row) for row in rows]
 
 
 class QuoteParaphrase:
@@ -86,3 +104,42 @@ class QuoteParaphrase:
         tcpID=tcpID,
         sidx=sidx)
         return [QuoteParaphrase(*row) for row in rows]
+    
+    @staticmethod
+    def remove_by_tcpID_sidx_vidx(tcpID,sidx,vidx):
+        app.db.execute('''
+        DELETE FROM PossibleQuoteParaphrase as p
+        WHERE p.tcpID = :tcpID 
+        AND p.vidx = :vidx
+        AND p.sidx = :sidx
+        ''',
+        tcpID=tcpID,
+        sidx=sidx,
+        vidx=vidx)
+    
+    @staticmethod
+    def get_bible_verse_ids():
+        rows = app.db.execute('''
+        SELECT DISTINCT b.verse_id
+        FROM BiblePhraseLabel as b
+        ''')
+        return rows 
+    
+    @staticmethod
+    def get_bible_verse(verse_id):
+        rows = app.db.execute('''
+        SELECT b.verse_id,bp.phrase,Bible.verse_text
+        FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
+        WHERE Bible.verse_id = b.verse_id 
+        AND b.vidx = bp.vidx
+        AND b.verse_id = :verse_id
+        ''',
+        verse_id=verse_id)
+        verse_text = rows[0][2]
+        phrases = [row[1] for row in rows]
+        return verse_text, phrases 
+    
+    @staticmethod
+    def search_bible_phrase(era,phrase,loc,k):
+        results = app.vectordb.search(era,phrase,loc,k)
+        return results

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    new DataTable($('#pub_year'), {
+      order: [[1, 'desc']], 
+      pageLength: 5,
+    });
+    new DataTable($('#author'), {
+      order: [[1, 'desc']], 
+      pageLength: 5,
+    });
+    new DataTable($('#subjects'), {
+      order: [[1, 'desc']], 
+      pageLength: 5,
+    });
+    new DataTable($('#pubplace'), {
+      order: [[1, 'desc']], 
+      pageLength: 5,
+    });
+  })
+</script>
+
+<img src='data:image/png;base64,{{data}}' style="max-width: 100%;"/>
+<div class="site_body">
+    <table class='table is-striped' id="pub_year">
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Year</th>
+            <th scope="col">Number of Sermons in EEBO-TCP</th>    
+          </tr>
+        </thead>
+        <tbody>
+          {% for year,idx in years %}
+          <tr>
+              <td>{{year}}</td> 
+              <td>{{num_sermons[idx]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+<div class="site_body">
+    <h3>Subject Headings</h3>
+    <p>Excluding the following subject headings: 'Sermons, English', 'Bible', '17th century', 'Sermons', 'Early works to 1800', and '16th century'.
+    </p>
+    <img src='data:image/png;base64,{{data2}}' style="width: 100%;"/>
+    <table class='table is-striped' id="subjects">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Subject Heading</th>
+          <th scope="col">Number of Sermons in EEBO-TCP</th>    
+        </tr>
+      </thead>
+      <tbody>
+        {% for item,count in subjects %}
+        <tr>
+            <td>{{item}}</td> 
+            <td>{{count}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+<div class="site_body">
+    <h3>Preachers</h3>
+    <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/>
+      <table class='table is-striped' id="author">
+          <thead class="grey_table" >
+            <tr>
+              <th scope="col">Author</th>
+              <th scope="col">Number of Sermons in EEBO-TCP</th>    
+            </tr>
+          </thead>
+          <tbody>
+            {% for author,count in author_counts %}
+            <tr>
+                <td>{{author}}</td> 
+                <td>{{count}}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+</div>
+
+<div class="site_body">
+    <h3>Publication Places</h3>
+    <img src='data:image/png;base64,{{data4}}' style="width: 100%;"/>
+    <table class='table is-striped' id="pubplace">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Place</th>
+          <th scope="col">Number of Sermons in EEBO-TCP</th>    
+        </tr>
+      </thead>
+      <tbody>
+        {% for item,count in places %}
+        <tr>
+            <td>{{item}}</td> 
+            <td>{{count}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+
+
+{% endblock %}

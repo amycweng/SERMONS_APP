@@ -1,4 +1,4 @@
-{% extends "base2.html" %}
+{% extends "base.html" %}
 
 {% block content %}
 
@@ -6,8 +6,6 @@
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
   $(document).ready(function(){
-    // initialize a DataTable sorted by the date column 
-    // in reverse chronological order by default. Break ties alphabetically by name. 
     new DataTable($('#sort_sidx'), {
       order: [[0, 'asc']],
 
@@ -26,22 +24,14 @@
 <br>
 
 <div class="site_body">
-  <h4>
-    <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><i>{{metadata[0].title}}</i></a>
-  </h4>
-  <h5>{{metadata[0].authors}}</h5>
-  <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
-  <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
-  <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
-  <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
-  <img src="/static/images/border4.png"><img src="/static/images/border4.png">
-  
-  <br>
-  <h4><i>Possible Citations</i></h4>
+  <!-- <img src="/static/images/border4.png"><img src="/static/images/border4.png"> -->
+
+  <h4>Possible Citations</h4>
 
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
+        <th scope="col">TCP ID</th>
         <th scope="col">Index of Segment</th>
         <th scope="col">Location</th>
         <th scope="col">Index of Citation in Segment</th>
@@ -54,6 +44,7 @@
     <tbody>
       {% for c in citations%}
         <tr>
+          <td>{{c.tcpID}}</td>
           <td>{{c.sidx}}</td>
           <td>{{c.loc}}</td>
           <td>{{c.cidx}}</td>
@@ -68,10 +59,9 @@
     </tbody>
   </table>
 
-  <img src="/static/images/border4.png"><img src="/static/images/border4.png">
   
   <br>
-  <h4><i>Possible Quotations or Paraphrases</i></h4>
+  <h4>Possible Quotations or Paraphrases</h4>
   <table class='table is-striped' id="sort_similarity">
     <thead class="grey_table" >
       <tr>

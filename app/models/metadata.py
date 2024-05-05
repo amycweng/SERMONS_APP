@@ -27,6 +27,7 @@ class Metadata:
         tcpID=tcpID)
         return [Metadata(*row) for row in rows]
     
+    @staticmethod
     def get_all():
         # current user's ratings and reviews for all products 
         rows = app.db.execute('''
@@ -34,4 +35,14 @@ class Metadata:
         FROM Sermon as s 
         ''')
         return [Metadata(*row) for row in rows]
+    
+    @staticmethod
+    def get_author_counts():
+        # current user's ratings and reviews for all products 
+        rows = app.db.execute('''
+        SELECT *
+        FROM Author 
+        ''')
+        author_counts = [(row[0],len(row[1].split("; "))) for row in rows]
+        return author_counts
 
