@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 
 {% block content %}
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
@@ -15,6 +15,10 @@
     });
     new DataTable($('#marginal'), {
       // order: [[0, 'asc']],
+      pageLength: 5,
+    });
+    new DataTable($('#sort_qp'), {
+      order: [[0, 'asc']],
       pageLength: 5,
     });
   })
@@ -56,33 +60,14 @@ function filterOptions3() {
             {% endfor %}
         </select>
         <input type="submit" value="Submit" class="btn-gray"> 
-        </form>
-        <br>
-        <h4><b>Search by phrase</b></h4>
-        <form action="{{ url_for('sermon.semantic_search_verse') }}" method="POST" class="my_button">
-            <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>
-            <input type="hidden" id="verse_id" name="verse_id" value="">
-            <br>
-            <label for="collection">Select a collection: </label>
-            <select id="collection" name="collection" REQUIRED>
-                <option value="pre-Elizabethan">pre-Elizabethan</option>
-            </select>
-           <br>
-           <label for="k">Number of desired in-text results: </label>
-            <input type="number" name="k" placeholder="20" REQUIRED>
-            <br>
-            <label for="m_k">Number of desired marginal results: </label>
-            <input type="number" name="m_k" placeholder="10" REQUIRED>
-            <br>
-           <input type="submit" value="Submit" class="btn-gray"> 
-           </form>
-    
+    </form>
     {% if verse_id %} 
     <div class="full_break">
       <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-    </div>    <h4>{{verse_id}}</h4>
-    <h5>{{verse_text}}</h5>
-    <table class='table is-striped' id="bible">
+    </div>   
+     <h4>{{verse_id}}</h4>
+    <h5><b>{{verse_text}}</b></h5>
+    <!-- <table class='table is-striped' id="bible">
         <thead class="grey_table" >
           <tr>
             <th scope="col">Subphrase of Verse (lemmatized)</th>   
@@ -106,16 +91,16 @@ function filterOptions3() {
                     </select>
                     <br>
                     <label for="k">Number of desired in-text results: </label>
-                    <input type="number" name="k" placeholder="20" REQUIRED>
+                    <input type="number" name="k" value="20" REQUIRED>
                     <br>
                     <label for="m_k">Number of desired marginal results: </label>
-                    <input type="number" name="m_k" placeholder="10" REQUIRED>
+                    <input type="number" name="m_k" value="10" REQUIRED>
                     <br>
                     <input type="submit" value="Search" class="btn-gray"/> 
                    </form>
                 </td>
                 <td><form action="{{ url_for('sermon.remove_bible_phrase',vidx=vindices[p[1]])}}" method="POST" >
-                  <input type="hidden" id="page" name="page" value="quoteparaphrase">
+                  <input type="hidden" id="page" name="page" value="search">
                   <input type="hidden" id="verse" name="verse_id" value="{{verse_id}}">
                   <input type="submit" value="Remove" class="btn-gray"/> 
                  </form>  
@@ -124,16 +109,74 @@ function filterOptions3() {
           {% endfor %}
         </tbody>
       </table>
+    </form> -->
+    <br>
+    <h6><b>Search by the entirety or a part of the tokenized and lemmatized text of {{verse_id}}</b></h6>
+    <h6>{{lemmatized}}</h6>
+    <form action="{{ url_for('sermon.semantic_search_verse') }}" method="POST" class="my_button">
+        <textarea id="phrase" name="phrase" rows="2" cols="10">{{lemmatized}}</textarea>
+        <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
+        <br>
+        <label for="collection">Select a collection: </label>
+        <select id="collection" name="collection" REQUIRED>
+            <option value="pre-Elizabethan">pre-Elizabethan</option>
+        </select>
+       <br>
+       <label for="k">Number of desired in-text results: </label>
+        <input type="number" name="k" value="20" REQUIRED>
+        <br>
+        <label for="m_k">Number of desired marginal results: </label>
+        <input type="number" name="m_k" value="10" REQUIRED>
+        <br>
+       <input type="submit" value="Submit" class="btn-gray"> 
+       </form>
+
+  <br>
+  <h5>Actual Quotations or Paraphrases</h5>
+  <table class='table is-striped' id="sort_qp">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Text of Segment</th>
+        <th scope="col">Remove Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in actual_qp %}
+        <tr>
+          <td>{{q[0]}}</td>
+          <td>{{q[1]}}<br>{{q[2]}}</td>
+          <td>{{qp_segments[(q[0],q[1],q[2])]}}
+            <br>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+          </td>
+          <td>
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id = verse_id)}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="search">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
+          </td>  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
       {% endif %}
+
+
     <br><br>
     {% if results %}
+    <div class="full_break">
+      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+    </div>   
     <h4><b>Search phrase:</b> &VeryThinSpace; {{phrase}}</h4>
     <h5>In-Text Search Results</h5>
     <table class='table is-striped' id="results">
       <thead class="grey_table" >
         <tr>
           <th scope="col">TCP ID</th>
-          <th scope="col">Index of Covering Segment</th> 
+          <th scope="col">Index and Location of Covering Segment</th> 
           <th scope="col">Search results (lemmatized sub-phrases of segments)</th>  
           <th scope="col"></th>   
         </tr>
@@ -148,9 +191,9 @@ function filterOptions3() {
                 <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=result[1],sidx=result[2]) }}"><u><b>View Segment Information</b></u></a>
             </td>
             <td>
-              <form action="{{ url_for('sermon.semantic_search_verse')}}" method="POST" >
+              <form action="{{ url_for('sermon.add_qp',tcpID=result[1],sidx=result[2],loc=result[3],verse_id=verse_id)}}" method="POST" >
                   <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
-                  <input type="hidden" id="phrase" name="phrase" value="{{phrase}}">
+                  <input type="hidden" id="page" name="page" value="search">
                   <input type="submit" value="Add As Reference" class="btn-gray"/> 
                  </form>
               </td>

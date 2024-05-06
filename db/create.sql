@@ -62,7 +62,8 @@ CREATE TABLE Bible(
   book VARCHAR(100) NOT NULL,
   chapter INT NOT NULL,
   verse INT NOT NULL,
-  verse_text TEXT NOT NULL
+  verse_text TEXT NOT NULL,
+  lemmatized TEXT NOT NULL
 );
 
 CREATE TABLE BiblePhrase(
@@ -84,6 +85,15 @@ CREATE TABLE PossibleQuoteParaphrase(
   score DECIMAL NOT NULL, -- cross attention score 
   freq INT NOT NULL,
   PRIMARY KEY (tcpID, sidx, loc, vidx), 
+  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
+);
+
+CREATE TABLE QuoteParaphrase( -- certain, verified quotations/paraphrases 
+  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
+  sidx INT NOT NULL, -- segment in which the hit is located 
+  loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
+  verse_id TEXT NOT NULL REFERENCES Bible(verse_id), -- verse identifier  
+  PRIMARY KEY (tcpID, sidx, loc, verse_id), 
   FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
 );
 ----------------------------------------------------------------------

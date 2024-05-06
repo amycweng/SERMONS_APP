@@ -146,37 +146,44 @@ def parse_citations(citations, loc="all"):
     all_books = {}
     all_chapters = {}
     all_verses = {}
-    for c in citations:
-        tcpID = c.tcpID 
-        cited = c.citation 
-        cited = cited.split("; ")
-        for c in cited: 
-            c = c.split(" ")
-            if len(c[0]) == 1: 
-                book = f"{c[0]} {c[1]}"
-                ref = c[2]
+    cited = []
+    for c in citations: 
+        for citation in c.citation.split("; "): 
+            if "-" in citation: 
+                citation = citation.split(".")
+                bookchap = citation[0]
+                start, end = citation[1].split("-")
+                for num in range(int(start),int(end)+1):
+                    cited.append((f"{bookchap}.{num}",c.tcpID))
             else: 
-                book = c[0]
-                ref = c[1]
-            
-            if book not in all_books: 
-                all_books[book] = []
-            all_books[book].append(tcpID)
+                cited.append((citation,c.tcpID))
+    for c, tcpID in cited:
+        c = c.split(" ")
+        if len(c[0]) == 1: 
+            book = f"{c[0]} {c[1]}"
+            ref = c[2]
+        else: 
+            book = c[0]
+            ref = c[1]
+        
+        if book not in all_books: 
+            all_books[book] = []
+        all_books[book].append(tcpID)
 
-            ref = ref.split(".")
-            chapter = ref[0]
-            if '*' not in chapter and "^" not in chapter: 
-                key = f"{book} {chapter}"
-                if key not in all_chapters: 
-                    all_chapters[key] = []
-                all_chapters[key].append(tcpID)
-                if len(ref) == 2: 
-                    verse = ref[1]
-                    if '*' not in verse and "^" not in verse: 
-                        key = f"{book} {chapter}.{verse}"
-                        if key not in all_verses: 
-                            all_verses[key] = []
-                        all_verses[key].append(tcpID)
+        ref = ref.split(".")
+        chapter = ref[0]
+        if '*' not in chapter and "^" not in chapter: 
+            key = f"{book} {chapter}"
+            if key not in all_chapters: 
+                all_chapters[key] = []
+            all_chapters[key].append(tcpID)
+            if len(ref) == 2: 
+                verse = ref[1]
+                if '*' not in verse and "^" not in verse: 
+                    key = f"{book} {chapter}.{verse}"
+                    if key not in all_verses: 
+                        all_verses[key] = []
+                    all_verses[key].append(tcpID)
     return all_books, all_chapters, all_verses
 
 def visualize_dict_horizontal(title, xlabel, ylabel, dict): 
@@ -208,10 +215,21 @@ def citation_over_time(citations, search):
     for c in citations: 
         tcpID = c.tcpID 
         date = tcpID_dates[tcpID]
-        cited = c.citation
+        if "?" in date: continue
+        if "-" in date: 
+            date = date.split("-")[0]
         if 'In-Text' == c.loc: loc = 'In-Text'
         else: loc = 'Marginal'
-        for citation in cited.split("; "): 
+        cited = []
+        for citation in c.citation.split("; "): 
+            if "-" in citation: 
+                citation = citation.split(".")
+                bookchap = citation[0]
+                start, end = citation[1].split("-")
+                for num in range(int(start),int(end)+1):
+                    cited.append(f"{bookchap}.{num}")
+            else: cited.append(citation)
+        for citation in cited: 
             if search in citation: 
                 if date not in results: 
                     results[date] = {}
@@ -270,6 +288,7 @@ def get_books_citations():
 def visualize_citations():
     book_data,author_data,over_time = None, None,None
     book=None
+    metadata = {}
     tcpIDs, authors = None, None
     books = get_books_citations()
     if request.method == 'POST':
@@ -291,8 +310,11 @@ def visualize_citations():
                         authors[a].extend(tcpIDs[t])
             x,y,book_data = visualize_dict_horizontal(f'Books with the Most Frequent Citations of {book}', 'Count of Citations','TCP ID',tcpIDs)
             x,y,author_data = visualize_dict_horizontal(f'Authors with the Most Frequent Citations of {book}', 'Count of Citations','Author',authors)
+            for tcpID in tcpIDs: 
+                metadata[tcpID] = Metadata.get_by_tcpID(tcpID)[0]
             tcpIDs = {k:len(v) for k,v in tcpIDs.items()}
             authors = {k:len(v) for k,v in authors.items()}
+
     citations = Citation.get_all()
     marg, text, data0 = citation_over_time(citations,'')
 
@@ -317,6 +339,7 @@ def visualize_citations():
                            book=book,
                            tcpIDs=tcpIDs,
                            authors=authors,
+                           metadata=metadata,
                            book_data=book_data,
                            over_time=over_time,
                            author_data=author_data, 

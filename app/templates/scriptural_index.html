@@ -16,6 +16,10 @@
       order: [[0, 'asc']],
 
     });
+    new DataTable($('#sort_qp'), {
+      order: [[0, 'asc']],
+
+    });
   })
 </script>
 <script>
@@ -44,7 +48,7 @@ function filterOptions3() {
     <input type="hidden" id="search" name="search" value="c">
   <label for="book">Find citations by selecting a book:</label>
   <select id="book" name="book">
-      <option value=""></option>
+      <option value=""></option >
       {% for v in books%}
       <option value="{{v}}">{{v}}</option>
       {% endfor %}
@@ -69,6 +73,14 @@ function filterOptions3() {
   <br>
     <h4><b>Citations of {{book}}</b></h4>
   <h5><b>Variant spellings:</b> {{"; ".join(variants)}}</h5>
+  <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
+    For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
+    inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
+    'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
+    If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
+    and Roman numerals have been converted to integers. 
+  </p>
+  <p>To edit a citation, navigate to the page of its segment and notes by clicking the button in the rightmost column.</p>
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
@@ -78,7 +90,7 @@ function filterOptions3() {
         <th scope="col">Index of Citation in Segment</th>
         <th scope="col">Parsed Citation(s)</th>
         <th scope="col">Unparsable Citation(s)</th>
-        <th scope="col">Original Phrase (lightly preprocessed)</th>
+        <th scope="col">Phrase</th>
         <th scope="col">Text of Segment and Notes</th>
       </tr>
     </thead>
@@ -101,15 +113,50 @@ function filterOptions3() {
   </table>
   {% endif %}
   
+  {% if verse_id %}
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
   <br>
+  <h3>Actual Quotations or Paraphrases of {{verse_id}}</h3>
+  <h5><b>Full Verse:</b> &VeryThinSpace; {{verse_text}}</h5>
+  <table class='table is-striped' id="sort_qp">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Verse of Bible</th>
+        <th scope="col">Segment Text</th>
+        <th scope="col">Remove Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in actual_qp %}
+        <tr>
+          <td>{{q[0]}}</td>
+          <td>{{q[1]}}<br>{{q[2]}}</td>
+          <td>{{q[3]}}</td>
+          <td>{{qp_segments[(q[0],q[1],q[2])]}}
+            <br>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+          </td>
+          <td>
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="segment">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
+          </td>  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   
-    {% if qp_candidates %}
-    <div class="full_break">
-      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-    </div>
-    <br>
-     <h4><b>Possible Quotations or Paraphrases of {{verse_id}}</b></h4>
-      <h5><b>Full Verse:</b> &VeryThinSpace; {{verse_text}}</h5>
+  <br>
+    
+     <h3>Possible Quotations or Paraphrases of {{verse_id}}</h3>
+     <h5>
+      <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=verse_id) }}"><u>Search for Verse</u></a>
+     </h5>
   <table class='table is-striped' id="sort_tcpID">
     <thead class="grey_table" >
       <tr>
@@ -124,7 +171,7 @@ function filterOptions3() {
         <tr>
           <td>{{q[0]}}</td>
           <td>{{q[1]}} <br> {{q[2]}}</td>
-          <td>{{qp_segments[q]}}
+          <td>{{qp_segments[(q[0],q[1],q[2])]}}
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>

@@ -14,12 +14,28 @@ def get_citations(tcpID):
     citations = Citation.get_by_tcpID(tcpID) 
     unique_aut = Metadata.get_aut_by_tcpID(tcpID)
     possible_qp = QuoteParaphrase.get_by_tcpID(tcpID)
+    actual_qp = QuoteParaphrase.get_actual_by_tcpID(tcpID)
     qp_candidates = {}
     qp_segments = {}
+    for a in actual_qp:
+        if a[2] == "In-Text": 
+            key = (a[0],a[1],a[2])
+            segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
+            qp_segments[key] = segment 
+        else:
+            nidx = int(a[2].split(" ")[-1])
+            segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
+            qp_segments[key] = segment 
     for entry in possible_qp: 
         key = (entry.tcpID,entry.sidx,entry.loc)
-        if key not in qp_candidates: qp_candidates[key] = []
-        qp_candidates[key].append(entry.label)
+        found = False 
+        for a in actual_qp: 
+            if a[0] == entry.tcpID and a[1] == entry.sidx and a[2] == entry.loc: 
+                found = True 
+                break
+        if not found: 
+            if key not in qp_candidates: qp_candidates[key] = []
+            qp_candidates[key].append(entry.label)
         if entry.loc == "In-Text": 
             segment = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].tokens
             qp_segments[key] = segment 
@@ -30,6 +46,7 @@ def get_citations(tcpID):
     return render_template('sermon.html',
                         citations = citations,
                         unique_aut=unique_aut,
+                        actual_qp=actual_qp,
                         metadata=metadata,
                         qp_candidates=qp_candidates,
                         qp_segments=qp_segments
@@ -47,13 +64,32 @@ def full_text(tcpID):
                         segments = segments,
                         notes=notes)
 
-@bp.route('/<tcpID>/references/<int:sidx>/<loc>/edit', methods=['POST','GET'])
-def edit_citations(tcpID,sidx,loc):
-    if loc != "In-Text": loc = f"Note {loc}"
-    citations = Citation.get_by_tcpID_sidx_loc(tcpID,sidx,loc) 
-    return render_template('citation_edit.html',
-                        citations = citations)
+@bp.route('/<tcpID>/references/<int:sidx>/<loc>/<int:cidx>/remove', methods=['POST','GET'])
+def remove_citation(tcpID,sidx,loc,cidx):
+    Citation.remove_citation(tcpID,sidx,loc,cidx) 
+    return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
 
+@bp.route('/<tcpID>/references/<int:sidx>/<loc>/edit', methods=['POST','GET'])
+def edit_citation(tcpID,sidx,loc):
+    if request.method == "POST": 
+        new = request.form['new_citation']
+        cidx = int(request.form['cidx'])
+        orig_cidx = int(request.form['orig_cidx'])
+        if cidx != orig_cidx: 
+            Citation.update_index(tcpID,sidx,loc,cidx)
+        if len(new) > 0: 
+            Citation.update_text(tcpID,sidx,loc,cidx,new)
+    return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
+
+@bp.route('/<tcpID>/references/<int:sidx>/add', methods=['POST','GET'])
+def add_citation(tcpID,sidx):
+    if request.method == "POST": 
+        loc = request.form['loc']
+        cidx = int(request.form['cidx'])
+        citation = request.form['parsed']
+        original = request.form['orig']
+        Citation.add_citation(tcpID,sidx,loc,cidx,citation,original)
+    return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
 
 @bp.route('/<tcpID>/remove/<int:sidx>/<int:vidx>', methods=['POST','GET'])
 def remove_qp(tcpID,sidx,vidx):
@@ -64,6 +100,32 @@ def remove_qp(tcpID,sidx,vidx):
             return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
         elif page == 'quoteparaphrase':
             return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
+    return redirect(url_for('sermon.get_citations',tcpID=tcpID))
+
+@bp.route('/<tcpID>/add/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
+def add_qp(tcpID,sidx,loc,verse_id):
+    if request.method == 'POST':
+        QuoteParaphrase.add_qp(tcpID,sidx,loc,verse_id)  
+        page = request.form['page']
+        if page == 'segment':
+            return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
+        elif page == 'quoteparaphrase':
+            return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
+        elif page == "search": 
+            return redirect(url_for('sermon.semantic_search_verse_get',verse_id=verse_id))
+    return redirect(url_for('sermon.get_citations',tcpID=tcpID))
+
+@bp.route('/<tcpID>/remove/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
+def remove_actual_qp(tcpID,sidx,loc,verse_id):
+    if request.method == 'POST':
+        QuoteParaphrase.remove_actual_qp(tcpID,sidx,loc,verse_id)  
+        page = request.form['page']
+        if page == 'segment':
+            return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
+        elif page == 'quoteparaphrase':
+            return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
+        elif page == "search": 
+            return redirect(url_for('sermon.semantic_search_verse_get',verse_id=verse_id))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
 def get_books_citations():
@@ -77,7 +139,7 @@ def get_books_citations():
 
 @bp.route('/index', methods=['POST','GET'])
 def get_all():
-    citations, qp_candidates, qp_segments = {},{},{}
+    citations, qp_candidates, qp_segments,actual_qp = {},{},{},{}
     variants,verse_text = None, None 
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
     books = get_books_citations()
@@ -97,13 +159,29 @@ def get_all():
 
         verse_id = request.form['verse']
         if len(verse_id) > 0: 
-            verse_text, phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
+            verse_text, lemmatized,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
+            actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
+            for a in actual_qp:
+                if a[2] == "In-Text": 
+                    key = (a[0],a[1],a[2])
+                    segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
+                    qp_segments[key] = segment 
+                else:
+                    nidx = int(a[2].split(" ")[-1])
+                    segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
+                    qp_segments[key] = segment 
             for phrase, idx in phrases:
                 vidx = indices[idx]
                 possible_qp =  QuoteParaphrase.get_by_vidx(vidx)
                 for entry in possible_qp: 
                     key = (entry.tcpID,entry.sidx,entry.loc)
-                    qp_candidates[key] = phrase
+                    found = False 
+                    for a in actual_qp: 
+                        if a[0] == entry.tcpID and a[1] == entry.sidx and a[2] == entry.loc: 
+                            found = True 
+                            break
+                    if not found: 
+                        qp_candidates[key] = phrase
                     if entry.loc == "In-Text": 
                         segment = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].tokens
                         qp_segments[key] = segment 
@@ -111,11 +189,13 @@ def get_all():
                         nidx = int(entry.loc.split(" ")[-1])
                         segment = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].tokens
                         qp_segments[key] = segment 
+        else: verse_id = None 
         return render_template('scriptural_index.html',
                            verse_ids=verse_ids,
                            book=book,
                            verse_text = verse_text,
                            verse_id=verse_id,
+                           actual_qp=actual_qp,
                            books=books,
                            qp_books=qp_books,
                            variants=variants, 
@@ -132,6 +212,7 @@ def get_all():
 def get_segment_and_notes(tcpID,sidx):
     metadata = Metadata.get_by_tcpID(tcpID)
     segment = []
+    locations = ["In-Text"]
     s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
     unique_aut = Metadata.get_aut_by_tcpID(tcpID)
     sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
@@ -139,6 +220,7 @@ def get_segment_and_notes(tcpID,sidx):
     notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
     for n in notes: 
         segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
+        locations.append(f"Note {n.nidx}")
     
     citations_list = Citation.get_by_tcpID_sidx(tcpID,sidx)
     c_dict = {'in-text':{0:[]},'marginal':{},'t_outlier':{0:[]},'m_outlier':{}}
@@ -146,7 +228,7 @@ def get_segment_and_notes(tcpID,sidx):
     for c in citations_list: 
         if c.loc == "In-Text": 
             c_dict["in-text"][0].append(c.citation)
-            citations.append((c.citation,c.replaced,"In-Text"))
+            citations.append((c.citation,c.replaced,"In-Text",c.cidx))
             if c.outlier is not None: 
                 c_dict["t_outlier"][0].append(c.outlier)
         else: 
@@ -155,7 +237,7 @@ def get_segment_and_notes(tcpID,sidx):
                 c_dict['marginal'][nidx] = []
                 c_dict['m_outlier'][nidx] = []
             c_dict["marginal"][nidx].append(c.citation)
-            citations.append((c.citation,c.replaced,c.loc))
+            citations.append((c.citation,c.replaced,c.loc,c.cidx))
             if c.outlier is not None: 
                 c_dict["m_outlier"][nidx].append(c.outlier)
     
@@ -170,17 +252,26 @@ def get_segment_and_notes(tcpID,sidx):
             m_outlier = True 
     
     possible_qp = QuoteParaphrase.get_by_tcpID(tcpID)
+    actual_qp = QuoteParaphrase.get_actual_by_tcpID_sidx(tcpID,sidx)
     qp_candidates = []
     for entry in possible_qp: 
         if tcpID != entry.tcpID: continue
         if sidx != entry.sidx: continue
-        qp_candidates.append((entry.loc,entry.label,entry.full,entry.phrase,entry.score,entry.vidx))
+        found = False 
+        for a in actual_qp: 
+            if a[0] == tcpID and a[1] == sidx and a[2] == entry.loc: 
+                found = True 
+        if not found: 
+            qp_candidates.append((entry.loc,entry.label,entry.full,entry.phrase,entry.score,entry.vidx))
     
     return render_template('segment.html',
                         metadata=metadata,
+                        locations=locations,
+                        tcpID=tcpID,
                         unique_aut=unique_aut,
                         segment = segment,
                         sidx =sidx,
+                        actual_qp=actual_qp,
                         qp_candidates=qp_candidates,
                         loc_type=loc_type,
                         loc=loc,
@@ -199,13 +290,26 @@ def semantic_search():
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
     if request.method == 'POST':
         verse_id = request.form['verse']
-        verse_text, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)                
-
+        verse_text, lemmatized,phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)  
+        actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
+        qp_segments = {}
+        for entry in actual_qp: 
+            key = (entry[0],entry[1],entry[2])
+            if entry.loc == "In-Text": 
+                segment = Text.get_by_tcpID_sidx(entry[0],entry[1])[0].tokens
+                qp_segments[key] = segment 
+            else:
+                nidx = int(entry[2].split(" ")[-1])
+                segment = Marginalia.get_by_tcpID_sidx_nidx(entry[0],entry[1],nidx)[0].tokens
+                qp_segments[key] = segment               
         return render_template('search.html',
                                verse_ids=verse_ids,
                                verse_id=verse_id,
+                               lemmatized=lemmatized,
                                vindices=vindices,
-                               verse_text=verse_text, 
+                               verse_text=verse_text,
+                               actual_qp=actual_qp,
+                               qp_segments=qp_segments, 
                                phrases=phrases)
     return render_template('search.html',verse_ids=verse_ids)
 
@@ -215,14 +319,40 @@ def remove_bible_phrase(vidx):
     if request.method == 'POST':
         verse_id = request.form['verse_id']
         QuoteParaphrase.remove_bible_phrase(vidx)
-        verse_text, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)                
+        verse_text, lemmatized, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)                
         return render_template('search.html',
                                verse_ids=verse_ids,
                                verse_id=verse_id,
                                vindices=vindices,
                                verse_text=verse_text, 
+                               lemmatized=lemmatized,
                                phrases=phrases)
     return render_template('search.html',verse_ids=verse_ids)
+
+@bp.route('/search/verse/<verse_id>', methods=['POST','GET'])
+def semantic_search_verse_get(verse_id):
+    verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    verse_text, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)
+    actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
+    qp_segments = {}
+    for entry in actual_qp: 
+        key = (entry[0],entry[1],entry[2])
+        if entry.loc == "In-Text": 
+            segment = Text.get_by_tcpID_sidx(entry[0],entry[1])[0].tokens
+            qp_segments[key] = segment 
+        else:
+            nidx = int(entry[2].split(" ")[-1])
+            segment = Marginalia.get_by_tcpID_sidx_nidx(entry[0],entry[1],nidx)[0].tokens
+            qp_segments[key] = segment 
+    return render_template('search.html',
+                               verse_ids=verse_ids,
+                               verse_id=verse_id,
+                               actual_qp=actual_qp,
+                               qp_segments=qp_segments,
+                               vindices=vindices,
+                               lemmatized=lemmatized,
+                               verse_text=verse_text,
+                               phrases=phrases)
 
 @bp.route('/search/verse', methods=['POST','GET'])
 def semantic_search_verse():
@@ -230,19 +360,50 @@ def semantic_search_verse():
     if request.method == 'POST':
         verse_id = request.form['verse_id']
         if len(verse_id) == 0: 
-            verse_text, phrases,vindices = None,[]
+            verse_text, lemmatized, phrases,vindices = None,None,[],[]
         else: 
-            verse_text, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)    
+            verse_text, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)    
         phrase = request.form['phrase']
         k = int(request.form['k'])
         results = QuoteParaphrase.search_bible_phrase('pre-Elizabethan',phrase,'text',k)
         m_k = int(request.form['m_k'])
         marginal_results = QuoteParaphrase.search_bible_phrase('pre-Elizabethan',phrase,'marginalia',m_k)
+        actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
+        t_results, m_results = [],[]
+        for item,tcpID,sidx,loc in results: 
+            found = False 
+            for a in actual_qp: 
+                if a[0] == tcpID and a[1] == sidx and a[2] == loc: 
+                    found = True 
+                    break
+            if not found: 
+                t_results.append((item,tcpID,sidx,loc))
+        for item,tcpID,sidx,loc in marginal_results: 
+            found = False 
+            for a in actual_qp: 
+                if a[0] == tcpID and a[1] == sidx and a[2] == loc: 
+                    found = True 
+                    break
+            if not found: 
+                m_results.append((item,tcpID,sidx,loc))
+        qp_segments = {}
+        for entry in actual_qp: 
+            key = (entry[0],entry[1],entry[2])
+            if entry.loc == "In-Text": 
+                segment = Text.get_by_tcpID_sidx(entry[0],entry[1])[0].tokens
+                qp_segments[key] = segment 
+            else:
+                nidx = int(entry[2].split(" ")[-1])
+                segment = Marginalia.get_by_tcpID_sidx_nidx(entry[0],entry[1],nidx)[0].tokens
+                qp_segments[key] = segment 
         return render_template('search.html',
                                verse_ids=verse_ids,
-                               results=results,
+                               results=t_results,
+                               lemmatized=lemmatized,
                                phrase=phrase,
-                               marginal_results = marginal_results,
+                               actual_qp = actual_qp,
+                               qp_segments = qp_segments,
+                               marginal_results = m_results,
                                verse_id=verse_id,
                                vindices=vindices,
                                verse_text=verse_text,

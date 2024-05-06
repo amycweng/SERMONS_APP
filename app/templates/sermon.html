@@ -13,6 +13,10 @@
       order: [[0, 'asc']],
       pageLength:5
     });
+    new DataTable($('#sort_qp'), {
+      order: [[0, 'asc']],
+      pageLength:5
+    });
   })
 
 </script>
@@ -31,6 +35,7 @@
   <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
   <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
   <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+  <h6><b>Subject Headings:</b> {{metadata[0].subject_headings}}</h6>
   <h6>   
      <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a>
       <!-- <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a> -->
@@ -40,7 +45,14 @@
     </div>  
   <br>
   <h4>Citations</h4>
-
+  <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
+    For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
+    inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
+    'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
+    If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
+    and Roman numerals have been converted to integers. 
+  </p>
+  <p>To edit a citation, navigate to the page of its segment and notes by clicking the button in the rightmost column.</p>
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
@@ -48,7 +60,7 @@
         <th scope="col">Index of Citation in Segment</th>
         <th scope="col">Parsed Citation(s)</th>
         <th scope="col">Unparsable Citation(s)</th>
-        <th scope="col">Original Phrase (lightly preprocessed)</th>
+        <th scope="col">Phrase</th>
         <th scope="col">Text of Segment and Notes</th>
       </tr>
     </thead>
@@ -71,6 +83,40 @@
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>  
+
+  <br>
+  <h3>Actual Quotations or Paraphrases</h3>
+  <table class='table is-striped' id="sort_qp">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Verse of Bible</th>
+        <th scope="col">Full Verse Text</th>
+        <th scope="col">Remove Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in actual_qp %}
+        <tr>
+          <td>{{q[1]}}<br>{{q[2]}}
+            <br>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+          </td>
+          <td>{{q[3]}}
+            <br>
+              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u>Search for Verse</u></a>
+          </td>
+          <td>{{q[4]}}</td>
+          <td>
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=tcpID, sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="segment">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
+          </td>  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   <br>
   <h4>Possible Quotations or Paraphrases</h4>
   <table class='table is-striped' id="sort_sidx2">

@@ -41,19 +41,35 @@
       <tr>
         <th scope="col">TCP ID</th>
         <th scope="col">Count of Citations of {{book}}</th>
-        <th scope="col"></th>        
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <th scope="col">Publisher</th>
+        <th scope="col">Publication Year</th>
+        <th scope="col">Publication Place</th>
+        <th scope="col">Subjects</th>
       </tr>
     </thead>
     <tbody>
       {% for tcpID in tcpIDs %}
       <tr>
-          <td>{{tcpID}}</td> 
+          <td>{{tcpID}}
+            <br>  
+              <a href="{{ url_for('sermon.full_text',tcpID=tcpID) }}"><u>View Full Text</u></a>
+              <br><br>
+              <a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}"><u>View All References</u></a>          
+
+          </td> 
           <td>{{tcpIDs[tcpID]}}</td>
           <td>
-            <a href="{{ url_for('sermon.full_text',tcpID=tcpID) }}"><u>View Full Text</u></a>
-            &VeryThinSpace;
-            <a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}"><u>View All References</u></a>
+              {{metadata[tcpID].title}}
+                        </td>
+          <td>
+              {{metadata[tcpID].authors}}
           </td>
+          <td>{{metadata[tcpID].publisher}}</td>
+          <td>{{metadata[tcpID].pubyear}}</td>
+          <td>{{metadata[tcpID].pubplace}}</td>
+          <td>{{metadata[tcpID].subject_headings}}</td>
         </tr>
       {% endfor %}
     </tbody>

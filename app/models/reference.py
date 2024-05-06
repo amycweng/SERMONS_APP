@@ -64,6 +64,61 @@ class Citation:
         ''')
         return [Citation(*row) for row in rows]
 
+    @staticmethod
+    def remove_citation(tcpID, sidx,loc,cidx):
+        app.db.execute('''
+        DELETE FROM Citation 
+        WHERE tcpID = :tcpID
+        AND sidx = :sidx
+        AND loc = :loc 
+        AND cidx = :cidx
+        ''',
+        tcpID=tcpID,
+        sidx=sidx,
+        loc=loc,
+        cidx=cidx)
+    
+    @staticmethod
+    def update_text(tcpID, sidx,loc,cidx,new):
+        app.db.execute("""
+        UPDATE Citation 
+        SET citation = :new        
+        WHERE tcpID = :tcpID 
+        AND sidx = :sidx
+        AND loc = :loc
+        AND cidx = :cidx 
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        cidx=cidx,
+        loc=loc,
+        new=new)
+        
+    @staticmethod
+    def update_index(tcpID, sidx,loc,cidx):
+        app.db.execute("""
+        UPDATE Citation 
+        SET cidx = :cidx                      
+        WHERE tcpID = :tcpID 
+        AND sidx = :sidx
+        AND loc = :loc
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        cidx=cidx,
+        loc=loc)
+
+    @staticmethod
+    def add_citation(tcpID, sidx,loc,cidx,citation,replaced):
+        app.db.execute("""
+        INSERT INTO Citation VALUES (:tcpID, :sidx, :loc, :cidx, :citation, '',:replaced)  
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        cidx=cidx,
+        loc=loc,
+        citation=citation,
+        replaced=replaced)
 
 class QuoteParaphrase:
     def __init__(self,tcpID,sidx,loc,vidx,score,freq,label,phrase,full):
@@ -77,6 +132,63 @@ class QuoteParaphrase:
         self.phrase = phrase
         self.full = full
 
+    @staticmethod
+    def add_qp(tcpID, sidx,loc,verse_id):
+        app.db.execute("""
+        INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id)  
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        verse_id=verse_id,
+        loc=loc)
+
+    @staticmethod
+    def remove_actual_qp(tcpID, sidx,loc,verse_id):
+        app.db.execute("""
+        DELETE FROM QuoteParaphrase
+        WHERE tcpID = :tcpID
+        AND sidx = :sidx
+        AND verse_id = :verse_id 
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        verse_id=verse_id,
+        loc=loc)
+
+    @staticmethod
+    def get_actual_verse_id(verse_id):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        FROM QuoteParaphrase as p, Bible as b 
+        WHERE p.verse_id = :verse_id
+        AND b.verse_id = p.verse_id
+        ''',
+        verse_id = verse_id)
+        return rows 
+        
+    @staticmethod
+    def get_actual_by_tcpID(tcpID):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        FROM QuoteParaphrase as p, Bible as b 
+        WHERE p.tcpID = :tcpID
+        AND b.verse_id = p.verse_id
+        ''',
+        tcpID = tcpID)
+        return rows 
+    
+    @staticmethod
+    def get_actual_by_tcpID_sidx(tcpID,sidx):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        FROM QuoteParaphrase as p, Bible as b 
+        WHERE p.tcpID = :tcpID
+        AND b.verse_id = p.verse_id
+        AND p.sidx = :sidx
+        ''',
+        tcpID = tcpID,
+        sidx=sidx)
+        return rows 
     @staticmethod
     def get_all():
         rows = app.db.execute('''
@@ -152,7 +264,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_bible_verse(verse_id):
         rows = app.db.execute('''
-        SELECT b.verse_id,bp.phrase,Bible.verse_text,b.vidx
+        SELECT b.verse_id,bp.phrase,Bible.verse_text,b.vidx,Bible.lemmatized
         FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
         WHERE Bible.verse_id = b.verse_id 
         AND b.vidx = bp.vidx
@@ -160,9 +272,10 @@ class QuoteParaphrase:
         ''',
         verse_id=verse_id)
         verse_text = rows[0][2]
+        lemmatized = rows[0][4]
         vindices = [row[3] for row in rows]
         phrases = [(row[1],idx) for idx,row in enumerate(rows)]
-        return verse_text, phrases,vindices 
+        return verse_text,lemmatized, phrases,vindices 
    
     @staticmethod
     def search_bible_phrase(era,phrase,loc,k):

@@ -34,6 +34,7 @@
       <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
       <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
       <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+      <h6><b>Subject Headings:</b> {{metadata[0].subject_headings}}</h6>
       <h6>   
         <!-- <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a> -->
         <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a>
@@ -78,14 +79,19 @@
             <th scope="col">Index of Segment</th>
             <th scope="col">Index of Note</th>
             <th scope="col">Text (tokenized)</th>
+            <th scope="col">Full Segment and References</th>
         </tr>
         </thead>
         <tbody >
         {% for n in notes %}
             <tr>
-                <td>{{n.sidx}}</td>
+                <td>{{n.sidx}}
+                </td>
                 <td>{{n.nidx}}</td>
                 <td>{{n.tokens}}</td> 
+                <td>
+                  <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=n.tcpID,sidx=n.sidx) }}"><u><b>View</b></u></a>
+                </td>
             </tr>
         {% endfor %}
         </tbody>

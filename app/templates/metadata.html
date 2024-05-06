@@ -81,7 +81,10 @@
           <tbody>
             {% for author,count in author_counts %}
             <tr>
-                <td>{{author}}</td> 
+                <td>
+                  <a href="{{ url_for('author.find_author_references',author=author,tcpID=author)}}"><u>{{author}}</u></a>
+
+                </td> 
                 <td>{{count}}</td>
               </tr>
             {% endfor %}
