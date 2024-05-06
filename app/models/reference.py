@@ -78,6 +78,17 @@ class QuoteParaphrase:
         self.full = full
 
     @staticmethod
+    def get_all():
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
+        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
+        WHERE p.vidx = b.vidx 
+        AND Bible.verse_id = b.verse_id 
+        AND b.vidx = bp.vidx
+        ''')
+        return [QuoteParaphrase(*row) for row in rows]
+    
+    @staticmethod
     def get_by_tcpID(tcpID):
         rows = app.db.execute('''
         SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
@@ -88,6 +99,19 @@ class QuoteParaphrase:
         AND b.vidx = bp.vidx
         ''',
         tcpID=tcpID)
+        return [QuoteParaphrase(*row) for row in rows]
+    
+    @staticmethod
+    def get_by_vidx(vidx):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
+        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
+        WHERE p.vidx = :vidx 
+        AND p.vidx = b.vidx 
+        AND Bible.verse_id = b.verse_id 
+        AND b.vidx = bp.vidx
+        ''',
+        vidx=vidx)
         return [QuoteParaphrase(*row) for row in rows]
     
     @staticmethod
@@ -128,7 +152,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_bible_verse(verse_id):
         rows = app.db.execute('''
-        SELECT b.verse_id,bp.phrase,Bible.verse_text
+        SELECT b.verse_id,bp.phrase,Bible.verse_text,b.vidx
         FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
         WHERE Bible.verse_id = b.verse_id 
         AND b.vidx = bp.vidx
@@ -136,10 +160,30 @@ class QuoteParaphrase:
         ''',
         verse_id=verse_id)
         verse_text = rows[0][2]
-        phrases = [row[1] for row in rows]
-        return verse_text, phrases 
-    
+        vindices = [row[3] for row in rows]
+        phrases = [(row[1],idx) for idx,row in enumerate(rows)]
+        return verse_text, phrases,vindices 
+   
     @staticmethod
     def search_bible_phrase(era,phrase,loc,k):
         results = app.vectordb.search(era,phrase,loc,k)
         return results
+    
+    @staticmethod
+    def remove_bible_phrase(vidx):
+        app.db.execute('''
+        DELETE FROM PossibleQuoteParaphrase as p
+        WHERE p.vidx = :vidx
+        ''',
+        vidx=vidx)
+        app.db.execute('''
+        DELETE FROM BiblePhraseLabel as p
+        WHERE p.vidx = :vidx
+        ''',
+        vidx=vidx)
+        app.db.execute('''
+        DELETE FROM BiblePhrase as p
+        WHERE p.vidx = :vidx
+        ''',
+        vidx=vidx)
+        

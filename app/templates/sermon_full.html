@@ -23,8 +23,13 @@
 
 <br>
 <div class="site_body">
-    <h4><i>{{metadata[0].title}}</i></h4>
-      <h5>{{metadata[0].authors}}</h5>
+    <h2><i>{{metadata[0].title}}</i></h2>
+    <h5>
+      {% for aut in unique_aut %}
+      <a href="{{ url_for('author.find_author_references',author=aut[0],tcpID=metadata[0].tcpID)}}"><u>{{aut[0]}}</u></a>
+      <br>
+      {% endfor %}
+    </h5>
       <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
       <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
       <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
@@ -33,9 +38,10 @@
         <!-- <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a> -->
         <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a>
        </h6>
-      <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
-  <br>
-  <h4><i>Full Text</i></h4>
+       <div class="full_break">
+        <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+      </div>  <br>
+  <h4>Full Text</h4>
   <table class='table is-striped' id='sort_sidx'>
     <thead class="grey_table" >
       <tr>
@@ -62,8 +68,9 @@
     {% endfor %}
     </tbody>
   </table>
-  <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
-  <br>
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>  <br>
   <h4><i>Marginalia</i></h4>
     <table class='table is-striped' id="sort_sidx2" >
         <thead class="grey_table">

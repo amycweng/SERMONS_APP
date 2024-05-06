@@ -38,7 +38,6 @@ class Metadata:
     
     @staticmethod
     def get_author_counts():
-        # current user's ratings and reviews for all products 
         rows = app.db.execute('''
         SELECT *
         FROM Author 
@@ -46,3 +45,31 @@ class Metadata:
         author_counts = [(row[0],len(row[1].split("; "))) for row in rows]
         return author_counts
 
+    @staticmethod
+    def get_author_tcpIDs():
+        rows = app.db.execute('''
+        SELECT *
+        FROM Author 
+        ''')
+        return rows 
+    
+    @staticmethod
+    def get_tcpIDs_by_aut(author):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Author
+        WHERE author = :author 
+        ''',
+        author=author)
+        return rows 
+
+    @staticmethod
+    def get_aut_by_tcpID(tcpID):
+        tcpID = '%'+tcpID+'%'
+        rows = app.db.execute('''
+        SELECT author
+        FROM Author
+        WHERE tcpIDs LIKE :tcpID 
+        ''',
+        tcpID=tcpID)
+        return rows 

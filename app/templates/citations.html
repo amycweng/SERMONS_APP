@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    new DataTable($('#tcpIDs'), {
+      order: [[1, 'desc']],
+      pageLength:5
+    });
+  })
+  $(document).ready(function(){
+    new DataTable($('#authors'), {
+      order: [[1, 'desc']],
+      pageLength:5
+
+    });
+  })
+</script>
+<br>
+
+<div class="site_body">
+  <h3><b>Visualizations of Citations</b></h3>
+  <form action="{{ url_for('index.visualize_citations') }}" method="POST">
+    <input type="hidden" id="search" name="search" value="c">
+  <label for="book">Visualize citations of a book of the Bible:</label>
+  <select id="book" name="book">
+      <option value=""></option>
+      {% for v in books%}
+      <option value="{{v}}">{{v}}</option>
+      {% endfor %}
+  </select>
+  <input type="submit" value="Visualize" class="btn-gray"> 
+  </form>
+  {% if book_data%}
+  <img src='data:image/png;base64,{{book_data}}' style="width: 100%;"/>
+  <table class='table is-striped' id="tcpIDs">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Count of Citations of {{book}}</th>
+        <th scope="col"></th>        
+      </tr>
+    </thead>
+    <tbody>
+      {% for tcpID in tcpIDs %}
+      <tr>
+          <td>{{tcpID}}</td> 
+          <td>{{tcpIDs[tcpID]}}</td>
+          <td>
+            <a href="{{ url_for('sermon.full_text',tcpID=tcpID) }}"><u>View Full Text</u></a>
+            &VeryThinSpace;
+            <a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}"><u>View All References</u></a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <img src='data:image/png;base64,{{author_data}}' style="width: 100%;"/>
+  <table class='table is-striped' id="authors">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">Author</th>
+        <th scope="col">Count of Citations of {{book}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for aut in authors %}
+      <tr>
+          <td>
+            <a href="{{ url_for('author.find_author_references',author=aut,tcpID=book)}}"><u>{{aut}}</u></a>
+          </td> 
+          <td>{{authors[aut]}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <img src='data:image/png;base64,{{over_time}}' style="width: 100%;"/>
+  {% endif %}
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
+</div>
+<div class="site_body">
+  <img src='data:image/png;base64,{{data0}}' style="width: 100%;"/>
+  <img src='data:image/png;base64,{{data}}' style="width: 49.555%;"/>
+  <img src='data:image/png;base64,{{data2}}' style="width: 49.555%;"/>
+  <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/>
+</div>
+
+{% endblock %}

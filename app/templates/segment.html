@@ -10,13 +10,23 @@
       order: [[2, 'asc']],
 
     });
+    new DataTable($('#sort_sim'), {
+      order: [[4, 'desc']],
+
+    });
   })
 </script>
 
 <br>
 <div class="site_body">
   <h4><i>{{metadata[0].title}}</i></h4>
-  <h5>{{metadata[0].authors}}</h5>
+  <h5>
+    {% for aut in unique_aut %}
+    <a href="{{ url_for('author.find_author_references',author=aut[0],tcpID=metadata[0].tcpID)}}"><u>{{aut[0]}}</u></a>
+    <br>
+    {% endfor %}
+    
+  </h5>
   <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
   <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
   <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
@@ -26,8 +36,9 @@
      &VeryThinSpace;
      <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a>
     </h6>  
-    <img src="/static/images/border4.png"><img src="/static/images/border4.png">
-  
+    <div class="full_break">
+      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+    </div>  
   <br>
   <h4>Segment {{sidx}} located on {{loc_type.lower().capitalize()}} {{loc}}</h4>
   <table class='table is-striped' id="sort_sidx">
@@ -50,11 +61,13 @@
     </tbody>
   </table>
 
-    <img src="/static/images/border4.png"><img src="/static/images/border4.png">    
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
     <h4>Possible Citations </h4>
     <h5><a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Add</b></u></a>  
     </h5>
-    <table class='table is-striped' id="sort_sidx">
+    <table class='table is-striped' id="">
       <thead class="grey_table" >
         <tr>
           <th scope="col">Location</th>
@@ -84,33 +97,34 @@
       </tbody>
     </table>
   <br>
+  
+  <br>
   <h4>Possible Quotations or Paraphrases</h4>
-  <h5><a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Add</b></u></a>  
-  </h5>
-  <table class='table is-striped' id="sort_similarity">
+  <h5><a href="{{ url_for('sermon.edit_citations',tcpID=tcpID,sidx=sidx,loc='In-Text') }}"><u><b>Add</b></u></a> </h5> 
+  <table class='table is-striped' id="sort_sim">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Location</th>
+        <th scope="col">Location in Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
         <th scope="col">Subphrase of Verse (lemmatized)</th>
         <th scope="col">Similarity Score</th>
-        <th scope="col">Remove</th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
-      {% for q in possible_qp %}
+      {% for q in qp_candidates %}
         <tr>
-          <td>{{q.loc}}</td>
-          <td>{{q.label}}</td>
-          <td>{{q.full}}</td>
-          <td>{{q.phrase}}</td>
-          <td>{{q.score}}</td>
+          <td>{{q[0]}}</td>
+          <td>{{q[1]}}</td>
+          <td>{{q[2]}}</td>
+          <td>{{q[3]}}</td>
+          <td>{{q[4]}}</td>
           <td>
-            <form action="{{ url_for('sermon.remove_qp',tcpID=q.tcpID, sidx=q.sidx, vidx=q.vidx)}}" method="POST" >
-                <input type="hidden" id="page" name="page" value="segment">
-                <input type="submit" value="Remove" class="btn-gray"/> 
-               </form>    
+            <form action="{{ url_for('sermon.remove_qp',tcpID=tcpID, sidx=sidx, vidx=q[5])}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="segment">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
           </td>   
         </tr>
       {% endfor %}

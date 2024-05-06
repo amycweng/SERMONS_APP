@@ -12,22 +12,63 @@
     });
   })
   $(document).ready(function(){
-    // initialize a DataTable sorted by the date column 
-    // in reverse chronological order by default. Break ties alphabetically by name. 
-    new DataTable($('#sort_similarity'), {
-      order: [[4, 'desc']],
+    new DataTable($('#sort_tcpID'), {
+      order: [[0, 'asc']],
 
     });
   })
 </script>
+<script>
+function filterOptions3() {
+    var input, filter, select, option, i;
+    input = document.getElementById('searchInput3');
+    filter = input.value.toUpperCase();
+    select = document.getElementById('verse');
+    option = select.getElementsByTagName('option');
 
+    // Loop through all options and hide those that don't match the search query
+    for (i = 0; i < option.length; i++) {
+        if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            option[i].style.display = '';
+        } else {
+            option[i].style.display = 'none';
+        }
+    }
+}
+</script>
 <br>
 
 <div class="site_body">
-  <!-- <img src="/static/images/border4.png"><img src="/static/images/border4.png"> -->
+  <h3><b>Scriptural Index</b></h3>
+  <form action="{{ url_for('sermon.get_all') }}" method="POST">
+    <input type="hidden" id="search" name="search" value="c">
+  <label for="book">Find citations by selecting a book:</label>
+  <select id="book" name="book">
+      <option value=""></option>
+      {% for v in books%}
+      <option value="{{v}}">{{v}}</option>
+      {% endfor %}
+  </select>
+  <label for="searchInput3">Find possible quotes and paraphrases by filtering for a verse label: </label>
+  <input type="text" id="searchInput3" onkeyup="filterOptions3()" placeholder="Search for a verse...">
+  <br>
+  <label for="verse">Then select from the options in the dropdown menu below: </label>
+  <select id="verse" name="verse">
+      <option value=""></option>
+      {% for v in verse_ids%}
+      <option value="{{v[0]}}">{{v[0]}}</option>
+      {% endfor %}
+  </select>  
+  <input type="submit" value="Search" class="btn-gray"> 
+  </form>
 
-  <h4>Possible Citations</h4>
-
+  {% if citations %}
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
+  <br>
+    <h4><b>Citations of {{book}}</b></h4>
+  <h5><b>Variant spellings:</b> {{"; ".join(variants)}}</h5>
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
@@ -58,45 +99,41 @@
       {% endfor %}
     </tbody>
   </table>
-
+  {% endif %}
   
   <br>
-  <h4>Possible Quotations or Paraphrases</h4>
-  <table class='table is-striped' id="sort_similarity">
+  
+    {% if qp_candidates %}
+    <div class="full_break">
+      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+    </div>
+    <br>
+     <h4><b>Possible Quotations or Paraphrases of {{verse_id}}</b></h4>
+      <h5><b>Full Verse:</b> &VeryThinSpace; {{verse_text}}</h5>
+  <table class='table is-striped' id="sort_tcpID">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Index of Segment and Location</th>
-        <th scope="col">Verse of Bible</th>
-        <th scope="col">Full Verse Text</th>
-        <th scope="col">Subphrase of Verse</th>
-        <th scope="col">Similarity Score</th>
-        <th scope="col">Candidate Text</th>
-        <th scope="col">Remove</th>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Segment Text</th>
+        <th scope="col">Candidate Phrase of Verse</th>
       </tr>
     </thead>
     <tbody>
-      {% for q in possible_qp %}
+      {% for q in qp_candidates %}
         <tr>
-          <td>{{q.sidx}} <br> {{q.loc}}</td>
-          <td>{{q.label}}</td>
-          <td>{{q.full}}</td>
-          <td>{{q.phrase}}</td>
-          <td>{{q.score}}</td>
-          <td>{{qp_segments[(q.tcpID,q.sidx,q.loc)]}}
+          <td>{{q[0]}}</td>
+          <td>{{q[1]}} <br> {{q[2]}}</td>
+          <td>{{qp_segments[q]}}
             <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment Information</b></u></a>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
-          <td>
-            <form action="{{ url_for('sermon.edit_citations',tcpID=q.tcpID, sidx=q.sidx, loc ='In-Text')}}" method="POST" >
-                <input type="submit" value="Remove" class="btn-gray"/> 
-               </form>    
-          </td>   
+          <td>{{qp_candidates[q]}}</td>
         </tr>
       {% endfor %}
     </tbody>
   </table>
-</div>
-
+{% endif %}
 </div>
 
 {% endblock %}

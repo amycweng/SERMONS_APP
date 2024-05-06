@@ -20,30 +20,14 @@
 <br>
 
 <div class="site_body">
-  <h2><i>{{metadata[0].title}}</i></h2>
-  <h5>
-    {% for aut in unique_aut %}
-    <a href="{{ url_for('author.find_author_references',author=aut[0],tcpID=metadata[0].tcpID)}}"><u>{{aut[0]}}</u></a>
-    <br>
-    {% endfor %}
-  </h5>
-  <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
-  <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
-  <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
-  <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
-  <h6>   
-     <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a>
-      <!-- <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a> -->
-    </h6>  
-    <div class="full_break">
-      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-    </div>  
+ <h3><b>{{author}}</b></h3>
   <br>
   <h4>Citations</h4>
 
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
+        <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Index of Citation in Segment</th>
         <th scope="col">Parsed Citation(s)</th>
@@ -55,6 +39,7 @@
     <tbody>
       {% for c in citations%}
         <tr>
+          <td>{{c.tcpID}}</td>
           <td>{{c.sidx}} <br> {{c.loc}}</td>
           <td>{{c.cidx}}</td>
           <td>{{c.citation}}</td>
@@ -76,6 +61,7 @@
   <table class='table is-striped' id="sort_sidx2">
     <thead class="grey_table" >
       <tr>
+        <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Segment Text</th>
       </tr>
@@ -83,10 +69,11 @@
     <tbody>
       {% for q in qp_candidates %}
         <tr>
-          <td>{{q[1]}} <br> {{q[2]}}</td>
-          <td>{{qp_segments[q]}}
+           <td>{{q.tcpID}}</td>
+          <td>{{q.sidx}} <br> {{q.loc}}</td>
+          <td>{{qp_segments[(q.tcpID,q.sidx,q.loc)]}}
             <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
         </tr>
       {% endfor %}

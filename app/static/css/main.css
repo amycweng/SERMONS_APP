@@ -16,15 +16,34 @@ a:hover {
     background: #FFF;
 }
 
+.link-button {
+  background: none;
+  border: none;
+  color: #7b7d85;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 1em;
+  font-family: serif;
+}
+.link-button:focus {
+  outline: none;
+}
+.link-button:active {
+  color:#7b7d85;
+}
+
 .site_body {
   padding-top: 25px;
   padding-left: 75px;
   padding-right: 75px;
   padding-bottom: 25px
 }
-
 .site_body img {
-  width: 400px;
+  width: 50%;
+}
+
+.full_break img {
+  width: 33%;
 }
 
 .site_body a {

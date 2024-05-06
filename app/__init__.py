@@ -17,4 +17,6 @@ def create_app():
     from .sermon import bp as sermon_bp
     app.register_blueprint(sermon_bp)
 
+    from .author import bp as author_bp
+    app.register_blueprint(author_bp)
     return app

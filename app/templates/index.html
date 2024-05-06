@@ -38,7 +38,9 @@
           <td>
             <a href="{{ url_for('sermon.get_citations',tcpID=s.tcpID) }}"><b>{{s.title}}</b></a>
           </td>
-          <td>{{s.authors}}</td>
+          <td>
+              {{s.authors}}
+          </td>
           <td>{{s.publisher}}</td>
           <td>{{s.pubyear}}</td>
           <td>{{s.pubplace}}</td>
