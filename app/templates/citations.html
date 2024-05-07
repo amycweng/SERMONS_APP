@@ -35,6 +35,9 @@
   <input type="submit" value="Visualize" class="btn-gray"> 
   </form>
   {% if book_data%}
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
   <img src='data:image/png;base64,{{book_data}}' style="width: 100%;"/>
   <table class='table is-striped' id="tcpIDs">
     <thead class="grey_table" >
@@ -54,6 +57,7 @@
       <tr>
           <td>{{tcpID}}
             <br>  
+            <br>
               <a href="{{ url_for('sermon.full_text',tcpID=tcpID) }}"><u>View Full Text</u></a>
               <br><br>
               <a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}"><u>View All References</u></a>          
@@ -87,7 +91,7 @@
       {% for aut in authors %}
       <tr>
           <td>
-            <a href="{{ url_for('author.find_author_references',author=aut,tcpID=book)}}"><u>{{aut}}</u></a>
+            <a href="{{ url_for('author.find_author_references',author=aut)}}"><u>{{aut}}</u></a>
           </td> 
           <td>{{authors[aut]}}</td>
         </tr>
@@ -97,6 +101,8 @@
 
   <img src='data:image/png;base64,{{over_time}}' style="width: 100%;"/>
   {% endif %}
+
+{% if not book %}
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>
@@ -107,5 +113,6 @@
   <img src='data:image/png;base64,{{data2}}' style="width: 49.555%;"/>
   <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/>
 </div>
+{% endif %}
 
 {% endblock %}

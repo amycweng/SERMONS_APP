@@ -98,8 +98,7 @@ def remove_qp(tcpID,sidx,vidx):
         page = request.form['page']
         if page == 'segment':
             return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
-        elif page == 'quoteparaphrase':
-            return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
+        else: return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
 @bp.route('/<tcpID>/add/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
@@ -109,10 +108,9 @@ def add_qp(tcpID,sidx,loc,verse_id):
         page = request.form['page']
         if page == 'segment':
             return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
-        elif page == 'quoteparaphrase':
-            return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
         elif page == "search": 
             return redirect(url_for('sermon.semantic_search_verse_get',verse_id=verse_id))
+        else: return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
 @bp.route('/<tcpID>/remove/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
@@ -259,11 +257,11 @@ def get_segment_and_notes(tcpID,sidx):
         if sidx != entry.sidx: continue
         found = False 
         for a in actual_qp: 
-            if a[0] == tcpID and a[1] == sidx and a[2] == entry.loc: 
+            if a[0] == tcpID and a[1] == sidx and a[2] == entry.loc and a[3] == entry.label: 
                 found = True 
         if not found: 
             qp_candidates.append((entry.loc,entry.label,entry.full,entry.phrase,entry.score,entry.vidx))
-    
+    if len(qp_candidates) == 0: qp_candidates = None 
     return render_template('segment.html',
                         metadata=metadata,
                         locations=locations,
@@ -409,3 +407,50 @@ def semantic_search_verse():
                                verse_text=verse_text,
                                phrases=phrases)
     return render_template('search.html',verse_ids=verse_ids)
+
+@bp.route('/search/bible/<tcpID>/<sidx>', methods=['POST','GET'])
+def search_in_bible(tcpID, sidx):
+    if request.method == 'POST':
+        metadata = Metadata.get_by_tcpID(tcpID)
+        segment = []
+        locations = ["In-Text"]
+        s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
+        unique_aut = Metadata.get_aut_by_tcpID(tcpID)
+        sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
+        segment.append((s.tokens, s.lemmatized,"In-Text"))
+        notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
+        for n in notes: 
+            segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
+            locations.append(f"Note {n.nidx}")
+        search = request.form['phrase']
+        loc = request.form['loc']
+        k = int(request.form['k'])
+        results = QuoteParaphrase.search_in_bible(search,k)
+        actual_qp = QuoteParaphrase.get_actual_by_tcpID_sidx(tcpID,sidx)
+        qp_candidates = []
+        for vidx in results: 
+            hits = QuoteParaphrase.get_bible_verse_by_vidx(vidx)
+            for label, phrase, full in hits: 
+                found = False
+                for a in actual_qp: 
+                    if a[2] == loc and a[3] == label: 
+                        found = True 
+                if not found: 
+                    qp_candidates.append((loc,label,full,phrase,vidx))
+        if len(qp_candidates) == 0: qp_candidates = None
+        return render_template('search_bible.html',
+                        metadata=metadata,
+                        locations=locations,
+                        tcpID=tcpID,
+                        phrase=search,
+                        unique_aut=unique_aut,
+                        segment = segment,
+                        sidx =sidx,
+                        actual_qp=actual_qp,
+                        qp_candidates=qp_candidates,
+                        loc_type=loc_type,
+                        loc=loc,
+                        notes=notes)
+
+        
+    return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))

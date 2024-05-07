@@ -97,23 +97,27 @@ def visualize():
     fig.clear()
 
     # publication place 
+    pubplaces = Metadata.get_pubplace()
+    pubplaces = {s[0]:s[1] for s in pubplaces}
     places = []
     london = []
-    for s in sermons: 
-        found = False
-        if re.search(r"London|Londini|Londres|Londo n|london|Londom|Londoon|londun",s.pubplace):
+    for s in sermons:
+        found = False 
+        place = pubplaces[s.tcpID]
+        if re.search(r"London",place):
             london.append('London')
             places.append('London')
-            found=True
+            found = True 
         else: 
             london.append('Not London')
-        if re.search(r"Oxon|Oxford",s.pubplace):
+        if re.search(r"Oxford",place):
             places.append('Oxford')
             found=True
-        if re.search('Boston',s.pubplace):
+        if re.search('Boston',place):
             places.append('Boston')
+            found = True 
         if not found: 
-            places.append(s.pubplace)
+            places.append(place)
     
     fig = Figure(figsize=(15, 8))
     london_ax,ax= fig.subplots(1,2)
@@ -150,9 +154,11 @@ def parse_citations(citations, loc="all"):
     for c in citations: 
         for citation in c.citation.split("; "): 
             if "-" in citation: 
-                citation = citation.split(".")
-                bookchap = citation[0]
-                start, end = citation[1].split("-")
+                nums = re.findall(r"\d+",citation)
+                bookchap = re.findall(r"^[ \w+]+\d+",citation)
+                if len(bookchap) == 0: continue
+                bookchap = bookchap[0]
+                start, end = nums[-2],nums[-1]
                 for num in range(int(start),int(end)+1):
                     cited.append((f"{bookchap}.{num}",c.tcpID))
             else: 
@@ -223,9 +229,11 @@ def citation_over_time(citations, search):
         cited = []
         for citation in c.citation.split("; "): 
             if "-" in citation: 
-                citation = citation.split(".")
-                bookchap = citation[0]
-                start, end = citation[1].split("-")
+                nums = re.findall(r"\d+",citation)
+                bookchap = re.findall(r"^[ \w+]+\d+",citation)
+                if len(bookchap) == 0: continue
+                bookchap = bookchap[0]
+                start, end = nums[-2],nums[-1]
                 for num in range(int(start),int(end)+1):
                     cited.append(f"{bookchap}.{num}")
             else: cited.append(citation)
@@ -260,9 +268,11 @@ def visualize_over_time(results,search):
     ax = fig.subplots()
     ax.bar(years,marg,color="lightgrey",label="Marginal")
     ax.bar(years,text,bottom=marg,color="darkgrey",label="In-Text")
-    ax.scatter(years,sermons,color="black",label="Number of Books")
     if len(search) == 0: 
         ax.set_title("All Known Citations Over Time",fontsize=20,fontdict={'family': 'serif'})
+    else: 
+        ax.set_title(f"All Known Citations Over Time of {search}",fontsize=20,fontdict={'family': 'serif'})
+        ax.scatter(years,sermons,color="black",label="Number of Books")
     ax.set_xlabel("Publication Year", fontsize=15,fontdict={'family': 'serif'})
     ax.set_ylabel("Frequency", fontsize=15,fontdict={'family': 'serif'})
     ax.set_xticks(np.arange(min(years),max(years), 5.0))
@@ -291,6 +301,7 @@ def visualize_citations():
     metadata = {}
     tcpIDs, authors = None, None
     books = get_books_citations()
+    data0,data,data2,data3 = None, None, None, None 
     if request.method == 'POST':
         book = request.form['book']
         if len(book) > 0: 
@@ -314,25 +325,27 @@ def visualize_citations():
                 metadata[tcpID] = Metadata.get_by_tcpID(tcpID)[0]
             tcpIDs = {k:len(v) for k,v in tcpIDs.items()}
             authors = {k:len(v) for k,v in authors.items()}
+        else: book = None 
+    
+    if book is None: 
+        citations = Citation.get_all()
+        marg, text, data0 = citation_over_time(citations,'')
 
-    citations = Citation.get_all()
-    marg, text, data0 = citation_over_time(citations,'')
+        b, c, v = parse_citations(citations)
+        title='Most Frequent Citations of Books'
+        xlabel= 'Count of Citations'
+        ylabel='Book'
+        x,y,data = visualize_dict_horizontal(title,xlabel,ylabel,b) 
 
-    b, c, v = parse_citations(citations)
-    title='Most Frequent Citations of Books'
-    xlabel= 'Count of Citations'
-    ylabel='Book'
-    x,y,data = visualize_dict_horizontal(title,xlabel,ylabel,b) 
+        title='Most Frequent Citations of Chapters'
+        xlabel= 'Count of Citations'
+        ylabel='Chapter'
+        x,y,data2 = visualize_dict_horizontal(title,xlabel,ylabel,c)     
 
-    title='Most Frequent Citations of Chapters'
-    xlabel= 'Count of Citations'
-    ylabel='Chapter'
-    x,y,data2 = visualize_dict_horizontal(title,xlabel,ylabel,c)     
-
-    title='Most Frequent Citations of Verses'
-    xlabel= 'Count of Citations'
-    ylabel='Verse'
-    x,y,data3 = visualize_dict_horizontal(title,xlabel,ylabel,v)  
+        title='Most Frequent Citations of Verses'
+        xlabel= 'Count of Citations'
+        ylabel='Verse'
+        x,y,data3 = visualize_dict_horizontal(title,xlabel,ylabel,v)  
 
     return render_template('citations.html',
                            books=books,

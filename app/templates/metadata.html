@@ -82,7 +82,7 @@
             {% for author,count in author_counts %}
             <tr>
                 <td>
-                  <a href="{{ url_for('author.find_author_references',author=author,tcpID=author)}}"><u>{{author}}</u></a>
+                  <a href="{{ url_for('author.find_author_references',author=author,tcpID='View Author')}}"><u>{{author}}</u></a>
 
                 </td> 
                 <td>{{count}}</td>
@@ -105,7 +105,10 @@
       <tbody>
         {% for item,count in places %}
         <tr>
-            <td>{{item}}</td> 
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=item)}}"><u>{{item}}</u></a>
+              
+            </td> 
             <td>{{count}}</td>
           </tr>
         {% endfor %}

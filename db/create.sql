@@ -12,8 +12,14 @@ CREATE TABLE Sermon(
 );
 
 CREATE TABLE Author(
-  author TEXT NOT NULL PRIMARY KEY, -- unique author 
-  tcpIDs text NOT NULL 
+  author TEXT NOT NULL,
+  tcpID text NOT NULL, 
+  PRIMARY KEY (author, tcpID)
+);
+
+CREATE TABLE Pubplace(
+  tcpID TEXT NOT NULL PRIMARY KEY, 
+  pubplace text NOT NULL
 );
 
 CREATE TABLE Segment(

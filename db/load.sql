@@ -1,6 +1,7 @@
 \COPY Sermon FROM 'sermons.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Sermon FROM 'sermons_missing.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Author FROM 'authors.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Pubplace FROM 'pubplace.csv' WITH DELIMITER ',' NULL '' CSV
 
 \COPY Segment FROM 'pre-Elizabethan/A0_body.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Segment FROM 'pre-Elizabethan/A1_body.csv' WITH DELIMITER ',' NULL '' CSV
@@ -29,6 +30,46 @@
 \COPY Marginalia FROM 'Elizabethan/A7_margin.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Marginalia FROM 'Elizabethan/B_margin.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY Citation FROM 'Elizabethan/citations.csv' WITH DELIMITER ',' NULL '' CSV
+
+\COPY Segment FROM 'Jacobean/A0_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/A1_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/A2_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/A6_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/A7_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/A8_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Jacobean/B_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A0_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A1_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A2_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A6_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A7_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/A8_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Jacobean/B_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Citation FROM 'Jacobean/citations.csv' WITH DELIMITER ',' NULL '' CSV
+
+\COPY Segment FROM 'Carolinian/A0_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A1_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A2_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A3_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A4_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A5_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A6_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A7_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A8_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/A9_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Segment FROM 'Carolinian/B_body.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A0_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A1_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A2_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A3_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A4_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A5_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A6_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A7_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A8_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/A9_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Marginalia FROM 'Carolinian/B_margin.csv' WITH DELIMITER ',' NULL '' CSV
+\COPY Citation FROM 'Carolinian/citations.csv' WITH DELIMITER ',' NULL '' CSV
 
 \COPY Bible FROM 'kjv.csv' WITH DELIMITER ',' NULL '' CSV
 \COPY BiblePhrase FROM 'bible_phrases.csv' WITH DELIMITER ',' NULL '' CSV

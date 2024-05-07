@@ -63,12 +63,14 @@
             <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
           </div>
           <div class="banner-header"> 
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata of Sermons</a>
-            <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Metadata</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Sermons</a>
+            <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata</a>
             <a href="{{ url_for('sermon.get_all') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
             <a href="{{ url_for('index.visualize_citations') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Citations</a>
             <a href="{{ url_for('sermon.semantic_search') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
             <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Download</a>
+
           </div>
       </header>
       {% endblock %}
@@ -106,7 +108,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">Copyright &copy; 
+        <p class="copyright-text">&copy; 2024 Amy Weng 
         </p>
       </div>
     </div>

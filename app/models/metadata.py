@@ -42,7 +42,11 @@ class Metadata:
         SELECT *
         FROM Author 
         ''')
-        author_counts = [(row[0],len(row[1].split("; "))) for row in rows]
+        author_counts = {}
+        for a,t in rows: 
+            if a not in author_counts: author_counts[a] = 0 
+            author_counts[a] += 1 
+        author_counts = [(a,num) for a,num in author_counts.items()]
         return author_counts
 
     @staticmethod
@@ -53,6 +57,44 @@ class Metadata:
         ''')
         return rows 
     
+    @staticmethod
+    def get_pubplace_tcpID(tcpID):
+        rows = app.db.execute('''
+        SELECT *
+        FROM Pubplace
+        WHERE tcpID = :tcpID 
+        ''',tcpID=tcpID)
+        return rows
+
+    @staticmethod
+    def update_pubplace(old, new):
+        rows = app.db.execute('''
+        UPDATE Pubplace 
+        SET pubplace = :new
+        WHERE pubplace = :old 
+        ''',
+        old=old,
+        new=new)
+        return rows
+    
+    @staticmethod
+    def get_pubplace():
+        rows = app.db.execute('''
+        SELECT *
+        FROM Pubplace
+        ''')
+        return rows
+    
+    @staticmethod
+    def get_pubplace_phrase(phrase):
+        phrase = "%"+phrase+"%"
+        rows = app.db.execute('''
+        SELECT *
+        FROM Pubplace
+        WHERE pubplace LIKE :phrase
+        ''',phrase=phrase)
+        return rows
+     
     @staticmethod
     def get_tcpIDs_by_aut(author):
         rows = app.db.execute('''
@@ -65,11 +107,10 @@ class Metadata:
 
     @staticmethod
     def get_aut_by_tcpID(tcpID):
-        tcpID = '%'+tcpID+'%'
         rows = app.db.execute('''
         SELECT author
         FROM Author
-        WHERE tcpIDs LIKE :tcpID 
+        WHERE tcpID = :tcpID
         ''',
         tcpID=tcpID)
         return rows 

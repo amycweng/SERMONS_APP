@@ -21,6 +21,17 @@ class Citation:
         return [Citation(*row) for row in rows]
     
     @staticmethod
+    def get_by_aut(aut):
+        rows = app.db.execute('''
+        SELECT c.tcpID,sidx,loc,cidx,citation,outlier,replaced
+        FROM Citation as c, Author as a 
+        WHERE c.tcpID = a.tcpID 
+        AND a.author = :aut 
+        ''',
+        aut = aut)
+        return [Citation(*row) for row in rows]
+    
+    @staticmethod
     def get_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
         SELECT *
@@ -178,6 +189,18 @@ class QuoteParaphrase:
         return rows 
     
     @staticmethod
+    def get_actual_by_aut(aut):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        FROM QuoteParaphrase as p, Bible as b,Author as a  
+        WHERE b.verse_id = p.verse_id
+        AND p.tcpID = a.tcpID 
+        AND a.author = :aut 
+        ''',
+        aut = aut)
+        return rows 
+    
+    @staticmethod
     def get_actual_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
         SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
@@ -278,8 +301,25 @@ class QuoteParaphrase:
         return verse_text,lemmatized, phrases,vindices 
    
     @staticmethod
+    def get_bible_verse_by_vidx(vidx):
+        rows = app.db.execute('''
+        SELECT b.verse_id,bp.phrase,Bible.verse_text
+        FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
+        WHERE Bible.verse_id = b.verse_id 
+        AND b.vidx = bp.vidx
+        AND b.vidx = :vidx
+        ''',
+        vidx=vidx)
+        return rows 
+
+    @staticmethod
     def search_bible_phrase(era,phrase,loc,k):
         results = app.vectordb.search(era,phrase,loc,k)
+        return results
+    
+    @staticmethod
+    def search_in_bible(phrase,k):
+        results = app.vectordb.search_bible(phrase,k)
         return results
     
     @staticmethod

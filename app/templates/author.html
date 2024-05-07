@@ -13,6 +13,10 @@
       order: [[0, 'asc']],
       pageLength:5
     });
+    new DataTable($('#sort_qp'), {
+      order: [[0, 'asc']],
+      pageLength:5
+    });
   })
 
 </script>
@@ -63,6 +67,41 @@
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>  
+  <br>
+  <h3>Actual Quotations or Paraphrases</h3>
+  <table class='table is-striped' id="sort_qp">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Verse of Bible</th>
+        <th scope="col">Full Verse Text</th>
+        <th scope="col">Remove Reference</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for q in actual_qp %}
+        <tr>
+          <td>{{q[0]}}</td>
+          <td>{{q[1]}}<br>{{q[2]}}
+            <br>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+          </td>
+          <td>{{q[3]}}
+            <br>
+              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u><b>Search for Verse</b></u></a>
+          </td>
+          <td>{{q[4]}}</td>
+          <td>
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="segment">
+              <input type="submit" value="Remove" class="btn-gray"/> 
+             </form>   
+          </td>  
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
   <br>
   <h4>Possible Quotations or Paraphrases</h4>
   <table class='table is-striped' id="sort_sidx2">
