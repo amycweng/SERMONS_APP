@@ -60,6 +60,10 @@ CREATE TABLE Citation(
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
 
+CREATE TABLE BibleVersion(
+  tcpID VARCHAR(30) NOT NULL PRIMARY KEY REFERENCES Sermon(tcpID),
+  ver TEXT NOT NULL -- version of the Bible   
+);
 
 CREATE TABLE Bible(
   verse_id VARCHAR(500) NOT NULL PRIMARY KEY,
@@ -99,6 +103,7 @@ CREATE TABLE QuoteParaphrase( -- certain, verified quotations/paraphrases
   sidx INT NOT NULL, -- segment in which the hit is located 
   loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
   verse_id TEXT NOT NULL REFERENCES Bible(verse_id), -- verse identifier  
+  phrase TEXT NOT NULL, 
   PRIMARY KEY (tcpID, sidx, loc, verse_id), 
   FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
 );

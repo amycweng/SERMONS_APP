@@ -126,7 +126,7 @@ function filterOptions3() {
         <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Verse of Bible</th>
-        <th scope="col">Segment Text</th>
+        <th scope="col">Phrase of Segment</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
@@ -136,7 +136,7 @@ function filterOptions3() {
           <td>{{q[0]}}</td>
           <td>{{q[1]}}<br>{{q[2]}}</td>
           <td>{{q[3]}}</td>
-          <td>{{qp_segments[(q[0],q[1],q[2])]}}
+          <td>{{q[4]}}
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
@@ -180,6 +180,8 @@ function filterOptions3() {
           <td> 
             <form action="{{ url_for('sermon.add_qp',tcpID=q[0], sidx=q[1], verse_id=verse_id,loc=q[2])}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
+              <label for="phrase">Phrase of Text</label>
+              <input type="text" id="phrase" name="phrase">
               <input type="submit" value="Add As Reference" class="btn-gray"/> 
              </form> 
           </td> 

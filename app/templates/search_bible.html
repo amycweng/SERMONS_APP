@@ -18,9 +18,9 @@
       order: [[0, 'asc']],
       pageLength:5
     });
-    new DataTable($('#sort_citation'), {
-      order: [[0, 'asc']],
-
+    new DataTable($('#unsorted'), {
+      // order: [[0, 'asc']],
+      pageLength:5
     });
   })
 </script>
@@ -129,13 +129,12 @@
    </form>
    <br>
    <h4><b>Search phrase:</b> &VeryThinSpace; {{phrase}}</h4>
-  <table class='table is-striped' id="sort_qp">
+  <table class='table is-striped' id="unsorted">
     <thead class="grey_table" >
       <tr>
         <th scope="col">Location in Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
-        <!-- <th scope="col">Subphrase of Verse (lemmatized)</th> -->
         <th scope="col">Add As Actual Reference</th>
       </tr>
     </thead>
@@ -148,10 +147,10 @@
               <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[1]) }}"><u>Search for Verse</u></a>
           </td>
           <td>{{q[2]}}</td>
-          <!-- <td>{{q[3]}}</td> -->
           <td> 
             <form action="{{ url_for('sermon.add_qp',tcpID=tcpID, sidx=sidx, verse_id=q[1],loc=q[0])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
+              <input type="hidden" id="page" name="page" value="search_bible">
+              <input type="hidden" id="phrase" name="phrase" value="{{phrase}}">
               <input type="submit" value="Add As Reference" class="btn-gray"/> 
              </form> 
           </td> 

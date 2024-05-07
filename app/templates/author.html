@@ -76,6 +76,7 @@
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
+        <th scope="col">Phrase of Segment</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
@@ -92,6 +93,7 @@
               <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u><b>Search for Verse</b></u></a>
           </td>
           <td>{{q[4]}}</td>
+          <td>{{q[5]}}</td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">

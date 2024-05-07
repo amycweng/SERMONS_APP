@@ -44,6 +44,7 @@
       <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
     </div>  
   <br>
+  <br>
   <h4>Citations</h4>
   <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
     For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
@@ -53,6 +54,8 @@
     and Roman numerals have been converted to integers. 
   </p>
   <p>To edit a citation, navigate to the page of its segment and notes by clicking the button in the rightmost column.</p>
+  <h5>Version of Bible: {{biblever}}</h5>
+
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
@@ -92,6 +95,7 @@
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
+        <th scope="col">Phrase of Segment</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
@@ -106,6 +110,7 @@
             <br>
               <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u>Search for Verse</u></a>
           </td>
+          <td>{{q[5]}}</td>
           <td>{{q[4]}}</td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=tcpID, sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >

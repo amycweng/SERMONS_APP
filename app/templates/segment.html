@@ -73,6 +73,7 @@
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>
+  <br>
     <h3>Citations </h3>
     </h5>
     <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
@@ -90,6 +91,7 @@
       the indices of the other citations within the body text or particular note must first be shifted to ensure 
       that each index is unique for each location. To only update a citation's index, leave the first text box blank.
     </p>
+    <h5>Version of Bible: {{biblever}}</h5>
     <table class='table is-striped' id="sort_citation">
       <thead class="grey_table" >
         <tr>
@@ -137,6 +139,20 @@
         {% endfor %}
       </tbody>
     </table>
+    <form action="{{ url_for('sermon.edit_version',tcpID=tcpID)}}" method="POST" >
+      <input type="hidden" id="sidx" name="sidx" value="{{sidx}}">
+      <label for="ver"><h5><b>Edit Version of Bible:</b> </h5></label>
+       &VeryThinSpace;
+        <select id="ver" name="ver" REQUIRED>
+          <option value="" disabled selected></option>
+          <option value="King James Version">King James Version</option>
+          <option value="King James Version">Geneva Version</option>
+          <option value="Douay–Rheims Bible">Douay–Rheims Bible</option>
+          <option value="Vulgate">Vulgate</option>
+      </select>
+      <input type="submit" value="Submit" class="btn-gray"/>
+    </form>
+
     <h5><b>Add New Citation:</b> </h5>
     <form action="{{ url_for('sermon.add_citation',tcpID=tcpID,sidx=sidx)}}" method="POST" >
       <label for="loc">Location of new citation: </label>
@@ -154,7 +170,7 @@
       <br>
       <label for="parsed">Parsed Citation: </label>
       <input type="text" id="parsed" name="parsed" REQUIRED>
-      <input type="submit" value="Add" class="btn-gray"/> 
+      <input type="submit" value="Submit" class="btn-gray"/> 
      </form> 
   <br>
 
@@ -170,6 +186,7 @@
         <th scope="col">Location in Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
+        <th scope="col">Phrase of Segment</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
@@ -182,6 +199,7 @@
               <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u>Search for Verse</u></a>
           </td>
           <td>{{q[4]}}</td>
+          <td>{{q[5]}}</td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=tcpID, sidx=sidx, loc=q[2],verse_id=q[3])}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
@@ -255,6 +273,8 @@
           <td> 
             <form action="{{ url_for('sermon.add_qp',tcpID=tcpID, sidx=sidx, verse_id=q[1],loc=q[0])}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
+              <label for="phrase">Phrase of Text</label>
+              <input type="text" id="phrase" name="phrase">
               <input type="submit" value="Add As Reference" class="btn-gray"/> 
              </form> 
           </td> 

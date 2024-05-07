@@ -12,6 +12,7 @@ bp = Blueprint('sermon', __name__)
 def get_citations(tcpID):
     metadata = Metadata.get_by_tcpID(tcpID)
     citations = Citation.get_by_tcpID(tcpID) 
+    biblever = Citation.get_ver_by_tcpID(tcpID)
     unique_aut = Metadata.get_aut_by_tcpID(tcpID)
     possible_qp = QuoteParaphrase.get_by_tcpID(tcpID)
     actual_qp = QuoteParaphrase.get_actual_by_tcpID(tcpID)
@@ -47,6 +48,7 @@ def get_citations(tcpID):
                         citations = citations,
                         unique_aut=unique_aut,
                         actual_qp=actual_qp,
+                        biblever=biblever,
                         metadata=metadata,
                         qp_candidates=qp_candidates,
                         qp_segments=qp_segments
@@ -81,6 +83,20 @@ def edit_citation(tcpID,sidx,loc):
             Citation.update_text(tcpID,sidx,loc,cidx,new)
     return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
 
+@bp.route('/<tcpID>/references/version', methods=['POST','GET'])
+def edit_version(tcpID):
+    if request.method == "POST": 
+        ver = request.form['ver']
+        sidx = request.form['sidx']
+        current = Citation.get_ver_by_tcpID(tcpID)
+        if current == 'Unknown': 
+            Citation.add_ver(tcpID,ver)
+        else: 
+            Citation.update_ver(tcpID,ver)
+        return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
+    return redirect(url_for('sermon.get_citations',tcpID=tcpID))
+
+
 @bp.route('/<tcpID>/references/<int:sidx>/add', methods=['POST','GET'])
 def add_citation(tcpID,sidx):
     if request.method == "POST": 
@@ -104,12 +120,16 @@ def remove_qp(tcpID,sidx,vidx):
 @bp.route('/<tcpID>/add/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
 def add_qp(tcpID,sidx,loc,verse_id):
     if request.method == 'POST':
-        QuoteParaphrase.add_qp(tcpID,sidx,loc,verse_id)  
+        phrase = request.form['phrase']
+        QuoteParaphrase.add_qp(tcpID,sidx,loc,verse_id,phrase)  
         page = request.form['page']
         if page == 'segment':
             return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
         elif page == "search": 
             return redirect(url_for('sermon.semantic_search_verse_get',verse_id=verse_id))
+        elif page == "search_bible":
+            phrase = request.form['phrase'] 
+            return redirect(url_for('sermon.search_in_bible',tcpID=tcpID,verse_id=verse_id,sidx=sidx,phrase=phrase))
         else: return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
@@ -163,11 +183,9 @@ def get_all():
                 if a[2] == "In-Text": 
                     key = (a[0],a[1],a[2])
                     segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
-                    qp_segments[key] = segment 
                 else:
                     nidx = int(a[2].split(" ")[-1])
                     segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
-                    qp_segments[key] = segment 
             for phrase, idx in phrases:
                 vidx = indices[idx]
                 possible_qp =  QuoteParaphrase.get_by_vidx(vidx)
@@ -220,6 +238,7 @@ def get_segment_and_notes(tcpID,sidx):
         segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
         locations.append(f"Note {n.nidx}")
     
+    biblever = Citation.get_ver_by_tcpID(tcpID)
     citations_list = Citation.get_by_tcpID_sidx(tcpID,sidx)
     c_dict = {'in-text':{0:[]},'marginal':{},'t_outlier':{0:[]},'m_outlier':{}}
     citations = []
@@ -264,6 +283,7 @@ def get_segment_and_notes(tcpID,sidx):
     if len(qp_candidates) == 0: qp_candidates = None 
     return render_template('segment.html',
                         metadata=metadata,
+                        biblever=biblever,
                         locations=locations,
                         tcpID=tcpID,
                         unique_aut=unique_aut,
@@ -409,11 +429,12 @@ def semantic_search_verse():
     return render_template('search.html',verse_ids=verse_ids)
 
 @bp.route('/search/bible/<tcpID>/<sidx>', methods=['POST','GET'])
-def search_in_bible(tcpID, sidx):
+def search_in_bible(tcpID, sidx,phrase=None):
     if request.method == 'POST':
         metadata = Metadata.get_by_tcpID(tcpID)
         segment = []
         locations = ["In-Text"]
+        biblever = Citation.get_ver_by_tcpID(tcpID)
         s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
         unique_aut = Metadata.get_aut_by_tcpID(tcpID)
         sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
@@ -443,6 +464,7 @@ def search_in_bible(tcpID, sidx):
                         locations=locations,
                         tcpID=tcpID,
                         phrase=search,
+                        biblever=biblever,
                         unique_aut=unique_aut,
                         segment = segment,
                         sidx =sidx,

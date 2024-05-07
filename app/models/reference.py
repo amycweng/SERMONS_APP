@@ -76,6 +76,17 @@ class Citation:
         return [Citation(*row) for row in rows]
 
     @staticmethod
+    def get_ver_by_tcpID(tcpID):
+        rows = app.db.execute('''
+        SELECT ver
+        FROM BibleVersion
+        WHERE tcpID = :tcpID
+        ''',tcpID=tcpID)
+        if len(rows) == 0: 
+            return 'Unknown'
+        return rows[0][0] 
+    
+    @staticmethod
     def remove_citation(tcpID, sidx,loc,cidx):
         app.db.execute('''
         DELETE FROM Citation 
@@ -118,7 +129,24 @@ class Citation:
         sidx=sidx,
         cidx=cidx,
         loc=loc)
+    
+    @staticmethod
+    def update_ver(tcpID, ver):
+        app.db.execute("""
+        UPDATE BibleVersion 
+        SET ver = :ver                      
+        WHERE tcpID = :tcpID 
+        """,
+        tcpID = tcpID,
+        ver=ver)
 
+    @staticmethod
+    def add_ver(tcpID, ver):
+        app.db.execute("""
+        INSERT INTO BibleVersion VALUES (:tcpID,:ver)
+        """,
+        tcpID = tcpID,
+        ver=ver)
     @staticmethod
     def add_citation(tcpID, sidx,loc,cidx,citation,replaced):
         app.db.execute("""
@@ -144,14 +172,15 @@ class QuoteParaphrase:
         self.full = full
 
     @staticmethod
-    def add_qp(tcpID, sidx,loc,verse_id):
+    def add_qp(tcpID, sidx,loc,verse_id,phrase):
         app.db.execute("""
-        INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id)  
+        INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:phrase)  
         """,
         tcpID = tcpID,
         sidx=sidx,
         verse_id=verse_id,
-        loc=loc)
+        loc=loc,
+        phrase=phrase)
 
     @staticmethod
     def remove_actual_qp(tcpID, sidx,loc,verse_id):
@@ -169,10 +198,9 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_verse_id(verse_id):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
-        FROM QuoteParaphrase as p, Bible as b 
+        SELECT *
+        FROM QuoteParaphrase as p
         WHERE p.verse_id = :verse_id
-        AND b.verse_id = p.verse_id
         ''',
         verse_id = verse_id)
         return rows 
@@ -180,7 +208,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_tcpID(tcpID):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.phrase,b.verse_text
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
@@ -191,7 +219,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_aut(aut):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text,p.phrase
         FROM QuoteParaphrase as p, Bible as b,Author as a  
         WHERE b.verse_id = p.verse_id
         AND p.tcpID = a.tcpID 
@@ -203,7 +231,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text,p.phrase
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
