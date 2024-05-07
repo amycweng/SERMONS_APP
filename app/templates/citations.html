@@ -5,6 +5,14 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+
   $(document).ready(function(){
     new DataTable($('#tcpIDs'), {
       order: [[1, 'desc']],
@@ -44,9 +52,8 @@
   <form action="{{ url_for('index.visualize_citations') }}" method="POST">
     <input type="hidden" id="search" name="search" value="c">
     <label for="searchInput">Filter selection by typing a label here: </label>
-    <input type="text" id="searchInput" onkeyup="filterOptions()">
-    <br>
-    <label for="item">Then select from the options in the dropdown menu below:</label>
+    <input type="text" id="searchInput" onkeyup="filterOptions()" placeholder="Book, chapter, or verse">
+    <label for="item">Then select from the options in the dropdown menu:</label>
   <select id="item" name="item" REQUIRED>
     <option value="" disabled selected></option>
     {% for v in books%}

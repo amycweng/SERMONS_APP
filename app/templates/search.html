@@ -4,6 +4,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+    (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
   $(document).ready(function(){
     new DataTable($('#bible'), {
       order: [[0, 'asc']],
@@ -53,7 +60,7 @@ function filterOptions3() {
             <option value="pre-Elizabethan">pre-Elizabethan</option>
         </select>
         <br>
-        <label for="verse">Then select from the options in the dropdown menu below: </label>
+        <label for="verse">Then select from the options in the dropdown menu: </label>
         <select id="verse" name="verse" REQUIRED>
             {% for v in verse_ids%}
             <option value="{{v[0]}}">{{v[0]}}</option>

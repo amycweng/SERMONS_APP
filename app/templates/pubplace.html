@@ -5,6 +5,14 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+
   $(document).ready(function(){
     // initialize a DataTable sorted by the date column 
     // in reverse chronological order by default. Break ties alphabetically by name. 

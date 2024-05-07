@@ -5,6 +5,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  
   $(document).ready(function(){
     new DataTable($('#sort_sidx'), {
       order: [[0, 'asc']],
@@ -23,6 +24,13 @@
   })
 </script>
 <script>
+(function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
 function filterOptions3() {
     var input, filter, select, option, i;
     input = document.getElementById('searchInput3');
@@ -40,23 +48,43 @@ function filterOptions3() {
     }
 }
 </script>
+<script>
+  function filterOptions2() {
+      var input, filter, select, option, i;
+      input = document.getElementById('searchInput2');
+      filter = input.value.toUpperCase();
+      select = document.getElementById('item');
+      option = select.getElementsByTagName('option');
+  
+      // Loop through all options and hide those that don't match the search query
+      for (i = 0; i < option.length; i++) {
+          if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+              option[i].style.display = '';
+          } else {
+              option[i].style.display = 'none';
+          }
+      }
+  }
+  </script>
 <br>
 
 <div class="site_body">
   <h3><b>Scriptural Index</b></h3>
   <form action="{{ url_for('sermon.get_all') }}" method="POST">
     <input type="hidden" id="search" name="search" value="c">
-  <label for="book">Find citations by selecting a book:</label>
-  <select id="book" name="book">
-      <option value=""></option >
-      {% for v in books%}
-      <option value="{{v}}">{{v}}</option>
-      {% endfor %}
+    <label for="searchInput2" >Filter citations by typing a label here: </label>
+    <input type="text" id="searchInput2" onkeyup="filterOptions2()" placeholder="Book, chapter, or verse">
+    <label for="item">Then select from the options in the dropdown menu:</label>
+  <select id="item" name="item">
+    <option value=""></option>
+    {% for v in books%}
+    <option value="{{v}}">{{v}}</option>
+    {% endfor %}
   </select>
-  <label for="searchInput3">Find possible quotes and paraphrases by filtering for a verse label: </label>
-  <input type="text" id="searchInput3" onkeyup="filterOptions3()" placeholder="Search for a verse...">
   <br>
-  <label for="verse">Then select from the options in the dropdown menu below: </label>
+  <label for="searchInput3">Filter possible quotes and paraphrases: </label>
+  <input type="text" id="searchInput3" onkeyup="filterOptions3()" placeholder="Verse">
+  <label for="verse">Then select from the options in the dropdown menu: </label>
   <select id="verse" name="verse">
       <option value=""></option>
       {% for v in verse_ids%}
@@ -142,7 +170,9 @@ function filterOptions3() {
           </td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
+              <input type="hidden" id="page" name="page" value="index">
+              <input type="hidden" id="searchlabel" name="searchlabel" value="{{book}}">
+              <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
           </td>  
@@ -162,8 +192,8 @@ function filterOptions3() {
       <tr>
         <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
-        <th scope="col">Segment Text</th>
-        <th scope="col">Candidate Phrase of Verse</th>
+        <th scope="col">Segment Text (Lemmatized)</th>
+        <!-- <th scope="col">Candidate Phrase of Verse</th> -->
         <th scope="col">Add As Actual Reference</th>
       </tr>
     </thead>
@@ -176,10 +206,12 @@ function filterOptions3() {
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
-          <td>{{qp_candidates[q]}}</td>
+          <!-- <td>{{qp_candidates[q]}}</td> -->
           <td> 
             <form action="{{ url_for('sermon.add_qp',tcpID=q[0], sidx=q[1], verse_id=verse_id,loc=q[2])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
+              <input type="hidden" id="page" name="page" value="index">
+              <input type="hidden" id="searchlabel" name="searchlabel" value="{{book}}">
+              <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
               <label for="phrase">Phrase of Text</label>
               <input type="text" id="phrase" name="phrase">
               <input type="submit" value="Add As Reference" class="btn-gray"/> 

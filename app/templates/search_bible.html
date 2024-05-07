@@ -5,9 +5,17 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+
   $(document).ready(function(){
       new DataTable($('#sort_sidx'), {
-      order: [[2, 'asc']],
+      order: [[0, 'asc']],
 
     });
     new DataTable($('#sort_sim'), {
@@ -49,22 +57,20 @@
       <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
     </div>  
   <br>
-  <h4>Segment {{sidx}} located on {{loc_type.lower().capitalize()}} {{loc}}</h4>
+  <h4>Segment {{sidx}} located on {{loc_type.lower().capitalize()}} {{pagenum}}</h4>
   <table class='table is-striped' id="sort_sidx">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Text (tokenized)</th>
-        <th scope="col">Text (lemmatized)</th>
         <th scope="col">Location</th>
+        <th scope="col">Text (tokenized)</th>
 
       </tr>
     </thead>
     <tbody>
       {% for s in segment %}
       <tr>
-          <td>{{s[0]}}</td> 
-          <td>{{s[1]}}</td>
-          <td>{{s[2]}}</td>
+          <td>{{s[2]}}</td> 
+          <td>{{s[0]}}</td>
         </tr>
       {% endfor %}
     </tbody>
@@ -106,6 +112,7 @@
   <h3>Possible Quotations or Paraphrases</h3>
   <form action="{{ url_for('sermon.search_in_bible',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
     <label for="phrase"><b>Search within the Bible (for better results, use short phrases of the lemmatized text): </b></label>
+    <p>{{segment[0][1]}}</p>
     <br>
     <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>
     <input type="hidden" id="page" name="page" value="segment">

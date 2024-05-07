@@ -5,6 +5,14 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
+
   $(document).ready(function(){
     new DataTable($('#sort_sidx'), {
       order: [[0, 'asc']],
@@ -113,8 +121,8 @@
           <td>{{q[5]}}</td>
           <td>{{q[4]}}</td>
           <td>
-            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=tcpID, sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="allref">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
           </td>  

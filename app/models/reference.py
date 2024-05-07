@@ -129,6 +129,22 @@ class Citation:
         sidx=sidx,
         cidx=cidx,
         loc=loc)
+
+    @staticmethod
+    def update_phrase(tcpID, sidx,loc,cidx,phrase):
+        app.db.execute("""
+        UPDATE Citation 
+        SET replaced = :phrase                      
+        WHERE tcpID = :tcpID 
+        AND sidx = :sidx
+        AND loc = :loc
+        AND cidx = :cidx 
+        """,
+        tcpID = tcpID,
+        sidx=sidx,
+        cidx=cidx,
+        loc=loc,
+        phrase=phrase)
     
     @staticmethod
     def update_ver(tcpID, ver):

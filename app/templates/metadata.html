@@ -4,6 +4,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
 <script>
+  (function () {
+	window.onpageshow = function(event) {
+		if (event.persisted) {
+			window.location.reload();
+		}
+	};
+})();
   $(document).ready(function(){
     new DataTable($('#pub_year'), {
       order: [[1, 'desc']], 
@@ -23,9 +30,11 @@
     });
   })
 </script>
+</div>
+<img src='data:image/png;base64,{{data}}' style="width: 100%;"/>
 
-<img src='data:image/png;base64,{{data}}' style="max-width: 100%;"/>
 <div class="site_body">
+
     <table class='table is-striped' id="pub_year">
         <thead class="grey_table" >
           <tr>

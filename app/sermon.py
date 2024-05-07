@@ -75,12 +75,15 @@ def remove_citation(tcpID,sidx,loc,cidx):
 def edit_citation(tcpID,sidx,loc):
     if request.method == "POST": 
         new = request.form['new_citation']
+        phrase = request.form['new_phrase']
         cidx = int(request.form['cidx'])
         orig_cidx = int(request.form['orig_cidx'])
         if cidx != orig_cidx: 
             Citation.update_index(tcpID,sidx,loc,cidx)
         if len(new) > 0: 
             Citation.update_text(tcpID,sidx,loc,cidx,new)
+        if len(phrase) > 0: 
+            Citation.update_phrase(tcpID,sidx,loc,cidx,phrase)
     return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
 
 @bp.route('/<tcpID>/references/version', methods=['POST','GET'])
@@ -130,6 +133,12 @@ def add_qp(tcpID,sidx,loc,verse_id):
         elif page == "search_bible":
             phrase = request.form['phrase'] 
             return redirect(url_for('sermon.search_in_bible',tcpID=tcpID,verse_id=verse_id,sidx=sidx,phrase=phrase))
+        elif page == "index":
+            searchlabel = request.form['searchlabel'] 
+            verse_id = request.form['verse_id'] 
+            if searchlabel == "": searchlabel = "None"
+            if verse_id == "": verse_id = "None"
+            return redirect(url_for('sermon.get_all_redirect',book=searchlabel,verse_id=verse_id))
         else: return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
@@ -140,20 +149,29 @@ def remove_actual_qp(tcpID,sidx,loc,verse_id):
         page = request.form['page']
         if page == 'segment':
             return redirect(url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx))
-        elif page == 'quoteparaphrase':
-            return redirect(url_for('sermon.qp_candidates',tcpID=tcpID,sidx=sidx))
         elif page == "search": 
             return redirect(url_for('sermon.semantic_search_verse_get',verse_id=verse_id))
+        elif page == "index":
+            searchlabel = request.form['searchlabel'] 
+            verse_id = request.form['verse_id'] 
+            if searchlabel == "": searchlabel = "None"
+            if verse_id == "": verse_id = "None"
+            return redirect(url_for('sermon.get_all_redirect',book=searchlabel,verse_id=verse_id))
+        else: 
+            return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
 def get_books_citations():
-    books = {}
+    items = {}
     citations = Citation.get_all()
     for c in citations: 
-        c = c.citation.split("; ")[0].split(".")[0]
+        c = c.citation.split("; ")[0]
+        items[c] = True 
+        c = c.split(".")[0]
+        items[c] = True 
         c = c.split(" ")[:-1]
-        books[" ".join(c)] = True 
-    return sorted(list(books.keys()))
+        items[" ".join(c)] = True 
+    return sorted(list(items.keys()))
 
 @bp.route('/index', methods=['POST','GET'])
 def get_all():
@@ -163,10 +181,15 @@ def get_all():
     books = get_books_citations()
     qp_books = ['Ecclesiastes', 'Susanna', '1 Timothy', '1 Kings', 'Proverbs', 'Song of Solomon', 'Baruch', 'Lamentations', 'Zephaniah', '1 Samuel', 'Ezra', 'Esther', 'Prayer of Manasseh', '1 Chronicles', '1 Maccabees', 'Ephesians', 'Isaiah', 'Leviticus', 'Galatians', '2 Maccabees', 'Wisdom of Solomon', '2 Peter', 'Haggai', '2 Samuel', '1 John', 'Philippians', 'Joshua', '2 Chronicles', 'Deuteronomy', 'Malachi', 'Colossians', 'Revelation', '3 John', 'Ecclesiasticus', 'Romans', 'Mark', 'Joel', 'Exodus', 'Amos', 'Tobit', 'John', '2 Thessalonians', 'Micah', 'Nahum', 'Jude', 'James', '2 Kings', '1 Esdras', 'Genesis', '1 Peter', 'Psalms', 'Zechariah', 'Philemon', '1 Corinthians', '2 Corinthians', 'Jeremiah', 'Titus', '1 Thessalonians', 'Ruth', '2 Timothy', 'Acts of the Apostles', 'Hosea', 'Epistle of Jeremiah', '2 John', 'Judges', 'Nehemiah', '2 Esdras', 'Hebrews', 'Habakkuk', 'Luke', 'Judith', 'Daniel', 'Bel and the Dragon', 'Job', 'Matthew', 'Obadiah', 'Ezekiel', 'Prayer of Azariah', 'Jonah', 'Numbers']
     qp_books = sorted(qp_books) 
+    book,verse_id = None, None
     if request.method == 'POST':
-        book = request.form['book']
+        book = request.form['item']
+        verse_id = request.form['verse']
         if len(book) > 0: 
-            citations = Citation.get_by_label(book + "%")
+            if '.' in book: 
+                citations = Citation.get_by_label(book)
+            else: 
+                citations = Citation.get_by_label(book + "%")
             variants = {}
             for c in citations: 
                 orig = c.replaced.split(" ")
@@ -174,18 +197,14 @@ def get_all():
                     variants[" ".join(orig[:2])] = True 
                 else: 
                     variants[orig[0]] = True 
-
-        verse_id = request.form['verse']
         if len(verse_id) > 0: 
             verse_text, lemmatized,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
             actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
             for a in actual_qp:
                 if a[2] == "In-Text": 
                     key = (a[0],a[1],a[2])
-                    segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
                 else:
                     nidx = int(a[2].split(" ")[-1])
-                    segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
             for phrase, idx in phrases:
                 vidx = indices[idx]
                 possible_qp =  QuoteParaphrase.get_by_vidx(vidx)
@@ -199,14 +218,11 @@ def get_all():
                     if not found: 
                         qp_candidates[key] = phrase
                     if entry.loc == "In-Text": 
-                        segment = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].tokens
-                        qp_segments[key] = segment 
+                        qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].lemmatized 
                     else:
                         nidx = int(entry.loc.split(" ")[-1])
-                        segment = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].tokens
-                        qp_segments[key] = segment 
-        else: verse_id = None 
-        return render_template('scriptural_index.html',
+                        qp_segments[key] =  Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].lemmatized
+    return render_template('scriptural_index.html',
                            verse_ids=verse_ids,
                            book=book,
                            verse_text = verse_text,
@@ -218,11 +234,63 @@ def get_all():
                         citations = citations,
                         qp_candidates = qp_candidates,
                         qp_segments = qp_segments)
+
+@bp.route('/index/citations_<book>/paraphrases_<verse_id>', methods=['POST','GET'])
+def get_all_redirect(book,verse_id):
+    citations, qp_candidates, qp_segments,actual_qp = {},{},{},{}
+    variants,verse_text = {}, None 
+    verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    books = get_books_citations()
+    qp_books = ['Ecclesiastes', 'Susanna', '1 Timothy', '1 Kings', 'Proverbs', 'Song of Solomon', 'Baruch', 'Lamentations', 'Zephaniah', '1 Samuel', 'Ezra', 'Esther', 'Prayer of Manasseh', '1 Chronicles', '1 Maccabees', 'Ephesians', 'Isaiah', 'Leviticus', 'Galatians', '2 Maccabees', 'Wisdom of Solomon', '2 Peter', 'Haggai', '2 Samuel', '1 John', 'Philippians', 'Joshua', '2 Chronicles', 'Deuteronomy', 'Malachi', 'Colossians', 'Revelation', '3 John', 'Ecclesiasticus', 'Romans', 'Mark', 'Joel', 'Exodus', 'Amos', 'Tobit', 'John', '2 Thessalonians', 'Micah', 'Nahum', 'Jude', 'James', '2 Kings', '1 Esdras', 'Genesis', '1 Peter', 'Psalms', 'Zechariah', 'Philemon', '1 Corinthians', '2 Corinthians', 'Jeremiah', 'Titus', '1 Thessalonians', 'Ruth', '2 Timothy', 'Acts of the Apostles', 'Hosea', 'Epistle of Jeremiah', '2 John', 'Judges', 'Nehemiah', '2 Esdras', 'Hebrews', 'Habakkuk', 'Luke', 'Judith', 'Daniel', 'Bel and the Dragon', 'Job', 'Matthew', 'Obadiah', 'Ezekiel', 'Prayer of Azariah', 'Jonah', 'Numbers']
+    qp_books = sorted(qp_books) 
+    if book != "None": 
+        if '.' in book: 
+            citations = Citation.get_by_label(book)
+        else: 
+            citations = Citation.get_by_label(book + "%")
+        for c in citations: 
+            orig = c.replaced.split(" ")
+            if len(orig[0]) == 1: 
+                variants[" ".join(orig[:2])] = True 
+            else: 
+                variants[orig[0]] = True 
+    if verse_id != "None": 
+        verse_text, lemmatized,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
+        actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
+        for a in actual_qp:
+            if a[2] == "In-Text": 
+                key = (a[0],a[1],a[2])
+            else:
+                nidx = int(a[2].split(" ")[-1])
+        for phrase, idx in phrases:
+            vidx = indices[idx]
+            possible_qp =  QuoteParaphrase.get_by_vidx(vidx)
+            for entry in possible_qp: 
+                key = (entry.tcpID,entry.sidx,entry.loc)
+                found = False 
+                for a in actual_qp: 
+                    if a[0] == entry.tcpID and a[1] == entry.sidx and a[2] == entry.loc: 
+                        found = True 
+                        break
+                if not found: 
+                    qp_candidates[key] = phrase
+                if entry.loc == "In-Text": 
+                    qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].lemmatized
+                else:
+                    nidx = int(entry.loc.split(" ")[-1])
+                    qp_segments[key] = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].lemmatized
     return render_template('scriptural_index.html',
                            verse_ids=verse_ids,
+                           book=book,
+                           verse_text = verse_text,
+                           verse_id=verse_id,
+                           actual_qp=actual_qp,
                            books=books,
-                           qp_books=qp_books)
-
+                           qp_books=qp_books,
+                           variants=variants, 
+                        citations = citations,
+                        qp_candidates = qp_candidates,
+                        qp_segments = qp_segments)
 
 @bp.route('/segment/<tcpID>/<int:sidx>', methods=['POST','GET'])
 def get_segment_and_notes(tcpID,sidx):
@@ -237,7 +305,8 @@ def get_segment_and_notes(tcpID,sidx):
     for n in notes: 
         segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
         locations.append(f"Note {n.nidx}")
-    
+    nextsegment = len(Text.get_by_tcpID_sidx(tcpID,sidx+1))
+
     biblever = Citation.get_ver_by_tcpID(tcpID)
     citations_list = Citation.get_by_tcpID_sidx(tcpID,sidx)
     c_dict = {'in-text':{0:[]},'marginal':{},'t_outlier':{0:[]},'m_outlier':{}}
@@ -285,6 +354,7 @@ def get_segment_and_notes(tcpID,sidx):
                         metadata=metadata,
                         biblever=biblever,
                         locations=locations,
+                        nextsegment=nextsegment,
                         tcpID=tcpID,
                         unique_aut=unique_aut,
                         segment = segment,
@@ -306,6 +376,7 @@ def get_segment_and_notes(tcpID,sidx):
 @bp.route('/search', methods=['POST','GET'])
 def semantic_search():
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    verse_ids = sorted(verse_ids)
     if request.method == 'POST':
         verse_id = request.form['verse']
         verse_text, lemmatized,phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)  
@@ -350,6 +421,7 @@ def remove_bible_phrase(vidx):
 @bp.route('/search/verse/<verse_id>', methods=['POST','GET'])
 def semantic_search_verse_get(verse_id):
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    verse_ids = sorted(verse_ids)
     verse_text, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)
     actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
     qp_segments = {}
@@ -375,6 +447,7 @@ def semantic_search_verse_get(verse_id):
 @bp.route('/search_verse', methods=['POST','GET'])
 def semantic_search_verse():
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
+    verse_ids = sorted(verse_ids)
     if request.method == 'POST':
         verse_id = request.form['verse_id']
         if len(verse_id) == 0: 
@@ -437,7 +510,7 @@ def search_in_bible(tcpID, sidx,phrase=None):
         biblever = Citation.get_ver_by_tcpID(tcpID)
         s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
         unique_aut = Metadata.get_aut_by_tcpID(tcpID)
-        sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
+        sidx,loc_type,pagenum = s.sidx,s.loc_type,s.loc
         segment.append((s.tokens, s.lemmatized,"In-Text"))
         notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
         for n in notes: 
@@ -471,7 +544,7 @@ def search_in_bible(tcpID, sidx,phrase=None):
                         actual_qp=actual_qp,
                         qp_candidates=qp_candidates,
                         loc_type=loc_type,
-                        loc=loc,
+                        pagenum=pagenum,
                         notes=notes)
 
         

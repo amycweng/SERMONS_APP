@@ -49,7 +49,7 @@ def visualize():
     ax.bar(x,y,color=color)
     ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
     ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
-    ax.set_xticks(np.arange(min(x), max(x)+1, 5.0))
+    ax.set_xticks(np.arange(min(x), max(x)+1, 10.0))
     ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'})
     buf = BytesIO()
     fig.savefig(buf, format="png")
@@ -284,7 +284,7 @@ def visualize_over_time(results,search):
     fig.clear()
     return marg, text, data 
 
-def get_chapters_citations():
+def get_books_citations():
     items = {}
     citations = Citation.get_all()
     for c in citations: 
@@ -297,13 +297,13 @@ def get_chapters_citations():
     return sorted(list(items.keys()))
 
 
-@bp.route('/citations',methods=['POST','GET'])
+@bp.route('/citations_visualization',methods=['POST','GET'])
 def visualize_citations():
     book_data,author_data,over_time = None, None,None
     book=None
     metadata = {}
     tcpIDs, authors = None, None
-    books = get_chapters_citations()
+    books = get_books_citations()
     data0,data,data2,data3 = None, None, None, None 
     if request.method == 'POST':
         book = request.form['item']
@@ -324,8 +324,10 @@ def visualize_citations():
                         authors[a].extend(tcpIDs[t])
             x,y,book_data = visualize_dict_horizontal(f'Books with the Most Frequent Citations of {book}', 'Count of Citations','TCP ID',tcpIDs)
             x,y,author_data = visualize_dict_horizontal(f'Authors with the Most Frequent Citations of {book}', 'Count of Citations','Author',authors)
-            for tcpID in tcpIDs: 
-                metadata[tcpID] = Metadata.get_by_tcpID(tcpID)[0]
+            all_meta = Metadata.get_all()
+            for a in all_meta: 
+                if a.tcpID in tcpIDs: 
+                    metadata[a.tcpID] = a 
             tcpIDs = {k:len(v) for k,v in tcpIDs.items()}
             authors = {k:len(v) for k,v in authors.items()}
         else: book = None 
