@@ -133,7 +133,7 @@ def add_qp(tcpID,sidx,loc,verse_id):
         else: return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
 
-@bp.route('/<tcpID>/remove/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
+@bp.route('/<tcpID>/remove/qp/<int:sidx>/<loc>/<verse_id>', methods=['POST','GET'])
 def remove_actual_qp(tcpID,sidx,loc,verse_id):
     if request.method == 'POST':
         QuoteParaphrase.remove_actual_qp(tcpID,sidx,loc,verse_id)  
@@ -224,7 +224,7 @@ def get_all():
                            qp_books=qp_books)
 
 
-@bp.route('/<tcpID>/<int:sidx>', methods=['POST','GET'])
+@bp.route('/segment/<tcpID>/<int:sidx>', methods=['POST','GET'])
 def get_segment_and_notes(tcpID,sidx):
     metadata = Metadata.get_by_tcpID(tcpID)
     segment = []
@@ -372,7 +372,7 @@ def semantic_search_verse_get(verse_id):
                                verse_text=verse_text,
                                phrases=phrases)
 
-@bp.route('/search/verse', methods=['POST','GET'])
+@bp.route('/search_verse', methods=['POST','GET'])
 def semantic_search_verse():
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
     if request.method == 'POST':
