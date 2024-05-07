@@ -49,7 +49,7 @@ def visualize():
     ax.bar(x,y,color=color)
     ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
     ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
-    ax.set_xticks(np.arange(min(x), max(x)+1, 10.0))
+    ax.set_xticks(np.arange(min(x), max(x)+1, 5.0))
     ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'})
     buf = BytesIO()
     fig.savefig(buf, format="png")
@@ -275,7 +275,7 @@ def visualize_over_time(results,search):
         ax.scatter(years,sermons,color="black",label="Number of Books")
     ax.set_xlabel("Publication Year", fontsize=15,fontdict={'family': 'serif'})
     ax.set_ylabel("Frequency", fontsize=15,fontdict={'family': 'serif'})
-    ax.set_xticks(np.arange(min(years),max(years), 5.0))
+    ax.set_xticks(np.arange(min(years),max(years), 10.0))
     ax.legend()
     buf = BytesIO()
     fig.tight_layout()
@@ -284,14 +284,17 @@ def visualize_over_time(results,search):
     fig.clear()
     return marg, text, data 
 
-def get_books_citations():
-    books = {}
+def get_chapters_citations():
+    items = {}
     citations = Citation.get_all()
     for c in citations: 
-        c = c.citation.split("; ")[0].split(".")[0]
+        c = c.citation.split("; ")[0]
+        items[c] = True 
+        c = c.split(".")[0]
+        items[c] = True 
         c = c.split(" ")[:-1]
-        books[" ".join(c)] = True 
-    return sorted(list(books.keys()))
+        items[" ".join(c)] = True 
+    return sorted(list(items.keys()))
 
 
 @bp.route('/citations',methods=['POST','GET'])
@@ -300,10 +303,10 @@ def visualize_citations():
     book=None
     metadata = {}
     tcpIDs, authors = None, None
-    books = get_books_citations()
+    books = get_chapters_citations()
     data0,data,data2,data3 = None, None, None, None 
     if request.method == 'POST':
-        book = request.form['book']
+        book = request.form['item']
         if len(book) > 0: 
             citations = Citation.get_by_label(book + "%")
             marg, text, over_time = citation_over_time(citations,book)

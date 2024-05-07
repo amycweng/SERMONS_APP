@@ -18,6 +18,24 @@
 
     });
   })
+  </script>
+<script>
+  function filterOptions() {
+    var input, filter, select, option, i;
+    input = document.getElementById('searchInput');
+    filter = input.value.toUpperCase();
+    select = document.getElementById('item');
+    option = select.getElementsByTagName('option');
+
+    // Loop through all options and hide those that don't match the search query
+    for (i = 0; i < option.length; i++) {
+        if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+            option[i].style.display = '';
+        } else {
+            option[i].style.display = 'none';
+        }
+    }
+}
 </script>
 <br>
 
@@ -25,12 +43,15 @@
   <h3><b>Visualizations of Citations</b></h3>
   <form action="{{ url_for('index.visualize_citations') }}" method="POST">
     <input type="hidden" id="search" name="search" value="c">
-  <label for="book">Visualize citations of a book of the Bible:</label>
-  <select id="book" name="book">
-      <option value=""></option>
-      {% for v in books%}
-      <option value="{{v}}">{{v}}</option>
-      {% endfor %}
+    <label for="searchInput">Filter selection by typing a label here: </label>
+    <input type="text" id="searchInput" onkeyup="filterOptions()">
+    <br>
+    <label for="item">Then select from the options in the dropdown menu below:</label>
+  <select id="item" name="item" REQUIRED>
+    <option value="" disabled selected></option>
+    {% for v in books%}
+    <option value="{{v}}">{{v}}</option>
+    {% endfor %}
   </select>
   <input type="submit" value="Visualize" class="btn-gray"> 
   </form>
