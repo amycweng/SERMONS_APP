@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+<script>
+    (function () {
+        window.onpageshow = function(event) {
+            if (event.persisted) {
+                window.location.reload();
+            }
+        };
+    })();
+
+    function filterOptions2() {
+        var input, filter, select, option, i;
+        input = document.getElementById('searchInput2');
+        filter = input.value.toUpperCase();
+        select = document.getElementById('item');
+        option = select.getElementsByTagName('option');
+    
+        // Loop through all options and hide those that don't match the search query
+        for (i = 0; i < option.length; i++) {
+            if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
+                option[i].style.display = '';
+            } else {
+                option[i].style.display = 'none';
+            }
+        }
+    }
+    </script>
+    <br>
+    
+    <div class="site_body">
+    <h3><b>Download</b></h3>
+    <form action="{{ url_for('download.download') }}" method="POST">
+        <input type="hidden" id="search" name="search" value="c">
+        <label for="searchInput2" >Filter citations by typing a label here: </label>
+        <input type="text" id="searchInput2" onkeyup="filterOptions2()" placeholder="Book, chapter, or verse">
+        <label for="item">Then select from the options in the dropdown menu:</label>
+    <select id="item" name="item">
+        <option value=""></option>
+        {% for v in labels%}
+        <option value="{{v}}">{{v}}</option>
+        {% endfor %}
+    </select>
+    <input type="submit" value="Download" class="btn-gray"> 
+    </form>
+    </div>
+
+{% endblock %}

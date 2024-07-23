@@ -22,6 +22,11 @@ CREATE TABLE Pubplace(
   pubplace text NOT NULL
 );
 
+CREATE TABLE Phase(
+  tcpID TEXT NOT NULL PRIMARY KEY, 
+  phase INT NOT NULL
+);
+
 CREATE TABLE Segment(
   -- Primary key is the TCP id and segment index 
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID), -- foreign key

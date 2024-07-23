@@ -5,6 +5,7 @@ import re
 from .models.text import Text, Marginalia
 from .models.reference import Citation, QuoteParaphrase
 from .models.metadata import Metadata
+from .lib import *
 from flask import Blueprint
 bp = Blueprint('sermon', __name__)
 
@@ -57,14 +58,18 @@ def get_citations(tcpID):
 @bp.route('/<tcpID>', methods=['POST','GET'])
 def full_text(tcpID):
     metadata = Metadata.get_by_tcpID(tcpID)
-    segments = Text.get_by_tcpID(tcpID)
-    notes = Marginalia.get_by_tcpID(tcpID)
-    unique_aut = Metadata.get_aut_by_tcpID(tcpID)
-    return render_template('sermon_full.html',
-                        metadata=metadata,
-                        unique_aut=unique_aut,
-                        segments = segments,
-                        notes=notes)
+    if len(metadata) == 1:
+        metadata = metadata[0]        
+        segments = Text.get_by_tcpID(tcpID)
+        notes = Marginalia.get_by_tcpID(tcpID)
+        unique_aut = Metadata.get_aut_by_tcpID(tcpID)
+        return render_template('sermon_full.html',
+                            metadata=metadata,
+                            unique_aut=unique_aut,
+                            segments = segments,
+                            notes=notes)
+    else: 
+        return redirect(url_for('index.index',tcpID=tcpID))
 
 @bp.route('/<tcpID>/references/<int:sidx>/<loc>/<int:cidx>/remove', methods=['POST','GET'])
 def remove_citation(tcpID,sidx,loc,cidx):
@@ -160,18 +165,6 @@ def remove_actual_qp(tcpID,sidx,loc,verse_id):
         else: 
             return redirect(url_for('sermon.get_citations',tcpID=tcpID))
     return redirect(url_for('sermon.get_citations',tcpID=tcpID))
-
-def get_books_citations():
-    items = {}
-    citations = Citation.get_all()
-    for c in citations: 
-        c = c.citation.split("; ")[0]
-        items[c] = True 
-        c = c.split(".")[0]
-        items[c] = True 
-        c = c.split(" ")[:-1]
-        items[" ".join(c)] = True 
-    return sorted(list(items.keys()))
 
 @bp.route('/index', methods=['POST','GET'])
 def get_all():

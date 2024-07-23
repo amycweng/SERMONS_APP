@@ -338,6 +338,7 @@ class QuoteParaphrase:
         AND b.verse_id = :verse_id
         ''',
         verse_id=verse_id)
+        if len(rows) == 0: return None 
         verse_text = rows[0][2]
         lemmatized = rows[0][4]
         vindices = [row[3] for row in rows]

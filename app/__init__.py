@@ -19,4 +19,7 @@ def create_app():
 
     from .author import bp as author_bp
     app.register_blueprint(author_bp)
+
+    from .download import bp as download_bp
+    app.register_blueprint(download_bp)
     return app

@@ -43,7 +43,7 @@
           </td>
           <td>{{s.publisher}}</td>
           <td>{{s.pubyear}}</td>
-          <td>{{s.pubplace}}</td>
+          <td><a href="{{ url_for('author.find_pubplace_metadata',pubplace=pubplaces[s.tcpID])}}"><u>{{pubplaces[s.tcpID]}}</u></a></td>
           <td>{{s.subject_headings}}</td>
           <td>{{s.estc}}</td>
           <td>{{s.stc}}</td>

@@ -114,3 +114,12 @@ class Metadata:
         ''',
         tcpID=tcpID)
         return rows 
+    
+    @staticmethod
+    def get_phase(tcpID):
+        rows = app.db.execute('''
+        SELECT phase
+        FROM Phase
+        WHERE tcpID = :tcpID 
+        ''',tcpID=tcpID)
+        return rows[0][0]

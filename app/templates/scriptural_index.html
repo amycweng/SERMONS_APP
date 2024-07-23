@@ -100,7 +100,12 @@ function filterOptions3() {
   </div>
   <br>
     <h4><b>Citations of {{book}}</b></h4>
+    
   <h5><b>Variant spellings:</b> {{"; ".join(variants)}}</h5>
+  <form action="{{ url_for('download.download') }}" method="POST">
+    <input type="hidden" id="item" name="item" value={{book}}>
+<input type="submit" value="Export" class="btn-gray"> 
+</form>
   <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
     For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
     inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 

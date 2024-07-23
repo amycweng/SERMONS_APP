@@ -23,21 +23,21 @@
 
 <br>
 <div class="site_body">
-    <h2><i>{{metadata[0].title}}</i></h2>
+    <h2><i>{{metadata.title}}</i></h2>
     <h5>
       {% for aut in unique_aut %}
       <a href="{{ url_for('author.find_author_references',author=aut[0])}}"><u>{{aut[0]}}</u></a>
       <br>
       {% endfor %}
     </h5>
-      <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
-      <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
-      <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
-      <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
-      <h6><b>Subject Headings:</b> {{metadata[0].subject_headings}}</h6>
+      <h6><b>Publisher:</b> {{metadata.publisher}}</h6>
+      <h6><b>Place of Publication:</b> {{metadata.pubplace}}</h6>
+      <h6><b>Publication Year:</b> {{metadata.pubyear}}</h6>
+      <h6><b>TCP ID:</b> {{metadata.tcpID}} <b>ESTC ID:</b> {{metadata.estc}} <b>STC ID:</b> {{metadata.stc}}</h6>
+      <h6><b>Subject Headings:</b> {{metadata.subject_headings}}</h6>
       <h6>   
-        <!-- <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a> -->
-        <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a>
+        <!-- <a href="{{ url_for('sermon.full_text',tcpID=metadata.tcpID) }}"><u>View Full Text</u></a> -->
+        <a href="{{ url_for('sermon.get_citations',tcpID=metadata.tcpID) }}"><u>View All References</u></a>
        </h6>
        <div class="full_break">
         <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">

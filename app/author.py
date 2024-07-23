@@ -42,7 +42,7 @@ def edit_pubplace(pubplace):
         new = request.form["new"]
         old = request.form['old']
         Metadata.update_pubplace(old,new)
-    return redirect(url_for('author.find_pubplace_metadata',pubplace=pubplace))
+    return redirect(url_for('author.find_pubplace_metadata',pubplace=new))
 
 
 @bp.route('/author/<author>', methods=['POST','GET'])

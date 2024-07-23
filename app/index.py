@@ -9,7 +9,7 @@ from collections import Counter
 
 from .models.metadata import Metadata
 from .models.reference import Citation, QuoteParaphrase
-
+from .lib import * 
 from flask import Blueprint
 bp = Blueprint('index', __name__)
 
@@ -23,9 +23,13 @@ def grey_color_func(word, font_size, position, orientation, random_state=None,
 @bp.route('/')
 def index():
     sermons = Metadata.get_all()
+    pubplaces = Metadata.get_pubplace()
+    pubplaces = {s[0]:s[1] for s in pubplaces}
     return render_template('index.html',
-                        sermons = sermons)
-    
+                        sermons = sermons,
+                        pubplaces = pubplaces)
+
+
 @bp.route('/metadata_visualization')
 def visualize():
     # publication year 
@@ -59,7 +63,7 @@ def visualize():
     num_sermons = y
 
     subjects = []
-    exclude = ['Sermons, English','Bible','17th century','Sermons','Early works to 1800','16th century']
+    exclude = ['Sermons, English','Bible','Sermons','Early works to 1800']
     for s in sermons: 
         words = s.subject_headings.split("; ")
         for w in words: 
@@ -284,19 +288,6 @@ def visualize_over_time(results,search):
     fig.clear()
     return marg, text, data 
 
-def get_books_citations():
-    items = {}
-    citations = Citation.get_all()
-    for c in citations: 
-        c = c.citation.split("; ")[0]
-        items[c] = True 
-        c = c.split(".")[0]
-        items[c] = True 
-        c = c.split(" ")[:-1]
-        items[" ".join(c)] = True 
-    return sorted(list(items.keys()))
-
-
 @bp.route('/citations_visualization',methods=['POST','GET'])
 def visualize_citations():
     book_data,author_data,over_time = None, None,None
@@ -308,7 +299,10 @@ def visualize_citations():
     if request.method == 'POST':
         book = request.form['item']
         if len(book) > 0: 
-            citations = Citation.get_by_label(book + "%")
+            if '.' in book: 
+                citations = Citation.get_by_label(book)
+            else: 
+                citations = Citation.get_by_label(book + "%")
             marg, text, over_time = citation_over_time(citations,book)
             tcpIDs = {}      
             authors = {}      
