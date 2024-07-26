@@ -8,7 +8,8 @@ CREATE TABLE Sermon(
   publisher TEXT, -- stationer information 
   pubplace TEXT, -- place of publication 
   subject_headings TEXT, -- LOC subject headings 
-  pubyear VARCHAR(30) NOT NULL -- year of publication 
+  pubyear VARCHAR(30) NOT NULL, -- year of publication 
+  phase INT NOT NULL -- Phase 1 or 2 of TCP transcription. Useful for linking to EEBO-TCP
 );
 
 CREATE TABLE Author(
@@ -22,11 +23,6 @@ CREATE TABLE Pubplace(
   pubplace text NOT NULL
 );
 
-CREATE TABLE Phase(
-  tcpID TEXT NOT NULL PRIMARY KEY, 
-  phase INT NOT NULL
-);
-
 CREATE TABLE Segment(
   -- Primary key is the TCP id and segment index 
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID), -- foreign key
@@ -36,8 +32,13 @@ CREATE TABLE Segment(
   loc_type VARCHAR(30), -- whether location is a page or image
   pidx INT NOT NULL, -- index of the paragraph in which this segment is located  
   tokens TEXT NOT NULL, -- the tokenized segment 
-  lemmatized TEXT NOT NULL, -- the lemmata 
   PRIMARY KEY (tcpID, sidx)
+);
+
+CREATE TABLE Section( -- see the plain_all folder 
+  tcpID VARCHAR(30) NOT NULL PRIMARY KEY REFERENCES Sermon(tcpID), -- foreign key
+  section_idx INT NOT NULL,-- index of the section within the book 
+  section_name TEXT NOT NULL, -- name of the section 
 );
 
 CREATE TABLE Marginalia(
@@ -46,7 +47,6 @@ CREATE TABLE Marginalia(
   sidx INT NOT NULL, -- segment in which the note is located 
   nidx INT NOT NULL, -- index of the note within the segment  
   tokens TEXT NOT NULL, -- the tokenized segment 
-  lemmatized TEXT NOT NULL, -- the lemmata 
   FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, nidx)
 );
@@ -77,8 +77,7 @@ CREATE TABLE Bible(
   book VARCHAR(100) NOT NULL,
   chapter INT NOT NULL,
   verse INT NOT NULL,
-  verse_text TEXT NOT NULL,
-  lemmatized TEXT NOT NULL
+  verse_text TEXT NOT NULL
 );
 
 CREATE TABLE BiblePhrase(

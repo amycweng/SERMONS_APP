@@ -118,8 +118,8 @@ function filterOptions3() {
       </table>
     </form> -->
     <br>
-    <h6><b>Search by the entirety or a part of the tokenized and lemmatized text of {{verse_id}}</b></h6>
-    <h6>{{lemmatized}}</h6>
+    <h6><b>Search by the entirety or a part of the standardized text of {{verse_id}}</b></h6>
+    <h6>{{standardized}}</h6>
     <form action="{{ url_for('sermon.semantic_search_verse') }}" method="POST" class="my_button">
         <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>
         <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
@@ -184,7 +184,7 @@ function filterOptions3() {
         <tr>
           <th scope="col">TCP ID</th>
           <th scope="col">Index and Location of Covering Segment</th> 
-          <th scope="col">Search results (lemmatized sub-phrases of segments)</th>  
+          <th scope="col">Search results (standardized sub-phrases of segments)</th>  
           <th scope="col"></th>   
         </tr>
       </thead>
@@ -221,7 +221,7 @@ function filterOptions3() {
         <tr>
           <th scope="col">TCP ID</th>
           <th scope="col">Index of Covering Segment</th> 
-          <th scope="col">Search results (lemmatized sub-phrases of notes)</th>  
+          <th scope="col">Search results (standardized sub-phrases of notes)</th>  
           <th scope="col"></th>   
         </tr>
       </thead>

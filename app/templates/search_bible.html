@@ -111,7 +111,7 @@
   </div>
   <h3>Possible Quotations or Paraphrases</h3>
   <form action="{{ url_for('sermon.search_in_bible',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
-    <label for="phrase"><b>Search within the Bible (for better results, use short phrases of the lemmatized text): </b></label>
+    <label for="phrase"><b>Search within the Bible: </b></label>
     <p>{{segment[0][1]}}</p>
     <br>
     <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>

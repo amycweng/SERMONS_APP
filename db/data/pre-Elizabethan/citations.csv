@@ -409,18 +409,6 @@ A00918,18,In-Text,0,Jeremiah 1,,Ierom 1
 A00918,131,In-Text,0,Kings 10,,kynges 10
 A00918,132,In-Text,0,Jeremiah 6,,Ieremy 6
 A00918,396,In-Text,0,Job 21,,Iob 21
-A02379,8,In-Text,0,Joel 51,,il 51
-A02379,38,In-Text,0,Job 18,,Io 18
-A02379,39,In-Text,0,Matthew 20,,Mat 20
-A02379,43,In-Text,0,Luke 12,,Luce 12
-A02379,81,In-Text,0,Deuteronomy 17,,Deutero 17
-A02379,82,In-Text,0,Romans 13,,Romanos 13
-A02379,158,In-Text,0,Revelation 4.12,,re 4 12
-A02379,158,In-Text,1,2 Chronicles 24,,2 Paralip 24
-A02379,159,In-Text,0,Revelation 4.18,,re 4 18
-A02379,161,In-Text,0,2 Chronicles 32,,2 Paralip 32
-A02379,193,In-Text,0,Romans 13,,Romanos 13
-A02379,227,In-Text,0,1 Chronicles 39,,1 Paralip 39
 A02882,0,In-Text,0,Ephesians 6,,Ephesians 6
 A02882,34,In-Text,0,Matthew 12,,Mathew 12
 A02882,89,In-Text,0,Ecclesiastes 3,,Ecclesiast 3
@@ -448,17 +436,17 @@ A02882,194,In-Text,0,Exodus 20,,Exo 20
 A02882,201,In-Text,0,Ephesians 5,,Ephesians 5
 A02882,201,In-Text,1,Colossians 3,,Collos 3
 A02882,203,In-Text,0,Kings 16,,kynges 16
-A02882,210,In-Text,0,John 7,,Ihon 7
-A02882,214,In-Text,0,John 4,,Ihon 4
-A02882,221,In-Text,0,Hebrews 11,,Hebrues 11
-A02882,222,In-Text,0,John 4,,Ihon 4
-A02882,232,In-Text,0,John 5,,Ihon 5
-A02882,238,In-Text,0,Matthew 10,,Mat 10
-A02882,241,In-Text,0,Corinthians 5,,Corinthians 5
-A02882,249,In-Text,0,Matthew 6,,Mathew 6
-A02882,255,In-Text,0,Matthew 8,,Mathew 8
-A02882,259,In-Text,0,Matthew 1,,Matth 1
-A02882,263,In-Text,0,Corinthians 10,,corinthians 10
+A02882,211,In-Text,0,John 7,,Ihon 7
+A02882,215,In-Text,0,John 4,,Ihon 4
+A02882,222,In-Text,0,Hebrews 11,,Hebrues 11
+A02882,223,In-Text,0,John 4,,Ihon 4
+A02882,233,In-Text,0,John 5,,Ihon 5
+A02882,239,In-Text,0,Matthew 10,,Mat 10
+A02882,242,In-Text,0,Corinthians 5,,Corinthians 5
+A02882,250,In-Text,0,Matthew 6,,Mathew 6
+A02882,256,In-Text,0,Matthew 8,,Mathew 8
+A02882,260,In-Text,0,Matthew 1,,Matth 1
+A02882,264,In-Text,0,Corinthians 10,,corinthians 10
 A02883,34,In-Text,0,Ephesians 5,,Ephesyans 5
 A02883,35,In-Text,0,Matthew 10,,Mathew 10
 A02883,50,In-Text,0,Hebrews 9,,Hebrues 9
@@ -498,45 +486,6 @@ A02883,271,In-Text,0,Matthew 28,,Matt 28
 A02883,296,In-Text,0,Genesis 16,,Gene 16
 A02883,300,In-Text,0,1 Corinthians 11,,1 Corint 11
 A02883,312,In-Text,0,1 Corinthians 15,,1 Cor 15
-A02883,359,In-Text,0,Ephesians 5,,Ephesyans 5
-A02883,360,In-Text,0,Matthew 10,,Mathew 10
-A02883,375,In-Text,0,Hebrews 9,,Hebrues 9
-A02883,377,In-Text,0,Hebrews 10,,Hebrues 10
-A02883,386,In-Text,0,Hebrews 9,,Hebrues 9
-A02883,387,In-Text,0,1 Corinthians 13,,1 Corint 13
-A02883,394,In-Text,0,Psalms 15,,Psalm 15
-A02883,401,In-Text,0,Mark 16,,Mark 16
-A02883,402,In-Text,0,Ephesians 5,,Ephe 5
-A02883,419,In-Text,0,Matthew 26,,Matth 26
-A02883,423,In-Text,0,Luke 21,,Luke 21
-A02883,433,In-Text,0,Isaiah 66,,Esai 66
-A02883,436,In-Text,0,Corinthians 5,,Cor 5
-A02883,507,In-Text,0,Romans 3,,Rom 3
-A02883,521,In-Text,0,Acts 13,,Act 13
-A02883,526,In-Text,0,Romans 10,,Ro 10
-A02883,527,In-Text,0,Acts 11,,Actes 11
-A02883,534,In-Text,0,1 Corinthians 15,,1 Corint 15
-A02883,535,In-Text,0,Job 19,,Iob 19
-A02883,538,In-Text,0,Ezekiel 35,,Ezech 35
-A02883,540,In-Text,0,Daniel 12,,Daniel 12
-A02883,543,In-Text,0,Matthew 22,,Matt 22
-A02883,545,In-Text,0,1 Corinthians 15.1,,1 Corint 15 1
-A02883,548,In-Text,0,1 Corinthians 15.1,,1 Corint 15 1
-A02883,551,In-Text,0,1 Corinthians 15,,1 Cor 15
-A02883,556,In-Text,0,Daniel 12,,Daniel 12
-A02883,557,In-Text,0,Hosea 13.1,,Oseas 13 1
-A02883,558,In-Text,0,Ezekiel 33.1,,"Ezechiel 33 , 1"
-A02883,561,In-Text,0,Isaiah 66,,Esai 66
-A02883,565,In-Text,0,John 17,,Iohn 17
-A02883,569,In-Text,0,Psalms 31,,Psal 31
-A02883,571,In-Text,0,Matthew 25,,Matt 25
-A02883,572,In-Text,0,Romans 5,,Roma 5
-A02883,576,In-Text,0,John 3,,Iohn 3
-A02883,581,In-Text,0,1 Corinthians 13,,1 Cor 13
-A02883,596,In-Text,0,Matthew 28,,Matt 28
-A02883,621,In-Text,0,Genesis 16,,Gene 16
-A02883,625,In-Text,0,1 Corinthians 11,,1 Corint 11
-A02883,637,In-Text,0,1 Corinthians 15,,1 Cor 15
 A03519,251,In-Text,0,Galatians 5,,Gal 5
 A03628,16,In-Text,0,Ephesians 5,,Ephe 5
 A03628,16,In-Text,1,1 Corinthians 6,,1 Cor 6
@@ -569,14 +518,14 @@ A03628,130,In-Text,2,Ephesians 2,,Ephe 2
 A03628,131,In-Text,0,Isaiah 1,,Esa 1
 A04510,105,In-Text,0,Corinthians 7,,Cori 7
 A04598,35,In-Text,0,Genesis 2,,Gene 2
-A04598,185,In-Text,0,Revelation 14,,Apoc 14
-A04598,193,In-Text,0,John 16,,Ioan 16
-A04598,209,In-Text,0,Philippians 1,,Phil 1
-A04598,210,In-Text,0,Acts 7,,Acto 7
-A04598,212,In-Text,0,Luke 23,,Luce 23
-A04598,216,In-Text,0,Luke 16,,Luce 16
-A04598,224,In-Text,0,John 14,,Ioan 14
-A04598,242,In-Text,0,John 8,,Ioan 8
+A04598,287,In-Text,0,Revelation 14,,Apoc 14
+A04598,295,In-Text,0,John 16,,Ioan 16
+A04598,311,In-Text,0,Philippians 1,,Phil 1
+A04598,312,In-Text,0,Acts 7,,Acto 7
+A04598,314,In-Text,0,Luke 23,,Luce 23
+A04598,318,In-Text,0,Luke 16,,Luce 16
+A04598,326,In-Text,0,John 14,,Ioan 14
+A04598,344,In-Text,0,John 8,,Ioan 8
 A05156,271,In-Text,0,Luke 12,,Luc 12
 A05156,705,In-Text,0,Ecclesiastes 5,,Ecclesia 5
 A05158,8,In-Text,0,Matthew 22,,Mathewe 22
@@ -609,6 +558,7 @@ A06508,630,In-Text,0,John 5,,Iohn 5
 A06508,637,In-Text,0,John 11,,Iohn 11
 A06508,640,In-Text,0,John 11,,Iohn 11
 A06508,641,In-Text,0,Matthew 9,,Matthew 9
+A06508,646,In-Text,0,Matthew 9,,Matthew 9
 A06508,649,In-Text,0,1 Corinthians 15,,1 Corin 15
 A06508,651,In-Text,0,1 Corinthians 15,,1 Corin 15
 A06508,653,In-Text,0,Matthew 10,,Math 10
@@ -617,28 +567,59 @@ A06510,0,In-Text,0,Matthew 18,,Mathewe 18
 A06510,126,In-Text,0,Luke 12,,Luc 12
 A06520,218,In-Text,0,1 Timothy 5,,1 Timoth 5
 A06520,250,In-Text,0,Timothy 5,,Timoth 5
-A06532,13,In-Text,0,Ezekiel 9,,Ezech 9
-A06532,13,In-Text,1,Revelation 7,,Apoca 7
-A06532,34,In-Text,0,1 Corinthians 11,,1 Cor 11
-A06532,50,In-Text,0,Isaiah 57,,Esay 57
-A06532,51,In-Text,0,Job 3,,Io 3
-A06532,67,In-Text,0,Romans 8,,Rom 8
-A06532,68,In-Text,0,Exodus 37,,Exod 37
-A06532,69,In-Text,0,Deuteronomy 32,,Deuter 32
-A06532,71,In-Text,0,Matthew 23,,Mat 23
-A06532,71,In-Text,1,Kings 3.3,,3 Reg 3 3
-A06532,87,In-Text,0,Luke 16,,Luce 16
-A06532,91,In-Text,0,Romans 8,,Roma 8
-A06532,100,In-Text,0,1 Corinthians 10,,1 Cor 10
-A06532,109,In-Text,0,Acts 7,,Actu 7
-A06532,191,In-Text,0,Matthew 5,,Math 5
-A06532,192,In-Text,0,John 5,,Ioh 5
-A06532,193,In-Text,0,John 7,,Ioh 7
-A06532,217,In-Text,0,Luke 12,,Luce 12
-A06532,265,In-Text,0,John 15,,Ioh 15
-A06532,278,In-Text,0,Jeremiah 17,,Ierem 17
-A06532,285,In-Text,0,Matthew 18,,Mathe 18
-A06532,288,In-Text,0,Psalms 33,,Psal 33
+A06532,28,In-Text,0,Romans 15,,Roma 15
+A06532,103,In-Text,0,Exodus 3,,Exod 3
+A06532,104,In-Text,0,Luke 15,,Luc 15
+A06532,105,In-Text,0,Job 10,,Io 10
+A06532,110,In-Text,0,John 10,,Ioh 10
+A06532,134,In-Text,0,John 10,,Ioh 10
+A06532,160,In-Text,0,John 10,,Ioh 10
+A06532,230,In-Text,0,Philippians 3,,Phil 3
+A06532,253,In-Text,0,Psalms 100.20; Psalms 100.1,,Psal 100 20 & 1
+A06532,270,In-Text,0,Luke 6,,Luce 6
+A06532,276,In-Text,0,Deuteronomy 27,,Deut 27
+A06532,276,In-Text,1,Galatians 3,,Galat 3
+A06532,383,In-Text,0,Acts 15,,Act 15
+A06532,383,In-Text,1,Isaiah 9,,Esay 9
+A06532,387,In-Text,0,John 3,,Ioh 3
+A06532,396,In-Text,0,Exodus 25.40,,Exod 25 40
+A06532,468,In-Text,0,Psalms 3,,Psalme 3
+A06532,472,In-Text,0,Ephesians 5,,Ephe 5
+A06532,478,In-Text,0,Acts 2,,Actu 2
+A06532,480,In-Text,0,Acts 5,,Actu 5
+A06532,490,In-Text,0,Galatians 2,,Galat 2
+A06532,495,In-Text,0,Romans 8,,Ro 8
+A06532,496,In-Text,0,1 Corinthians 2.1,,1 Cor 2 1
+A06532,499,In-Text,0,Romans 7,,Roma 7
+A06532,528,In-Text,0,Ezekiel 9,,Ezech 9
+A06532,528,In-Text,1,Revelation 7,,Apoca 7
+A06532,549,In-Text,0,1 Corinthians 11,,1 Cor 11
+A06532,565,In-Text,0,Isaiah 57,,Esay 57
+A06532,566,In-Text,0,Job 3,,Io 3
+A06532,582,In-Text,0,Romans 8,,Rom 8
+A06532,583,In-Text,0,Exodus 37,,Exod 37
+A06532,584,In-Text,0,Deuteronomy 32,,Deuter 32
+A06532,586,In-Text,0,Matthew 23,,Mat 23
+A06532,586,In-Text,1,Kings 3.3,,3 Reg 3 3
+A06532,602,In-Text,0,Luke 16,,Luce 16
+A06532,606,In-Text,0,Romans 8,,Roma 8
+A06532,615,In-Text,0,1 Corinthians 10,,1 Cor 10
+A06532,624,In-Text,0,Acts 7,,Actu 7
+A06532,706,In-Text,0,Matthew 5,,Math 5
+A06532,707,In-Text,0,John 5,,Ioh 5
+A06532,708,In-Text,0,John 7,,Ioh 7
+A06532,732,In-Text,0,Luke 12,,Luce 12
+A06532,780,In-Text,0,John 15,,Ioh 15
+A06532,793,In-Text,0,Jeremiah 17,,Ierem 17
+A06532,800,In-Text,0,Matthew 18,,Mathe 18
+A06532,803,In-Text,0,Psalms 33,,Psal 33
+A06764,345,In-Text,0,Thessalonians 2,,THE 2
+A06764,471,In-Text,0,Thessalonians 3,,THE 3
+A06764,494,In-Text,0,Thessalonians 3,,thes 3
+A06764,519,In-Text,0,Hebrews 9,,He 9
+A06764,648,In-Text,0,Thessalonians 2,,thes 2
+A06764,1324,In-Text,0,Thessalonians 2,,Thes 2
+A06764,1987,In-Text,0,Thessalonians 2,,thes 2
 A07584,2321,In-Text,0,Matthew 12,,Mathewe 12
 A07584,2342,In-Text,0,Hebrews 6,,hebre 6
 A07584,2353,In-Text,0,Genesis 27,,genesis 27
@@ -647,11 +628,15 @@ A07584,2514,In-Text,0,Exodus 30,,exodi 30
 A07584,2514,In-Text,1,Kings 3.19,,3 regu 3 19
 A07584,2612,In-Text,0,Luke 10,,Luce 10
 A07584,2647,In-Text,0,Isaiah 5,,Ysaye 5
+A07584,3319,In-Text,0,Matthew 8,,Mathew 8
+A07584,3329,In-Text,0,Exodus 20,,Exodi 20
+A07584,3363,In-Text,0,Exodus 20,,Exodi 20
+A07584,3369,In-Text,0,Exodus 20,,Exodi 20
+A07584,3388,In-Text,0,Isaiah 66,,Ysaye 66
 A08442,1,In-Text,0,Thessalonians 100.5,,THE 100 5
 A08444,597,In-Text,0,Judges 12,,iudge 12
 A08444,666,In-Text,0,Thessalonians 18,,Th 18
 A08445,211,In-Text,0,Judges 12,,iudge 12
-A08445,808,In-Text,0,Judges 12,,iudge 12
 A08463,49,In-Text,0,Matthew 7,,Mathew 7
 A08463,190,In-Text,0,Matthew 6,,Mat 6
 A08560,14,In-Text,0,Ezekiel 9,,Ezech 9
@@ -1015,23 +1000,6 @@ A03519,1196,Note 1,0,Exodus 32,,Exod 32
 A03519,1196,Note 2,0,Numbers 25,,Nume 25
 A03519,1197,Note 0,0,Proverbs 20,,Prouer 20
 A03519,1201,Note 0,0,1 Peter 5,,1 Peter 5
-A03634,7,Note 0,0,Job 10,,Io 10
-A03634,11,Note 1,0,Numbers 14,,Numer 14
-A03634,31,Note 0,0,Psalms 19.118,,Psal 19 118
-A03634,31,Note 0,1,2 Timothy 3,,2 Timoth 3
-A03634,32,Note 0,0,Matthew 1.2,,Math 1 2
-A03634,32,Note 0,1,Luke 2,,Luc 2
-A03634,32,Note 0,2,Jonah 1,,Ion 1
-A03634,34,Note 0,0,John 1.3,,Ioan 1 3
-A03634,34,Note 1,0,Matthew 3,,Math 3
-A03634,39,Note 0,0,John 3,,Ioan 3
-A03634,41,Note 0,0,John 3,,Ioan 3
-A03634,48,Note 0,0,John 3,,Ioan 3
-A03634,49,Note 0,0,Genesis 3,,Gen 3
-A03634,50,Note 0,0,John 1.3; John 1.5,,Ioan 1 3 5
-A03634,51,Note 0,0,John 1.3,,Ioan 1 3
-A03634,52,Note 0,0,John 16,,Ioan 16
-A03634,63,Note 0,0,John 3.3; John 3.6,,Ioan 3 3 6
 A04511,5,Note 0,0,Psalms 37,,Psal 37
 A04511,5,Note 1,0,Romans 5,,Rom 5
 A04511,5,Note 2,0,Psalms 37,,Psal 37
@@ -1105,8 +1073,8 @@ A04598,97,Note 0,0,John 3,,Ioan 3
 A04598,99,Note 0,0,Psalms 67,,Psal 67
 A04598,125,Note 0,0,John 8,,Ioann 8
 A04598,154,Note 0,0,1 Corinthians 15,,1 Cor 15
-A04598,165,Note 0,0,1 Thessalonians 4,,1 Thes 4
-A04598,193,Note 0,0,John 16,,Ioan 16
+A04598,267,Note 0,0,1 Thessalonians 4,,1 Thes 4
+A04598,295,Note 0,0,John 16,,Ioan 16
 A04924,16,Note 0,0,1 Kings 1^^,,1 Reg 1^^
 A04924,52,Note 0,0,Leviticus 10,,Leui 10
 A04924,83,Note 0,0,Revelation ^,,Apoca ^
@@ -1128,6 +1096,7 @@ A04924,372,Note 0,0,Isaiah 9,,Esai 9
 A04924,372,Note 0,1,Jeremiah 31,,Iere 31
 A04924,374,Note 0,0,Colossians 1,,Collos 1
 A04924,378,Note 0,0,John 6,,Ioan 6
+A04924,523,Note 1,0,1 Corinthians 11,,1 Cor 11
 A05141,1,Note 0,0,Romans 15.^,,Roma 15 ^
 A05141,3,Note 1,0,Isaiah 26,,Esa 26
 A05141,10,Note 0,0,Exodus 5.6,,Exod 5 6
@@ -1169,570 +1138,6 @@ A05152,100,Note 0,0,1 Peter 2,,1 Per 2
 A05152,260,Note 0,0,1 Peter 4,,1 Petr 4
 A05152,260,Note 1,0,Matthew 24,,Matt 24
 A05152,260,Note 1,1,Luke 12,,Luc 12
-A06325,1,Note 0,0,Genesis 18,,Ge 18
-A06325,4,Note 0,0,Isaiah 20.8,,Esaie 20 8
-A06325,4,Note 1,0,Psalms 79,,psal 79
-A06325,6,Note 0,0,Psalms 105,,Psal 105
-A06325,9,Note 0,0,Psalms 105,,Psal 105
-A06325,10,Note 0,0,Matthew 13,,Mat 13
-A06325,11,Note 1,0,Philippians 2,,Phili 2
-A06325,11,Note 2,0,Baruch 3,,Baruch 3
-A06325,16,Note 0,0,Luke 6,,Luce 6
-A06325,24,Note 0,0,Psalms 7.2^,,Psal 7 2^
-A06325,24,Note 0,1,Luke 1,,Luce 1
-A06325,25,Note 0,0,Corinthians 8,,Cor 8
-A06325,25,Note 1,0,Deuteronomy 32,,Deut 32
-A06325,25,Note 1,1,2 Chronicles 15,,2 Para 15
-A06325,28,Note 0,0,Luke 6,,Luce 6
-A06325,28,Note 0,1,Romans 8,,Roma 8
-A06325,29,Note 0,0,Matthew 9,,Math 9
-A06325,31,Note 1,0,Psalms 4,,Psal 4
-A06325,33,Note 0,0,Matthew 5,,Math 5
-A06325,34,Note 0,0,Mark 12,,Marc 12
-A06325,39,Note 1,0,Genesis 18,,Gene 18
-A06325,46,Note 0,0,Corinthians 11,,Co 11
-A06325,49,Note 0,0,Luke 19,,Luce 19
-A06325,54,Note 0,0,Corinthians 1,,Cor 1
-A06325,54,Note 1,0,Genesis 18,,Gene 18
-A06325,54,Note 2,0,Isaiah 53,,Esa 53
-A06325,54,Note 3,0,1 Peter 2,,1 Petri 2
-A06325,56,Note 0,0,Philippians 2,,Phili 2
-A06325,62,Note 0,0,Matthew 16,,Math 16
-A06325,64,Note 0,0,Genesis 18,,Gene 18
-A06325,74,Note 0,0,Matthew 5,,Math 5
-A06325,75,Note 0,0,Luke 9,,Luce 9
-A06325,76,Note 0,0,Matthew 19,,Math 19
-A06325,77,Note 0,0,Matthew 6,,Math 6
-A06325,77,Note 1,0,Matthew 19,,Math 19
-A06325,82,Note 1,0,1 John 2,,1 Ioan 2
-A06325,85,Note 0,0,Matthew 4,,Math 4
-A06325,87,Note 0,0,Matthew 19,,Math 19
-A06325,87,Note 1,0,Acts 4,,Act 4
-A06325,89,Note 0,0,Luke 12,,Luce 12
-A06325,94,Note 0,0,Matthew 5,,Math 5
-A06325,96,Note 0,0,Matthew 8,,Mat 8
-A06325,99,Note 0,0,Matthew 19,,Mat 19
-A06325,104,Note 0,0,Matthew 6,,Math 6
-A06325,110,Note 1,0,Acts 5,,Act 5
-A06325,135,Note 0,0,Psalms 88,,Psal 88
-A06325,153,Note 0,0,Matthew 11,,Math 11
-A06325,153,Note 1,0,Matthew 8,,Math 8
-A06325,153,Note 2,0,Philippians 2,,Phili 2
-A06325,153,Note 3,0,Matthew 11,,Math 11
-A06325,158,Note 0,0,Romans 6,,Ro 6
-A06325,158,Note 1,0,Galatians 5,,Gala 5
-A06325,159,Note 0,0,Colossians 3,,Colo 3
-A06325,163,Note 0,0,Acts 12,,Act 12
-A06325,167,Note 0,0,Philippians 3,,Phili 3
-A06325,172,Note 0,0,Mark 1,,Mar 1
-A06325,177,Note 0,0,Acts 9,,Act 9
-A06325,178,Note 0,0,Matthew 26,,Math 26
-A06325,179,Note 0,0,Luke 9,,Luce 9
-A06325,187,Note 0,0,Matthew 5,,Math 5
-A06325,201,Note 0,0,Corinthians 7,,Co 7
-A06325,202,Note 0,0,Matthew 5,,Math 5
-A06325,205,Note 0,0,Ecclesiastes 9,,Eccle 9
-A06325,208,Note 0,0,Romans 7,,Ro 7
-A06325,211,Note 0,0,Corinthians 6,,Cor 6
-A06325,220,Note 0,0,Psalms 25,,Psal 25
-A06325,220,Note 1,0,Psalms 26,,Psal 26
-A06325,225,Note 0,0,Proverbs 9,,Proue 9
-A06325,227,Note 0,0,Kings 3.3,,3 Reg 3 3
-A06325,240,Note 0,0,Romans 1,,Roma 1
-A06325,243,Note 0,0,Isaiah 19,,Esa 19
-A06325,243,Note 0,1,1 Corinthians 1,,1 Cor 1
-A06325,247,Note 0,0,Psalms 118,,Psal 118
-A06325,250,Note 0,0,2 Timothy 2,,2 Timo 2
-A06325,277,Note 0,0,Proverbs 9,,Proue 9
-A06325,285,Note 0,0,Kings 3.5,,3 Reg 3 5
-A06325,293,Note 0,0,Kings 3.4,,3 Reg 3 4
-A06325,294,Note 0,0,Kings 3.3,,3 Reg 3 3
-A06325,295,Note 0,0,Kings 5.6; Kings 5.8,,3 Regu 5 6 & 8
-A06325,297,Note 0,0,2 Chronicles 9,,2 Para 9
-A06325,302,Note 0,0,Matthew 12,,Math 12
-A06325,302,Note 2,0,2 Kings 7,,2 Reg 7
-A06325,302,Note 4,0,Matthew 12,,Math 12
-A06325,304,Note 0,0,Proverbs 9,,Proue 9
-A06325,305,Note 0,0,Isaiah 55,,Esaie 55
-A06325,306,Note 0,0,Psalms 41,,Psal 41
-A06325,309,Note 0,0,Matthew 25,,Math 25
-A06325,314,Note 0,0,Matthew 12,,Math 12
-A06325,319,Note 0,0,Matthew 15,,Math 15
-A06325,319,Note 1,0,Matthew 9,,Math 9
-A06325,320,Note 0,0,Mark 16,,Mar 16
-A06325,320,Note 1,0,Matthew 19,,Math 19
-A06325,321,Note 1,0,Corinthians 12,,Co 12
-A06325,322,Note 0,0,Isaiah 55,,Esa 55
-A06325,327,Note 0,0,Romans 11,,Roma 11
-A06325,329,Note 0,0,Ecclesiastes 1,,Eccle 1
-A06325,330,Note 0,0,Proverbs 5,,Prouer 5
-A06325,330,Note 1,0,Proverbs 4,,Prouer 4
-A06325,330,Note 2,0,Matthew 11,,Math 11
-A06325,332,Note 0,0,Matthew 4,,Math 4
-A06325,338,Note 0,0,Corinthians 1,,Co 1
-A06325,340,Note 0,0,Luke 6,,Luce 6
-A06325,353,Note 0,0,1 Timothy 2,,1 Timo 2
-A06325,387,Note 0,0,1 Corinthians 13,,1 Corin 13
-A06325,410,Note 0,0,Genesis 1,,Gene 1
-A06325,412,Note 0,0,Matthew 24,,Math 24
-A06325,415,Note 0,0,1 Corinthians 1,,1 Corin 1
-A06325,415,Note 1,0,Matthew 11,,Math 11
-A06325,417,Note 0,0,Galatians 1,,Gala 1
-A06325,417,Note 1,0,1 Corinthians 2,,1 Corin 2
-A06325,424,Note 0,0,Revelation 3.5,,Apoca 3 5
-A06325,425,Note 1,0,2 Corinthians 12,,2 Cor 12
-A06325,425,Note 2,0,Philippians 1,,Phili 1
-A06325,425,Note 3,0,1 Corinthians 1,,1 Corin 1
-A06325,437,Note 0,0,2 Timothy 3,,2 Timo 3
-A06325,437,Note 1,0,Romans 15,,Roma 15
-A06325,441,Note 0,0,Matthew 19,,Math 19
-A06325,442,Note 0,0,1 Corinthians 1,,1 Coryn 1
-A06325,455,Note 0,0,2 Chronicles 9,,2 Para 9
-A06325,461,Note 0,0,Matthew 6,,Math 6
-A06325,466,Note 0,0,Kings 3.6,,3 Reg 3 6
-A06325,467,Note 0,0,Corinthians 10,,Co 10
-A06325,475,Note 0,0,Matthew 25,,Math 25
-A06325,475,Note 1,0,Matthew 16,,Math 16
-A06325,475,Note 2,0,Matthew 7,,Math 7
-A06325,481,Note 0,0,Romans 8,,Roma 8
-A06325,488,Note 0,0,Matthew 17,,Math 17
-A06325,491,Note 0,0,Acts 9,,Act 9
-A06325,492,Note 0,0,Acts 7,,Act 7
-A06325,498,Note 0,0,Psalms 25,,Psal 25
-A06325,499,Note 0,0,Psalms 44,,Psal 44
-A06325,502,Note 0,0,Psalms 30,,Psal 30
-A06325,502,Note 1,0,Psalms 83,,Psal 83
-A06325,502,Note 2,0,Psalms 91,,Psal 91
-A06325,528,Note 0,0,Genesis 3,,Gene 3
-A06325,529,Note 0,0,Genesis 9,,Gene 9
-A06325,529,Note 1,0,Genesis 14,,Gene 14
-A06325,530,Note 0,0,Psalms 77,,Psal 77
-A06325,530,Note 0,1,Exodus 3,,Exo 3
-A06325,530,Note 0,2,Kings 14,,Reg 14
-A06325,530,Note 0,3,Leviticus 24,,Leuit 24
-A06325,530,Note 0,4,Matthew 15,,Math 15
-A06325,533,Note 0,0,Matthew 14,,Math 14
-A06325,555,Note 1,0,Esther 1,,Hester 1
-A06325,564,Note 0,0,Psalms 83,,Psal 83
-A06325,565,Note 0,0,Matthew 13,,Math 13
-A06325,567,Note 0,0,Psalms 132,,Psal 132
-A06325,576,Note 0,0,Psalms 26,,Psal 26
-A06325,588,Note 0,0,2 Thessalonians 3,,2 Thessa 3
-A06325,589,Note 0,0,1 Corinthians 5,,1 Corin 5
-A06325,590,Note 0,0,Psalms 100,,Psal 100
-A06325,590,Note 1,0,Philippians 2,,Phili 2
-A06325,593,Note 0,0,Daniel 7,,Dani 7
-A06325,593,Note 1,0,Matthew 4,,Math 4
-A06325,596,Note 0,0,Hebrews 1,,Hebre 1
-A06325,620,Note 0,0,Matthew 17,,Math 17
-A06325,624,Note 0,0,Matthew 11,,Math 11
-A06325,630,Note 0,0,Psalms 44,,Psal 44
-A06325,633,Note 1,0,1 Peter 2,,1 Petri 2
-A06325,636,Note 0,0,1 Timothy 3,,1 Timo 3
-A06325,662,Note 1,0,Matthew 5,,Math 5
-A06325,663,Note 1,0,1 Corinthians 11,,1 Corin 11
-A06325,669,Note 0,0,Galatians 2,,Gala 2
-A06325,669,Note 1,0,Isaiah 52,,Esaie 52
-A06325,670,Note 0,0,Acts 9,,Act 9
-A06325,671,Note 1,0,1 Corinthians 6,,1 Cor 6
-A06325,672,Note 0,0,Matthew 5,,Math 5
-A06325,672,Note 1,0,Psalms 81,,Psal 81
-A06325,675,Note 0,0,1 Corinthians 5,,1 Corin 5
-A06325,684,Note 1,0,Matthew 6,,Math 6
-A06325,684,Note 2,0,1 Corinthians 6,,1 Cor 6
-A06325,699,Note 0,0,Leviticus 19,,Leuiti 19
-A06325,703,Note 0,0,Acts 5,,Act 5
-A06325,703,Note 1,0,Psalms 43,,Psal 43
-A06325,703,Note 2,0,Kings 3.10,,3 Reg 3 10
-A06325,705,Note 0,0,Luke 11,,Luce 11
-A06325,709,Note 0,0,Isaiah 53,,Esaie 53
-A06325,709,Note 0,1,1 Corinthians 2,,1 Cor 2
-A06325,713,Note 0,0,Psalms 33,,Psal 33
-A06325,713,Note 1,0,Psalms 83,,ps 83
-A06325,746,Note 0,0,1 Corinthians 3,,1 Cor 3
-A06325,749,Note 1,0,Ecclesiastes 9,,Eccle 9
-A06325,751,Note 0,0,Isaiah 4,,Esa 4
-A06325,755,Note 0,0,Matthew 5,,Math 5
-A06325,755,Note 1,0,Revelation 22,,Apoca 22
-A06325,759,Note 0,0,Canticles 4,,Cant 4
-A06325,760,Note 0,0,Psalms 41,,Psal 41
-A06325,760,Note 1,0,Psalms 18,,Psal 18
-A06325,766,Note 0,0,Psalms 100.1,,Psal 100 1
-A06325,772,Note 0,0,2 Corinthians 2,,2 Cor 2
-A06325,773,Note 0,0,Ephesians 5,,Ephe 5
-A06325,775,Note 0,0,Genesis 2,,Gene 2
-A06325,776,Note 0,0,Matthew 19,,Mat 19
-A06325,780,Note 0,0,Matthew 28,,Math 28
-A06325,787,Note 0,0,Psalms 101,,Psal 101
-A06325,794,Note 0,0,Psalms 7,,Psal 7
-A06325,816,Note 0,0,Ecclesiastes 3,,Eccle 3
-A06325,855,Note 1,0,Matthew 23,,Math 23
-A06325,857,Note 0,0,Matthew 23,,Math 23
-A06325,862,Note 0,0,1 Corinthians 4,,1 Cor 4
-A06325,862,Note 1,0,1 Corinthians 10,,1 Cor 10
-A06325,875,Note 0,0,Canticles 6,,Cant 6
-A06325,887,Note 0,0,Ephesians 5,,Ephe 5
-A06325,900,Note 1,0,Ecclesiastes 24,,Eccle 24
-A06325,900,Note 2,0,Matthew 11,,Math 11
-A06325,901,Note 0,0,Romans 11,,Roma 11
-A06325,902,Note 0,0,Romans 1,,Roma 1
-A06325,925,Note 0,0,Luke 22,,Luce 22
-A06325,933,Note 3,0,Isaiah 38,,Esa 38
-A06325,935,Note 0,0,Genesis 1,,Gene 1
-A06325,935,Note 1,0,Matthew 19,,Math 19
-A06325,942,Note 1,0,Luke 4,,Luce 4
-A06325,946,Note 0,0,Matthew 1,,Mat 1
-A06325,950,Note 0,0,1 Corinthians 1^,,1 Cor 1^
-A06325,958,Note 0,0,Matthew 18,,Math 18
-A06325,958,Note 1,0,Romans 1,,Roma 1
-A06325,959,Note 0,0,Matthew 16,,Math 16
-A06325,964,Note 1,0,Matthew 13,,Math 13
-A06325,967,Note 0,0,Ezekiel 16,,Ezech 16
-A06325,971,Note 0,0,2 Timothy 3,,2 Timo 3
-A06325,985,Note 0,0,Romans 12,,Roma 12
-A06325,985,Note 1,0,2 Corinthians 5,,2 Cor 5
-A06325,985,Note 2,0,2 Corinthians 5,,2 Cor 5
-A06325,985,Note 3,0,Ephesians 4,,Ephe 4
-A06325,985,Note 4,0,1 Thessalonians 4,,1 Thess 4
-A06325,986,Note 0,0,1 Corinthians 4,,1 Cor 4
-A06325,986,Note 1,0,2 Timothy 4,,2 Timo 4
-A06325,988,Note 0,0,Isaiah 66,,Esa 66
-A06325,1012,Note 0,0,Matthew 22,,Math 22
-A06325,1048,Note 0,0,1 Corinthians 2,,1 Cor 2
-A06325,1048,Note 1,0,Matthew 11,,Math 11
-A06325,1052,Note 0,0,^ Corinthians 3,,^ Cor 3
-A06325,1055,Note 0,0,Romans 12,,Roma 12
-A06325,1058,Note 0,0,Psalms 6.21,,Psal 6 21
-A06325,1058,Note 1,0,Matthew 5,,Math 5
-A06325,1059,Note 0,0,Psalms 68,,Psal 68
-A06325,1059,Note 0,1,Psalms 78,,Psal 78
-A06325,1059,Note 0,2,Isaiah 66,,Esa 66
-A06325,1072,Note 0,0,Romans 12,,Roma 12
-A06325,1072,Note 1,0,Matthew 7,,Math 7
-A06325,1083,Note 0,0,Romans 10,,Roma 10
-A06325,1086,Note 0,0,Exodus 21,,Exodi 21
-A06325,1109,Note 0,0,Daniel 5,,Dani 5
-A06325,1115,Note 0,0,Revelation 22,,Apoca 22
-A06325,1122,Note 0,0,Matthew 3,,Math 3
-A06325,1132,Note 0,0,Ecclesiastes 5,,Eccle 5
-A06325,1133,Note 0,0,Romans 2,,Roma 2
-A06325,1136,Note 0,0,2 Kings 12,,2 Reg 12
-A06325,1137,Note 0,0,Psalms 7,,Psal 7
-A06325,1138,Note 0,0,Psalms 105,,Psal 105
-A06325,1138,Note 1,0,2 Kings 1^,,2 Reg 1^
-A06325,1139,Note 0,0,Revelation 6,,Apoca 6
-A06325,1143,Note 0,0,Luke 11,,Luce 11
-A06325,1145,Note 0,0,Exodus 17,,Exodi 17
-A06325,1146,Note 0,0,Psalms 33,,Psal 33
-A06325,1150,Note 0,0,Exodus 14,,Exodi 14
-A06325,1150,Note 1,0,Exodus 17,,Exodi 17
-A06325,1150,Note 2,0,Numbers 11; Numbers 21,,Nume 11 & 21
-A06325,1150,Note 2,1,Exodus 32,,Exodi 32
-A06325,1152,Note 0,0,Exodus 17,,Exodi 17
-A06325,1153,Note 0,0,Kings 3.17; Kings 3.18,,3 Reg 3 17 & 18
-A06325,1155,Note 0,0,Kings 4.4,,4 Reg 4 4
-A06325,1155,Note 1,0,John 2,,Ione 2
-A06325,1159,Note 0,0,Judith 16,,Iudic 16
-A06325,1160,Note 0,0,Kings 3.3,,3 Reg 3 3
-A06325,1164,Note 0,0,Matthew 8,,Math 8
-A06325,1164,Note 1,0,Mark 10,,Mar 10
-A06325,1167,Note 0,0,Luke 6,,Luce 6
-A06325,1168,Note 0,0,Matthew 15,,Math 15
-A06325,1168,Note 1,0,Matthew 9,,Math 9
-A06325,1170,Note 0,0,Matthew 8,,Math 8
-A06325,1170,Note 1,0,Luke 23,,Luce 23
-A06325,1171,Note 0,0,Acts 7,,Act 7
-A06325,1172,Note 0,0,Luke 22,,Luce 22
-A06325,1174,Note 0,0,Acts 12,,Act 12
-A06325,1177,Note 0,0,Matthew 2,,Math 2
-A06325,1177,Note 0,1,Genesis 25,,Gene 25
-A06325,1196,Note 0,0,Ezekiel 18,,Exech 18
-A06325,1199,Note 0,0,Revelation 1,,Apoca 1
-A06325,1201,Note 0,0,Romans 2,,Roma 2
-A06325,1203,Note 0,0,Luke 22,,Luce 22
-A06325,1204,Note 0,0,Exodus 15,,Exodi 15
-A06325,1212,Note 0,0,Ezekiel 18,,Exech 18
-A06325,1212,Note 2,0,Genesis 2,,Gene 2
-A06325,1217,Note 0,0,Job 13,,Iob 13
-A06325,1223,Note 0,0,Job 14,,Iob 14
-A06325,1227,Note 0,0,Romans 5,,Roma 5
-A06325,1227,Note 1,0,Hebrews 9,,Hebre 9
-A06325,1228,Note 0,0,Romans 6,,Roma 6
-A06325,1229,Note 0,0,Ephesians 2,,Ephe 2
-A06325,1232,Note 0,0,Ecclesiastes 15,,Eccle 15
-A06325,1235,Note 0,0,Luke 18,,Luce 18
-A06325,1241,Note 0,0,Psalms 113,,Psal 113
-A06325,1241,Note 1,0,Proverbs 15,,Prouer 15
-A06325,1252,Note 1,0,Psalms 13,,Psal 13
-A06325,1253,Note 1,0,Proverbs 18,,Prouer 18
-A06325,1255,Note 0,0,Jeremiah 6,,Iere 6
-A06325,1256,Note 0,0,Luke 12,,Luce 12
-A06325,1257,Note 0,0,Matthew 24,,Math 24
-A06325,1257,Note 1,0,Matthew 23,,Mat 23
-A06325,1259,Note 1,0,Numbers 16,,Nume 16
-A06325,1261,Note 0,0,Jeremiah 23,,Iere 23
-A06325,1265,Note 1,0,Psalms 48,,Psal 48
-A06325,1285,Note 0,0,Job 24,,Iob 24
-A06325,1286,Note 2,0,Psalms 33,,Psal 33
-A06325,1287,Note 0,0,Luke 16,,Luce 16
-A06325,1291,Note 0,0,Psalms 115,,Psal 115
-A06325,1297,Note 0,0,Psalms 83,,Psal 83
-A06325,1305,Note 0,0,Psalms 139,,Psal 139
-A06325,1312,Note 0,0,Proverbs 18,,Prouer 18
-A06325,1335,Note 1,0,Exodus 20,,Exodi 20
-A06325,1337,Note 0,0,2 Kings 24,,2 Reg 24
-A06325,1345,Note 0,0,Exodus 20,,Exodi 20
-A06325,1349,Note 0,0,2 Corinthians 5,,2 Cor 5
-A06325,1365,Note 1,0,Luke 15,,Luce 15
-A06325,1366,Note 0,0,Romans 13,,Roma 13
-A06325,1367,Note 0,0,Ephesians 4,,Ephesi 4
-A06325,1380,Note 0,0,2 Corinthians 12,,2 Cor 12
-A06325,1380,Note 1,0,Philippians 1,,phili 1
-A06325,1383,Note 0,0,Psalms 118,,Psal 118
-A06325,1385,Note 0,0,Luke 18,,Luce 18
-A06325,1386,Note 0,0,Luke 7,,Luce 7
-A06325,1386,Note 1,0,Luke 23,,Luce 23
-A06325,1387,Note 0,0,Luke 15,,Luce 15
-A06325,1387,Note 1,0,Matthew 23,,Mat 23
-A06325,1387,Note 3,0,Matthew 7,,Math 7
-A06325,1387,Note 4,0,Matthew 3; Matthew 4,,Mat 3 & 4
-A06325,1394,Note 0,0,Luke 3,,Luce 3
-A06325,1394,Note 1,0,Deuteronomy 25,,Deut 25
-A06325,1399,Note 0,0,Matthew 21,,Math 21
-A06325,1399,Note 3,0,Luke 14.2,,Luce 14 2
-A06325,1405,Note 1,0,Psalms 103,,Psal 103
-A06325,1406,Note 0,0,Psalms 113,,Psal 113
-A06325,1406,Note 1,0,Psalms 148,,Psal 148
-A06325,1408,Note 0,0,Genesis 1,,Gene 1
-A06325,1416,Note 0,0,Psalms 35,,Psal 35
-A06325,1428,Note 0,0,Timothy 2,,tim 2
-A06325,1429,Note 0,0,Luke 9,,Luce 9
-A06325,1429,Note 1,0,Timothy 2,,tim 2
-A06325,1438,Note 0,0,Corinthians 10,,Cor 10
-A06325,1444,Note 0,0,Romans 8,,Rom 8
-A06325,1446,Note 0,0,Acts 14,,Actu 14
-A06325,1450,Note 0,0,Matthew 21,,Math 21
-A06325,1454,Note 0,0,Isaiah 5,,Esaia 5
-A06325,1462,Note 0,0,Luke 9,,Luce 9
-A06325,1469,Note 0,0,Proverbs 24,,Prou 24
-A06325,1473,Note 0,0,1 Corinthians 3,,1 Cor 3
-A06325,1477,Note 0,0,Galatians 5,,Gal 5
-A06325,1484,Note 0,0,Hebrews 11,,Hebrae 11
-A06325,1486,Note 0,0,Micah 1.2; Micah 1.2,,Macha 1 2 & 2
-A06325,1487,Note 0,0,Acts 5,,Actu 5
-A06325,1488,Note 0,0,Canticles 8,,Canti 8
-A06325,1491,Note 0,0,2 Kings 14,,2 Reg 14
-A06325,1492,Note 0,0,Romans 8,,Rom 8
-A06325,1494,Note 0,0,Matthew 19,,Math 19
-A06325,1494,Note 1,0,Luke 9,,Luce 9
-A06325,1494,Note 2,0,Romans 8,,Roma 8
-A06325,1496,Note 0,0,Job 6,,Iob 6
-A06325,1497,Note 0,0,Romans 8,,Rom 8
-A06325,1501,Note 1,0,Isaiah 6,,Esa 6
-A06325,1508,Note 0,0,Hebrews 11,,Haebre 11
-A06325,1516,Note 1,0,Psalms 43,,Psal 43
-A06325,1517,Note 0,0,Colossians 3,,Col 3
-A06325,1525,Note 0,0,1 Peter 2,,1 Petri 2
-A06325,1525,Note 1,0,Romans 8,,Rom 8
-A06325,1526,Note 0,0,Colossians 3,,Colo 3
-A06325,1527,Note 0,0,Romans 7,,Rom 7
-A06325,1533,Note 0,0,Ephesians 4,,Ephe 4
-A06325,1535,Note 0,0,Luke 5,,Luce 5
-A06325,1537,Note 0,0,Romans 14,,Rom 14
-A06325,1556,Note 1,0,2 Corinthians 1,,2 Co^ 1
-A06325,1561,Note 1,0,John 14,,Ioan 14
-A06325,1561,Note 2,0,John 13,,Ioan 13
-A06325,1561,Note 2,1,Matthew 11,,Math 11
-A06325,1566,Note 0,0,Luke 9,,Luce 9
-A06325,1567,Note 0,0,John 14,,Ioan 14
-A06325,1567,Note 1,0,Philippians 2,,Philip 2
-A06325,1568,Note 0,0,John 14,,Ioan 14
-A06325,1568,Note 1,0,Matthew 26,,Math 26
-A06325,1572,Note 0,0,Luke 23,,Luce 23
-A06325,1583,Note 0,0,John 8,,Ioan 8
-A06325,1584,Note 1,0,Matthew 3,,Math 3
-A06325,1594,Note 0,0,John 8,,Ioan 8
-A06325,1607,Note 0,0,1 John 4,,1 Ioan 4
-A06325,1616,Note 0,0,Luke 1,,Luce 1
-A06325,1621,Note 0,0,John 4,,Ioan 4
-A06325,1627,Note 0,0,John 4,,Ioan 4
-A06325,1638,Note 0,0,Isaiah 9,,Esaias 9
-A06325,1642,Note 0,0,John 4,,Ioan 4
-A06325,1647,Note 0,0,John 4,,Ioan 4
-A06325,1651,Note 0,0,John 4,,Ioan 4
-A06325,1670,Note 0,0,Isaiah 29,,Esa 29
-A06325,1673,Note 0,0,John 4,,Ioan 4
-A06325,1685,Note 0,0,Luke 19,,Luc 19
-A06325,1689,Note 0,0,John 4,,Ioan 4
-A06325,1706,Note 0,0,Isaiah 32,,Esai 32
-A06325,1706,Note 0,1,John 16,,Ioan 16
-A06325,1707,Note 0,0,Revelation 21,,Apoca 21
-A06325,1707,Note 0,1,Revelation 7,,Apoca 7
-A06325,1709,Note 0,0,Romans 12,,Roma 12
-A06325,1713,Note 0,0,Luke 11,,Luce 11
-A06325,1714,Note 0,0,Isaiah 19,,Esa 19
-A06325,1719,Note 0,0,Proverbs 13,,Prou 13
-A06325,1719,Note 1,0,Matthew 18,,Math 18
-A06325,1731,Note 0,0,Luke 1,,Luce 1
-A06325,1731,Note 0,1,Matthew 11,,Math 11
-A06325,1734,Note 0,0,Romans 12,,Roma 12
-A06325,1734,Note 0,1,Psalms 132,,Psal 132
-A06325,1735,Note 0,0,2 Thessalonians 3,,2 Thess 3
-A06325,1739,Note 0,0,Genesis 18,,Gene 18
-A06325,1744,Note 0,0,Luke 2,,Luce 2
-A06325,1744,Note 1,0,Luke 10,,Luce 10
-A06325,1745,Note 0,0,John 14,,Ioan 14
-A06325,1747,Note 0,0,Isaiah 59,,Esai 59
-A06325,1752,Note 0,0,Isaiah 57,,Esa 57
-A06325,1760,Note 0,0,Matthew 16,,Math 16
-A06325,1764,Note 0,0,Exodus 16,,Exodi 16
-A06325,1764,Note 3,0,Psalms 31,,Psal 31
-A06325,1773,Note 0,0,Matthew 3,,Math 3
-A06325,1774,Note 0,0,Corinthians 4,,Cor 4
-A06325,1776,Note 0,0,Psalms 138,,Psal 138
-A06325,1785,Note 0,0,1 Peter 4,,1 Petri 4
-A06325,1786,Note 0,0,Matthew 3,,Math 3
-A06325,1796,Note 0,0,Corinthians 5,,cor 5
-A06325,1798,Note 0,0,Matthew 26,,Math 26
-A06325,1799,Note 0,0,2 Kings 2,,2 Regu 2
-A06325,1803,Note 0,0,Psalms 72,,Psal 72
-A06325,1814,Note 0,0,Ezekiel 13,,Ezech 13
-A06325,1818,Note 0,0,Matthew 10,,Math 10
-A06325,1819,Note 0,0,Matthew 5,,Math 5
-A06325,1822,Note 0,0,John 4,,Ioan 4
-A06325,1824,Note 0,0,Ecclesiastes 5,,Eccle 5
-A06325,1825,Note 0,0,Isaiah 30,,Esai 30
-A06325,1826,Note 0,0,2 Peter 3,,2 Pe 3
-A06325,1839,Note 1,0,2 Corinthians 4,,2 Cori 4
-A06325,1842,Note 0,0,Luke 21,,Luce 21
-A06325,1845,Note 0,0,Romans 5,,Rom 5
-A06325,1855,Note 0,0,Job 2,,Iob 2
-A06325,1856,Note 0,0,Ecclesiastes 2,,Eccle 2
-A06325,1859,Note 0,0,Genesis 21,,Gene 21
-A06325,1860,Note 3,0,Hebrews 12,,Hebrae 12
-A06325,1863,Note 0,0,Luke 7,,Luce 7
-A06325,1865,Note 0,0,Matthew 9,,Math 9
-A06325,1865,Note 1,0,Luke 11,,Luce 11
-A06325,1865,Note 2,0,John 8,,Ioan 8
-A06325,1866,Note 0,0,John 9,,Iohis 9
-A06325,1868,Note 0,0,John 8,,Ioan 8
-A06325,1868,Note 1,0,John 18,,Iohis 18
-A06325,1868,Note 2,0,Matthew 26,,Math 26
-A06325,1868,Note 3,0,Matthew 27,,Math 27
-A06325,1871,Note 0,0,Isaiah 53,,Esai 53
-A06325,1871,Note 1,0,Luke 23,,Luce 23
-A06325,1876,Note 0,0,Luke 21,,Luce 21
-A06325,1876,Note 1,0,Revelation 6,,Apoca 6
-A06325,1877,Note 0,0,Ecclesiastes 1,,Eccle 1
-A06325,1878,Note 0,0,Luke 8,,Luce 8
-A06325,1878,Note 1,0,Luke 21,,Luce 21
-A06325,1883,Note 0,0,Matthew 18,,Math 18
-A06325,1890,Note 0,0,John 8,,Ioan 8
-A06325,1895,Note 0,0,Luke 17,,Luce 17
-A06325,1895,Note 1,0,Genesis 19,,Gene 19
-A06325,1895,Note 3,0,Luke 9,,Luce 9
-A06325,1903,Note 0,0,1 Corinthians 9,,1 Corin 9
-A06325,1905,Note 0,0,Matthew 10,,Math 10
-A06325,1905,Note 1,0,Leviticus 3,,Leuiti 3
-A06325,1908,Note 0,0,Revelation 2,,Apoca 2
-A06325,1911,Note 0,0,Matthew 21,,Math 21
-A06325,1912,Note 1,0,John 11,,Ioan 11
-A06325,1916,Note 0,0,Luke 6,,Luce 6
-A06325,1920,Note 0,0,Luke 5,,Luce 5
-A06325,1923,Note 0,0,John 11,,Ioan 11
-A06325,1932,Note 0,0,John 11,,Ioan 11
-A06325,2009,Note 1,0,Kings 16,,Regu 16
-A06325,2019,Note 0,0,Luke 6,,Luce 6
-A06325,2019,Note 2,0,Luke 6,,Luce 6
-A06325,2021,Note 0,0,Romans 8,,Roma 8
-A06325,2021,Note 1,0,Galatians 2,,Gala 2
-A06325,2021,Note 2,0,Ephesians 5,,Ephe 5
-A06325,2023,Note 0,0,Matthew 26,,Math 26
-A06325,2033,Note 0,0,Matthew 26,,Math 26
-A06325,2055,Note 2,0,Proverbs 13,,Proue 13
-A06325,2062,Note 0,0,Matthew 5,,Math 5
-A06325,2072,Note 0,0,2 Corinthians 8,,2 Cor 8
-A06325,2078,Note 0,0,Proverbs 24,,Pro 24
-A06325,2086,Note 0,0,Luke 2,,Luce 2
-A06325,2096,Note 0,0,Luke 19,,Luce 19
-A06325,2103,Note 0,0,Luke 21,,Luce 21
-A06325,2108,Note 0,0,Matthew 10,,Math 10
-A06325,2112,Note 0,0,Luke 2,,Luce 2
-A06325,2118,Note 2,0,Galatians 2,,Gala 2
-A06325,2125,Note 0,0,Titus 3,,Titu 3
-A06325,2126,Note 0,0,Psalms 102,,Psal 102
-A06325,2129,Note 0,0,Matthew 11,,Math 11
-A06325,2130,Note 0,0,Psalms 73,,Psal 73
-A06325,2130,Note 1,0,John 1,,Ioan 1
-A06325,2131,Note 0,0,Matthew 9,,Math 9
-A06325,2133,Note 0,0,Isaiah 30,,Esa 30
-A06325,2135,Note 0,0,Canticles 9,,Cant 9
-A06325,2141,Note 1,0,Romans 2,,Roma 2
-A06325,2144,Note 0,0,Ecclesiastes 7,,Eccle 7
-A06325,2145,Note 0,0,John 3,,Ioan 3
-A06325,2147,Note 0,0,1 Peter 4,,1 Petri 4
-A06325,2160,Note 0,0,Romans 1,,Roma 1
-A06325,2169,Note 0,0,Psalms 102,,Psal 102
-A06325,2173,Note 0,0,Luke 23,,Luce 23
-A06325,2177,Note 0,0,Matthew 5,,Math 5
-A06325,2177,Note 2,0,Romans 1,,Roma 1
-A06325,2179,Note 0,0,Matthew 5,,Math 5
-A06325,2184,Note 0,0,Psalms 4,,Psal 4
-A06325,2188,Note 0,0,Matthew 18,,Math 18
-A06325,2199,Note 0,0,Matthew 21,,Math 21
-A06325,2200,Note 0,0,John 11,,Ioan 11
-A06325,2204,Note 0,0,John 11,,Ioan 11
-A06325,2206,Note 1,0,Genesis 49,,Gene 49
-A06325,2209,Note 0,0,John 11,,Ioan 11
-A06325,2213,Note 0,0,John 12,,Ioan 12
-A06325,2215,Note 0,0,Matthew 16,,Math 16
-A06325,2216,Note 0,0,John 11,,Ioan 11
-A06325,2222,Note 0,0,Daniel 2,,Dani 2
-A06325,2222,Note 1,0,Genesis 41,,Gene 41
-A06325,2225,Note 0,0,Numbers 22,,Num 22
-A06325,2228,Note 0,0,John 11,,Ioan 11
-A06325,2229,Note 1,0,Numbers 24,,Num 24
-A06325,2229,Note 2,0,Matthew 7,,Math 7
-A06325,2231,Note 2,0,1 Corinthians 12,,1 Cori 12
-A06325,2238,Note 0,0,Ezekiel 18,,Ezech 18
-A06325,2240,Note 0,0,Matthew 11,,Math 11
-A06325,2245,Note 0,0,Isaiah 11,,Esai 11
-A06325,2247,Note 0,0,John 12,,Ioan 12
-A06325,2252,Note 0,0,Matthew 27,,Math 27
-A06325,2252,Note 1,0,Luke 23,,Luce 23
-A06325,2253,Note 0,0,Matthew 27,,Math 27
-A06325,2257,Note 0,0,Matthew 26,,Math 26
-A06325,2258,Note 0,0,Isaiah 33,,Esai 33
-A06325,2258,Note 1,0,John 10,,Ioan 10
-A06325,2262,Note 0,0,John 11,,Ioan 11
-A06325,2266,Note 0,0,Titus 3,,titum 3
-A06325,2290,Note 1,0,Proverbs 18,,Prou 18
-A06325,2296,Note 0,0,Ecclesiastes 28,,Eccle 28
-A06325,2297,Note 0,0,Ecclesiastes 28,,Eccle 28
-A06325,2297,Note 2,0,John 6,,Ioan 6
-A06325,2298,Note 0,0,1 John 4,,1 Ioan 4
-A06325,2300,Note 1,0,Ephesians 5,,Ephe 5
-A06325,2302,Note 0,0,Matthew 26,,Math 26
-A06325,2302,Note 1,0,1 Corinthians 15,,1 Cor 15
-A06325,2306,Note 1,0,Matthew 12,,Math 12
-A06325,2327,Note 0,0,1 Kings 16,,1 Reg 16
-A06325,2357,Note 0,0,2 Peter 2,,2 Petri 2
-A06325,2375,Note 0,0,Jeremiah 1,,Ieremi 1
-A06325,2392,Note 0,0,Leviticus 1,,Leui 1
-A06325,2399,Note 0,0,Luke 1,,Luce 1
-A06325,2404,Note 0,0,Matthew 15,,Math 15
-A06325,2406,Note 0,0,Ecclesiastes 18,,Eccle 18
-A06325,2406,Note 1,0,Psalms 50,,Psal 50
-A06325,2413,Note 0,0,1 Corinthians 11,,1 Cori 11
-A06325,2415,Note 0,0,John 6,,Ioan 6
-A06325,2422,Note 0,0,John 6,,Ioan 6
-A06325,2431,Note 0,0,Ephesians 5,,Ephae 5
-A06325,2436,Note 1,0,Ephesians 5,,Ephe 5
-A06325,2441,Note 0,0,1 Timothy 2,,1 Timo 2
-A06325,2443,Note 0,0,Ephesians 5,,Ephe 5
-A06325,2454,Note 0,0,Hebrews 13,,Hebre 13
-A06325,2458,Note 0,0,1 Corinthians 7,,1 Cori 7
-A06325,2478,Note 0,0,1 Corinthians 15,,1 Cori 15
 A06329,7,Note 0,0,Ephesians 2,,E^he 2
 A06329,21,Note 0,0,Romans 8,,Roma 8
 A06329,41,Note 0,0,Galatians 2,,Galat 2
@@ -1937,36 +1342,55 @@ A06330,1017,Note 0,0,Colossians ^^,,Col^^os ^^
 A06330,1050,Note 0,0,Hebrews 6,,Hebreo 6
 A06330,1052,Note 0,0,Luke 23,,Luce 23
 A06330,1087,Note 0,0,1 Peter ^^,,1 Petri ^^
-A06460,77,Note 0,0,Job 1,,Iob 1
-A06460,78,Note 0,0,1 Timothy 6,,1 Tim 6
-A06460,83,Note 0,0,2 Corinthians 6,,2 Cor 6
-A06460,239,Note 0,0,Psalms 104,,Psal 104
-A06460,323,Note 0,0,Luke 22,,Luc 22
-A06460,326,Note 0,0,Romans 1,,Ro 1
-A06460,329,Note 0,0,Luke 2,,Luc 2
-A06460,339,Note 0,0,John 16,,Ioan 16
-A06460,339,Note 1,0,Jonah 16,,Ion 16
-A06460,340,Note 0,0,Jonah 16,,Ion 16
-A06460,347,Note 0,0,Job 14,,Io 14
-A06460,349,Note 0,0,Philippians 4,,Phil 4
-A06460,360,Note 0,0,Ecclesiastes 2,,Eccl 2
-A06460,363,Note 0,0,Job 1,,Iob 1
-A06460,363,Note 1,0,Job 1,,Iob 1
-A06460,364,Note 0,0,Job 2,,Iob 2
-A06460,367,Note 0,0,Tobit 2,,Tob 2
-A06460,375,Note 0,0,Numbers ^0,,Nu ^0
-A06460,376,Note 0,0,Psalms 50,,Psal 50
-A06460,378,Note 0,0,Deuteronomy 8,,Deut 8
-A06460,380,Note 0,0,Genesis 2^,,Gen 2^
-A06460,392,Note 0,0,2 Corinthians 12,,2 Cor 12
-A06460,396,Note 0,0,Ecclesiastes 27,,Eccl 27
-A06460,423,Note 0,0,Revelation 2,,Apoc 2
-A06460,437,Note 0,0,1 Thessalonians 4,,1 Thes 4
-A06460,443,Note 0,0,Job 11,,Io 11
-A06460,450,Note 0,0,Philippians 3,,Phil 3
-A06460,451,Note 0,0,John 17^,,Ioan 17^
-A06460,457,Note 0,0,Psalms 83,,Psal 83
-A06460,460,Note 0,0,1 John 2,,1 Ioan 2
+A06460,61,Note 0,0,Matthew 16,,Mat 16
+A06460,61,Note 1,0,Mark 8,,Mar 8
+A06460,61,Note 2,0,Luke 9,,Luc 9
+A06460,61,Note 3,0,Job 12,,Io 12
+A06460,61,Note 4,0,Matthew 6,,Mat 6
+A06460,61,Note 5,0,Luke 12,,Luc 12
+A06460,73,Note 0,0,Matthew 5,,Mat 5
+A06460,73,Note 1,0,Luke 6,,Luc 6
+A06460,120,Note 0,0,Matthew 5,,Mat 5
+A06460,226,Note 0,0,Matthew 6,,Mat 6
+A06460,231,Note 0,0,Ephesians 4,,Eph 4
+A06460,249,Note 0,0,Colossians 1.13,,Col 1 13
+A06460,250,Note 0,0,Job 1.4,,Io 1 4
+A06460,358,Note 0,0,Matthew 6,,Math 6
+A06460,358,Note 1,0,Luke 12,,Luc 12
+A06460,403,Note 0,0,Matthew 8,,Math 8
+A06460,403,Note 1,0,Luke 13,,Luc 13
+A06460,403,Note 2,0,Matthew 19,,Math 19
+A06460,406,Note 0,0,Matthew 20; Matthew 22,,Math 20 & 22
+A06460,916,Note 0,0,Job 1,,Iob 1
+A06460,917,Note 0,0,1 Timothy 6,,1 Tim 6
+A06460,922,Note 0,0,2 Corinthians 6,,2 Cor 6
+A06460,1078,Note 0,0,Psalms 104,,Psal 104
+A06460,1162,Note 0,0,Luke 22,,Luc 22
+A06460,1165,Note 0,0,Romans 1,,Ro 1
+A06460,1168,Note 0,0,Luke 2,,Luc 2
+A06460,1178,Note 0,0,John 16,,Ioan 16
+A06460,1178,Note 1,0,Jonah 16,,Ion 16
+A06460,1179,Note 0,0,Jonah 16,,Ion 16
+A06460,1186,Note 0,0,Job 14,,Io 14
+A06460,1188,Note 0,0,Philippians 4,,Phil 4
+A06460,1199,Note 0,0,Ecclesiastes 2,,Eccl 2
+A06460,1202,Note 0,0,Job 1,,Iob 1
+A06460,1202,Note 1,0,Job 1,,Iob 1
+A06460,1203,Note 0,0,Job 2,,Iob 2
+A06460,1206,Note 0,0,Tobit 2,,Tob 2
+A06460,1214,Note 0,0,Numbers ^0,,Nu ^0
+A06460,1215,Note 0,0,Psalms 50,,Psal 50
+A06460,1217,Note 0,0,Deuteronomy 8,,Deut 8
+A06460,1219,Note 0,0,Genesis 2^,,Gen 2^
+A06460,1231,Note 0,0,2 Corinthians 12,,2 Cor 12
+A06460,1235,Note 0,0,Ecclesiastes 27,,Eccl 27
+A06460,1262,Note 0,0,Revelation 2,,Apoc 2
+A06460,1276,Note 0,0,1 Thessalonians 4,,1 Thes 4
+A06460,1282,Note 0,0,Job 11,,Io 11
+A06460,1289,Note 0,0,Philippians 3,,Phil 3
+A06460,1290,Note 0,0,John 17^,,Ioan 17^
+A06460,1296,Note 0,0,Psalms 83,,Psal 83
+A06460,1299,Note 0,0,1 John 2,,1 Ioan 2
 A06508,29,Note 0,0,Romans 1,,Rom 1
 A06508,56,Note 0,0,Psalms 51,,Psal 51
 A06508,71,Note 0,0,Isaiah 11,,Esa 11
@@ -2024,65 +1448,338 @@ A06508,677,Note 0,0,John 5,,Iohn 5
 A06510,25,Note 0,0,Peter 5,,Pet 5
 A06510,39,Note 0,0,Matthew 8,,Mat 8
 A06520,1,Note 0,0,Genesis 1,,Gene 1
-A06532,79,Note 1,0,Job 8,,Jo 8
-A06532,79,Note 1,1,Proverbs 10,,Pro 10
-A06532,79,Note 1,2,Ecclesiastes 5,,Eccls 5
-A06532,110,Note 0,0,Judith 16,,Iudi 16
-A06532,110,Note 1,0,Matthew 11,,Math 11
-A06532,111,Note 0,0,Psalms 139,,Psal 139
-A06532,113,Note 0,0,^ Corinthians 10,,^ Cor 10
-A06532,113,Note 0,1,1 Peter 2,,1 Pet 2
-A06532,238,Note 0,0,Romans 8,,Rom 8
-A06532,239,Note 0,0,Hebrews 12,,Heb 12
-A06532,245,Note 0,0,Romans 7,,Rom 7
-A06532,247,Note 0,0,Romans 5,,Rom 5
-A06532,249,Note 0,0,Psalms 100.18; Psalms 100.1,,Psal 100 18 1
-A06532,255,Note 0,0,John 9.11,,Ioh 9 11
-A06532,256,Note 0,0,John 8,,Ioh 8
-A06532,257,Note 0,0,John 11,,Ioh 11
-A06532,261,Note 0,0,John 5,,Ioh 5
-A06532,262,Note 0,0,John 16,,Ioh 16
-A06532,267,Note 0,0,Psalms 88,,Psal 88
-A06532,289,Note 0,0,Job 13,,Iob 13
-A06764,1,Note 0,0,Philippians 3,,Philip 3
-A06764,2,Note 0,0,Ephesians 1,,Ephes 1
-A06764,5,Note 0,0,Acts 17,,Act 17
-A06764,6,Note 0,0,2 Peter 1,,2 Pet 1
-A06764,6,Note 0,1,1 Chronicles 2,,1 Cho 2
-A06764,10,Note 0,0,Romans 8,,Rom 8
-A06764,22,Note 0,0,Matthew 26,,Matth 26
-A06764,22,Note 0,1,Luke 14.22,,Luk 14 22
-A06764,22,Note 0,2,1 Corinthians 11,,1 Cor 11
-A06764,56,Note 0,0,Matthew 26,,Matth 26
-A06764,56,Note 0,1,Mark 14,,Marc 14
-A06764,56,Note 0,2,Luke 22,,Luk 22
-A06764,56,Note 0,3,1 Corinthians 11,,1 Cor 11
-A06764,81,Note 0,0,Luke 22,,Luk 22
-A06764,81,Note 0,1,1 Corinthians 11,,1 Cor 11
-A06764,117,Note 1,0,John 6,,Iohan 6
-A06764,152,Note 0,0,1 Corinthians 11,,1 Corin 11
-A06764,191,Note 0,0,Luke 24,,Luc 24
-A06764,217,Note 0,0,Matthew 26,,Math 26
-A06764,230,Note 0,0,Matthew 5,,Matth 5
-A06764,232,Note 0,0,Colossians 3,,Coloss 3
-A06764,236,Note 0,0,Luke 22,,Luk 22
-A06764,236,Note 1,0,Exodus 12,,Exod 12
-A06764,241,Note 0,0,Exodus 12,,Exod 12
-A06764,251,Note 0,0,Genesis 17,,Gene 17
-A06764,254,Note 0,0,1 Kings 28,,1 Regu 28
-A06764,257,Note 0,0,Luke 22,,Luc 22
-A06764,257,Note 0,1,1 Corinthians 11,,1 Cor 11
-A06764,265,Note 0,0,1 Corinthians 10,,1 Corin 10
-A06764,295,Note 0,0,Job 6,,Io 6
-A06764,302,Note 0,0,Romans 10,,Ro 10
-A06764,304,Note 0,0,2 Peter 1,,2 Pet 1
-A06764,431,Note 0,0,2 Thessalonians 2,,2 Thess 2
-A06764,433,Note 0,0,Mark 16,,Mar 16
-A06764,433,Note 0,1,Luke 24,,Luc 24
-A06764,433,Note 1,0,Acts 3,,Act 3
-A06764,485,Note 0,0,Ephesians 1,,Ephe 1
-A06764,488,Note 0,0,Colossians 3,,Colos 3
-A06764,567,Note 0,0,Galatians 1,,Gala 1
+A06532,23,Note 0,0,Isaiah 57,,Esaye 57
+A06532,33,Note 0,0,2 Corinthians 4,,2 Cor 4
+A06532,255,Note 0,0,Psalms 118,,Psal 118
+A06532,267,Note 0,0,Proverbs 14,,Pro 14
+A06532,278,Note 0,0,Romans 3,,Rmo 3
+A06532,279,Note 0,0,Romans 4,,Rmo 4
+A06532,295,Note 0,0,Luke 11,,Luce 11
+A06532,594,Note 1,0,Job 8,,Jo 8
+A06532,594,Note 1,1,Proverbs 10,,Pro 10
+A06532,594,Note 1,2,Ecclesiastes 5,,Eccls 5
+A06532,625,Note 0,0,Judith 16,,Iudi 16
+A06532,625,Note 1,0,Matthew 11,,Math 11
+A06532,626,Note 0,0,Psalms 139,,Psal 139
+A06532,628,Note 0,0,^ Corinthians 10,,^ Cor 10
+A06532,628,Note 0,1,1 Peter 2,,1 Pet 2
+A06532,753,Note 0,0,Romans 8,,Rom 8
+A06532,754,Note 0,0,Hebrews 12,,Heb 12
+A06532,760,Note 0,0,Romans 7,,Rom 7
+A06532,762,Note 0,0,Romans 5,,Rom 5
+A06532,764,Note 0,0,Psalms 100.18; Psalms 100.1,,Psal 100 18 1
+A06532,770,Note 0,0,John 9.11,,Ioh 9 11
+A06532,771,Note 0,0,John 8,,Ioh 8
+A06532,772,Note 0,0,John 11,,Ioh 11
+A06532,776,Note 0,0,John 5,,Ioh 5
+A06532,777,Note 0,0,John 16,,Ioh 16
+A06532,782,Note 0,0,Psalms 88,,Psal 88
+A06532,804,Note 0,0,Job 13,,Iob 13
+A06764,5,Note 0,0,Psalms 42,,Psal 42
+A06764,7,Note 0,0,Psalms 115,,Psalm 115
+A06764,7,Note 0,1,Psalms 118,,Psalm 118
+A06764,7,Note 0,2,Psalms 42,,Psalm 42
+A06764,8,Note 0,0,Exodus 35,,Exod 35
+A06764,10,Note 0,0,Hebrews 13,,Hebr 13
+A06764,12,Note 0,0,John 14,,Ioan 14
+A06764,12,Note 1,0,John 16,,Ioan 16
+A06764,12,Note 2,0,Colossians 3,,Colloss 3
+A06764,13,Note 0,0,Hebrews 13,,Hebr 13
+A06764,19,Note 0,0,Psalms 42,,Psalm 42
+A06764,27,Note 0,0,Luke 24,,Luc 24
+A06764,31,Note 0,0,Romans 3,,Rom 3
+A06764,31,Note 0,1,Timothy 2,,Timo 2
+A06764,31,Note 0,2,Hebrews 7,,Hebr 7
+A06764,34,Note 0,0,Colossians 2,,Collos 2
+A06764,38,Note 0,0,Exodus 20,,Exod 20
+A06764,39,Note 0,0,Hebrews ^,,Hebr ^
+A06764,39,Note 1,0,Matthew 27,,Matth 27
+A06764,39,Note 1,1,Mark 15,,Marc 15
+A06764,46,Note 0,0,Kings 3.8,,3 Reg 3 8
+A06764,46,Note 0,1,2 Peter 6,,2 Petr 6
+A06764,46,Note 0,2,Psalms 142,,Psal 142
+A06764,47,Note 0,0,Ecclesiastes 18,,Eccles 18
+A06764,47,Note 0,1,Matthew 6,,Matth 6
+A06764,48,Note 0,0,1 John 1,,1 Ioan 1
+A06764,50,Note 0,0,John 1,,Ioan 1
+A06764,50,Note 0,1,Acts 4,,Acto 4
+A06764,53,Note 0,0,Matthew 1,,Matt 1
+A06764,55,Note 0,0,1 Corinthians 1,,1 Cor 1
+A06764,56,Note 0,0,1 John 2,,1 Ioan 2
+A06764,59,Note 0,0,Isaiah 53,,Esa 53
+A06764,59,Note 1,0,Luke 24,,Luc 24
+A06764,59,Note 1,1,Romans 3,,Rom 3
+A06764,59,Note 1,2,Ephesians 1,,Ephes 1
+A06764,59,Note 1,3,Colossians 2,,Coloss 2
+A06764,59,Note 1,4,Hebrews 1,,Hebre 1
+A06764,78,Note 0,0,Luke 1,,Luc 1
+A06764,96,Note 0,0,Acts 15,,Acto 15
+A06764,100,Note 0,0,Acts 4,,Acto 4
+A06764,131,Note 0,0,1 Corinthians 14,,1 Cor 14
+A06764,136,Note 0,0,2 Corinthians 14,,2 Cor 14
+A06764,199,Note 0,0,Hebrews 1,,Heb 1
+A06764,200,Note 0,0,1 John 1,,1 Ioan 1
+A06764,203,Note 0,0,John 1,,Ioan 1
+A06764,204,Note 0,0,Isaiah 53,,Esa 53
+A06764,206,Note 0,0,Romans 4,,Rom 4
+A06764,206,Note 1,0,Romans 3; Romans 4,,Ro 3 & 4
+A06764,206,Note 1,1,Galatians 2.3; Galatians 2.4; Galatians 5,,Gala 2 3 4 & 5
+A06764,206,Note 1,2,Romans 3,,Roma 3
+A06764,228,Note 0,0,Romans 11,,Rom 11
+A06764,236,Note 0,0,Romans 6,,Rom 6
+A06764,236,Note 0,1,Ephesians 2,,Eph 2
+A06764,236,Note 0,2,Titus 3,,Tit 3
+A06764,236,Note 0,3,Acts 4,,Act 4
+A06764,246,Note 0,0,Isaiah 24,,Esa 24
+A06764,246,Note 1,0,Matthew 12,,Matth 12
+A06764,249,Note 0,0,Matthew 3.17,,Matth 3 17
+A06764,249,Note 0,1,Mark 1,,Marc 1
+A06764,249,Note 0,2,Luke 3,,Luc 3
+A06764,250,Note 0,0,Romans 5,,Rom 5
+A06764,252,Note 0,0,Colossians 1,,Coll 1
+A06764,279,Note 0,0,Ezekiel 9,,Ezech 9
+A06764,286,Note 0,0,Exodus 20,,Exod 20
+A06764,286,Note 0,1,Deuteronomy 4.5,,Deut 4 5
+A06764,306,Note 0,0,1 Peter 2,,1 Pet 2
+A06764,307,Note 0,0,Ephesians 5,,Eph 5
+A06764,308,Note 0,0,Hebrews 9.^0,,Heb 9 ^0
+A06764,308,Note 1,0,Matthew 20,,Math 20
+A06764,326,Note 0,0,Matthew 20,,Math 20
+A06764,326,Note 0,1,Hebrews 9,,Heb 9
+A06764,328,Note 0,0,Revelation 5,,Apoca 5
+A06764,372,Note 0,0,1 Corinthians 15,,1 Cor 15
+A06764,445,Note 0,0,Exodus ^,,Exo ^
+A06764,448,Note 0,0,Genesis ^,,Gene ^
+A06764,453,Note 0,0,Matthew 15,,Mat 15
+A06764,460,Note 0,0,1 Chronicles 3,,1 cho 3
+A06764,460,Note 0,1,2 Chronicles 6,,2 cho 6
+A06764,460,Note 0,2,Ephesians 2,,Ephe 2
+A06764,461,Note 0,0,Exodus 13.29,,Exo 13 29
+A06764,461,Note 0,1,Numbers 6,,num 6
+A06764,461,Note 0,2,Leviticus 27,,Leuiti 27
+A06764,469,Note 0,0,Matthew 26,,Matth 26
+A06764,469,Note 0,1,Mark 14,,Marc 14
+A06764,469,Note 0,2,Luke 22,,Luc 22
+A06764,469,Note 0,3,1 Corinthians 11,,1 Corint 11
+A06764,481,Note 0,0,Hebrews 7.9; Hebrews 7.10,,Heb 7 9 10
+A06764,506,Note 0,0,Hebrews ^,,He ^
+A06764,537,Note 0,0,Hebrews 10,,He 10
+A06764,551,Note 0,0,Isaiah 53,,Esay 53
+A06764,553,Note 0,0,Galatians 4,,Gala 4
+A06764,553,Note 1,0,Colossians 2,,Colos 2
+A06764,571,Note 0,0,Revelation 14,,Apoc 14
+A06764,611,Note 0,0,1 Corinthians 14,,1 Co 14
+A06764,727,Note 0,0,Revelation 14,,Apoc 14
+A06764,775,Note 0,0,Isaiah 53.61,,Esay 53 61
+A06764,775,Note 0,1,1 Peter 2,,1 Pet 2
+A06764,775,Note 0,2,Luke 4,,Luk 4
+A06764,775,Note 0,3,Isaiah 61,,Esa 61
+A06764,780,Note 0,0,Romans 3,,Roma 3
+A06764,780,Note 0,1,Ephesians 1,,Ephes 1
+A06764,780,Note 0,2,Colossians 1,,collo 1
+A06764,791,Note 0,0,Job 1.6; Job 11.14,,Io 1 6 11 14
+A06764,791,Note 0,1,1 Timothy 2,,1 Timot 2
+A06764,791,Note 0,2,1 John 2,,1 Iohan 2
+A06764,800,Note 0,0,Colossians 2,,Coloss 2
+A06764,808,Note 0,0,Luke 12,,Luce 12
+A06764,808,Note 0,1,2 Corinthians 3,,2 Corin 3
+A06764,808,Note 0,2,Galatians 3,,Gallat 3
+A06764,818,Note 0,0,Hebrews 13,,Hebreo 13
+A06764,818,Note 0,1,Romans 1^,,Roman 1^
+A06764,844,Note 0,0,Romans 14,,Rom 14
+A06764,847,Note 0,0,Colossians 2,,Collo 2
+A06764,856,Note 0,0,1 Timothy 4,,1 Timot 4
+A06764,901,Note 0,0,Romans 3.4; Romans 5.8,,Roma 3 4 5 8
+A06764,901,Note 0,1,Galatians 2.3; Galatians 4.5,,Gallat 2 3 4 5
+A06764,901,Note 0,2,Colossians 2,,Coloss 2
+A06764,919,Note 1,0,Genesis 15,,Gene 15
+A06764,943,Note 0,0,John 26,,Iohn 26
+A06764,960,Note 0,0,Romans 3,,Roman 3
+A06764,992,Note 0,0,Deuteronomy 27,,Deut 27
+A06764,993,Note 0,0,Romans 3,,Rom 3
+A06764,993,Note 0,1,Galatians 4,,Gala 4
+A06764,1011,Note 0,0,Jeremiah 32,,Iere 32
+A06764,1014,Note 0,0,Psalms 31,,Psal 31
+A06764,1018,Note 0,0,Romans 8,,Rom 8
+A06764,1018,Note 0,1,1 Chronicles 1,,1 cho 1
+A06764,1021,Note 0,0,Isaiah 3,,Esai 3
+A06764,1039,Note 0,0,Exodus 29,,Exodus 29
+A06764,1039,Note 1,0,Exodus 29,,Exo 29
+A06764,1039,Note 1,1,Leviticus 4.5; Leviticus 4.6; Leviticus 4.7; Leviticus 4.10,,Leui 4 5 6 7 10 12 13 14 17 22
+A06764,1039,Note 1,2,Numbers 1.6; Numbers 1.8; Numbers 1.15; Numbers 1.19,,Num 1 6 8 15 19
+A06764,1041,Note 0,0,Leviticus 4,,Leuiti 4
+A06764,1050,Note 0,0,Matthew 26,,Mat 26
+A06764,1050,Note 0,1,Mark 24,,Mar 24
+A06764,1050,Note 0,2,Luke 22,,Luc 22
+A06764,1061,Note 0,0,Malachi 1,,Mala 1
+A06764,1067,Note 0,0,Hebrews 9,,Heb 9
+A06764,1088,Note 0,0,Psalms 49,,Psal 49
+A06764,1088,Note 0,1,Hebrews 13,,Heb 13
+A06764,1091,Note 0,0,Philippians 4,,Philip 4
+A06764,1092,Note 0,0,Romans 12,,Rom 12
+A06764,1092,Note 1,0,Romans 15,,Rom 15
+A06764,1093,Note 0,0,1 Peter 2,,1 Petri 2
+A06764,1124,Note 0,0,Ephesians 1,,Eph 1
+A06764,1124,Note 0,1,Colossians 1,,Collos 1
+A06764,1124,Note 1,0,1 Peter 1,,1 Petri 1
+A06764,1134,Note 0,0,Hebrews 7.8; Hebrews 9.10,,Hebre 7 8 9 10
+A06764,1137,Note 0,0,Psalms 110,,Psal 110
+A06764,1149,Note 0,0,Hebrews 8,,Heb 8
+A06764,1150,Note 0,0,Jeremiah 31,,Iere 31
+A06764,1174,Note 0,0,1 John 2,,1 Ioh 2
+A06764,1200,Note 0,0,Matthew 20,,Math 20
+A06764,1200,Note 1,0,Matthew 26,,Math 26
+A06764,1200,Note 1,1,Romans 5,,Roma 5
+A06764,1208,Note 0,0,Hebrews 1^,,Hebr 1^
+A06764,1211,Note 0,0,Psalms 39,,Psal 39
+A06764,1229,Note 0,0,1 Chronicles 2,,1 cho 2
+A06764,1247,Note 0,0,1 John 2,,1 Ioh 2
+A06764,1247,Note 1,0,1 Peter 2,,1 Pet 2
+A06764,1248,Note 0,0,Isaiah 53,,Esa 53
+A06764,1295,Note 0,0,1 Chronicles 11,,1 Cho 11
+A06764,1325,Note 0,0,Acts 14,,Acto 14
+A06764,1327,Note 0,0,1 Timothy 3,,1 Timoth 3
+A06764,1425,Note 0,0,Luke 24,,Luke 24
+A06764,1425,Note 0,1,Mark 16,,Mark 16
+A06764,1425,Note 0,2,Acts 13,,Act 13
+A06764,1425,Note 0,3,Ephesians 4,,Ephes 4
+A06764,1425,Note 0,4,Acts 3,,Act 3
+A06764,1451,Note 0,0,1 Corinthians 11,,1 Cor 11
+A06764,1464,Note 0,0,^ Corinthians 11,,^ Cor 11
+A06764,1481,Note 0,0,2 Corinthians 13,,2 Corin 13
+A06764,1499,Note 0,0,John 4,,Ioh 4
+A06764,1503,Note 0,0,Romans 2,,Rom 2
+A06764,1510,Note 0,0,1 Timothy 2,,1 Tim 2
+A06764,1510,Note 0,1,1 Peter 3,,1 Petri 3
+A06764,1532,Note 0,0,Deuteronomy 12,,Deut 12
+A06764,1533,Note 0,0,Isaiah 29,,Esay 29
+A06764,1533,Note 1,0,Matthew 15,,Matth 15
+A06764,1580,Note 0,0,1 Corinthians 15,,1 Corin 15
+A06764,1586,Note 0,0,Romans 6.2,,Roman 6 2
+A06764,1586,Note 0,1,Colossians 2,,Coloss 2
+A06764,1587,Note 0,0,Mark 1,,Marc 1
+A06764,1587,Note 0,1,Luke 3,,Luc 3
+A06764,1587,Note 0,2,Acts 2; Acts 22,,Act 2 & 22
+A06764,1612,Note 0,0,John 15,,Ioan 15
+A06764,1615,Note 0,0,James 4,,Iames 4
+A06764,1616,Note 0,0,1 Corinthians 7,,1 Corint 7
+A06764,1616,Note 0,1,Galatians 3,,Galat 3
+A06764,1648,Note 0,0,Luke 11,,Luc 11
+A06764,1648,Note 0,1,Romans 1,,Roma 1
+A06764,1666,Note 0,0,Romans 3; Romans 7,,Rom 3 & 7
+A06764,1666,Note 0,1,Galatians 3,,Gala 3
+A06764,1676,Note 0,0,Matthew 12,,Math 12
+A06764,1676,Note 0,1,Mark 3,,Marc 3
+A06764,1680,Note 0,0,Romans ^,,Rom ^
+A06764,1682,Note 0,0,Romans 2,,Rom 2
+A06764,1683,Note 0,0,Acts 14,,Act 14
+A06764,1688,Note 0,0,Luke 12,,Luc 12
+A06764,1695,Note 0,0,Kings 4.17,,4 Reg 4 17
+A06764,1699,Note 0,0,Exodus 32,,Exod 32
+A06764,1699,Note 0,1,Deuteronomy 4,,Deut 4
+A06764,1699,Note 0,2,2 Chronicles 7,,2 Parali 7
+A06764,1699,Note 0,3,Jeremiah 43; Jeremiah 44,,Ierem 43 & 44
+A06764,1699,Note 0,4,Isaiah 65,,Esa 65
+A06764,1699,Note 0,5,Ezekiel 9; Ezekiel 43,,Ezech 9 & 43
+A06764,1699,Note 0,6,Exodus 4,,Exod 4
+A06764,1699,Note 0,7,Deuteronomy 7.3,,Deut 7 3
+A06764,1699,Note 0,8,Kings 14,,3 Reg 14
+A06764,1699,Note 0,9,Ezekiel 8.20; Ezekiel 8.4,,Ezech 8 20 4
+A06764,1699,Note 0,10,Kings 23,,4 Reg 23
+A06764,1707,Note 0,0,John 4,,Iohn 4
+A06764,1710,Note 0,0,Colossians 2,,Coloss 2
+A06764,1713,Note 0,0,John 12,,Iohn 12
+A06764,1752,Note 0,0,Isaiah 29,,Esa 29
+A06764,1752,Note 0,1,Matthew 15,,Math 15
+A06764,1768,Note 0,0,Exodus 20,,Exod 20
+A06764,1772,Note 0,0,Kings 3.12,,3 Reg 3 12
+A06764,1776,Note 0,0,Kings 16.18,,3 Reg 16 18
+A06764,1797,Note 0,0,2 Thessalonians ^,,2 Thessa ^
+A06764,1816,Note 0,0,Revelation 13,,Apocal 13
+A06764,1849,Note 0,0,Exodus 32,,Exod 32
+A06764,1849,Note 1,0,Kings 4.17,,4 Reg 4 17
+A06764,1849,Note 2,0,Matthew 21,,Matht 21
+A06764,1849,Note 2,1,Mark 12,,Marc 12
+A06764,1849,Note 2,2,Luke 20,,Luc 20
+A06764,1854,Note 0,0,1 Corinthians 2,,1 Corint 2
+A06764,1889,Note 0,0,Psalms 7,,Psal 7
+A06764,1889,Note 0,1,Jeremiah 17,,Ierem 17
+A06764,1889,Note 0,2,Revelation 2,,Apocal 2
+A06764,1897,Note 1,0,Luke 23,,Luk 23
+A06764,1897,Note 1,1,John 3.7; John 3.19,,Iohn 3 7 19
+A06764,1897,Note 2,0,John 3.7; John 3.19,,Ioh 3 7 19
+A06764,1899,Note 0,0,Kings 4.5,,4 kings 4 5
+A06764,1905,Note 0,0,Proverbs 16,,Prouer 16
+A06764,1929,Note 0,0,Matthew 18,,Math 18
+A06764,1929,Note 0,1,Mark 9,,Marc 9
+A06764,1929,Note 0,2,Luke 17,,Luc 17
+A06764,1933,Note 0,0,John 12,,Iohn 12
+A06764,1934,Note 0,0,Luke 14,,Luc 14
+A06764,1934,Note 1,0,Matthew 10,,Math 10
+A06764,1943,Note 0,0,1 Timothy 4,,1 Timo 4
+A06764,1944,Note 0,0,Romans 14,,Roma 14
+A06764,1945,Note 0,0,1 Corinthians 8,,1 Corint 8
+A06764,1966,Note 0,0,Matthew 10,,Math 10
+A06764,1967,Note 0,0,Luke 12,,Luck 12
+A06764,1968,Note 0,0,Romans 10,,Roma 10
+A06764,1975,Note 0,0,Hebrews 11,,Hebr 11
+A06764,1975,Note 1,0,2 John 5,,2 Iohn 5
+A06764,1982,Note 0,0,Romans 3,,Roma 3
+A06764,1999,Note 0,0,Kings 4.5,,4 Kings 4 5
+A06764,2026,Note 0,0,Tobit 2,,Tob 2
+A06764,2029,Note 0,0,Daniel 2,,Danie 2
+A06764,2049,Note 0,0,Hebrews 4,,Hebr 4
+A06764,2049,Note 0,1,Ecclesiastes 23,,Eccle 23
+A06764,2056,Note 0,0,Romans 13,,Roma 13
+A06764,2063,Note 0,0,Matthew 13,,Math 13
+A06764,2065,Note 0,0,Matthew 1^,,Math 1^
+A06764,2072,Note 0,0,Revelation 14.17,,Apo 14 17
+A06764,2072,Note 1,0,Matthew 28,,Math 28
+A06764,2072,Note 2,0,Philippians 2,,Philip 2
+A06764,2074,Note 0,0,Matthew 14,,Math 14
+A06764,2078,Note 0,0,Romans 8,,Roma 8
+A06764,2078,Note 0,1,2 Timothy 1.2,,2 Timo 1 2
+A06764,2078,Note 1,0,Matthew 10,,Math 10
+A06764,2080,Note 0,0,Romans 8,,Roma 8
+A06764,2083,Note 0,0,Philippians 3,,Philip 3
+A06764,2084,Note 0,0,Ephesians 1,,Ephes 1
+A06764,2087,Note 0,0,Acts 17,,Act 17
+A06764,2088,Note 0,0,2 Peter 1,,2 Pet 1
+A06764,2088,Note 0,1,1 Chronicles 2,,1 Cho 2
+A06764,2092,Note 0,0,Romans 8,,Rom 8
+A06764,2104,Note 0,0,Matthew 26,,Matth 26
+A06764,2104,Note 0,1,Luke 14.22,,Luk 14 22
+A06764,2104,Note 0,2,1 Corinthians 11,,1 Cor 11
+A06764,2138,Note 0,0,Matthew 26,,Matth 26
+A06764,2138,Note 0,1,Mark 14,,Marc 14
+A06764,2138,Note 0,2,Luke 22,,Luk 22
+A06764,2138,Note 0,3,1 Corinthians 11,,1 Cor 11
+A06764,2163,Note 0,0,Luke 22,,Luk 22
+A06764,2163,Note 0,1,1 Corinthians 11,,1 Cor 11
+A06764,2199,Note 1,0,John 6,,Iohan 6
+A06764,2234,Note 0,0,1 Corinthians 11,,1 Corin 11
+A06764,2273,Note 0,0,Luke 24,,Luc 24
+A06764,2299,Note 0,0,Matthew 26,,Math 26
+A06764,2312,Note 0,0,Matthew 5,,Matth 5
+A06764,2314,Note 0,0,Colossians 3,,Coloss 3
+A06764,2318,Note 0,0,Luke 22,,Luk 22
+A06764,2318,Note 1,0,Exodus 12,,Exod 12
+A06764,2323,Note 0,0,Exodus 12,,Exod 12
+A06764,2333,Note 0,0,Genesis 17,,Gene 17
+A06764,2336,Note 0,0,1 Kings 28,,1 Regu 28
+A06764,2339,Note 0,0,Luke 22,,Luc 22
+A06764,2339,Note 0,1,1 Corinthians 11,,1 Cor 11
+A06764,2347,Note 0,0,1 Corinthians 10,,1 Corin 10
+A06764,2377,Note 0,0,Job 6,,Io 6
+A06764,2384,Note 0,0,Romans 10,,Ro 10
+A06764,2386,Note 0,0,2 Peter 1,,2 Pet 1
+A06764,2513,Note 0,0,2 Thessalonians 2,,2 Thess 2
+A06764,2515,Note 0,0,Mark 16,,Mar 16
+A06764,2515,Note 0,1,Luke 24,,Luc 24
+A06764,2515,Note 1,0,Acts 3,,Act 3
+A06764,2567,Note 0,0,Ephesians 1,,Ephe 1
+A06764,2570,Note 0,0,Colossians 3,,Colos 3
+A06764,2649,Note 0,0,Galatians 1,,Gala 1
 A07229,1,Note 0,0,Hebrews ^^,,he^ ^^
 A07229,40,Note 1,0,John 2,,Ihon 2
 A07229,40,Note 3,0,Matthew ^^^,,Math ^^^
@@ -2218,42 +1915,42 @@ A08442,118,Note 8,0,Zechariah 5,,Zachar 5
 A08442,118,Note 8,1,John 3,,Iohn 3
 A08442,119,Note 0,0,Hebrews 1,,Hebre 1
 A08442,119,Note 1,0,1 Corinthians 11,,1 Corin 11
-A08443,8,Note 0,0,Psalms 13,,Psal 13
-A08443,12,Note 0,0,Timothy 6,,Tim 6
-A08443,14,Note 0,0,Psalms 1,,Psal 1
-A08443,16,Note 0,0,1 Corinthians 2,,1 Cor 2
-A08443,31,Note 0,0,Exodus ^,,Exod ^
-A08443,32,Note 0,0,John 5,,Iohan 5
-A08443,39,Note 0,0,Romans ^,,Rom ^
-A08443,44,Note 0,0,1 Timothy ^,,1 Tim^ ^
-A08443,44,Note 1,0,Isaiah 15,,Esay 15
-A08443,45,Note 0,0,Psalms 1.3,,Psal 1 3
-A08443,53,Note 0,0,Psalms ^5,,Psal ^5
-A08443,54,Note 0,0,Psalms 8,,Psal 8
-A08443,102,Note 2,0,Acts 7,,Act 7
-A08443,104,Note 0,0,John 9,,Iohan 9
-A08443,124,Note 0,0,Colossians 3,,Colos 3
-A08443,124,Note 1,0,Isaiah 47,,Esay 47
-A08443,139,Note 0,0,Leviticus 24,,Lue 24
-A08443,142,Note 0,0,John 5,,John 5
-A08443,154,Note 0,0,Romans 10,,Rom 10
-A08443,154,Note 1,0,2 Corinthians 1,,2 Cor 1
-A08443,157,Note 0,0,2 Timothy 3,,2 Tmo 3
-A08443,157,Note 1,0,Titus 1,,Tit 1
-A08443,158,Note 0,0,Romans ^^,,Roma ^^
-A08443,190,Note 0,0,Romans 2,,Rom 2
-A08443,190,Note 1,0,2 Corinthians 8,,2 Cor 8
-A08443,203,Note 0,0,John 7,,Iohan 7
-A08443,204,Note 0,0,Ephesians 2,,Ephe 2
-A08443,206,Note 0,0,Acts 8,,Act 8
-A08443,212,Note 0,0,Colossians 2,,Col 2
-A08443,213,Note 0,0,Psalms 118,,Psal 118
-A08443,214,Note 0,0,Matthew 21,,Math 21
-A08443,214,Note 1,0,Luke 18,,Luk 18
-A08443,216,Note 1,0,Jeremiah 3,,Ieremy 3
-A08443,219,Note 0,0,John 5,,Iohn 5
-A08443,219,Note 1,0,John 13,,Iohn 13
-A08443,220,Note 0,0,John 1,,Iohan 1
+A08443,9,Note 0,0,Psalms 13,,Psal 13
+A08443,13,Note 0,0,Timothy 6,,Tim 6
+A08443,15,Note 0,0,Psalms 1,,Psal 1
+A08443,17,Note 0,0,1 Corinthians 2,,1 Cor 2
+A08443,32,Note 0,0,Exodus ^,,Exod ^
+A08443,33,Note 0,0,John 5,,Iohan 5
+A08443,40,Note 0,0,Romans ^,,Rom ^
+A08443,45,Note 0,0,1 Timothy ^,,1 Tim^ ^
+A08443,45,Note 1,0,Isaiah 15,,Esay 15
+A08443,46,Note 0,0,Psalms 1.3,,Psal 1 3
+A08443,54,Note 0,0,Psalms ^5,,Psal ^5
+A08443,55,Note 0,0,Psalms 8,,Psal 8
+A08443,103,Note 2,0,Acts 7,,Act 7
+A08443,105,Note 0,0,John 9,,Iohan 9
+A08443,125,Note 0,0,Colossians 3,,Colos 3
+A08443,125,Note 1,0,Isaiah 47,,Esay 47
+A08443,140,Note 0,0,Leviticus 24,,Lue 24
+A08443,143,Note 0,0,John 5,,John 5
+A08443,155,Note 0,0,Romans 10,,Rom 10
+A08443,155,Note 1,0,2 Corinthians 1,,2 Cor 1
+A08443,158,Note 0,0,2 Timothy 3,,2 Tmo 3
+A08443,158,Note 1,0,Titus 1,,Tit 1
+A08443,159,Note 0,0,Romans ^^,,Roma ^^
+A08443,191,Note 0,0,Romans 2,,Rom 2
+A08443,191,Note 1,0,2 Corinthians 8,,2 Cor 8
+A08443,204,Note 0,0,John 7,,Iohan 7
+A08443,205,Note 0,0,Ephesians 2,,Ephe 2
+A08443,207,Note 0,0,Acts 8,,Act 8
+A08443,213,Note 0,0,Colossians 2,,Col 2
+A08443,214,Note 0,0,Psalms 118,,Psal 118
+A08443,215,Note 0,0,Matthew 21,,Math 21
+A08443,215,Note 1,0,Luke 18,,Luk 18
+A08443,217,Note 1,0,Jeremiah 3,,Ieremy 3
+A08443,220,Note 0,0,John 5,,Iohn 5
+A08443,220,Note 1,0,John 13,,Iohn 13
+A08443,221,Note 0,0,John 1,,Iohan 1
 A08444,8,Note 0,0,Psalms 12,,Psalm 12
 A08444,14,Note 0,0,Timothy 6,,Timo 6
 A08444,14,Note 1,0,Exodus 20,,Exodi 20
@@ -2766,203 +2463,6 @@ A08445,592,Note 0,0,Genesis 21,,Gene 21
 A08445,592,Note 0,1,Genesis 26,,Gene 26
 A08445,595,Note 0,0,John 6,,Ihon 6
 A08445,595,Note 0,1,Matthew 7,,Math 7
-A08445,606,Note 0,0,Proverbs 25,,Prou 25
-A08445,610,Note 0,0,Galatians 2,,Gala 2
-A08445,632,Note 0,0,Romans 9,,Rom 9
-A08445,633,Note 0,0,Romans 3,,Rom 3
-A08445,637,Note 0,0,Romans 9,,Rom 9
-A08445,638,Note 0,0,Romans 8,,Rom 8
-A08445,641,Note 0,0,Hosea 13,,Ose 13
-A08445,649,Note 0,0,Revelation 28,,Re 28
-A08445,651,Note 0,0,Hebrews 12,,Hebru 12
-A08445,658,Note 0,0,2 Corinthians 11,,2 Cor 11
-A08445,660,Note 0,0,Isaiah 55,,Esa 55
-A08445,660,Note 1,0,Matthew 13,,Math 13
-A08445,661,Note 0,0,John 10,,Ihon 10
-A08445,662,Note 0,0,Psalms 38,,Psal 38
-A08445,674,Note 0,0,Romans 5,,Roma 5
-A08445,676,Note 0,0,Romans 8,,Roma 8
-A08445,681,Note 1,0,Romans 6,,Rom 6
-A08445,681,Note 1,1,Psalms 32,,Psal 32
-A08445,682,Note 0,0,Galatians 3,,Gala 3
-A08445,682,Note 0,1,2 Corinthians 3,,2 Cor 3
-A08445,682,Note 0,2,John 3,,Ioh 3
-A08445,699,Note 0,0,Romans 8,,Rom 8
-A08445,702,Note 0,0,Colossians 1,,Collo 1
-A08445,702,Note 1,0,Romans 7,,Rom 7
-A08445,703,Note 0,0,1 Timothy 2,,1 Timo 2
-A08445,704,Note 0,0,1 Corinthians 2,,1 Cor 2
-A08445,704,Note 1,0,Ephesians 2,,Ephe 2
-A08445,705,Note 0,0,1 John 10,,1 Ihon 10
-A08445,707,Note 0,0,Luke 10,,Luke 10
-A08445,710,Note 0,0,2 Timothy 2,,2 Timo 2
-A08445,710,Note 1,0,John 7,,Ihon 7
-A08445,710,Note 1,1,John 6,,Iohn 6
-A08445,711,Note 0,0,Matthew 13,,Math 13
-A08445,711,Note 1,0,Matthew 7,,Math 7
-A08445,712,Note 0,0,1 Corinthians 2,,1 Cor 2
-A08445,712,Note 0,1,Luke 16,,Luke 16
-A08445,729,Note 0,0,Romans 8,,Rom 8
-A08445,732,Note 0,0,2 Corinthians 13,,2 Cor 13
-A08445,734,Note 0,0,1 Corinthians 2,,1 Cor 2
-A08445,734,Note 0,1,Isaiah 32,,Esa 32
-A08445,734,Note 0,2,Romans 15,,Roma 15
-A08445,737,Note 0,0,Luke 17,,Luke 17
-A08445,737,Note 1,0,1 Thessalonians 1.2,,1 Tessa 1 2
-A08445,737,Note 1,1,Romans 8,,Rom 8
-A08445,737,Note 1,2,Galatians 2,,Gala 2
-A08445,737,Note 1,3,2 Corinthians 3,,2 Cor 3
-A08445,738,Note 0,0,Galatians 2,,Gala 2
-A08445,738,Note 0,1,1 Corinthians 2,,1 Cor 2
-A08445,740,Note 0,0,Matthew 28,,Math 28
-A08445,749,Note 1,0,Romans 8,,Roma 8
-A08445,758,Note 0,0,Luke 12,,Luke 12
-A08445,765,Note 0,0,Job 9,,Iob 9
-A08445,777,Note 0,0,Romans 8,,Rom 8
-A08445,777,Note 1,0,Romans 6,,Rom 6
-A08445,777,Note 2,0,Romans 8,,Rom 8
-A08445,792,Note 0,0,John 3,,Ioh 3
-A08445,797,Note 0,0,Galatians 5,,Gala 5
-A08445,799,Note 0,0,Romans 8,,Rom 8
-A08445,799,Note 1,0,John 10,,Ihon 10
-A08445,802,Note 0,0,1 Corinthians 2,,1 Cor 2
-A08445,808,Note 0,0,Luke 10,,Luke 10
-A08445,808,Note 0,1,Matthew 15,,Math 15
-A08445,808,Note 0,2,Matthew 16,,Math 16
-A08445,811,Note 0,0,2 Peter 1.1,,2 Pet 1 1
-A08445,818,Note 0,0,Hebrews 11,,Hebr 11
-A08445,818,Note 0,1,Mark 16,,Mar 16
-A08445,818,Note 0,2,John 3,,Iohn 3
-A08445,828,Note 0,0,Romans 8,,Rom 8
-A08445,829,Note 0,0,Philippians 3,,Philli 3
-A08445,829,Note 1,0,Ephesians 2,,Ephe 2
-A08445,829,Note 2,0,Romans 8,,Rom 8
-A08445,830,Note 0,0,Romans 8,,Roma 8
-A08445,837,Note 0,0,Romans 10,,Roma 10
-A08445,843,Note 0,0,Romans 8,,Rom 8
-A08445,850,Note 0,0,Hosea 13,,Osee 13
-A08445,865,Note 1,0,Romans 9,,Roma 9
-A08445,874,Note 0,0,John 15,,Ihon 15
-A08445,894,Note 0,0,John 3,,Ioh 3
-A08445,894,Note 1,0,Romans 8,,Roma 8
-A08445,895,Note 0,0,Matthew 19,,Math 19
-A08445,900,Note 0,0,Romans 8,,Rom 8
-A08445,905,Note 0,0,Matthew 3,,Math 3
-A08445,923,Note 0,0,Ephesians 2,,Ephe 2
-A08445,937,Note 0,0,Proverbs 19,,Proue 19
-A08445,937,Note 1,0,Romans 6,,Rom 6
-A08445,962,Note 1,0,Matthew 3,,Math 3
-A08445,965,Note 0,0,Romans 8,,Roma 8
-A08445,967,Note 0,0,2 Timothy 1,,2 Timo 1
-A08445,967,Note 1,0,Matthew 11,,Math 11
-A08445,969,Note 0,0,Romans 9,,Roma 9
-A08445,969,Note 0,1,John 10,,Iohn 10
-A08445,969,Note 0,2,Romans 8,,Rom 8
-A08445,969,Note 0,3,Romans 9,,Roma 9
-A08445,971,Note 0,0,Romans 9,,Roma 9
-A08445,974,Note 0,0,Romans 9,,Roma 9
-A08445,988,Note 0,0,John 10,,Ihon 10
-A08445,990,Note 0,0,Ephesians 2,,Ephe 2
-A08445,990,Note 0,1,Genesis 8,,Gene 8
-A08445,990,Note 0,2,Romans 11,,Rom 11
-A08445,990,Note 0,3,Psalms 17,,Psal 17
-A08445,990,Note 0,4,2 Kings 22,,2 Reg 22
-A08445,990,Note 0,5,Psalms 43,,Psalm 43
-A08445,990,Note 0,6,1 Corinthians 2,,1 Cor 2
-A08445,990,Note 0,7,1 John 15,,1 Ihon 15
-A08445,996,Note 0,0,Acts 9,,Acte 9
-A08445,996,Note 0,1,Galatians 1.1,,Gala 1 1
-A08445,996,Note 0,2,Ephesians 2,,Ephe 2
-A08445,1010,Note 0,0,Ephesians 1,,Ephe 1
-A08445,1010,Note 0,1,1 Corinthians 2.5,,1 Cor 2 5
-A08445,1013,Note 0,0,Romans 11,,Romm 11
-A08445,1016,Note 0,0,1 John 3,,1 Ioh 3
-A08445,1016,Note 0,1,2 Thessalonians 2,,2 Tessa 2
-A08445,1017,Note 0,0,Romans 9,,Roma 9
-A08445,1018,Note 0,0,Malachi 3,,Mala 3
-A08445,1037,Note 0,0,Romans 11,,Rom 11
-A08445,1037,Note 1,0,Romans 9,,Roma 9
-A08445,1042,Note 0,0,John 10,,Iohn 10
-A08445,1042,Note 1,0,Romans 11,,Rome 11
-A08445,1045,Note 0,0,Matthew 15,,Math 15
-A08445,1047,Note 0,0,Matthew 13,,Math 13
-A08445,1049,Note 0,0,Deuteronomy 15,,Deute 15
-A08445,1050,Note 0,0,Luke 10,,Luke 10
-A08445,1050,Note 1,0,Mark 10,,Mar 10
-A08445,1050,Note 1,1,Matthew 28,,Math 28
-A08445,1055,Note 0,0,2 Kings 16.3,,2 Reg 16 3
-A08445,1055,Note 0,1,Kings 29.2,,3 Reg 29 2
-A08445,1055,Note 0,2,Exodus 1.7; Exodus 10.11,,Exo 1 7 10 11
-A08445,1055,Note 0,3,Isaiah 63,,Esa 63
-A08445,1055,Note 0,4,John 12.2,,Ihon 12 2
-A08445,1055,Note 0,5,Romans 9; Romans 11,,Roma 9 & 11
-A08445,1055,Note 0,6,Galatians 3,,Gala 3
-A08445,1068,Note 0,0,Deuteronomy 2,,Deut 2
-A08445,1068,Note 0,1,Isaiah 6,,Esai 6
-A08445,1068,Note 0,2,John 12,,Ihon 12
-A08445,1068,Note 0,3,Psalms 80,,Psalm 80
-A08445,1071,Note 0,0,Romans 8,,Rom 8
-A08445,1072,Note 0,0,2 Corinthians 2,,2 Cor 2
-A08445,1074,Note 0,0,Deuteronomy 31,,Deute 31
-A08445,1074,Note 1,0,2 Corinthians 3,,2 Cor 3
-A08445,1074,Note 2,0,2 Thessalonians 2,,2 Tessa 2
-A08445,1074,Note 2,1,John 12,,Ihon 12
-A08445,1074,Note 3,0,Ezekiel 11,,Ezechi 11
-A08445,1080,Note 0,0,Romans 9,,Roma 9
-A08445,1082,Note 0,0,Psalms 71,,Psalm 71
-A08445,1082,Note 1,0,Romans 8,,Rom 8
-A08445,1083,Note 0,0,Romans 8,,Rom 8
-A08445,1091,Note 0,0,Hebrews 1.1,,Hebre 1 1
-A08445,1091,Note 0,1,Romans 8,,Rom 8
-A08445,1093,Note 0,0,Psalms 31,,Psal 31
-A08445,1093,Note 0,1,John 10,,Ihon 10
-A08445,1093,Note 0,2,John 9,,Ihon 9
-A08445,1093,Note 1,0,John 10,,Ihon 10
-A08445,1095,Note 0,0,1 Corinthians 12,,1 Cor 12
-A08445,1101,Note 0,0,Matthew 20,,Math 20
-A08445,1106,Note 0,0,Matthew 13,,Math 13
-A08445,1106,Note 0,1,Ephesians 2,,Ephe 2
-A08445,1106,Note 0,2,2 Thessalonians 2,,2 Tessa 2
-A08445,1115,Note 1,0,Exodus 3,,Exo 3
-A08445,1138,Note 0,0,Romans 8,,Rom 8
-A08445,1138,Note 0,1,Romans 9,,Roma 9
-A08445,1138,Note 0,2,Romans 7,,Rom 7
-A08445,1140,Note 0,0,Ephesians 2,,Ephe 2
-A08445,1140,Note 1,0,John 3,,Ihon 3
-A08445,1142,Note 0,0,Deuteronomy 8,,Deute 8
-A08445,1145,Note 0,0,Galatians 5,,Gala 5
-A08445,1150,Note 0,0,Matthew 7,,Math 7
-A08445,1156,Note 0,0,John 10,,Ihon 10
-A08445,1156,Note 0,1,John 8,,Ioh 8
-A08445,1157,Note 0,0,Romans 7,,Roma 7
-A08445,1157,Note 1,0,Romans 6,,Rom 6
-A08445,1158,Note 0,0,Romans 7,,Rom 7
-A08445,1158,Note 0,1,Psalms 31,,Psalm 31
-A08445,1158,Note 0,2,Romans 8,,Roma 8
-A08445,1175,Note 0,0,Matthew 21,,Math 21
-A08445,1176,Note 0,0,Luke 11,,Luke 11
-A08445,1176,Note 0,1,Luke 9,,Luke 9
-A08445,1178,Note 0,0,Romans 42,,Roma 42
-A08445,1178,Note 0,1,John 3,,Ihon 3
-A08445,1178,Note 1,0,Acts 9,,Actes 9
-A08445,1178,Note 1,1,Psalms 76,,Psalm 76
-A08445,1178,Note 1,2,1 Kings 11,,1 Reg 11
-A08445,1178,Note 1,3,Matthew 12,,Math 12
-A08445,1180,Note 0,0,Romans 8,,Rom 8
-A08445,1181,Note 0,0,Luke 15,,Luke 15
-A08445,1181,Note 1,0,Luke 16,,Luke 16
-A08445,1183,Note 1,0,Romans 8,,Roma 8
-A08445,1184,Note 1,0,Matthew 7,,Math 7
-A08445,1184,Note 2,0,Matthew 7,,Math 7
-A08445,1185,Note 0,0,Romans 5,,Roma 5
-A08445,1187,Note 0,0,Romans 9,,Roma 9
-A08445,1187,Note 0,1,Acts 7,,Acte 7
-A08445,1187,Note 1,0,Matthew 6,,Mat 6
-A08445,1187,Note 1,1,Romans 5,,Roma 5
-A08445,1190,Note 0,0,Genesis 21,,Gene 21
-A08445,1190,Note 0,1,Genesis 26,,Gene 26
-A08445,1193,Note 0,0,John 6,,Ihon 6
-A08445,1193,Note 0,1,Matthew 7,,Math 7
 A09505,10,Note 0,0,1 John 4,,1 Ioh 4
 A09505,12,Note 0,0,Romans 1,,Roma 1
 A09505,15,Note 0,0,Psalms 18,,Psal 18
@@ -3333,12 +2833,15 @@ A09915,319,Note 0,0,Luke 13,,Luc 13
 A09915,382,Note 1,0,Psalms 5,,Psal 5
 A11581,57,In-Text,0,Matthew 19,,Mat 19
 A11581,186,In-Text,0,1 Corinthians 6,,1 Cor 6
+A11581,206,In-Text,0,1 Corinthians 6,,1 Corin 6
+A11581,263,In-Text,0,Ephesians 5,,Ephesi 5
 A14014,242,In-Text,0,Judges 12,,iudge 12
-A14354,302,In-Text,0,1 Corinthians 8.9; 1 Corinthians 8.10,,1 Cor 8 9 & 10
+A14354,867,In-Text,0,1 Corinthians 11,,1 Cor 11
+A14354,1229,In-Text,0,1 Corinthians 8.9; 1 Corinthians 8.10,,1 Cor 8 9 & 10
 A14813,0,In-Text,0,Romans 12,,Roma 12
+A14813,298,In-Text,0,Numbers 16,,Numeri 16
 A14813,338,In-Text,0,Romans 12,,Roma 12
 A15556,0,In-Text,0,Luke 16,,Luce 16
-A16026,140,In-Text,0,John 19,,Iohes 19
 A16033,97,In-Text,0,Judith 100,,iudic 100
 A16033,115,In-Text,0,Matthew 9,,Math 9
 A16033,138,In-Text,0,Matthew 25; Matthew 1,,Math 25 & 1
@@ -3368,6 +2871,63 @@ A16091,1117,In-Text,0,Matthew 5,,Mat 5
 A16091,1245,In-Text,0,Matthew 19,,Mat 19
 A16091,1341,In-Text,0,John 11,,Ihon 11
 A16366,18,In-Text,0,Matthew ***.*,,"Mathe *** , *"
+A16366,75,In-Text,0,Psalms 2,,Psalme 2
+A16366,81,In-Text,0,Psalms 106,,psal 106
+A16366,105,In-Text,0,Matthew 1,,Math 1
+A16366,152,In-Text,0,Zechariah 9,,Zachary 9
+A16366,152,In-Text,1,Matthew 12,,Math 12
+A16366,158,In-Text,0,Jonah 2,,Ionas 2
+A16366,185,In-Text,0,Matthew 28,,Mathewe 28
+A16366,185,In-Text,1,Mark 16,,Marke 16
+A16366,185,In-Text,2,John 20,,Jhon 20
+A16366,194,In-Text,0,Corinthians 15,,Corynthyans 15
+A16366,216,In-Text,0,Deuteronomy 33,,Deute 33
+A16366,227,In-Text,0,Hebrews 9.1,,Hebre 9 1
+A16366,228,In-Text,0,Micah 2; Micah *,,Michee 2 & *
+A16366,244,In-Text,0,Samuel 5,,S 5
+A16366,257,In-Text,0,Psalms 92,,Psal 92
+A16366,257,In-Text,1,Ecclesiastes 11,,Eccle 11
+A16366,257,In-Text,2,Isaiah 13.51,,Esa 13 51
+A16366,257,In-Text,3,Zechariah 14,,Zach 14
+A16366,257,In-Text,4,Malachi 4,,Mala 4
+A16366,257,In-Text,5,Matthew 13.16; Matthew 24.25,,Math 13 16 24 25
+A16366,257,In-Text,6,Mark 9.13,,Mar 9 13
+A16366,257,In-Text,7,Luke 9.17; Luke 9.21,,Luc 9 17 21
+A16366,257,In-Text,8,Acts 1.1,,Act 1 1
+A16366,257,In-Text,9,2 Corinthians *,,2 Corin *
+A16366,257,In-Text,10,2 Thessalonians 1; 2 Thessalonians 2,,2 Tessa 1 & 2
+A16366,257,In-Text,11,1 Thessalonians 4,,1 Thesi 4
+A16366,257,In-Text,12,Philippians 4,,Phil 4
+A16366,257,In-Text,13,2 Peter 3,,2 Pet 3
+A16366,257,In-Text,14,Hebrews 10,,Heb 10
+A16366,257,In-Text,15,Revelation 3; Revelation 22,,Apo 3 & 22
+A16366,307,In-Text,0,Exodus 33,,Exod 33
+A16366,320,In-Text,0,Romans 12,,Roma 12
+A16366,320,In-Text,1,Philippians 4,,Philip 4
+A16366,320,In-Text,2,Colossians 1,,Colos 1
+A16366,377,In-Text,0,Isaiah 26,,Esay 26
+A16366,377,In-Text,1,Ezekiel 37,,Ezechi 37
+A16366,377,In-Text,2,Daniel 12,,Daniel 12
+A16366,377,In-Text,3,Matthew 22,,Mathew 22
+A16366,377,In-Text,4,John 5,,John 5
+A16366,377,In-Text,5,1 Corinthians 15,,1 Cor 15
+A16366,377,In-Text,6,2 Corinthians 5.1,,"2 Cor 5 , 1"
+A16366,377,In-Text,7,Thessalonians 3,,Thes 3
+A16366,377,In-Text,8,Philippians 3,,Philip 3
+A16366,377,In-Text,9,Timothy 2,,Timoth 2
+A16366,388,In-Text,0,Corinthians 2,,Corinthians 2
+A16366,703,In-Text,0,Matthew 5,,Mathewe 5
+A16366,717,In-Text,0,John 5,,Iohn 5
+A16366,718,In-Text,0,Matthew 26.*,,Math 26 *
+A16366,824,In-Text,0,Peter **,,per **
+A16366,887,In-Text,0,Ecclesiastes **,,Ecclesiae **
+A16366,895,In-Text,0,Esther **,,est **
+A16366,984,In-Text,0,Proverbs **,,pro **
+A16366,1066,In-Text,0,Mark 10,,Marke 10
+A16366,1067,In-Text,0,Luke 15,,Luke 15
+A16366,1160,In-Text,0,Matthew 26,,Mathew 26
+A16366,1230,In-Text,0,John 10; John 15,,Iohn 10 & 15
+A16366,1234,In-Text,0,John 2; John 16,,Iohan 2 & 16
 A16590,1,In-Text,0,Acts 17,,Actes 17
 A16590,1,In-Text,1,Exodus 3,,Exod 3
 A16590,42,In-Text,0,Revelation 5,,Apoca 5
@@ -3414,137 +2974,288 @@ A17223,176,In-Text,0,Ecclesiastes 8,,Ecclesi 8
 A17223,179,In-Text,0,1 Timothy 2,,1 Timo 2
 A17223,179,In-Text,1,Jeremiah 29,,Ierem 29
 A17223,181,In-Text,0,Revelation 30,,Apo 30
-A19564,259,In-Text,0,Matthew 18,,Mathew 18
-A19564,631,In-Text,0,Matthew 3,,Mathewe 3
-A19564,1285,In-Text,0,Matthew 28,,mat 28
-A19564,1285,In-Text,1,Mark 16,,Mar 16
-A19564,1420,In-Text,0,John 20,,Iohn 20
-A19564,1547,In-Text,0,Matthew 26.100,,Mat 26 100
-A19564,1547,In-Text,1,Mark 14.100,,Mar 14 100
-A19564,1547,In-Text,2,Luke 22,,Luc 22
-A19564,1547,In-Text,3,John 6; John 13,,Iohn 6 & 13
-A19564,1547,In-Text,4,1 Corinthians 11.100,,1 Cor 11 100
+A19564,302,In-Text,0,Matthew 18,,Mathew 18
+A19564,674,In-Text,0,Matthew 3,,Mathewe 3
+A19564,1008,In-Text,0,John 17,,Iohn 17
+A19564,1457,In-Text,0,Ezekiel 26,,Ezechiel 26
+A19564,1501,In-Text,0,Romans 3,,Ro 3
+A19564,1898,In-Text,0,Matthew 28,,mat 28
+A19564,1898,In-Text,1,Mark 16,,Mar 16
+A19564,2033,In-Text,0,John 20,,Iohn 20
+A19564,2160,In-Text,0,Matthew 26.100,,Mat 26 100
+A19564,2160,In-Text,1,Mark 14.100,,Mar 14 100
+A19564,2160,In-Text,2,Luke 22,,Luc 22
+A19564,2160,In-Text,3,John 6; John 13,,Iohn 6 & 13
+A19564,2160,In-Text,4,1 Corinthians 11.100,,1 Cor 11 100
 A11581,24,Note 0,0,Exodus 10,,Exod 10
 A11581,99,Note 1,0,Matthew 19.1,,mat 19 1
 A11581,111,Note 0,0,Ephesians 5,,Ephe 5
 A11581,113,Note 0,0,Matthew 19,,mat 19
 A11581,186,Note 0,0,1 Corinthians 6,,1 Cor 6
-A11925,0,Note 0,0,1 Peter 3,,1 Pet 3
-A11925,8,Note 0,0,Matthew 2,,Math 2
-A11925,10,Note 0,0,Deuteronomy 5,,Deut 5
-A11925,11,Note 0,0,Isaiah 42,,Esa 42
-A11925,12,Note 0,0,Matthew 12,,Math 12
-A11925,13,Note 0,0,1 Corinthians 2,,1 Cor 2
-A11925,13,Note 1,0,Isaiah ^3,,Esai ^3
-A11925,13,Note 2,0,Romans 11,,Ro 11
-A11925,15,Note 0,0,Luke 16,,Luc 16
-A11925,15,Note 1,0,Proverbs 3,,Proue 3
-A11925,15,Note 2,0,Deuteronomy 12,,Deut 12
-A11925,21,Note 0,0,Deuteronomy 18,,Deut 18
-A11925,23,Note 0,0,Revelation 6,,Re 6
-A11925,24,Note 0,0,Numbers 16,,Nume 16
-A11925,25,Note 0,0,Deuteronomy 16,,Deut 16
-A11925,27,Note 1,0,Isaiah 30,,Esa 30
-A11925,27,Note 2,0,Matthew 6,,Math 6
-A11925,27,Note 3,0,John 21,,Iohn 21
-A11925,30,Note 0,0,John ^,,Iohn ^
-A11925,31,Note 0,0,1 Timothy 6,,1 Timo 6
-A11925,32,Note 0,0,Kings 3.16,,3 Regu 3 16
-A11925,32,Note 1,0,Deuteronomy 6,,Deut 6
-A11925,35,Note 0,0,Luke 22,,Luk 22
-A11925,37,Note 0,0,Luke 22,,Luk 22
-A11925,37,Note 0,1,Matthew 26,,Math 26
-A11925,39,Note 0,0,John 13.12; John 13.15; John 13.17; John 13.18,,Iohn 13 12 15 17 18
-A11925,40,Note 0,0,Corinthians ^,,Cor ^
-A11925,41,Note 0,0,John 5,,Iohn 5
-A11925,43,Note 0,0,Luke 22,,Luke 22
-A11925,45,Note 0,0,Luke 22,,Luke 22
-A11925,46,Note 0,0,John 23,,Iohn 23
-A11925,47,Note 0,0,1 Corinthians 10,,1 Cor 10
-A11925,48,Note 0,0,Corinthians 11,,Cor 11
-A11925,48,Note 1,0,Matthew 26,,Math 26
-A11925,51,Note 0,0,John 13,,Iohn 13
-A11925,51,Note 1,0,John 16,,Iohn 16
-A11925,52,Note 0,0,Matthew 16,,Math 16
-A11925,52,Note 1,0,1 Corinthians 12,,1 Cor 12
-A11925,53,Note 0,0,John 17,,Iohn 17
-A11925,54,Note 0,0,John 17,,Iohn 17
-A11925,56,Note 0,0,Luke 22,,Luke 22
-A11925,57,Note 0,0,1 John 1.1; 1 John 1.3,,1 Iohn 1 1 3
-A11925,58,Note 0,0,Acts 15,,Act 15
-A11925,59,Note 0,0,1 Kings 8,,1 Regu 8
-A11925,61,Note 0,0,1 Corinthians 3,,1 Cor 3
-A11925,64,Note 0,0,Matthew 1,,Math 1
-A11925,79,Note 0,0,1 Corinthians 2,,1 Co 2
-A11925,86,Note 0,0,1 Peter 2,,1 Pe 2
-A11925,94,Note 0,0,Ephesians 6,,Eph 6
-A11925,101,Note 0,0,1 Corinthians 9,,1 Cor 9
-A11925,104,Note 0,0,Hebrews 3,,Heb 3
-A11925,119,Note 0,0,Matthew 6,,Math 6
-A11925,119,Note 1,0,Malachi 2,,Mal 2
-A11925,134,Note 0,0,1 Corinthians 11,,1 Cor 11
-A11925,199,Note 0,0,Galatians 3,,Ga 3
-A11925,199,Note 0,1,John 11,,Iohn 11
-A11925,200,Note 0,0,Isaiah 63,,Esae 63
-A11925,201,Note 0,0,Hebrews 10,,Heb 10
-A11925,202,Note 0,0,Matthew 16,,Math 16
-A11925,204,Note 0,0,Ephesians 2,,Eph 2
-A11925,215,Note 0,0,Psalms 10,,Psal 10
-A11925,228,Note 0,0,Hebrews 7,,Hebru 7
-A11925,342,Note 0,0,Romans 12,,Ro 12
-A11925,355,Note 0,0,Exodus 29,,Exod 29
-A11925,363,Note 0,0,Romans 13,,Ro 13
-A14354,27,Note 0,0,1 Timothy 5,,1 Timo 5
-A14354,31,Note 0,0,Matthew 10,,Matth 10
-A14354,38,Note 0,0,Matthew 16,,Mat 16
-A14354,42,Note 0,0,John 6,,Ioan 6
-A14354,46,Note 0,0,1 John 4,,1 Ioan 4
-A14354,54,Note 0,0,John 10,,Ioan 10
-A14354,59,Note 0,0,John 14,,Ioan 14
-A14354,60,Note 0,0,Acts 4,,Act 4
-A14354,62,Note 0,0,Romans 3,,Roma 3
-A14354,62,Note 0,1,Ephesians 2,,Ephe 2
-A14354,63,Note 0,0,Galatians 2,,Gala 2
-A14354,65,Note 0,0,Galatians 5,,Gala 5
-A14354,74,Note 0,0,Acts 4,,Act 4
-A14354,75,Note 0,0,Acts 5,,Act 5
-A14354,77,Note 0,0,John 1,,Ioan 1
-A14354,77,Note 0,1,Colossians 1.2,,Colos 1 2
-A14354,77,Note 1,0,John 4.5; John 4.7,,Ioa 4 5 7
-A14354,88,Note 0,0,Matthew 26,,Math 26
-A14354,105,Note 0,0,Kings 3.18,,3 Reg 3 18
-A14354,110,Note 0,0,Matthew 10,,Mat 10
-A14354,117,Note 0,0,Mark 8,,Marc 8
-A14354,119,Note 0,0,Revelation 2,,Apocal 2
-A14354,124,Note 0,0,Mark 8,,Marc 8
-A14354,132,Note 0,0,2 Timothy 2,,2 Tim 2
-A14354,133,Note 0,0,Hebrews 10,,Heb 10
-A14354,143,Note 0,0,Psalms 116,,Psal 116
-A14354,143,Note 1,0,1 Peter 4,,1 Pet 4
-A14354,151,Note 0,0,Matthew 10,,Mat 10
-A14354,155,Note 0,0,Luke 12,,Luc 12
-A14354,160,Note 0,0,1 Corinthians 7,,1 Cor 7
-A14354,170,Note 0,0,Genesis 12,,Gen 12
-A14354,170,Note 0,1,Hebrews 11,,Heb 11
-A14354,170,Note 0,2,Genesis 22,,Gen 22
-A14354,170,Note 0,3,Hebrews 11,,Heb 11
-A14354,170,Note 0,4,Luke 14,,Luc 14
-A14354,177,Note 0,0,Hebrews 4,,Heb 4
-A14354,187,Note 0,0,Romans ^0,,Rom ^0
-A14354,197,Note 0,0,Kings 19,,Reg 19
-A14354,206,Note 0,0,Daniel 3,,Dan 3
-A14354,212,Note 0,0,Daniel 3,,Dan 3
-A14354,215,Note 0,0,Daniel 6,,Dan 6
-A14354,255,Note 0,0,Matthew 15,,Mat 15
-A14354,256,Note 0,0,Titus 1,,Tit 1
-A14354,264,Note 0,0,Acts 16.18; Acts 16.21,,Actu 16 18 21
-A14354,309,Note 0,0,Revelation 2,,Apocal 2
-A14354,315,Note 0,0,Hebrews 11,,Heb 11
-A14354,317,Note 0,0,Matthew 10,,Mat 10
-A14354,319,Note 0,0,Luke 9,,Luc 9
-A14354,321,Note 0,0,Revelation 6,,Apocal 6
-A14354,323,Note 0,0,Revelation 13.19; Revelation 13.20,,Apoc 13 19 20
-A14354,325,Note 0,0,Romans 8,,Rom 8
+A11581,206,Note 0,0,1 Corinthians 6,,1 Cor 6
+A11581,263,Note 1,0,Ephesians 5,,Ephe 5
+A11581,267,Note 0,0,Ephesians 5,,Ephe 5
+A11581,268,Note 0,0,1 Peter 3,,1 Pet 3
+A11581,277,Note 0,0,Psalms 100,,Psalm 100
+A11925,47,Note 0,0,1 Peter 3,,1 Pet 3
+A11925,55,Note 0,0,Matthew 2,,Math 2
+A11925,57,Note 0,0,Deuteronomy 5,,Deut 5
+A11925,58,Note 0,0,Isaiah 42,,Esa 42
+A11925,59,Note 0,0,Matthew 12,,Math 12
+A11925,60,Note 0,0,1 Corinthians 2,,1 Cor 2
+A11925,60,Note 1,0,Isaiah ^3,,Esai ^3
+A11925,60,Note 2,0,Romans 11,,Ro 11
+A11925,62,Note 0,0,Luke 16,,Luc 16
+A11925,62,Note 1,0,Proverbs 3,,Proue 3
+A11925,62,Note 2,0,Deuteronomy 12,,Deut 12
+A11925,68,Note 0,0,Deuteronomy 18,,Deut 18
+A11925,70,Note 0,0,Revelation 6,,Re 6
+A11925,71,Note 0,0,Numbers 16,,Nume 16
+A11925,72,Note 0,0,Deuteronomy 16,,Deut 16
+A11925,74,Note 1,0,Isaiah 30,,Esa 30
+A11925,74,Note 2,0,Matthew 6,,Math 6
+A11925,74,Note 3,0,John 21,,Iohn 21
+A11925,77,Note 0,0,John ^,,Iohn ^
+A11925,78,Note 0,0,1 Timothy 6,,1 Timo 6
+A11925,79,Note 0,0,Kings 3.16,,3 Regu 3 16
+A11925,79,Note 1,0,Deuteronomy 6,,Deut 6
+A11925,82,Note 0,0,Luke 22,,Luk 22
+A11925,84,Note 0,0,Luke 22,,Luk 22
+A11925,84,Note 0,1,Matthew 26,,Math 26
+A11925,86,Note 0,0,John 13.12; John 13.15; John 13.17; John 13.18,,Iohn 13 12 15 17 18
+A11925,87,Note 0,0,Corinthians ^,,Cor ^
+A11925,88,Note 0,0,John 5,,Iohn 5
+A11925,90,Note 0,0,Luke 22,,Luke 22
+A11925,92,Note 0,0,Luke 22,,Luke 22
+A11925,93,Note 0,0,John 23,,Iohn 23
+A11925,94,Note 0,0,1 Corinthians 10,,1 Cor 10
+A11925,95,Note 0,0,Corinthians 11,,Cor 11
+A11925,95,Note 1,0,Matthew 26,,Math 26
+A11925,98,Note 0,0,John 13,,Iohn 13
+A11925,98,Note 1,0,John 16,,Iohn 16
+A11925,99,Note 0,0,Matthew 16,,Math 16
+A11925,99,Note 1,0,1 Corinthians 12,,1 Cor 12
+A11925,100,Note 0,0,John 17,,Iohn 17
+A11925,101,Note 0,0,John 17,,Iohn 17
+A11925,103,Note 0,0,Luke 22,,Luke 22
+A11925,104,Note 0,0,1 John 1.1; 1 John 1.3,,1 Iohn 1 1 3
+A11925,105,Note 0,0,Acts 15,,Act 15
+A11925,106,Note 0,0,1 Kings 8,,1 Regu 8
+A11925,108,Note 0,0,1 Corinthians 3,,1 Cor 3
+A11925,111,Note 0,0,Matthew 1,,Math 1
+A11925,126,Note 0,0,1 Corinthians 2,,1 Co 2
+A11925,133,Note 0,0,1 Peter 2,,1 Pe 2
+A11925,141,Note 0,0,Ephesians 6,,Eph 6
+A11925,148,Note 0,0,1 Corinthians 9,,1 Cor 9
+A11925,151,Note 0,0,Hebrews 3,,Heb 3
+A11925,166,Note 0,0,Matthew 6,,Math 6
+A11925,166,Note 1,0,Malachi 2,,Mal 2
+A11925,181,Note 0,0,1 Corinthians 11,,1 Cor 11
+A11925,246,Note 0,0,Galatians 3,,Ga 3
+A11925,246,Note 0,1,John 11,,Iohn 11
+A11925,247,Note 0,0,Isaiah 63,,Esae 63
+A11925,248,Note 0,0,Hebrews 10,,Heb 10
+A11925,249,Note 0,0,Matthew 16,,Math 16
+A11925,251,Note 0,0,Ephesians 2,,Eph 2
+A11925,262,Note 0,0,Psalms 10,,Psal 10
+A11925,275,Note 0,0,Hebrews 7,,Hebru 7
+A11925,389,Note 0,0,Romans 12,,Ro 12
+A11925,402,Note 0,0,Exodus 29,,Exod 29
+A11925,410,Note 0,0,Romans 13,,Ro 13
+A14354,4,Note 0,0,1 Corinthians 7,,1 Cor 7
+A14354,5,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,6,Note 0,0,1 Corinthians 5,,1 Cor 5
+A14354,10,Note 0,0,Genesis 12,,Genes 12
+A14354,11,Note 0,0,Genesis 13,,Genes 13
+A14354,12,Note 0,0,Kings 4.5,,4 Reg 4 5
+A14354,13,Note 0,0,Mark 5,,Marc 5
+A14354,35,Note 0,0,Romans 3,,Ro 3
+A14354,48,Note 0,0,Matthew 9,,Matt 9
+A14354,52,Note 0,0,Acts 17,,Act 17
+A14354,76,Note 0,0,Corinthians 10,,Cor 10
+A14354,83,Note 0,0,1 Corinthians 7,,1 Cor 7
+A14354,87,Note 0,0,1 Timothy 5,,1 Timo 5
+A14354,88,Note 0,0,Matthew 5.18,,Matt 5 18
+A14354,93,Note 0,0,John 15,,Ioan 15
+A14354,94,Note 0,0,Matthew 1^,,Matth 1^
+A14354,95,Note 0,0,1 Corinthians 5,,1 Cor 5
+A14354,98,Note 0,0,1 Corinthians 15,,1 Cor 15
+A14354,107,Note 0,0,1 Corinthians 5,,1 Cor 5
+A14354,114,Note 0,0,Ecclesiastes 13,,Eccles 13
+A14354,128,Note 0,0,Exodus 23,,Exod 23
+A14354,129,Note 0,0,Numbers 15,,Numer 15
+A14354,130,Note 0,0,Matthew 26,,Math 26
+A14354,132,Note 0,0,Isaiah 6,,Esaiae 6
+A14354,142,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,143,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,147,Note 0,0,Corinthians 6,,Cor 6
+A14354,163,Note 0,0,Judith 1,,Iudic 1
+A14354,165,Note 0,0,John 4,,Ioan 4
+A14354,168,Note 0,0,Daniel 1,,Daniel 1
+A14354,171,Note 0,0,1 Corinthians 1^,,1 Cor 1^
+A14354,181,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,186,Note 0,0,Genesis 2,,Gen 2
+A14354,189,Note 0,0,Matthew 10,,Matth 10
+A14354,189,Note 0,1,Luke 12,,Luc 12
+A14354,190,Note 0,0,Corinthians 7.8,,Cor 7 8
+A14354,194,Note 0,0,Daniel 3,,Daniel 3
+A14354,207,Note 0,0,Isaiah 1,,Isay 1
+A14354,209,Note 0,0,Numbers 21,,numer 21
+A14354,211,Note 0,0,Kings 4.18,,4 Reg 4 18
+A14354,216,Note 0,0,Kings 3.12,,3 Reg 3 12
+A14354,222,Note 0,0,Ephesians 5,,Ephes 5
+A14354,227,Note 0,0,Matthew 16,,Math 16
+A14354,244,Note 0,0,Matthew 10,,mat 10
+A14354,245,Note 0,0,Romans 1^,,Rom 1^
+A14354,245,Note 1,0,Mark 8,,mar 8
+A14354,255,Note 0,0,1 Corinthians 6,,1 Cor 6
+A14354,260,Note 0,0,Kings 3.19,,3 Reg 3 19
+A14354,264,Note 0,0,Isaiah 45,,Esay 45
+A14354,270,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,274,Note 0,0,1 Corinthians 1^,,1 Cor 1^
+A14354,288,Note 0,0,Hebrews 9.10,,Heb 9 10
+A14354,299,Note 0,0,1 Corinthians 11,,1 Cor 11
+A14354,299,Note 1,0,Matthew 6.4,,math 6 4
+A14354,307,Note 0,0,1 Corinthians 14,,1 Cor 14
+A14354,354,Note 1,0,Kings 4.5,,4 Reg 4 5
+A14354,371,Note 0,0,Baruch 6,,Bar 6
+A14354,379,Note 0,0,Daniel 3,,Daniel 3
+A14354,383,Note 0,0,Daniel 6,,Daniel 6
+A14354,386,Note 0,0,Romans 3,,Rom 3
+A14354,387,Note 0,0,Galatians 3,,Gal 3
+A14354,388,Note 0,0,Habakkuk 2,,Abac 2
+A14354,388,Note 0,1,Romans 1,,Rom 1
+A14354,391,Note 0,0,Galatians 5,,Gal 5
+A14354,392,Note 0,0,Galatians 3,,Gal 3
+A14354,393,Note 0,0,Galatians 6,,Gal 6
+A14354,394,Note 0,0,1 Corinthians 7,,1 Cor 7
+A14354,398,Note 0,0,1 Corinthians 9,,1 Cor 9
+A14354,399,Note 1,0,Galatians 2,,Gal 2
+A14354,418,Note 0,0,Matthew 15,,Mat 15
+A14354,429,Note 0,0,Romans 14,,Rom 14
+A14354,433,Note 0,0,Romans 3,,Rom 3
+A14354,438,Note 0,0,1 Corinthians ^5,,1 Cor ^5
+A14354,443,Note 0,0,John 21,,Ioan 21
+A14354,462,Note 0,0,Matthew 23,,Matth 23
+A14354,464,Note 0,0,Luke 2,,Luc 2
+A14354,479,Note 0,0,1 John 1,,1 Ioan 1
+A14354,519,Note 0,0,Exodus 32,,Exod 32
+A14354,535,Note 0,0,1 Corinthians 6,,1 Cor 6
+A14354,535,Note 0,1,Matthew 22,,Mat 22
+A14354,536,Note 0,0,Romans 3,,Roma 3
+A14354,542,Note 0,0,Romans 13,,Rom 13
+A14354,545,Note 0,0,Kings 3.1^,,3 Reg 3 1^
+A14354,553,Note 0,0,Psalms 1,,Psal 1
+A14354,605,Note 0,0,Kings 4.11,,4 Reg 4 11
+A14354,607,Note 0,0,Kings 4.18,,4 Reg 4 18
+A14354,613,Note 0,0,Romans 13,,Rom 13
+A14354,642,Note 0,0,Matthew 22,,Matt 22
+A14354,645,Note 0,0,Kings 3.21,,3 Reg 3 21
+A14354,645,Note 1,0,Numbers 33,,Num 33
+A14354,656,Note 0,0,1 Corinthians 7,,1 Cor 7
+A14354,659,Note 0,0,2 Corinthians 5,,2 Cor 5
+A14354,664,Note 0,0,Genesis 12,,Gene 12
+A14354,668,Note 0,0,Genesis 13,,Gene 13
+A14354,673,Note 0,0,Genesis 14,,Gene 14
+A14354,682,Note 0,0,Romans 11,,Rom 11
+A14354,684,Note 0,0,Isaiah 59,,Esa 59
+A14354,685,Note 0,0,Luke 33.15,,Luc 33 15
+A14354,687,Note 0,0,Psalms 6.^; Psalms 6.59,,Psal 6 ^ 59
+A14354,746,Note 0,0,Philippians 3,,Phil 3
+A14354,756,Note 0,0,1 Corinthians 11,,1 Cor 11
+A14354,764,Note 0,0,Romans 3,,Rom 3
+A14354,764,Note 0,1,Galatians 2,,Gal 2
+A14354,769,Note 0,0,Romans 10,,Rom 10
+A14354,771,Note 0,0,Romans 11,,Rom 11
+A14354,772,Note 0,0,Philippians 3,,Phil 3
+A14354,776,Note 0,0,Matthew 7,,Mat 7
+A14354,777,Note 0,0,Ephesians 2,,Ephes 2
+A14354,777,Note 1,0,Hebrews 11,,Hebre 11
+A14354,779,Note 0,0,Romans 14,,Rom 14
+A14354,787,Note 0,0,Romans 8,,Rom 8
+A14354,789,Note 0,0,Deuteronomy 5,,Deut 5
+A14354,790,Note 0,0,Exodus 20,,Exod 20
+A14354,791,Note 0,0,Isaiah 64,,Esa 64
+A14354,795,Note 0,0,Matthew 6,,Mat 6
+A14354,804,Note 0,0,John 6,,Ioan 6
+A14354,806,Note 0,0,Acts 10,,Act 10
+A14354,807,Note 0,0,Romans 8,,Rom 8
+A14354,808,Note 0,0,Romans 4,,Rom 4
+A14354,809,Note 0,0,Romans 4,,Rom 4
+A14354,810,Note 0,0,Romans 5,,Rom 5
+A14354,810,Note 1,0,Romans 8,,Rom 8
+A14354,811,Note 0,0,Exodus 20,,Exod 20
+A14354,811,Note 1,0,Romans 5,,Roma 5
+A14354,812,Note 0,0,Romans 8,,Roma 8
+A14354,815,Note 0,0,Psalms 32,,Psal 32
+A14354,815,Note 0,1,Romans 4,,Rom 4
+A14354,819,Note 0,0,Ezekiel 18,,Ezech 18
+A14354,821,Note 0,0,Revelation 14,,Apoc 14
+A14354,824,Note 0,0,Luke 7,,Luc 7
+A14354,824,Note 0,1,Samuel 23,,s 23
+A14354,824,Note 0,2,Philippians 1,,Phil 1
+A14354,831,Note 0,0,Mark 16,,Mar 16
+A14354,846,Note 0,0,Corinthians ^4,,Cor ^4
+A14354,865,Note 0,0,Corinthians 11,,Cor 11
+A14354,867,Note 2,0,1 Corinthians 11,,1 Cor 11
+A14354,870,Note 0,0,1 Corinthians 10,,1 Cor 10
+A14354,873,Note 0,0,Galatians 3,,Gal 3
+A14354,876,Note 0,0,Deuteronomy 6,,Deut 6
+A14354,885,Note 0,0,Acts 4,,Acto 4
+A14354,885,Note 1,0,1 John 2,,1 Ioan 2
+A14354,889,Note 0,0,Isaiah 63,,Esa 63
+A14354,890,Note 0,0,John 16,,Ioan 16
+A14354,954,Note 0,0,1 Timothy 5,,1 Timo 5
+A14354,958,Note 0,0,Matthew 10,,Matth 10
+A14354,965,Note 0,0,Matthew 16,,Mat 16
+A14354,969,Note 0,0,John 6,,Ioan 6
+A14354,973,Note 0,0,1 John 4,,1 Ioan 4
+A14354,981,Note 0,0,John 10,,Ioan 10
+A14354,986,Note 0,0,John 14,,Ioan 14
+A14354,987,Note 0,0,Acts 4,,Act 4
+A14354,989,Note 0,0,Romans 3,,Roma 3
+A14354,989,Note 0,1,Ephesians 2,,Ephe 2
+A14354,990,Note 0,0,Galatians 2,,Gala 2
+A14354,992,Note 0,0,Galatians 5,,Gala 5
+A14354,1001,Note 0,0,Acts 4,,Act 4
+A14354,1002,Note 0,0,Acts 5,,Act 5
+A14354,1004,Note 0,0,John 1,,Ioan 1
+A14354,1004,Note 0,1,Colossians 1.2,,Colos 1 2
+A14354,1004,Note 1,0,John 4.5; John 4.7,,Ioa 4 5 7
+A14354,1015,Note 0,0,Matthew 26,,Math 26
+A14354,1032,Note 0,0,Kings 3.18,,3 Reg 3 18
+A14354,1037,Note 0,0,Matthew 10,,Mat 10
+A14354,1044,Note 0,0,Mark 8,,Marc 8
+A14354,1046,Note 0,0,Revelation 2,,Apocal 2
+A14354,1051,Note 0,0,Mark 8,,Marc 8
+A14354,1059,Note 0,0,2 Timothy 2,,2 Tim 2
+A14354,1060,Note 0,0,Hebrews 10,,Heb 10
+A14354,1070,Note 0,0,Psalms 116,,Psal 116
+A14354,1070,Note 1,0,1 Peter 4,,1 Pet 4
+A14354,1078,Note 0,0,Matthew 10,,Mat 10
+A14354,1082,Note 0,0,Luke 12,,Luc 12
+A14354,1087,Note 0,0,1 Corinthians 7,,1 Cor 7
+A14354,1097,Note 0,0,Genesis 12,,Gen 12
+A14354,1097,Note 0,1,Hebrews 11,,Heb 11
+A14354,1097,Note 0,2,Genesis 22,,Gen 22
+A14354,1097,Note 0,3,Hebrews 11,,Heb 11
+A14354,1097,Note 0,4,Luke 14,,Luc 14
+A14354,1104,Note 0,0,Hebrews 4,,Heb 4
+A14354,1114,Note 0,0,Romans ^0,,Rom ^0
+A14354,1124,Note 0,0,Kings 19,,Reg 19
+A14354,1133,Note 0,0,Daniel 3,,Dan 3
+A14354,1139,Note 0,0,Daniel 3,,Dan 3
+A14354,1142,Note 0,0,Daniel 6,,Dan 6
+A14354,1182,Note 0,0,Matthew 15,,Mat 15
+A14354,1183,Note 0,0,Titus 1,,Tit 1
+A14354,1191,Note 0,0,Acts 16.18; Acts 16.21,,Actu 16 18 21
+A14354,1236,Note 0,0,Revelation 2,,Apocal 2
+A14354,1242,Note 0,0,Hebrews 11,,Heb 11
+A14354,1244,Note 0,0,Matthew 10,,Mat 10
+A14354,1246,Note 0,0,Luke 9,,Luc 9
+A14354,1248,Note 0,0,Revelation 6,,Apocal 6
+A14354,1250,Note 0,0,Revelation 13.19; Revelation 13.20,,Apoc 13 19 20
+A14354,1252,Note 0,0,Romans 8,,Rom 8
 A14813,3,Note 0,0,Philippians 3,,Philip 3
 A14813,60,Note 0,0,Matthew 26,,Mat 26
 A14813,72,Note 0,0,Psalms 148,,psal 148
@@ -3700,25 +3411,6 @@ A15556,286,Note 0,0,Luke ^^,,Luke ^^
 A15556,288,Note 0,0,^ Corinthians 10,,^ Cor 10
 A15556,300,Note 0,0,Matthew 2^,,Mat 2^
 A15556,346,Note 1,0,Matthew 5,,Mat 5
-A16087,9,Note 0,0,1 Corinthians 15,,1 cor 15
-A16087,12,Note 0,0,Psalms 71,,psa 71
-A16087,15,Note 1,0,John 20,,Ioh 20
-A16087,15,Note 2,0,1 Corinthians 15,,1 cor 15
-A16087,16,Note 0,0,John 21,,Ioh 21
-A16087,17,Note 0,0,1 Corinthians 15,,1 cor 15
-A16087,32,Note 0,0,1 Corinthians 15,,1 cor 15
-A16087,36,Note 0,0,1 Corinthians 15,,1 cor 15
-A16087,51,Note 0,0,Luke 2,,Luce 2
-A16087,71,Note 0,0,Ephesians 6,,Ephe 6
-A16087,74,Note 0,0,Romans 6,,Rom 6
-A16087,74,Note 1,0,Romans 6,,Rom 6
-A16087,76,Note 0,0,Matthew 5,,Math 5
-A16087,89,Note 0,0,Philippians 3,,phil 3
-A16087,92,Note 0,0,John 5,,Ioh 5
-A16087,94,Note 0,0,Colossians 3,,Col 3
-A16087,99,Note 0,0,Mark 6,,Mar 6
-A16087,100,Note 0,0,Romans 6,,Rom 6
-A16087,102,Note 1,0,1 Corinthians 5,,1 cor 5
 A16091,18,Note 0,0,Matthew 11,,Mat 11
 A16091,23,Note 0,0,Genesis 2,,Gen 2
 A16091,27,Note 0,0,Matthew ^^,,Mat ^^
@@ -3852,6 +3544,98 @@ A16091,1503,Note 0,0,Genesis 3,,Gen 3
 A16091,1505,Note 0,0,Psalms 1^^,,psal 1^^
 A16091,1505,Note 0,1,John 10,,Ihon 10
 A16091,1505,Note 0,2,Corinthians ^5,,Cor ^5
+A16366,461,Note 0,0,Psalms 119,,Psalme 119
+A16366,474,Note 0,0,Genesis 1,,Genesis 1
+A16366,476,Note 0,0,Genesis 2,,Genesis 2
+A16366,491,Note 0,0,Genesis 3,,Genes 3
+A16366,497,Note 0,0,Peter 5,,Peter 5
+A16366,518,Note 1,0,Genesis 18,,Gen 18
+A16366,519,Note 0,0,Judith 3; Judith 9,,Iudith 3 & 9
+A16366,519,Note 1,0,Job 13,,Iob 13
+A16366,524,Note 0,0,Job 14,,Iob 14
+A16366,528,Note 0,0,Genesis 5; Genesis 7,,Gene 5 & 7
+A16366,533,Note 0,0,Romans 3,,Roma 3
+A16366,534,Note 0,0,Galatians 3,,Gala 3
+A16366,535,Note 0,0,Galatians *,,Gala *
+A16366,536,Note 0,0,Proverbs 24,,Pro 24
+A16366,540,Note 0,0,Ecclesiastes 7,,Eccles 7
+A16366,541,Note 0,0,Psalms 2,,Psal 2
+A16366,542,Note 0,0,Psalms 19,,Psal 19
+A16366,545,Note 0,0,Psalms 2,,Psal 2
+A16366,564,Note 0,0,Psalms 190,,Psal 190
+A16366,569,Note 0,0,Daniel 9,,Daniel 9
+A16366,574,Note 0,0,1 Peter 2,,1 Peter 2
+A16366,577,Note 0,0,Psalms 126,,Psal 126
+A16366,581,Note 0,0,1 Peter *,,1 Peter *
+A16366,585,Note 0,0,1 John 3,,1 Iohn 3
+A16366,608,Note 0,0,Hebrews 2,,Heb 2
+A16366,614,Note 0,0,Genesis 122,,Gen 122
+A16366,628,Note 0,0,John *,,Iohn *
+A16366,642,Note 0,0,Galatians 3,,Gala 3
+A16366,648,Note 0,0,John 16,,Iohn 16
+A16366,651,Note 0,0,Matthew 28,,Math 28
+A16366,653,Note 0,0,Matthew 16,,Math 16
+A16366,656,Note 0,0,Matthew 5,,Math 5
+A16366,658,Note 0,0,Peter 1,,Peter 1
+A16366,663,Note 0,0,2 Peter 3,,2 Peter 3
+A16366,667,Note 0,0,1 Timothy 9,,1 Timo 9
+A16366,670,Note 0,0,Timothy 3,,Timo 3
+A16366,687,Note 0,0,Matthew 22,,Math 22
+A16366,718,Note 0,0,John 5,,Iohn 5
+A16366,719,Note 0,0,Matthew 26,,Math 26
+A16366,756,Note 0,0,1 Timothy *,,1 Timo *
+A16366,767,Note 0,0,Matthew 5,,Math 5
+A16366,777,Note 0,0,Matthew 11,,Math 11
+A16366,787,Note 0,0,Matthew 5,,Math 5
+A16366,798,Note 0,0,Matthew 3,,Math 3
+A16366,798,Note 2,0,Luke 24,,Luc 24
+A16366,808,Note 0,0,Ephesians 4,,Ephes 4
+A16366,811,Note 0,0,Canticles 4,,Cantic 4
+A16366,820,Note 0,0,Matthew 5,,Math 5
+A16366,821,Note 0,0,Matthew *,,Math *
+A16366,833,Note 0,0,Corinthians 7,,Co 7
+A16366,838,Note 1,0,Timothy 4,,Timo 4
+A16366,838,Note 2,0,Titus 1,,Tit 1
+A16366,838,Note 4,0,Titus 2,,Tit 2
+A16366,840,Note 0,0,Matthew *,,Math *
+A16366,842,Note 0,0,Matthew 23,,Math 23
+A16366,852,Note 0,0,Romans 13,,Roma 13
+A16366,861,Note 0,0,John 130,,Iohn 130
+A16366,862,Note 0,0,John *,,Iohn *
+A16366,873,Note 0,0,John 14,,Iohn 14
+A16366,874,Note 0,0,Matthew 28,,Math 28
+A16366,904,Note 1,0,Genesis 78,,Gene 78
+A16366,905,Note 0,0,Genesis 7.8,,Gen 7 8
+A16366,907,Note 0,0,Isaiah *,,Esai *
+A16366,927,Note 0,0,John 13,,Iohn 13
+A16366,933,Note 0,0,Ephesians *,,Ephes *
+A16366,968,Note 0,0,Acts *,,Actes *
+A16366,969,Note 0,0,Acts *,,Actes *
+A16366,971,Note 0,0,Acts 5.9,,"Acte 4 , 5 9"
+A16366,992,Note 0,0,Acts 8,,Actes 8
+A16366,1053,Note 0,0,Corinthians 2,,Corin 2
+A16366,1071,Note 0,0,Mark 10,,Mark 10
+A16366,1073,Note 0,0,John 7,,Iohn 7
+A16366,1076,Note 0,0,John 12,,Iohn 12
+A16366,1099,Note 0,0,Joshua 5,,Iosue 5
+A16366,1110,Note 0,0,Exodus 20,,Exo 20
+A16366,1113,Note 0,0,Matthew 17,,Math 17
+A16366,1113,Note 1,0,Leviticus 34,,Lu 34
+A16366,1119,Note 0,0,John *.5,,Ioh * 5
+A16366,1121,Note 0,0,John 6,,Iohn 6
+A16366,1135,Note 0,0,Romans 4,,Romo 4
+A16366,1139,Note 0,0,2 Corinthians 10,,2 Corin 10
+A16366,1142,Note 0,0,2 Corinthians 1,,2 Corin 1
+A16366,1155,Note 0,0,Psalms 110,,Psal 110
+A16366,1159,Note 0,0,Matthew 26,,Math 26
+A16366,1163,Note 0,0,Mark 14,,Mar 14
+A16366,1170,Note 1,0,1 Corinthians *,,1 Corin *
+A16366,1171,Note 1,0,Corinthians 15,,Cor 15
+A16366,1173,Note 0,0,Galatians 6,,Gala 6
+A16366,1184,Note 0,0,John 6,,Iohn 6
+A16366,1209,Note 0,0,Corinthians 11,,Cor 11
+A16366,1214,Note 0,0,1 John 4,,1 Iohn 4
+A16366,1230,Note 1,0,Corinthians *,,Cori *
 A16590,26,Note 0,0,Psalms 19,,Psa 19
 A16590,34,Note 0,0,Daniel 6,,Den 6
 A16590,34,Note 2,0,Mark 20,,Mar 20
@@ -4040,86 +3824,137 @@ A17636,589,Note 0,0,Psalms ^.29,,Psalm ^ 29
 A17636,594,Note 0,0,Psalms 100.25,,Psal 100 25
 A17636,670,Note 0,0,Psalms 100,,Psalm 100
 A17636,675,Note 0,0,Acts 9,,Act 9
-A19564,2,Note 0,0,Exodus 32,,Exo 32
-A19564,96,Note 0,0,Exodus 20,,Exo 20
-A19564,259,Note 0,0,Matthew 18,,Mat 18
-A19564,267,Note 0,0,Matthew 6,,Math 6
-A19564,319,Note 0,0,Luke 21,,Luke 21
-A19564,327,Note 0,0,Numbers 15,,Nume 15
-A19564,362,Note 0,0,Deuteronomy 26,,deu 26
-A19564,371,Note 0,0,Isaiah 58,,Esa 58
-A19564,385,Note 0,0,Genesis 60,,Gene 60
-A19564,394,Note 0,0,Matthew 15,,Mat 15
-A19564,416,Note 0,0,Deuteronomy 21,,Deut 21
-A19564,459,Note 0,0,1 Timothy 5,,1 Tim 5
-A19564,465,Note 0,0,Ephesians 6,,Ephe 6
-A19564,473,Note 0,0,Acts 5,,Actes 5
-A19564,484,Note 0,0,Ephesians 5,,Ephes 5
-A19564,509,Note 0,0,Romans 7,,Roma 7
-A19564,513,Note 0,0,Matthew 5,,Math 5
-A19564,529,Note 0,0,Romans 13,,Rom 13
-A19564,557,Note 0,0,Genesis 9,,Genes 9
-A19564,597,Note 0,0,2 Kings 40,,2 Reg 40
-A19564,631,Note 0,0,Matthew 19,,Math 19
-A19564,637,Note 0,0,1 Corinthians 7,,1 Cor 7
-A19564,654,Note 0,0,Deuteronomy 23,,Deut 23
-A19564,656,Note 0,0,Ephesians 5,,Ephes 5
-A19564,691,Note 0,0,Joshua 7,,Iosua 7
-A19564,755,Note 0,0,Luke 11,,Luce 11
-A19564,758,Note 0,0,Matthew 25,,Mat 25
-A19564,764,Note 0,0,Daniel 3,,Daniel 3
-A19564,768,Note 0,0,Proverbs 26,,Pro 26
-A19564,771,Note 0,0,Thessalonians 5,,Thes 5
-A19564,806,Note 0,0,1 Corinthians 13,,1 Cor 13
-A19564,815,Note 0,0,Ephesians 5,,Ephes 5
-A19564,823,Note 0,0,Matthew 18,,Mat 18
-A19564,840,Note 0,0,Genesis 30; Genesis 31,,Gene 30 & 31
-A19564,845,Note 0,0,Romans ^,,Roma ^
-A19564,846,Note 0,0,Psalms 13,,Psal 13
-A19564,901,Note 0,0,Genesis 39,,Gen 39
-A19564,1033,Note 0,0,Matthew 6,,Mat 6
-A19564,1060,Note 0,0,Matthew 27,,mat 27
-A19564,1060,Note 0,1,Mark 15,,Mark 15
-A19564,1060,Note 0,2,Luke 23,,Luk 23
-A19564,1060,Note 0,3,John 19,,Iohn 19
-A19564,1104,Note 0,0,Psalms 51,,Psal 51
-A19564,1105,Note 0,0,Ephesians 2,,Ephes 2
-A19564,1166,Note 0,0,Acts 1.2,,Actu 1 2
-A19564,1196,Note 0,0,John 2,,Iohn 2
-A19564,1251,Note 0,0,Romans 6,,Rom 6
-A19564,1271,Note 0,0,Matthew 3,,Mat 3
-A19564,1271,Note 0,1,Mark 1.^,,Mark 1 ^
-A19564,1271,Note 0,2,Luke 3.100,,Luke 3 100
-A19564,1272,Note 0,0,John 3,,Iohn 3
-A19564,1275,Note 0,0,Matthew ^^,,Math ^^
-A19564,1280,Note 0,0,Titus 3,,Titum 3
-A19564,1280,Note 0,1,John 3,,Iohn 3
-A19564,1280,Note 0,2,Romans 6,,Rom 6
-A19564,1280,Note 0,3,Colossians 2,,Collo 2
-A19564,1280,Note 0,4,^ Peter 3.^,,^ Pet 3 ^
-A19564,1308,Note 0,0,Ephesians 2,,Ephes 2
-A19564,1336,Note 0,0,Acts 2,,Actu 2
-A19564,1347,Note 0,0,Romans 17,,Rom 17
-A19564,1374,Note 0,0,Acts 3,,Actu 3
-A19564,1386,Note 0,0,Acts 3,,Actu 3
-A19564,1408,Note 0,0,1 Corinthians 3,,1 Cor 3
-A19564,1408,Note 0,1,^ John 6,,^ Iohn 6
-A19564,1409,Note 0,0,Romans 10.^,,Roma 10 ^
-A19564,1416,Note 0,0,Matthew 16,,Mat 16
-A19564,1425,Note 0,0,Mark 3,,Mark 3
-A19564,1425,Note 0,1,Luke 6,,Luke 6
-A19564,1425,Note 0,2,Luke 10,,Luke 10
-A19564,1427,Note 0,0,John 17,,Iohn 17
-A19564,1437,Note 0,0,Luke ^,,Luke ^
-A19564,1469,Note 0,0,Matthew 18,,Mat 18
-A19564,1481,Note 0,0,Mark 2,,Mark 2
-A19564,1482,Note 0,0,Luke 5,,Luke 5
-A19564,1482,Note 0,1,John 9,,Iohn 9
-A19564,1607,Note 0,0,1 Corinthians 11.1,,1 Cor 11 1
-A19564,1613,Note 0,0,John 13.^,,Ioh 13 ^
-A19564,1613,Note 1,0,1 John 2.^; 1 John 2.3,,1 Ioh 2 ^ & 3
-A19564,1615,Note 0,0,1 Corinthians 10,,1 Corin 10
-A19564,1631,Note 0,0,John 6,,Iohn 6
+A19564,7,Note 1,0,1 Peter 3,,1 Pet 3
+A19564,8,Note 0,0,Proverbs 12.13; Proverbs 12.21,,"Prouerb 12 13 , 21"
+A19564,16,Note 0,0,Psalms 111,,Psal 111
+A19564,45,Note 0,0,Exodus 32,,Exo 32
+A19564,139,Note 0,0,Exodus 20,,Exo 20
+A19564,302,Note 0,0,Matthew 18,,Mat 18
+A19564,310,Note 0,0,Matthew 6,,Math 6
+A19564,362,Note 0,0,Luke 21,,Luke 21
+A19564,370,Note 0,0,Numbers 15,,Nume 15
+A19564,405,Note 0,0,Deuteronomy 26,,deu 26
+A19564,414,Note 0,0,Isaiah 58,,Esa 58
+A19564,428,Note 0,0,Genesis 60,,Gene 60
+A19564,437,Note 0,0,Matthew 15,,Mat 15
+A19564,459,Note 0,0,Deuteronomy 21,,Deut 21
+A19564,502,Note 0,0,1 Timothy 5,,1 Tim 5
+A19564,508,Note 0,0,Ephesians 6,,Ephe 6
+A19564,516,Note 0,0,Acts 5,,Actes 5
+A19564,527,Note 0,0,Ephesians 5,,Ephes 5
+A19564,552,Note 0,0,Romans 7,,Roma 7
+A19564,556,Note 0,0,Matthew 5,,Math 5
+A19564,572,Note 0,0,Romans 13,,Rom 13
+A19564,600,Note 0,0,Genesis 9,,Genes 9
+A19564,640,Note 0,0,2 Kings 40,,2 Reg 40
+A19564,674,Note 0,0,Matthew 19,,Math 19
+A19564,680,Note 0,0,1 Corinthians 7,,1 Cor 7
+A19564,697,Note 0,0,Deuteronomy 23,,Deut 23
+A19564,699,Note 0,0,Ephesians 5,,Ephes 5
+A19564,734,Note 0,0,Joshua 7,,Iosua 7
+A19564,798,Note 0,0,Luke 11,,Luce 11
+A19564,801,Note 0,0,Matthew 25,,Mat 25
+A19564,807,Note 0,0,Daniel 3,,Daniel 3
+A19564,811,Note 0,0,Proverbs 26,,Pro 26
+A19564,814,Note 0,0,Thessalonians 5,,Thes 5
+A19564,849,Note 0,0,1 Corinthians 13,,1 Cor 13
+A19564,858,Note 0,0,Ephesians 5,,Ephes 5
+A19564,866,Note 0,0,Matthew 18,,Mat 18
+A19564,883,Note 0,0,Genesis 30; Genesis 31,,Gene 30 & 31
+A19564,888,Note 0,0,Romans ^,,Roma ^
+A19564,889,Note 0,0,Psalms 13,,Psal 13
+A19564,944,Note 0,0,Genesis 39,,Gen 39
+A19564,995,Note 0,0,Hebrews 12,,Hebr 12
+A19564,997,Note 0,0,Matthew 16,,Mat 16
+A19564,1002,Note 0,0,Romans 3,,Roma 3
+A19564,1003,Note 0,0,1 Corinthians 2,,1 Cori 2
+A19564,1008,Note 0,0,John 15,,Ioh 15
+A19564,1110,Note 0,0,Matthew 6,,Mat 6
+A19564,1137,Note 0,0,Matthew 27,,mat 27
+A19564,1137,Note 0,1,Mark 15,,Mark 15
+A19564,1137,Note 0,2,Luke 23,,Luk 23
+A19564,1137,Note 0,3,John 19,,Iohn 19
+A19564,1181,Note 0,0,Psalms 51,,Psal 51
+A19564,1182,Note 0,0,Ephesians 2,,Ephes 2
+A19564,1243,Note 0,0,Acts 1.2,,Actu 1 2
+A19564,1273,Note 0,0,John 2,,Iohn 2
+A19564,1328,Note 0,0,Romans 6,,Rom 6
+A19564,1352,Note 0,0,Matthew 7,,Mat 7
+A19564,1352,Note 0,1,Jeremiah 29,,Iere 29
+A19564,1352,Note 0,2,Mark 7,,Mar 7
+A19564,1352,Note 0,3,Luke 11,,Luke 11
+A19564,1352,Note 0,4,John 16,,Ioh 16
+A19564,1354,Note 0,0,John 13,,Ioh 13
+A19564,1367,Note 0,0,Mark 11,,Mark 11
+A19564,1372,Note 0,0,Matthew 6,,Math 6
+A19564,1372,Note 0,1,Luke 11,,Luke 11
+A19564,1397,Note 0,0,Luke 18,,Luke 18
+A19564,1437,Note 0,0,Numbers 15,,Nume 15
+A19564,1481,Note 0,0,Romans 7,,Rom 7
+A19564,1481,Note 0,1,Philippians 1,,Philip 1
+A19564,1481,Note 0,2,2 Corinthians 5.^,,2 Cor 5 ^
+A19564,1501,Note 0,0,Romans 3,,Roma 3
+A19564,1509,Note 0,0,Psalms 110,,Psal 110
+A19564,1514,Note 0,0,Isaiah 58,,Esa 58
+A19564,1522,Note 0,0,1 John 3,,1 Iohn 3
+A19564,1531,Note 0,0,Matthew 26,,Mat 26
+A19564,1531,Note 0,1,Luke 22,,Luke 22
+A19564,1531,Note 0,2,John 6; John 18,,Iohn 6 & 18
+A19564,1594,Note 0,0,Matthew 10,,Math 10
+A19564,1594,Note 0,1,Luke 12,,Luke 12
+A19564,1597,Note 0,0,Romans 8,,Rom 8
+A19564,1599,Note 0,0,Luke 2,,Luke 2
+A19564,1599,Note 1,0,Proverbs 52,,Prou 52
+A19564,1600,Note 0,0,Hebrews 12,,Hebr 12
+A19564,1609,Note 0,0,Luke 21,,Luke 21
+A19564,1618,Note 0,0,John 6,,Iohn 6
+A19564,1618,Note 0,1,Mark 6,,Mar 6
+A19564,1618,Note 0,2,Luke 9,,Luke 9
+A19564,1634,Note 0,0,Leviticus 18,,Lu 18
+A19564,1634,Note 0,1,John 13,,Iohn 13
+A19564,1684,Note 0,0,Mark 11.100,,Mar 11 100
+A19564,1684,Note 0,1,Acts 17,,Act 17
+A19564,1695,Note 0,0,Deuteronomy 6,,Deut 6
+A19564,1705,Note 0,0,Matthew 18,,mat 18
+A19564,1758,Note 0,0,1 Corinthians 12,,1 Cor 12
+A19564,1812,Note 0,0,Matthew 9.^; Matthew 12.100,,Mat 9 ^ & 12 100
+A19564,1812,Note 0,1,Mark 3,,Mark 3
+A19564,1812,Note 0,2,Luke 11.^,,Luke 11 ^
+A19564,1818,Note 0,0,Revelation 12,,Apoca 12
+A19564,1828,Note 0,0,Romans 8,,Rom 8
+A19564,1884,Note 0,0,Matthew 3,,Mat 3
+A19564,1884,Note 0,1,Mark 1.^,,Mark 1 ^
+A19564,1884,Note 0,2,Luke 3.100,,Luke 3 100
+A19564,1885,Note 0,0,John 3,,Iohn 3
+A19564,1888,Note 0,0,Matthew ^^,,Math ^^
+A19564,1893,Note 0,0,Titus 3,,Titum 3
+A19564,1893,Note 0,1,John 3,,Iohn 3
+A19564,1893,Note 0,2,Romans 6,,Rom 6
+A19564,1893,Note 0,3,Colossians 2,,Collo 2
+A19564,1893,Note 0,4,^ Peter 3.^,,^ Pet 3 ^
+A19564,1921,Note 0,0,Ephesians 2,,Ephes 2
+A19564,1949,Note 0,0,Acts 2,,Actu 2
+A19564,1960,Note 0,0,Romans 17,,Rom 17
+A19564,1987,Note 0,0,Acts 3,,Actu 3
+A19564,1999,Note 0,0,Acts 3,,Actu 3
+A19564,2021,Note 0,0,1 Corinthians 3,,1 Cor 3
+A19564,2021,Note 0,1,^ John 6,,^ Iohn 6
+A19564,2022,Note 0,0,Romans 10.^,,Roma 10 ^
+A19564,2029,Note 0,0,Matthew 16,,Mat 16
+A19564,2038,Note 0,0,Mark 3,,Mark 3
+A19564,2038,Note 0,1,Luke 6,,Luke 6
+A19564,2038,Note 0,2,Luke 10,,Luke 10
+A19564,2040,Note 0,0,John 17,,Iohn 17
+A19564,2050,Note 0,0,Luke ^,,Luke ^
+A19564,2082,Note 0,0,Matthew 18,,Mat 18
+A19564,2094,Note 0,0,Mark 2,,Mark 2
+A19564,2095,Note 0,0,Luke 5,,Luke 5
+A19564,2095,Note 0,1,John 9,,Iohn 9
+A19564,2220,Note 0,0,1 Corinthians 11.1,,1 Cor 11 1
+A19564,2226,Note 0,0,John 13.^,,Ioh 13 ^
+A19564,2226,Note 1,0,1 John 2.^; 1 John 2.3,,1 Ioh 2 ^ & 3
+A19564,2228,Note 0,0,1 Corinthians 10,,1 Corin 10
+A19564,2244,Note 0,0,John 6,,Iohn 6
 A19734,2,Note 0,0,Psalms 5,,Psalm 5
 A19734,6,Note 0,0,Matthew 15,,Matth 15
 A19734,10,Note 0,0,John 1,,Ioan 1
@@ -4220,6 +4055,23 @@ A19735,139,Note 0,0,John 17,,Ioan 17
 A19735,139,Note 1,0,Genesis ^,,Gen ^
 A19735,143,Note 0,0,Psalms 85^,,Psal 85^
 A19735,146,Note 0,0,Job 1.2,,Io 1 2
+A19735,170,Note 0,0,Luke 24,,Luc 24
+A19735,170,Note 1,0,John 13,,Ioan 13
+A19735,172,Note 0,0,Matthew 27,,Mat 27
+A19735,172,Note 0,1,Mark 15,,Marc 15
+A19735,172,Note 0,2,Luke 23,,Luc 23
+A19735,172,Note 0,3,Job 19,,Io 19
+A19735,174,Note 0,0,Philippians 2,,Phil 2
+A19735,175,Note 0,0,Matthew 27,,Mat 27
+A19735,175,Note 0,1,Mark 14,,Mar 14
+A19735,175,Note 0,2,Luke 22,,Luc 22
+A19735,175,Note 0,3,John 18,,Ioan 18
+A19735,177,Note 0,0,John 16^,,Ioan 16^
+A19735,178,Note 0,0,John 13,,Ioan 13
+A19735,180,Note 0,0,1 Peter 5,,1 Pet 5
+A19735,189,Note 0,0,Ecclesiastes ^,,Eccl ^
+A19735,195,Note 0,0,1 Corinthians 2,,1 Co^ 2
+A19735,196,Note 0,0,Ecclesiastes 10,,Eccl 10
 A21119,36,In-Text,0,Acts 6,,Act 6
 A21119,47,In-Text,0,Matthew 5,,Matth 5
 A21119,47,In-Text,1,Galatians 5,,Gala 5
@@ -5033,155 +4885,1493 @@ A68350,176,In-Text,0,Romans 13,,Rom 13
 A68350,197,In-Text,0,Matthew 25,,Mathewe 25
 A68350,251,In-Text,0,Kings 3.17,,3 Reg 3 17
 A68350,267,In-Text,0,Isaiah 5,,Esaye 5
-A69147,0,In-Text,0,Matthew 26,,Mat 26
-A69147,89,In-Text,0,John 18,,Iohn 18
-A69147,189,In-Text,0,John 28,,Iohn 28
-A69147,269,In-Text,0,John 18,,Ihon 18
-A69147,364,In-Text,0,John 19,,Ioh 19
-A69147,493,In-Text,0,John 19,,Ioh 19
-A69147,1,Note 0,0,Mark 14,,Mar 14
-A69147,1,Note 0,1,Luke 22,,Luce 22
-A69147,2,Note 0,0,John 13,,Ioh 13
-A69147,3,Note 0,0,Psalms 61,,Psal 61
-A69147,6,Note 0,0,1 Corinthians 9,,1 Cor 9
-A69147,6,Note 0,1,Luke 22,,Luce 22
-A69147,6,Note 0,2,Mark 18,,Mar 18
-A69147,8,Note 0,0,Matthew 14,,Mat 14
-A69147,20,Note 0,0,Romans 2,,Rom 2
-A69147,22,Note 0,0,Hosea 13,,Osee 13
-A69147,38,Note 0,0,Matthew 26,,Mat 26
-A69147,41,Note 0,0,1 Corinthians 11,,1 Cor 11
-A69147,43,Note 0,0,Exodus 12,,Exo 12
-A69147,60,Note 0,0,John 6,,Iohn 6
-A69147,77,Note 0,0,John 6,,Ioh 6
-A69147,80,Note 0,0,1 Corinthians 11,,1 Co 11
-A69147,90,Note 0,0,Matthew 19,,Mat 19
-A69147,90,Note 0,1,Mark 14,,Mar 14
-A69147,90,Note 0,2,Luke 22,,Luce 22
-A69147,100,Note 0,0,John 17,,Ioh 17
-A69147,103,Note 0,0,Matthew 2^,,Mat 2^
-A69147,103,Note 0,1,Genesis 9,,Gene 9
-A69147,111,Note 0,0,Isaiah 53,,Esai 53
-A69147,118,Note 0,0,Romans 3,,Rom 3
-A69147,124,Note 0,0,Romans 5,,Rom 5
-A69147,132,Note 0,0,1 Corinthians 1,,1 Cor 1
-A69147,133,Note 0,0,1 Timothy 2,,1 Ti 2
-A69147,137,Note 0,0,Matthew 6,,Mat 6
-A69147,144,Note 0,0,Psalms 21,,Psa 21
-A69147,145,Note 0,0,Luke 22,,Luc 22
-A69147,155,Note 0,0,Matthew 24,,Mat 24
-A69147,159,Note 0,0,Matthew 1^,,Mat 1^
-A69147,167,Note 0,0,Isaiah 53,,Esa 53
-A69147,168,Note 0,0,Philippians 2,,Phil 2
-A69147,169,Note 0,0,1 Peter 2,,1 Pet 2
-A69147,172,Note 0,0,John 17,,Ioh 17
-A69147,177,Note 0,0,Romans 8,,Rom 8
-A69147,182,Note 0,0,Isaiah 55,,Esa 55
-A69147,187,Note 0,0,Ephesians 6,,Ephe 6
-A69147,191,Note 0,0,John 17,,Ioh 17
-A69147,192,Note 0,0,Mark 20,,Mar 20
-A69147,192,Note 0,1,Mark 14,,Mar 14
-A69147,192,Note 0,2,Luke 22,,Luce 22
-A69147,197,Note 0,0,Mark 14,,Mar 14
-A69147,197,Note 0,1,Luke 21,,Luce 21
-A69147,200,Note 0,0,Acts 23,,Actu 23
-A69147,205,Note 0,0,John 13,,Ioh 13
-A69147,215,Note 0,0,Matthew 7,,Mat 7
-A69147,217,Note 0,0,Psalms 2,,Psal 2
-A69147,224,Note 0,0,Psalms 127,,Ps 127
-A69147,231,Note 0,0,Psalms 115,,Ps 115
-A69147,236,Note 0,0,Matthew 10,,Mat 10
-A69147,239,Note 0,0,Psalms 118,,Ps 118
-A69147,239,Note 2,0,Matthew 5,,Mat 5
-A69147,246,Note 0,0,Titus 1,,Tit 1
-A69147,253,Note 0,0,Psalms 117,,Ps 117
-A69147,265,Note 0,0,Mark 6,,Mar 6
-A69147,265,Note 0,1,Matthew 11,,Mat 11
-A69147,277,Note 1,0,Mark 15,,Mar 15
-A69147,277,Note 1,1,Luke 23,,Luc 23
-A69147,283,Note 0,0,John 6,,Ihon 6
-A69147,286,Note 0,0,Mark 27.15,,Mar 27 15
-A69147,286,Note 0,1,Luke 23,,Luc 23
-A69147,288,Note 0,0,Acts 3,,Act 3
-A69147,290,Note 0,0,Hosea 4,,Ose 4
-A69147,292,Note 0,0,Matthew 23,,Mat 23
-A69147,297,Note 0,0,John 16,,Ioh 16
-A69147,316,Note 0,0,John 6,,Ioh 6
-A69147,320,Note 0,0,Romans 14,,Ro 14
-A69147,324,Note 0,0,Romans 3,,Rom 3
-A69147,327,Note 0,0,Romans 10,,Rom 10
-A69147,330,Note 0,0,Luke 17,,Luc 17
-A69147,341,Note 0,0,Deuteronomy 1,,Deu 1
-A69147,358,Note 0,0,Romans 1,,Rom 1
-A69147,359,Note 0,0,Acts 17,,Act 17
-A69147,360,Note 0,0,Psalms 18,,Psa 18
-A69147,365,Note 0,0,Mark 27.15,,Mar 27 15
-A69147,369,Note 0,0,Matthew 27,,Mat 27
-A69147,369,Note 0,1,Mark 15,,Mar 15
-A69147,369,Note 0,2,Luke 23,,Luc 23
-A69147,370,Note 0,0,Deuteronomy 24,,Deu 24
-A69147,370,Note 1,0,John 5,,Ioh 5
-A69147,377,Note 0,0,John 3,,Ioh 3
-A69147,378,Note 0,0,Mark 17.15,,Mar 17 15
-A69147,378,Note 0,1,Luke 23,,Luc 23
-A69147,378,Note 0,2,Acts 17,,Actu 17
-A69147,384,Note 0,0,Matthew 17,,Mat 17
-A69147,384,Note 0,1,Mark 15,,Mar 15
-A69147,384,Note 0,2,Luke 23,,Luc 23
-A69147,384,Note 0,3,Hebrews 13,,Heb 13
-A69147,386,Note 0,0,Matthew 17,,Mat 17
-A69147,386,Note 0,1,Mark 15,,Mar 15
-A69147,386,Note 0,2,Luke 23,,Luc 23
-A69147,386,Note 0,3,Hebrews 13,,Heb 13
-A69147,386,Note 1,0,Mark 17.15,,Mar 17 15
-A69147,386,Note 1,1,Luke 23,,Luc 23
-A69147,392,Note 0,0,Mark 17.15,,Mar 17 15
-A69147,395,Note 0,0,Psalms 22,,Psa 22
-A69147,398,Note 0,0,John 13,,Ioh 13
-A69147,401,Note 0,0,Psalms 6.9,,Psa 6 9
-A69147,402,Note 0,0,Matthew 27,,Mat 27
-A69147,402,Note 0,1,Mark 15,,Mar 15
-A69147,422,Note 0,0,Genesis 12,,Gen 12
-A69147,424,Note 0,0,1 Corinthians 10,,1 Co 10
-A69147,435,Note 0,0,Matthew 8,,Mat 8
-A69147,435,Note 0,1,Romans 11,,Rom 11
-A69147,438,Note 0,0,Acts 13,,Act 13
-A69147,451,Note 0,0,1 Corinthians 2,,1 Cor 2
-A69147,455,Note 0,0,Galatians 2,,Gala 2
-A69147,459,Note 0,0,John 3,,Ihon 3
-A69147,460,Note 0,0,Romans 4,,Rom 4
-A69147,466,Note 0,0,Luke 8,,Luc 8
-A69147,470,Note 0,0,John 6,,Ihon 6
-A69147,477,Note 0,0,Psalms 69,,Psa 69
-A69147,484,Note 0,0,Hebrews 11,,Heb 11
-A69147,486,Note 0,0,1 Corinthians 15,,1 Co 15
-A69147,499,Note 0,0,Exodus 12,,Exod 12
-A69147,500,Note 0,0,Zechariah 12,,Zac 12
-A69147,501,Note 0,0,Matthew 26,,Mat 26
-A69147,501,Note 0,1,Mark 15,,Mar 15
-A69147,501,Note 0,2,Luke 23,,Luce 23
-A69147,509,Note 0,0,1 Peter 3,,1 Pet 3
-A69147,516,Note 0,0,Zechariah 12,,Zac 12
-A69147,516,Note 0,1,Psalms 21,,Psa 21
-A69147,525,Note 0,0,John 1,,Ioh 1
-A69147,526,Note 0,0,1 Corinthians 5,,1 Cor 5
-A69147,528,Note 0,0,Zechariah 12,,Zach 12
-A69147,528,Note 0,1,Revelation 1,,Apoc 1
-A69147,536,Note 0,0,Matthew 7,,Mat 7
-A69147,543,Note 0,0,Isaiah 44,,Esa 44
-A69147,545,Note 0,0,John 7,,Ioh 7
-A69147,553,Note 0,0,Romans 1,,Rom 1
-A69147,555,Note 0,0,Deuteronomy 21,,Deu 21
-A69147,558,Note 0,0,1 Corinthians 2,,1 Cor 2
-A69147,561,Note 0,0,Romans 6,,Rom 6
-A69147,564,Note 0,0,Exodus 1.2; Exodus 1.3,,Exo 1 2 3
-A69147,565,Note 0,0,Luke 12,,Luc 12
-A69147,568,Note 0,0,Luke 1,,Luc 1
+A69147,1,In-Text,0,Matthew 21,,Mat 21
+A69147,64,In-Text,0,Luke 21,,Luc 21
+A69147,127,In-Text,0,Matthew 11,,Mat 11
+A69147,187,In-Text,0,Matthew 17,,Math 17
+A69147,189,In-Text,0,John 1,,Iohn 1
+A69147,248,In-Text,0,Luke 2,,Luc 2
+A69147,311,In-Text,0,Luke 2,,Luc 2
+A69147,366,In-Text,0,Luke 2,,Luc 2
+A69147,401,In-Text,0,Matthew 2,,Math 2
+A69147,426,In-Text,0,John 3,,Ioh 3
+A69147,457,In-Text,0,Luke 2,,Luc 2
+A69147,517,In-Text,0,Job 2,,Io 2
+A69147,578,In-Text,0,Matthew 8,,Mathew 8
+A69147,638,In-Text,0,Matthew 8,,Math 8
+A69147,683,In-Text,0,Matthew 13,,Mathew 13
+A69147,733,In-Text,0,Matthew 20,,Mat 20
+A69147,750,In-Text,0,Matthew 20,,Math 20
+A69147,805,In-Text,0,Luke 18,,Luke 18
+A69147,812,In-Text,0,Luke 8,,Luc 8
+A69147,843,In-Text,0,Job 4,,Io 4
+A69147,873,In-Text,0,Luke 18,,Luc 18
+A69147,940,In-Text,0,Hebrews 11,,Heb 11
+A69147,943,In-Text,0,Matthew 4,,Math 4
+A69147,959,In-Text,0,1 Peter 2,,1 Pet 2
+A69147,1005,In-Text,0,Matthew 15,,Math 15
+A69147,1068,In-Text,0,Luke 11,,Luc 11
+A69147,1097,In-Text,0,John 12,,Ioh 12
+A69147,1103,In-Text,0,Job 4,,Io 4
+A69147,1153,In-Text,0,John 6,,Ioh 6
+A69147,1167,In-Text,0,Psalms 10,,Psal 10
+A69147,1218,In-Text,0,John 8,,Ioh 8
+A69147,1309,In-Text,0,Matthew 28,,Math 28
+A69147,1404,In-Text,0,John 20,,Iohn 20
+A69147,1467,In-Text,0,John 10,,Iohn 10
+A69147,1537,In-Text,0,John 16,,Ioh 16
+A69147,1608,In-Text,0,John 16,,Ioh 16
+A69147,1680,In-Text,0,Matthew 7; Matthew 21.100,,Mat 7 & 21 100
+A69147,1680,In-Text,1,Luke 11,,Luc 11
+A69147,1680,In-Text,2,1 John 14; 1 John 15,,1 Ioh 14 & 15
+A69147,1680,In-Text,3,1 John 3; 1 John 5.100,,1 Ioh 3 & 5 100
+A69147,1681,In-Text,0,John 16,,Ioh 16
+A69147,1743,In-Text,0,John 15,,Ioh 15
+A69147,1786,In-Text,0,John 14,,Ioh 14
+A69147,1867,In-Text,0,John 3,,Iohn 3
+A69147,1942,In-Text,0,Luke 16,,Luc 16
+A69147,2007,In-Text,0,Luke 14,,Luc 14
+A69147,2067,In-Text,0,Luke 15,,Luc 15
+A69147,2125,In-Text,0,Luke 6,,Luc 6
+A69147,2179,In-Text,0,Luke 5,,Luc 5
+A69147,2209,In-Text,0,Genesis 3,,Gene 3
+A69147,2240,In-Text,0,Matthew 5,,Math 5
+A69147,2296,In-Text,0,Mark 8,,Mark 8
+A69147,2313,In-Text,0,Matthew 7,,Math 7
+A69147,2373,In-Text,0,Luke 16,,Luc 16
+A69147,2437,In-Text,0,Luke 19,,Luc 19
+A69147,2487,In-Text,0,Luke 18,,Luc 18
+A69147,2559,In-Text,0,Mark 7,,Mar 7
+A69147,2615,In-Text,0,Luke 10,,Luc 10
+A69147,2682,In-Text,0,Luke 17,,Luc 17
+A69147,2745,In-Text,0,Matthew 6,,Math 6
+A69147,2811,In-Text,0,Luke 7,,Luce 7
+A69147,2875,In-Text,0,Luke 14,,Luc 14
+A69147,2938,In-Text,0,Matthew 22,,Math 22
+A69147,3007,In-Text,0,Matthew 9,,Mat 9
+A69147,3063,In-Text,0,Matthew 22,,Math 22
+A69147,3100,In-Text,0,John 4,,Ihon 4
+A69147,3165,In-Text,0,Matthew 6,,Math 6
+A69147,3233,In-Text,0,Matthew 22,,Mathewe 22
+A69147,3308,In-Text,0,Matthew 9,,Math 9
+A69147,3375,In-Text,0,John 6,,Iohn 6
+A69147,3378,In-Text,0,Matthew 4,,Math 4
+A69147,3467,In-Text,0,John 20,,Ihon 20
+A69147,3538,In-Text,0,Matthew 23,,Math 23
+A69147,3603,In-Text,0,John 21,,Ihon 21
+A69147,3660,In-Text,0,Matthew 2,,Math 2
+A69147,3717,In-Text,0,Matthew 19,,Mat 19
+A69147,3786,In-Text,0,Luke 2,,Luc 2
+A69147,3809,In-Text,0,Acts 15,,Actes 15
+A69147,3867,In-Text,0,Matthew 11,,Math 11
+A69147,3935,In-Text,0,Luke 1,,Luc 1
+A69147,3953,In-Text,0,Daniel 8; Daniel 9,,Daniell 8 & 9
+A69147,4011,In-Text,0,Matthew 26,,Mat 26
+A69147,4100,In-Text,0,John 18,,Iohn 18
+A69147,4200,In-Text,0,John 28,,Iohn 28
+A69147,4280,In-Text,0,John 18,,Ihon 18
+A69147,4375,In-Text,0,John 19,,Ioh 19
+A69147,4504,In-Text,0,John 19,,Ioh 19
+A69147,4630,In-Text,0,Matthew 5,,Mathew 5
+A69147,4659,In-Text,0,Luke 24,,Luke 24
+A69147,4681,In-Text,0,Romans 5,,Rom 5
+A69147,4725,In-Text,0,John 14,,Ihon 14
+A69147,4797,In-Text,0,Psalms 115,,Psalme 115
+A69147,4823,In-Text,0,Mark 16,,Marke 16
+A69147,4918,In-Text,0,John 3,,Ioh 3
+A69147,4991,In-Text,0,John 10,,Ihon 10
+A69147,5041,In-Text,0,Matthew 7,,Mathew 7
+A69147,5060,In-Text,0,Luke 1,,Luc 1
+A69147,5105,In-Text,0,Luke 17,,Luc 17
+A69147,5145,In-Text,0,Matthew 16,,Math 16
+A69147,5215,In-Text,0,Luke 7,,Luc 7
+A69147,5296,In-Text,0,Matthew 20,,Mathew 20
+A69147,5359,In-Text,0,Luke 22,,Luc 22
+A69147,5433,In-Text,0,Matthew 9,,Math 9
+A69147,5517,In-Text,0,Matthew 18,,Math 18
+A69147,5613,In-Text,0,John 15,,Ihon 15
+A69147,5685,In-Text,0,Matthew 5,,Math 5
+A69147,5770,In-Text,0,John 15,,Iohn 15
+A69147,5903,In-Text,0,Luke 10,,Luce 10
+A69147,2,Note 0,0,Matthew 11,,Mat 11
+A69147,2,Note 0,1,Luke 19,,Luc 19
+A69147,4,Note 0,0,Esther 62,,Es 62
+A69147,4,Note 0,1,Zechariah 9,,Zac 9
+A69147,4,Note 0,2,Job 12.100,,Io 12 100
+A69147,6,Note 0,0,Leviticus 19,,Lu 19
+A69147,6,Note 0,1,Job 12,,Io 12
+A69147,6,Note 0,2,Psalms 118,,Ps 118
+A69147,6,Note 0,3,Matthew 11,,Mat 11
+A69147,6,Note 1,0,Leviticus 19,,Lu 19
+A69147,6,Note 1,1,Job 12,,Io 12
+A69147,6,Note 1,2,Psalms 118,,Ps 118
+A69147,6,Note 1,3,Matthew 12,,Mat 12
+A69147,8,Note 0,0,Genesis 15,,Gen 15
+A69147,8,Note 0,1,Habakkuk ^,,Abac ^
+A69147,8,Note 0,2,John 3,,Ioh 3
+A69147,11,Note 0,0,Matthew 13,,Mat 13
+A69147,15,Note 0,0,Romans 12,,Rom 12
+A69147,16,Note 0,0,Galatians 5,,Gal 5
+A69147,18,Note 0,0,Matthew 7,,Mat 7
+A69147,18,Note 1,0,Ephesians 4,,Eph 4
+A69147,24,Note 0,0,Psalms 19,,Psal 19
+A69147,30,Note 0,0,Isaiah 64,,Esa 64
+A69147,30,Note 1,0,Zechariah 9,,Zach 9
+A69147,32,Note 0,0,Acts 15,,Act 15
+A69147,35,Note 0,0,Matthew 11,,Mat 11
+A69147,44,Note 0,0,Galatians 6,,Gal 6
+A69147,44,Note 1,0,1 Timothy 6,,1 Ti 6
+A69147,47,Note 0,0,Isaiah 58,,Esa 58
+A69147,48,Note 0,0,Hosea 6,,Ose 6
+A69147,49,Note 0,0,Luke 6,,Luc 6
+A69147,61,Note 0,0,Galatians 9,,Galat 9
+A69147,65,Note 0,0,Matthew 24,,Mat 24
+A69147,65,Note 0,1,Matthew 13,,Mat 13
+A69147,65,Note 0,2,Joel 2,,Ioel 2
+A69147,65,Note 0,3,Ezekiel 38,,Ezec 38
+A69147,70,Note 0,0,Matthew 24,,Mat 24
+A69147,70,Note 0,1,Mark 13,,Mar 13
+A69147,77,Note 0,0,Matthew 24,,Mat 24
+A69147,77,Note 2,0,1 Corinthians 15,,1 Cor 15
+A69147,78,Note 0,0,Romans 8,,Rom 8
+A69147,79,Note 0,0,Matthew 10,,Mat 10
+A69147,84,Note 0,0,John 15,,Ioh 15
+A69147,86,Note 0,0,1 John 3,,1 Ioh 3
+A69147,95,Note 0,0,Romans 5,,Rom 5
+A69147,96,Note 0,0,1 Peter 5,,1 Pet 5
+A69147,96,Note 1,0,Matthew 28,,Mat 28
+A69147,98,Note 0,0,1 Corinthians 4,,1 Cor 4
+A69147,100,Note 0,0,Psalms 72,,Ps 72
+A69147,101,Note 0,0,Romans 8,,Rom 8
+A69147,105,Note 0,0,Psalms 43,,Psa 43
+A69147,106,Note 0,0,Matthew 15,,Mat 15
+A69147,107,Note 0,0,2 Timothy 1,,2 Tim 1
+A69147,108,Note 0,0,John 19,,Ioh 19
+A69147,114,Note 0,0,Ezekiel 9,,Ezec 9
+A69147,114,Note 1,0,Luke 11,,Luc 11
+A69147,116,Note 0,0,Matthew 25,,Mat 25
+A69147,123,Note 0,0,Ezekiel 5,,Ezec 5
+A69147,125,Note 0,0,Matthew 25,,Mat 25
+A69147,128,Note 0,0,Isaiah 35,,Esa 35
+A69147,131,Note 0,0,Isaiah 6.100,,Esa 6 100
+A69147,133,Note 0,0,Leviticus 11,,Lu 11
+A69147,141,Note 0,0,Malachi 3,,Mal 3
+A69147,141,Note 0,1,Mark 1,,Mar 1
+A69147,145,Note 0,0,Psalms 30,,Psal 30
+A69147,145,Note 0,1,Ephesians 4,,Ephe 4
+A69147,146,Note 0,0,Isaiah 40,,Esa 40
+A69147,149,Note 0,0,Romans 3,,Rom 3
+A69147,149,Note 1,0,John 1,,Iohn 1
+A69147,160,Note 0,0,Isaiah 35,,Esa 35
+A69147,165,Note 0,0,Romans 1,,Rom 1
+A69147,173,Note 0,0,Matthew 17,,Mat 17
+A69147,176,Note 0,0,John 3,,Iohn 3
+A69147,177,Note 0,0,1 Corinthians 15,,1 Cor 15
+A69147,179,Note 0,0,Matthew 9,,Mat 9
+A69147,193,Note 0,0,John 5,,Iohn 5
+A69147,194,Note 0,0,Matthew 11,,Mat 11
+A69147,194,Note 0,1,Deuteronomy 18,,Deut 18
+A69147,197,Note 0,0,Matthew 4,,Mat 4
+A69147,197,Note 0,1,Mark 1,,Mar 1
+A69147,197,Note 0,2,Luke 3,,Luc 3
+A69147,198,Note 0,0,Matthew 4,,Mat 4
+A69147,198,Note 0,1,Mark 1,,Mar 1
+A69147,198,Note 0,2,Luke 3,,Luc 3
+A69147,200,Note 0,0,Acts 19,,Act 19
+A69147,201,Note 0,0,John 3; John 10,,Iohn 3 & 10
+A69147,205,Note 0,0,Revelation 4.1,,Re 4 1
+A69147,206,Note 0,0,Matthew 11,,Mat 11
+A69147,214,Note 0,0,John 5,,Iohn 5
+A69147,214,Note 1,0,Romans 1,,Rom 1
+A69147,215,Note 0,0,Jeremiah 25,,Ier 25
+A69147,217,Note 0,0,John 10,,Ioh 10
+A69147,218,Note 0,0,Acts 10,,Act 10
+A69147,221,Note 0,0,Isaiah 40,,Esa 40
+A69147,226,Note 0,0,John 3,,Iohn 3
+A69147,237,Note 0,0,John 3,,Iohn 3
+A69147,250,Note 0,0,Revelation 1.20,,Re 1 20
+A69147,260,Note 0,0,Isaiah 9,,Esa 9
+A69147,281,Note 0,0,Isaiah 9,,Esa 9
+A69147,288,Note 0,0,Psalms 24,,Psa 24
+A69147,293,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,294,Note 1,0,Isaiah 2,,Esa 2
+A69147,295,Note 0,0,Matthew 7,,Mat 7
+A69147,296,Note 0,0,Galatians 2,,Gal 2
+A69147,297,Note 0,0,Matthew 5,,Mat 5
+A69147,298,Note 0,0,Matthew 11,,Mat 11
+A69147,299,Note 0,0,John 7,,Iohn 7
+A69147,300,Note 0,0,Luke 2,,Luc 2
+A69147,301,Note 0,0,Malachi 2,,Mal 2
+A69147,303,Note 0,0,Psalms 146,,Ps 146
+A69147,305,Note 0,0,Joel 17,,Ioel 17
+A69147,318,Note 0,0,^ Kings 2,,^ Reg 2
+A69147,325,Note 0,0,John 1,,Iohn 1
+A69147,328,Note 0,0,Isaiah 8,,Esai 8
+A69147,328,Note 1,0,Romans 10,,Rom 10
+A69147,330,Note 0,0,Joel 2,,Ioel 2
+A69147,330,Note 0,1,Acts 4,,Act 4
+A69147,331,Note 0,0,Isaiah 28,,Esai 28
+A69147,332,Note 0,0,Matthew 16,,Mat 16
+A69147,340,Note 0,0,Ephesians 5,,Ephe 5
+A69147,366,Note 0,0,Genesis 17,,Gen 17
+A69147,366,Note 0,1,Matthew 1,,Mat 1
+A69147,366,Note 0,2,Luke 1,,Luc 1
+A69147,368,Note 0,0,Galatians 4,,Gal 4
+A69147,368,Note 0,1,Isaiah 44,,Esa 44
+A69147,370,Note 1,0,Galatians 3,,Gala 3
+A69147,373,Note 0,0,Romans 10,,Rom 10
+A69147,375,Note 0,0,Galatians 4,,Gala 4
+A69147,390,Note 0,0,1 Corinthians 11,,1 Cor 11
+A69147,392,Note 1,0,1 Corinthians ^,,1 Cor ^
+A69147,393,Note 0,0,Acts 4,,Act 4
+A69147,402,Note 0,0,Numbers 24,,Nu 24
+A69147,406,Note 0,0,Micah 5,,Mich 5
+A69147,406,Note 0,1,John 7,,Ioh 7
+A69147,407,Note 0,0,Micah 5,,Mich 5
+A69147,407,Note 0,1,John 7,,Ioh 7
+A69147,418,Note 0,0,Micah 5,,Mich 5
+A69147,423,Note 0,0,Isaiah 9,,Esa 9
+A69147,429,Note 0,0,Psalms 118,,Ps 118
+A69147,432,Note 0,0,Isaiah 65,,Esa 65
+A69147,434,Note 0,0,Ephesians 2,,Ephe 2
+A69147,436,Note 0,0,Genesis 49,,Ge 49
+A69147,446,Note 0,0,Romans 8,,Rom 8
+A69147,451,Note 0,0,Hebrews 1,,H^b 1
+A69147,453,Note 0,0,Genesis 19,,Ge 19
+A69147,453,Note 0,1,Genesis 14,,Ge 14
+A69147,454,Note 0,0,Acts 14,,Act 14
+A69147,455,Note 0,0,Hosea 14,,Ose 14
+A69147,460,Note 0,0,Matthew 7; Matthew 13,,Mat 7 & 13
+A69147,460,Note 0,1,Mark 1,,Mar 1
+A69147,460,Note 0,2,Luke 7,,Luc 7
+A69147,466,Note 0,0,Luke 9; Luke 18,,Luc 9 & 18
+A69147,472,Note 0,0,John 5,,Ioh 5
+A69147,474,Note 0,0,John 18,,Ioh 18
+A69147,475,Note 0,0,John 18,,Ioh 18
+A69147,475,Note 1,0,Psalms 2,,Psal 2
+A69147,477,Note 0,0,John 6,,Iohn 6
+A69147,482,Note 0,0,Isaiah 45,,Esa 45
+A69147,484,Note 0,0,Deuteronomy 15,,Deu 15
+A69147,489,Note 0,0,Proverbs 22,,Pro 22
+A69147,498,Note 0,0,Matthew 2,,Math 2
+A69147,499,Note 0,0,Acts 14,,Act 14
+A69147,504,Note 0,0,Psalms 24,,Psa 24
+A69147,506,Note 0,0,Isaiah 57,,Esa 57
+A69147,510,Note 0,0,Exodus 20,,Exo 20
+A69147,513,Note 0,0,Matthew 10,,Mat 10
+A69147,513,Note 0,1,Luke 14,,Luc 14
+A69147,520,Note 0,0,Luke 2,,Luc 2
+A69147,531,Note 0,0,Genesis 1,,Gen 1
+A69147,532,Note 0,0,Genesis 3,,Gen 3
+A69147,537,Note 0,0,Matthew 19,,Mat 19
+A69147,538,Note 0,0,1 Corinthians 6,,1 Cor 6
+A69147,541,Note 0,0,1 Corinthians 7,,1 Cor 7
+A69147,541,Note 1,0,Hebrews 13,,Heb 13
+A69147,541,Note 1,1,Job 31,,Iob 31
+A69147,552,Note 0,0,Genesis 32,,Gen 32
+A69147,552,Note 0,1,Genesis 35,,Gen 35
+A69147,556,Note 0,0,John 8,,Ioh 8
+A69147,556,Note 1,0,Jeremiah 5,,Iere 5
+A69147,557,Note 0,0,Luke 11,,Luc 11
+A69147,560,Note 0,0,Luke 1,,Luke 1
+A69147,562,Note 0,0,Mark 3,,Mar 3
+A69147,570,Note 0,0,Isaiah 10,,Esai 10
+A69147,570,Note 1,0,Exodus 15,,Exo 15
+A69147,579,Note 0,0,Luke 5,,Luc 5
+A69147,579,Note 0,1,Mark ^,,Mar ^
+A69147,581,Note 0,0,Leviticus 14,,Leu 14
+A69147,590,Note 0,0,Hebrews 4,,Heb 4
+A69147,592,Note 0,0,Matthew 15,,Mat 15
+A69147,597,Note 0,0,Matthew 20,,Mat 20
+A69147,609,Note 0,0,Matthew 16,,Mat 16
+A69147,609,Note 0,1,Jeremiah 33,,Iere 33
+A69147,610,Note 0,0,Matthew 28,,Mat 28
+A69147,612,Note 0,0,Luke 22,,Luc 22
+A69147,618,Note 0,0,Habakkuk 2,,Abac 2
+A69147,625,Note 0,0,John 3,,Ioh 3
+A69147,625,Note 0,1,Mark 16,,Mar 16
+A69147,627,Note 0,0,Ephesians 2,,Ephe 2
+A69147,632,Note 0,0,Hebrews 11,,Heb 11
+A69147,639,Note 0,0,Matthew 4,,Mat 4
+A69147,639,Note 0,1,Luke 7,,Luc 7
+A69147,643,Note 0,0,Job 26,,Iob 26
+A69147,643,Note 0,1,Psalms 107,,Ps 107
+A69147,649,Note 0,0,Matthew 28,,Mat 28
+A69147,655,Note 0,0,Psalms 45,,Psa 45
+A69147,655,Note 1,0,Psalms 120,,Ps 120
+A69147,661,Note 0,0,Mark 4,,Mar 4
+A69147,665,Note 0,0,Matthew 26,,Mat 26
+A69147,667,Note 0,0,Matthew 20,,Mat 20
+A69147,671,Note 0,0,John 2,,Iohn 2
+A69147,671,Note 0,1,Matthew 26,,Mat 26
+A69147,676,Note 0,0,Matthew 5,,Mat 5
+A69147,681,Note 0,0,Luke 17,,Luc 17
+A69147,681,Note 1,0,Romans 14,,Ro 14
+A69147,681,Note 1,1,Luke 12,,Luc 12
+A69147,684,Note 0,0,Mark 4,,Mar 4
+A69147,697,Note 0,0,John 14,,Ioh 14
+A69147,699,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,699,Note 1,0,Ephesians 2,,Ephe 2
+A69147,701,Note 0,0,Daniel 9,,Dan 9
+A69147,702,Note 0,0,1 Timothy 2,,1 Tim 2
+A69147,702,Note 0,1,John 3,,Iohn 3
+A69147,703,Note 0,0,John 1,,Iohn 1
+A69147,706,Note 0,0,John 14,,Ioh 14
+A69147,709,Note 0,0,Matthew 7,,Mat 7
+A69147,712,Note 0,0,1 Corinthians 11,,1 Cor 11
+A69147,713,Note 0,0,Matthew 24,,Mat 24
+A69147,715,Note 0,0,Matthew 7,,Mat 7
+A69147,717,Note 0,0,1 Peter 5,,1 Pet 5
+A69147,720,Note 0,0,1 Corinthians 11,,1 Cor 11
+A69147,723,Note 0,0,Matthew 18,,Mat 18
+A69147,723,Note 0,1,Titus 3,,Tit 3
+A69147,725,Note 0,0,John 12,,Ioh 12
+A69147,747,Note 0,0,Matthew 19,,Mat 19
+A69147,747,Note 0,1,Matthew 10,,Mat 10
+A69147,747,Note 0,2,Luke 13,,Luc 13
+A69147,754,Note 0,0,Ephesians 4,,Ephe 4
+A69147,757,Note 0,0,2 Corinthians 1,,2 Cor 1
+A69147,757,Note 1,0,Romans 9,,Rom 9
+A69147,760,Note 0,0,Romans 11,,Rom 11
+A69147,760,Note 0,1,Philippians 2,,Phil 2
+A69147,764,Note 0,0,Luke 23,,Luc 23
+A69147,765,Note 0,0,Luke 17,,Luc 17
+A69147,767,Note 0,0,1 Corinthians 10,,1 Cor 10
+A69147,769,Note 0,0,2 Timothy 2,,2 Ti 2
+A69147,773,Note 0,0,Acts 13,,Act 13
+A69147,776,Note 0,0,Romans 8,,Rom 8
+A69147,780,Note 0,0,Genesis 19,,Gen 19
+A69147,780,Note 1,0,Genesis 9,,Gen 9
+A69147,780,Note 1,1,Numbers 14,,Nu 14
+A69147,780,Note 1,2,Joshua 14,,Ios 14
+A69147,782,Note 0,0,John 5,,Iohn 5
+A69147,790,Note 0,0,Psalms 18,,Psa 18
+A69147,792,Note 0,0,Matthew 13,,Mat 13
+A69147,792,Note 0,1,Romans 10,,Rom 10
+A69147,804,Note 0,0,Luke 15,,Luc 15
+A69147,805,Note 0,0,Mark 14,,Mar 14
+A69147,808,Note 0,0,Matthew 21,,Mat 21
+A69147,810,Note 0,0,Romans 4,,Rom 4
+A69147,819,Note 0,0,Matthew 12,,Mat 12
+A69147,819,Note 0,1,Mark 4,,Mar 4
+A69147,820,Note 0,0,Isaiah 6.100,,Esa 6 100
+A69147,820,Note 0,1,Matthew 13,,Mat 13
+A69147,820,Note 0,2,Mark 4,,Mar 4
+A69147,820,Note 0,3,John 12,,Ioh 12
+A69147,820,Note 0,4,Acts 28,,Act 28
+A69147,820,Note 0,5,Romans 11,,Rom 11
+A69147,820,Note 0,6,Matthew 13,,Mat 13
+A69147,820,Note 0,7,Mark 4,,Mar 4
+A69147,836,Note 0,0,Jeremiah 5; Jeremiah 27,,Iere 5 & 27
+A69147,836,Note 1,0,1 Timothy 1,,1 Ti 1
+A69147,848,Note 0,0,Romans 8,,Rom 8
+A69147,849,Note 0,0,Matthew 10,,Mat 10
+A69147,853,Note 0,0,Matthew 16,,Mat 16
+A69147,862,Note 0,0,Matthew 19,,Mat 19
+A69147,869,Note 0,0,Isaiah 55,,Esa 55
+A69147,874,Note 0,0,Matthew 18,,Mat 18
+A69147,874,Note 0,1,Mark 8.9,,Mar 8 9
+A69147,874,Note 0,2,Luke 9.100; Luke 9.17,,Luc 9 100 & 17
+A69147,877,Note 0,0,Matthew 16; Matthew 17,,Mat 16 & 17
+A69147,877,Note 0,1,Mark 9,,Mar 9
+A69147,877,Note 0,2,Luke 2,,Luc 2
+A69147,877,Note 0,3,Matthew 20,,Mat 20
+A69147,877,Note 0,4,Mark 11,,Mar 11
+A69147,882,Note 0,0,Mark 10,,Mar 10
+A69147,895,Note 0,0,Matthew 20,,Mat 20
+A69147,896,Note 0,0,Matthew 10,,Mat 10
+A69147,897,Note 0,0,Luke 22,,Luc 22
+A69147,901,Note 0,0,Zechariah 13,,Zac 13
+A69147,912,Note 0,0,Genesis 3,,Gen 3
+A69147,919,Note 0,0,1 Corinthians 2,,1 Co 2
+A69147,919,Note 1,0,Galatians 6,,Gal 6
+A69147,928,Note 0,0,Psalms 2,,Psal 2
+A69147,940,Note 0,0,Psalms 5,,Psa 5
+A69147,943,Note 0,0,Mark 1,,Mar 1
+A69147,943,Note 0,1,Luke 4,,Luc 4
+A69147,946,Note 0,0,Deuteronomy 8,,Deut 8
+A69147,946,Note 0,1,Luke 4,,Luc 4
+A69147,948,Note 0,0,Psalms 9.2,,Psa 9 2
+A69147,948,Note 1,0,Deuteronomy 6,,Deut 6
+A69147,948,Note 1,1,Luke 4,,Luc 4
+A69147,950,Note 0,0,Deuteronomy 6; Deuteronomy 10.100,,Deut 6 & 10 100
+A69147,951,Note 0,0,Luke 4.100; Luke 4.1,,Luc 4 100 1
+A69147,951,Note 0,1,Revelation 7,,Re 7
+A69147,957,Note 0,0,Luke 22,,Luc 22
+A69147,959,Note 0,0,Matthew 10,,Mat 10
+A69147,963,Note 0,0,Ephesians ^,,Ephe ^
+A69147,963,Note 1,0,John 16,,Ioh 16
+A69147,967,Note 0,0,Genesis 6,,Gen 6
+A69147,971,Note 0,0,Deuteronomy 8,,Deut 8
+A69147,975,Note 0,0,Psalms 77,,Ps 77
+A69147,981,Note 0,0,Psalms 9,,Psal 9
+A69147,984,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,989,Note 0,0,Ecclesiastes 3,,Eccle 3
+A69147,996,Note 0,0,Isaiah 2,,Esai 2
+A69147,1000,Note 0,0,Deuteronomy ^,,Deut ^
+A69147,1008,Note 0,0,Luke 19,,Luc 19
+A69147,1015,Note 1,0,Romans 1,,Rom 1
+A69147,1017,Note 0,0,1 Corinthians 1^,,1 Co 1^
+A69147,1018,Note 0,0,Genesis 22,,Gen 22
+A69147,1018,Note 0,1,Psalms 131,,Psa 131
+A69147,1027,Note 0,0,John 10,,Ioh 10
+A69147,1052,Note 0,0,Genesis 45,,Ge 45
+A69147,1056,Note 0,0,Ephesians 5,,Ephe 5
+A69147,1064,Note 0,0,Matthew 22,,Mat 22
+A69147,1066,Note 0,0,John 2^,,Ioh 2^
+A69147,1070,Note 0,0,Matthew 9,,Mat 9
+A69147,1070,Note 0,1,Matthew 7,,Mat 7
+A69147,1070,Note 0,2,Matthew 6,,Mat 6
+A69147,1070,Note 0,3,Mark 3,,Mar 3
+A69147,1077,Note 0,0,Matthew 12,,Mat 12
+A69147,1081,Note 0,0,Matthew 12,,Mat 12
+A69147,1090,Note 0,0,John 10,,Ioh 10
+A69147,1092,Note 0,0,Acts 10,,Act 10
+A69147,1093,Note 0,0,John 5,,Ioh 5
+A69147,1095,Note 0,0,Matthew 14,,Mat 14
+A69147,1097,Note 0,0,John 12,,Ioh 12
+A69147,1100,Note 0,0,Psalms 50,,Psal 50
+A69147,1103,Note 2,0,Romans 10,,Rom 10
+A69147,1111,Note 0,0,Matthew 7,,Mat 7
+A69147,1111,Note 1,0,Genesis 4,,Gen 4
+A69147,1113,Note 0,0,Mark 2,,Mar 2
+A69147,1117,Note 0,0,John 7,,Ioh 7
+A69147,1118,Note 0,0,Romans 9,,Rom 9
+A69147,1118,Note 1,0,Acts 26,,Act 26
+A69147,1122,Note 0,0,1 Peter 2,,1 Pet 2
+A69147,1153,Note 0,0,Matthew 14,,Mat 14
+A69147,1153,Note 0,1,Mark 6,,Marc 6
+A69147,1153,Note 1,0,Matthew 4,,Mat 4
+A69147,1171,Note 0,0,Matthew 6,,Mat 6
+A69147,1172,Note 0,0,Psalms 33,,Psa 33
+A69147,1180,Note 0,0,Galatians 5,,Gal 5
+A69147,1185,Note 0,0,Romans 5,,Rom 5
+A69147,1197,Note 0,0,Psalms 145,,Psa 145
+A69147,1197,Note 1,0,Psalms 33,,Psal 33
+A69147,1199,Note 0,0,Psalms 36,,Psal 36
+A69147,1199,Note 1,0,Ecclesiastes 1,,Eccle 1
+A69147,1203,Note 0,0,Proverbs 10,,Pro 10
+A69147,1207,Note 0,0,Matthew 6,,Mat 6
+A69147,1210,Note 0,0,Luke 12,,Luc 12
+A69147,1210,Note 1,0,Luke 16,,Luc 16
+A69147,1218,Note 0,0,John 10,,Ioh 10
+A69147,1221,Note 0,0,John 10,,Ioh 10
+A69147,1232,Note 0,0,Genesis 17; Genesis 23,,Gen 17 & 23
+A69147,1234,Note 0,0,Exodus 3,,Exod 3
+A69147,1234,Note 1,0,John 10,,Ioh 10
+A69147,1235,Note 0,0,Luke 4,,Luc 4
+A69147,1237,Note 0,0,Luke 2,,Luc 2
+A69147,1246,Note 0,0,Isaiah 53,,Esa 53
+A69147,1248,Note 0,0,Luke 4,,Luc 4
+A69147,1251,Note 0,0,Romans 2,,Rom 2
+A69147,1252,Note 0,0,Psalms 49,,Psal 49
+A69147,1254,Note 0,0,1 Timothy 3,,1 Tim 3
+A69147,1262,Note 0,0,Matthew 23,,Mat 23
+A69147,1264,Note 0,0,Galatians 1,,Gal 1
+A69147,1268,Note 0,0,John 12,,Ioh 12
+A69147,1278,Note 0,0,John 17,,Ioh 17
+A69147,1288,Note 0,0,Romans 5,,Rom 5
+A69147,1297,Note 0,0,Matthew 10,,Mat 10
+A69147,1299,Note 0,0,Matthew 22,,Mat 22
+A69147,1311,Note 0,0,Matthew 15,,Mat 15
+A69147,1311,Note 0,1,Luke 24,,Luc 24
+A69147,1311,Note 0,2,John 20,,Ioh 20
+A69147,1316,Note 0,0,Mark 16,,Mar 16
+A69147,1316,Note 0,1,Luke 24,,Luc 24
+A69147,1322,Note 0,0,1 Corinthians 15,,1 Cor 15
+A69147,1324,Note 0,0,Luke 24,,Luc 24
+A69147,1325,Note 0,0,Luke 18,,Luc 18
+A69147,1329,Note 0,0,Romans 4,,Rom 4
+A69147,1329,Note 1,0,Isaiah 53,,Esai 53
+A69147,1345,Note 0,0,Romans 6,,Rom 6
+A69147,1354,Note 0,0,Matthew 2^,,Mat 2^
+A69147,1356,Note 0,0,Deuteronomy 1^,,Deut 1^
+A69147,1366,Note 0,0,Romans 3,,Rom 3
+A69147,1368,Note 0,0,Deuteronomy 27,,Deu 27
+A69147,1383,Note 0,0,Malachi 26,,Ma^ 26
+A69147,1384,Note 0,0,Matthew 11,,Mat 11
+A69147,1389,Note 0,0,Hosea 31,,Ose 31
+A69147,1397,Note 0,0,1 Peter 2,,1 Pet 2
+A69147,1397,Note 1,0,Luke 2,,Luc 2
+A69147,1398,Note 0,0,Acts 12,,Act 12
+A69147,1398,Note 1,0,2 Corinthians 14,,2 Co 14
+A69147,1403,Note 0,0,1 Peter 1,,1 Pet 1
+A69147,1405,Note 0,0,Luke 24,,Luc 24
+A69147,1408,Note 0,0,Isaiah 61,,Esa 61
+A69147,1408,Note 0,1,Matthew 11,,Mat 11
+A69147,1408,Note 0,2,Luke 4,,Luc 4
+A69147,1408,Note 0,3,Job 17,,Io 17
+A69147,1414,Note 0,0,Luke 24,,Luc 24
+A69147,1423,Note 0,0,Romans 8,,Rom 8
+A69147,1424,Note 0,0,Acts 26,,Act 26
+A69147,1426,Note 0,0,Matthew 10,,Mat 10
+A69147,1426,Note 1,0,Acts 5,,Actu 5
+A69147,1430,Note 0,0,Luke 18,,Luc 18
+A69147,1432,Note 0,0,John 20,,Ioh 20
+A69147,1444,Note 0,0,Isaiah 45,,Esa 45
+A69147,1447,Note 0,0,Romans 5.2,,Rom 5 2
+A69147,1454,Note 0,0,Luke 14,,Luc 14
+A69147,1454,Note 1,0,Luke 22,,Luc 22
+A69147,1464,Note 0,0,Matthew 16,,Mat 16
+A69147,1468,Note 0,0,Ezekiel 24,,Eze 24
+A69147,1468,Note 0,1,Micah 4,,Mic 4
+A69147,1473,Note 0,0,2 Timothy 2,,2 Tim 2
+A69147,1473,Note 0,1,Matthew 11,,Mat 11
+A69147,1473,Note 0,2,Mark 10,,Mar 10
+A69147,1473,Note 0,3,Luke 10,,Luc 10
+A69147,1482,Note 0,0,Philippians 3,,Phil 3
+A69147,1493,Note 0,0,Acts 1^,,Act 1^
+A69147,1508,Note 0,0,Matthew 17,,Mat 17
+A69147,1510,Note 0,0,John 1^,,Ioh 1^
+A69147,1511,Note 0,0,John 14,,Ioh 14
+A69147,1518,Note 0,0,1 Timothy 2,,1 Tim 2
+A69147,1520,Note 1,0,John 17,,Ioh 17
+A69147,1523,Note 0,0,Ephesians 2,,Ephe 2
+A69147,1528,Note 0,0,John 14,,Ioh 14
+A69147,1537,Note 0,0,John 7,,Ioh 7
+A69147,1541,Note 0,0,John 2^,,Ioh 2^
+A69147,1553,Note 0,0,Matthew 21,,Mat 21
+A69147,1555,Note 0,0,Ephesians 14,,Eph 14
+A69147,1555,Note 1,0,Psalms 2,,Psal 2
+A69147,1556,Note 0,0,Psalms 109,,Psa 109
+A69147,1559,Note 0,0,2 Timothy 2,,2 Tim 2
+A69147,1564,Note 1,0,Psalms 67,,Psa 67
+A69147,1572,Note 0,0,2 Timothy 1,,2 Tim 1
+A69147,1574,Note 0,0,Isaiah 45,,Esa 45
+A69147,1582,Note 0,0,Matthew 27,,Mat 27
+A69147,1583,Note 0,0,Psalms 21,,Psal 21
+A69147,1587,Note 0,0,Proverbs 3,,Prou 3
+A69147,1603,Note 0,0,Luke 6,,Luce 6
+A69147,1613,Note 0,0,John 14; John 15,,Ioh 14 & 15
+A69147,1613,Note 0,1,Acts 2,,Act 2
+A69147,1616,Note 0,0,John 12,,Ioh 12
+A69147,1620,Note 0,0,Matthew 11,,Mat 11
+A69147,1620,Note 0,1,Luke 10,,Luc 10
+A69147,1620,Note 0,2,John 3,,Ioh 3
+A69147,1626,Note 1,0,Luke 18,,Luc 18
+A69147,1627,Note 0,0,Matthew 7,,Mat 7
+A69147,1631,Note 0,0,Romans 3,,Rom 3
+A69147,1635,Note 0,0,Isaiah 40,,Esa 40
+A69147,1635,Note 0,1,Matthew 3,,Mat 3
+A69147,1646,Note 0,0,Jeremiah 5,,Iere 5
+A69147,1650,Note 0,0,John 5,,Ioh 5
+A69147,1654,Note 0,0,Luke 18,,Luc 18
+A69147,1654,Note 1,0,Romans 10,,Rom 10
+A69147,1662,Note 0,0,Luke 2,,Luc 2
+A69147,1662,Note 0,1,1 Peter 2,,1 Pet 2
+A69147,1669,Note 0,0,Matthew 3,,Mat 3
+A69147,1671,Note 0,0,Psalms 5,,Psal 5
+A69147,1687,Note 0,0,Matthew 13,,Mat 13
+A69147,1689,Note 0,0,John 20,,Ioh 20
+A69147,1690,Note 0,0,John 21,,Ioh 21
+A69147,1699,Note 0,0,Luke 18,,Luc 18
+A69147,1720,Note 0,0,2 Corinthians 11,,2 Cor 11
+A69147,1720,Note 1,0,Romans 8,,Rom 8
+A69147,1724,Note 0,0,Philippians 4,,Phil 4
+A69147,1732,Note 0,0,2 Peter 3,,2 Pet 3
+A69147,1734,Note 0,0,Luke 2,,Luce 2
+A69147,1736,Note 0,0,Psalms 13,,Psal 13
+A69147,1736,Note 0,1,John 3,,Ioh 3
+A69147,1738,Note 0,0,Matthew 26,,Mat 26
+A69147,1744,Note 0,0,John 14; John 17,,Ioh 14 & 17
+A69147,1744,Note 0,1,Acts 3,,Act 3
+A69147,1749,Note 0,0,Romans 7,,Rom 7
+A69147,1749,Note 0,1,Galatians 4,,Gal 4
+A69147,1753,Note 0,0,Acts 5,,Act 5
+A69147,1755,Note 0,0,Jeremiah 31,,Ier 31
+A69147,1762,Note 0,0,Psalms 88,,Psal 88
+A69147,1770,Note 0,0,Matthew 7,,Mat 7
+A69147,1778,Note 0,0,2 Timothy 2,,2 Ti 2
+A69147,1779,Note 0,0,Galatians 1,,Gala 1
+A69147,1783,Note 0,0,Romans 8,,Rom 8
+A69147,1789,Note 0,0,Matthew 28,,Mat 28
+A69147,1791,Note 0,0,John 15,,Ioh 15
+A69147,1791,Note 0,1,1 John 5,,1 Ioh 5
+A69147,1791,Note 0,2,2 John 1,,2 Ioh 1
+A69147,1792,Note 0,0,Acts 15,,Act 15
+A69147,1797,Note 0,0,John 15; John 16,,Ioh 15 & 16
+A69147,1797,Note 0,1,Acts 2,,Act 2
+A69147,1803,Note 0,0,John 13; John 16,,Ioh 13 & 16
+A69147,1805,Note 0,0,John 12; John 16,,Ioh 12 & 16
+A69147,1814,Note 0,0,John 1,,Ioh 1
+A69147,1818,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,1822,Note 0,0,Matthew 13,,Mat 13
+A69147,1826,Note 0,0,1 Timothy 1,,1 Tim 1
+A69147,1832,Note 0,0,Ephesians 2,,Ephe 2
+A69147,1835,Note 0,0,1 Corinthians 6,,1 Cor 6
+A69147,1836,Note 0,0,Matthew 17,,Mat 17
+A69147,1838,Note 0,0,1 Corinthians 6,,1 Cor 6
+A69147,1838,Note 1,0,Acts 17,,Act 17
+A69147,1841,Note 0,0,John 3,,Ioh 3
+A69147,1841,Note 1,0,John 1,,Ioh 1
+A69147,1859,Note 0,0,John 14,,Ioh 14
+A69147,1859,Note 1,0,Acts 14,,Act 14
+A69147,1861,Note 0,0,Romans 5,,Rom 5
+A69147,1863,Note 0,0,Romans 15,,Rom 15
+A69147,1865,Note 0,0,Matthew 7,,Mat 7
+A69147,1868,Note 0,0,John 7,,Ioh 7
+A69147,1872,Note 0,0,John 4; John 7,,Ioh 4 & 7
+A69147,1872,Note 0,1,Titus 3,,Tit 3
+A69147,1872,Note 0,2,Romans 8,,Rom 8
+A69147,1872,Note 1,0,John 4; John 7,,Ioh 4 & 7
+A69147,1872,Note 1,1,Titus 3,,Tit 3
+A69147,1872,Note 1,2,Romans 8,,Rom 8
+A69147,1874,Note 0,0,Ecclesiastes 11,,Eccl 11
+A69147,1880,Note 0,0,Ephesians 4,,Ephe 4
+A69147,1881,Note 0,0,Numbers 21,,Nu 21
+A69147,1892,Note 0,0,Matthew 10,,Mat 10
+A69147,1904,Note 0,0,Jeremiah 5,,Iere 5
+A69147,1904,Note 0,1,Romans 14,,Ro 14
+A69147,1904,Note 1,0,Matthew 5,,Mat 5
+A69147,1909,Note 0,0,Romans 8,,Rom 8
+A69147,1916,Note 0,0,Romans 115.3,,Rom 115 3
+A69147,1919,Note 0,0,Romans 6,,Rom 6
+A69147,1925,Note 0,0,Philippians 3,,Phil 3
+A69147,1928,Note 0,0,Ephesians 4,,Ephe 4
+A69147,1936,Note 0,0,Numbers 21,,Num 21
+A69147,1948,Note 0,0,Galatians 6^,,Gal 6^
+A69147,1953,Note 0,0,1 Timothy 6,,1 Ti 6
+A69147,1953,Note 0,1,Matthew 19,,Mat 19
+A69147,1960,Note 0,0,Genesis 41,,Gen 41
+A69147,1962,Note 0,0,Ecclesiastes 3,,Eccle 3
+A69147,1963,Note 0,0,Romans 12,,Rom 12
+A69147,1969,Note 0,0,Matthew 19,,Mat 19
+A69147,1969,Note 0,1,Mark 10,,Mar 10
+A69147,1969,Note 0,2,Luke 18,,Luc 18
+A69147,1974,Note 0,0,Job 1,,Iob 1
+A69147,1977,Note 0,0,Psalms 33,,Psal 33
+A69147,1995,Note 0,0,Luke 6,,Luc 6
+A69147,2008,Note 0,0,Matthew 22,,Mat 22
+A69147,2008,Note 0,1,Revelation 16,,Apo 16
+A69147,2016,Note 0,0,Genesis 19,,Gen 19
+A69147,2022,Note 1,0,Luke 2,,Luce 2
+A69147,2022,Note 2,0,Psalms 117,,Ps 117
+A69147,2025,Note 0,0,John 3,,Ioh 3
+A69147,2032,Note 0,0,Isaiah 52,,Esai 52
+A69147,2036,Note 0,0,Matthew 15,,Mat 15
+A69147,2038,Note 0,0,Acts 13,,Act 13
+A69147,2039,Note 0,0,Psalms 49,,Ps 49
+A69147,2046,Note 0,0,Acts 7,,Act 7
+A69147,2048,Note 0,0,^ Corinthians 6,,^ Co 6
+A69147,2049,Note 0,0,Genesis 24,,Ge 24
+A69147,2054,Note 0,0,^ Corinthians 7,,^ Co 7
+A69147,2059,Note 0,0,Luke 1,,Luc 1
+A69147,2060,Note 0,0,Hosea 2,,Osee 2
+A69147,2061,Note 0,0,John 10,,Ioh 10
+A69147,2064,Note 0,0,Psalms 35; Psalms 85,,Psal 35 & 85
+A69147,2068,Note 0,0,Matthew 9,,Mat 9
+A69147,2068,Note 0,1,Mark 2,,Mar 2
+A69147,2070,Note 0,0,Matthew 18,,Mat 18
+A69147,2075,Note 0,0,Luke 5,,Luc 5
+A69147,2078,Note 0,0,Psalms 5,,Psal 5
+A69147,2080,Note 0,0,Proverbs 2,,Pro 2
+A69147,2082,Note 0,0,Isaiah 3,,Esay 3
+A69147,2082,Note 0,1,Isaiah 52,,Esa 52
+A69147,2084,Note 0,0,Matthew 5,,Mat 5
+A69147,2087,Note 0,0,Matthew 9,,Mat 9
+A69147,2093,Note 1,0,Matthew 10,,Mat 10
+A69147,2098,Note 0,0,Genesis 6,,Gen 6
+A69147,2099,Note 0,0,John 3,,Ioh 3
+A69147,2099,Note 0,1,Romans 8,,Rom 8
+A69147,2099,Note 0,2,1 Corinthians 2,,1 Cor 2
+A69147,2101,Note 0,0,Ezekiel 1,,Ezec 1
+A69147,2117,Note 0,0,Matthew 20,,Mat 20
+A69147,2125,Note 0,0,Matthew 7,,Mat 7
+A69147,2127,Note 0,0,Proverbs 11,,Pro 11
+A69147,2127,Note 1,0,Matthew 7,,Mat 7
+A69147,2127,Note 1,1,Matthew 4,,Mat 4
+A69147,2128,Note 0,0,Matthew 15,,Mat 15
+A69147,2129,Note 0,0,Matthew 10,,mat 10
+A69147,2130,Note 0,0,John 13,,Ioh 13
+A69147,2131,Note 0,0,Matthew 7,,mat 7
+A69147,2136,Note 0,0,Hebrews 11,,Heb 11
+A69147,2138,Note 0,0,Hosea 6,,Ose 6
+A69147,2139,Note 0,0,John 6,,Iohn 6
+A69147,2139,Note 1,0,1 Peter 1,,1 Pet 1
+A69147,2141,Note 0,0,Matthew 22,,Mat 22
+A69147,2141,Note 0,1,Luke 10,,Luc 10
+A69147,2141,Note 0,2,Matthew 6,,Mat 6
+A69147,2143,Note 1,0,Luke 10,,Luc 10
+A69147,2148,Note 0,0,1 Corinthians 10,,1 Cor 10
+A69147,2151,Note 0,0,John 1,,Ioh 1
+A69147,2151,Note 1,0,Romans 6,,Rom 6
+A69147,2156,Note 0,0,John 12,,Ioh 12
+A69147,2157,Note 0,0,Romans 2,,Rom 2
+A69147,2166,Note 0,0,Romans 2,,Rom 2
+A69147,2172,Note 0,0,Proverbs 19,,Pro 19
+A69147,2173,Note 0,0,Romans 2,,Rom 2
+A69147,2176,Note 0,0,Matthew 8,,Mat 8
+A69147,2176,Note 1,0,Luke 16,,Luc 16
+A69147,2179,Note 0,0,Mark 4,,Mar 4
+A69147,2191,Note 0,0,Matthew 4,,Mat 4
+A69147,2197,Note 0,0,Luke 7,,Luc 7
+A69147,2198,Note 0,0,John 21,,Ioh 21
+A69147,2199,Note 0,0,1 Timothy 3,,1 Tim 3
+A69147,2199,Note 1,0,Matthew 15,,Mat 15
+A69147,2203,Note 0,0,Luke 11,,Luc 11
+A69147,2213,Note 0,0,Psalms 126,,Psa 126
+A69147,2215,Note 0,0,Deuteronomy 4,,Deut 4
+A69147,2217,Note 0,0,1 Timothy 6,,1 Tim 6
+A69147,2218,Note 0,0,Matthew 6,,Mat 6
+A69147,2221,Note 0,0,Matthew 9,,Mat 9
+A69147,2225,Note 0,0,Jeremiah 16,,Ier 16
+A69147,2225,Note 1,0,Matthew 13,,Mat 13
+A69147,2229,Note 0,0,Genesis 3,,Gen 3
+A69147,2233,Note 0,0,John 6,,Ioh 6
+A69147,2238,Note 0,0,2 Corinthians ^,,2 Cor ^
+A69147,2241,Note 0,0,Exodus 20,,Exo 20
+A69147,2241,Note 0,1,Leviticus 18,,Leu 18
+A69147,2241,Note 0,2,Deuteronomy 5,,Deut 5
+A69147,2245,Note 0,0,Job 42,,Iob 42
+A69147,2251,Note 0,0,Isaiah 1; Isaiah 19,,Esai 1 & 19
+A69147,2261,Note 0,0,Matthew 24,,Mat 24
+A69147,2263,Note 0,0,Acts 10,,Act 10
+A69147,2268,Note 0,0,Romans 7,,Rom 7
+A69147,2274,Note 0,0,Matthew 14,,Mat 14
+A69147,2275,Note 0,0,Genesis 4,,Gen 4
+A69147,2276,Note 0,0,1 John 5,,1 Ioh 5
+A69147,2286,Note 0,0,Hosea 6,,Osee 6
+A69147,2291,Note 0,0,Luke 24,,Luc 24
+A69147,2297,Note 0,0,Matthew 15,,Mat 15
+A69147,2297,Note 1,0,Isaiah 14,,Esai 14
+A69147,2297,Note 1,1,Tobit 13,,Tob 13
+A69147,2313,Note 0,0,Deuteronomy 13,,Deut 13
+A69147,2313,Note 0,1,1 John 4,,1 Ioh 4
+A69147,2313,Note 1,0,Luke 6,,Luce 6
+A69147,2315,Note 0,0,Matthew 12,,Mat 12
+A69147,2315,Note 1,0,Matthew 13,,Mat 13
+A69147,2315,Note 1,1,Luke 3.100,,Luc 3 100
+A69147,2317,Note 0,0,Matthew 25,,Mat 25
+A69147,2317,Note 0,1,Luke 6; Luke 14,,Luce 6 & 14
+A69147,2324,Note 0,0,John 21,,Ioh 21
+A69147,2327,Note 1,0,John 4,,Ioh 4
+A69147,2329,Note 0,0,John 16,,Ioh 16
+A69147,2329,Note 0,1,1 Corinthians 11,,1 Cor 11
+A69147,2345,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,2366,Note 0,0,John 17,,Ioh 17
+A69147,2402,Note 0,0,Psalms 5.2,,Psal 5 2
+A69147,2403,Note 0,0,Matthew 7,,Mat 7
+A69147,2403,Note 1,0,Proverbs 14,,Pro 14
+A69147,2421,Note 0,0,Proverbs 14,,Pro 14
+A69147,2424,Note 0,0,John 16,,Ioh 16
+A69147,2425,Note 0,0,1 Timothy 2,,1 Tim 2
+A69147,2433,Note 0,0,Luke 20,,Luc 20
+A69147,2438,Note 0,0,John 11,,Ioh 11
+A69147,2440,Note 0,0,Jeremiah 52,,Iere 52
+A69147,2440,Note 1,0,Micah 3,,Mich 3
+A69147,2440,Note 1,1,Mark 13,,Mar 13
+A69147,2440,Note 1,2,Luke 21,,Luc 21
+A69147,2441,Note 0,0,Matthew 21,,mat 21
+A69147,2441,Note 0,1,Mark 11,,Mar 11
+A69147,2441,Note 0,2,John 2,,Iohn 2
+A69147,2441,Note 1,0,Revelation 3.8,,Re 3 8
+A69147,2441,Note 2,0,Isaiah 51,,esa 51
+A69147,2447,Note 0,0,Isaiah 53,,Esai 53
+A69147,2451,Note 0,0,John 14,,Ioh 14
+A69147,2452,Note 0,0,John 16,,Ioh 16
+A69147,2453,Note 0,0,John 11,,Ioh 11
+A69147,2453,Note 1,0,1 Peter 2,,1 Pet 2
+A69147,2459,Note 0,0,Ezekiel 36,,Eze 36
+A69147,2459,Note 1,0,Psalms 51,,Psal 51
+A69147,2460,Note 0,0,John 3,,Iohn 3
+A69147,2465,Note 0,0,Isaiah 6,,Esay 6
+A69147,2465,Note 1,0,John 9,,Ioh 9
+A69147,2467,Note 0,0,Romans 12,,Rom 12
+A69147,2472,Note 0,0,Matthew 7,,Mat 7
+A69147,2474,Note 0,0,Psalms 7,,Psal 7
+A69147,2478,Note 0,0,Isaiah 56,,Esa 56
+A69147,2485,Note 0,0,Titus 1,,Tit 1
+A69147,2491,Note 0,0,Deuteronomy 26,,Deu 26
+A69147,2491,Note 0,1,Ecclesiastes 7,,Eccle 7
+A69147,2493,Note 0,0,Matthew 24,,Mat 24
+A69147,2493,Note 0,1,Luke 14,,Luc 14
+A69147,2500,Note 0,0,Luke 18,,Luc 18
+A69147,2500,Note 1,0,John 4,,Ioh 4
+A69147,2501,Note 0,0,Isaiah 29,,Esa 29
+A69147,2517,Note 0,0,Romans 7,,Rom 7
+A69147,2521,Note 0,0,Matthew 5,,Mat 5
+A69147,2525,Note 0,0,Jeremiah 9,,Ierm 9
+A69147,2532,Note 0,0,Matthew 9,,Mat 9
+A69147,2535,Note 0,0,Romans 3,,Rom 3
+A69147,2538,Note 0,0,Matthew 11,,Mat 11
+A69147,2553,Note 0,0,Luke 14,,Luc 14
+A69147,2555,Note 0,0,Romans 14,,Ro 14
+A69147,2557,Note 0,0,Job 20,,Iob 20
+A69147,2559,Note 0,0,Matthew 15,,Mat 15
+A69147,2559,Note 1,0,Matthew 9,,Mat 9
+A69147,2560,Note 0,0,Mark 1,,Mar 1
+A69147,2563,Note 1,0,Luke 4,,Luc 4
+A69147,2563,Note 2,0,Acts 14; Acts 8,,Act 14 & 8
+A69147,2574,Note 0,0,John 6,,Iohn 6
+A69147,2579,Note 0,0,John 14,,Ioh 14
+A69147,2579,Note 0,1,Matthew 8,,Mat 8
+A69147,2580,Note 0,0,John 6,,Iohn 6
+A69147,2583,Note 0,0,Psalms 110,,Psa 110
+A69147,2584,Note 0,0,Luke 22,,Luc 22
+A69147,2591,Note 0,0,Psalms 120,,Psa 120
+A69147,2593,Note 0,0,Matthew 25,,Mat 25
+A69147,2594,Note 0,0,Isaiah 4^,,Esai 4^
+A69147,2605,Note 0,0,Romans 5,,Rom 5
+A69147,2606,Note 0,0,Philippians 2,,Phil 2
+A69147,2607,Note 0,0,John 8,,Iohn 8
+A69147,2616,Note 0,0,Matthew 13,,Mat 13
+A69147,2618,Note 0,0,Matthew 22,,Mat 22
+A69147,2621,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,2621,Note 0,1,Matthew 22,,Mat 22
+A69147,2621,Note 0,2,Mark 12,,Mar 12
+A69147,2642,Note 0,0,John 8,,Ioh 8
+A69147,2646,Note 0,0,John 6,,Ioh 6
+A69147,2650,Note 0,0,John 8,,Iohn 8
+A69147,2652,Note 0,0,John 20,,Ioh 20
+A69147,2658,Note 0,0,Romans 4,,Rom 4
+A69147,2659,Note 0,0,Romans 5,,Rom 5
+A69147,2670,Note 0,0,Matthew 7,,Mat 7
+A69147,2684,Note 0,0,Luke 14,,Luc 14
+A69147,2684,Note 0,1,Matthew 8,,Mat 8
+A69147,2692,Note 0,0,Luke 17,,Luc 17
+A69147,2703,Note 0,0,Romans 8,,Rom 8
+A69147,2715,Note 0,0,Leviticus 13,,Leui 13
+A69147,2718,Note 0,0,Genesis 12,,Gen 12
+A69147,2724,Note 0,0,Luke 17,,Luc 17
+A69147,2724,Note 0,1,Matthew 17,,Mat 17
+A69147,2730,Note 0,0,Matthew 20,,Mat 20
+A69147,2732,Note 0,0,Matthew 10; Matthew 14,,Mat 10 & 14
+A69147,2734,Note 0,0,Galatians 5,,Gala 5
+A69147,2735,Note 0,0,Matthew 10,,Mat 10
+A69147,2738,Note 0,0,Psalms 49,,Psa 49
+A69147,2745,Note 0,0,Luke 16,,Luc 16
+A69147,2746,Note 0,0,Luke 12,,Luc 12
+A69147,2746,Note 0,1,Psalms 55,,Psal 55
+A69147,2746,Note 0,2,1 Peter 5,,1 Pet 5
+A69147,2750,Note 0,0,Luke 12,,Luc 12
+A69147,2767,Note 0,0,Psalms 17,,Psal 17
+A69147,2770,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,2776,Note 0,0,1 Timothy 6,,1 Tim 6
+A69147,2778,Note 0,0,Ephesians 5,,Ephe 5
+A69147,2779,Note 0,0,Psalms 62,,Psal 62
+A69147,2790,Note 0,0,Genesis 3,,Gen 3
+A69147,2797,Note 0,0,Matthew 5,,Mat 5
+A69147,2805,Note 0,0,Romans 5,,Rom 5
+A69147,2805,Note 0,1,John 14,,Ioh 14
+A69147,2807,Note 0,0,Matthew 7,,Mat 7
+A69147,2807,Note 1,0,John 16,,Ioh 16
+A69147,2816,Note 0,0,Revelation 17.4,,Re 17 4
+A69147,2816,Note 0,1,Revelation 4,,Re 4
+A69147,2816,Note 0,2,John 20.4; John 20.6,,Ioh 20 4 & 6
+A69147,2817,Note 0,0,Revelation 17.4,,Re 17 4
+A69147,2817,Note 0,1,Revelation 4,,Re 4
+A69147,2817,Note 0,2,John 20.4; John 20.6,,Ioh 20 4 & 6
+A69147,2821,Note 0,0,1 Peter 3,,1 Pet 3
+A69147,2823,Note 0,0,Deuteronomy 18,,Deu 18
+A69147,2829,Note 0,0,Psalms 67,,Psa 67
+A69147,2831,Note 0,0,Psalms 9,,Psal 9
+A69147,2842,Note 0,0,Isaiah 65,,Esa 65
+A69147,2847,Note 0,0,Romans 4,,Rom 4
+A69147,2857,Note 0,0,Psalms 4,,Psal 4
+A69147,2867,Note 0,0,John 8,,Ihon 8
+A69147,2869,Note 0,0,John 1,,Ihon 1
+A69147,2878,Note 0,0,Matthew 12,,Mat 12
+A69147,2878,Note 0,1,Mark 3,,Mar 3
+A69147,2878,Note 0,2,Luke 6,,Luc 6
+A69147,2880,Note 0,0,Exodus 23,,Exo 23
+A69147,2880,Note 0,1,Deuteronomy 22,,Deu 22
+A69147,2880,Note 0,2,Matthew 12,,Mat 12
+A69147,2883,Note 0,0,Proverbs 25,,Pro 25
+A69147,2883,Note 1,0,Matthew 23,,Mat 23
+A69147,2883,Note 1,1,Luke 81,,Luc 81
+A69147,2892,Note 0,0,Matthew 12,,Mat 12
+A69147,2892,Note 1,0,Matthew 12,,Mat 12
+A69147,2895,Note 0,0,1 Peter 2,,1 Pe 2
+A69147,2895,Note 0,1,Luke 2,,Luc 2
+A69147,2898,Note 0,0,Mark 2,,Mar 2
+A69147,2898,Note 1,0,1 Timothy 1,,1 Ti 1
+A69147,2903,Note 0,0,Romans 14,,Ro 14
+A69147,2910,Note 0,0,Deuteronomy 18,,Deu 18
+A69147,2910,Note 0,1,Mark 3,,Mar 3
+A69147,2915,Note 0,0,Romans 25,,Rom 25
+A69147,2918,Note 0,0,Isaiah 59,,Esai 59
+A69147,2927,Note 0,0,Matthew 23,,Mat 23
+A69147,2927,Note 1,0,Matthew 6,,Mat 6
+A69147,2932,Note 0,0,Mark 20,,Mar 20
+A69147,2933,Note 0,0,Matthew 19,,Mat 19
+A69147,2933,Note 1,0,Luke 28,,Luc 28
+A69147,2940,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,2942,Note 0,0,Leviticus 19,,Leui 19
+A69147,2942,Note 0,1,Romans 13,,Rom 13
+A69147,2942,Note 0,2,Galatians 5,,Galat 5
+A69147,2947,Note 0,0,Matthew 1^,,Mat 1^
+A69147,2947,Note 0,1,Psalms 11,,Psa 11
+A69147,2947,Note 1,0,Matthew 1^,,Mat 1^
+A69147,2947,Note 1,1,Psalms 11,,Psa 11
+A69147,2956,Note 0,0,Matthew 12,,Mat 12
+A69147,2966,Note 0,0,John 3,,Iohn 3
+A69147,2969,Note 0,0,Mark 12,,Mar 12
+A69147,2973,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,2978,Note 0,0,Romans 7,,Rom 7
+A69147,2983,Note 0,0,Romans 13,,Rom 13
+A69147,2987,Note 0,0,Romans 3,,Rom 3
+A69147,2993,Note 0,0,Psalms ^.09,,Ps ^ 09
+A69147,3008,Note 0,0,Matthew 2,,Mat 2
+A69147,3008,Note 0,1,Luke 5,,Luc 5
+A69147,3014,Note 0,0,Acts 3; Acts 9,,Actu 3 & 9
+A69147,3014,Note 0,1,Mark 2,,Mar 2
+A69147,3014,Note 0,2,Luke 5.100,,Luc 5 100
+A69147,3014,Note 0,3,John 5,,Ioh 5
+A69147,3028,Note 0,0,Matthew 9,,Mat 9
+A69147,3030,Note 0,0,Matthew 1,,Mat 1
+A69147,3034,Note 0,0,Isaiah 34,,Esa 34
+A69147,3037,Note 1,0,Matthew 16,,Mat 16
+A69147,3043,Note 0,0,Mark 2,,Mar 2
+A69147,3045,Note 0,0,Matthew 17,,Mat 17
+A69147,3048,Note 0,0,Galatians 6,,Gala 6
+A69147,3054,Note 0,0,Matthew 28,,Mat 28
+A69147,3064,Note 0,0,Luke 13,,Luc 13
+A69147,3071,Note 0,0,Isaiah 6,,Esai 6
+A69147,3073,Note 0,0,Matthew 13; Matthew 25,,Mat 13 & 25
+A69147,3078,Note 0,0,Genesis 2,,Gen 2
+A69147,3078,Note 1,0,Hosea 2,,Ose 2
+A69147,3080,Note 0,0,Ephesians 5,,Ephe 5
+A69147,3083,Note 0,0,Deuteronomy 18,,Deut 18
+A69147,3085,Note 0,0,Mark 23,,Mar 23
+A69147,3085,Note 1,0,Matthew 25,,Mat 25
+A69147,3089,Note 0,0,Matthew 10,,Mat 10
+A69147,3095,Note 0,0,Hebrews 11,,Heb 11
+A69147,3100,Note 0,0,Matthew 8,,Mat 8
+A69147,3100,Note 0,1,Luke 7,,Luce 7
+A69147,3111,Note 0,0,Acts 18,,Act 18
+A69147,3114,Note 0,0,Luke 15,,Luce 15
+A69147,3116,Note 0,0,Matthew 8,,Mat 8
+A69147,3120,Note 0,0,Psalms 106,,Ps 106
+A69147,3121,Note 0,0,John 11,,Ioh 11
+A69147,3134,Note 0,0,Romans 4,,Rom 4
+A69147,3136,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,3137,Note 0,0,Matthew 12,,Mat 12
+A69147,3145,Note 0,0,Romans 8,,Rom 8
+A69147,3145,Note 1,0,2 Corinthians 1,,2 Cor 1
+A69147,3147,Note 0,0,Matthew 8,,Mat 8
+A69147,3154,Note 0,0,Exodus 17,,Exo 17
+A69147,3155,Note 0,0,Deuteronomy 13.2,,Deu 13 2
+A69147,3156,Note 0,0,Matthew 12,,Mat 12
+A69147,3159,Note 0,0,John 14,,Ioh 14
+A69147,3175,Note 0,0,Matthew 2.6,,Mat 2 6
+A69147,3175,Note 0,1,Mark 12,,Mar 12
+A69147,3179,Note 0,0,Psalms 110,,Psa 110
+A69147,3183,Note 0,0,Psalms 142,,Ps 142
+A69147,3184,Note 0,0,Psalms 31,,Psal 31
+A69147,3204,Note 0,0,John 1,,Ihon 1
+A69147,3206,Note 0,0,Acts 4,,Act 4
+A69147,3212,Note 0,0,Matthew 22,,Mat 22
+A69147,3212,Note 1,0,Luke 6,,Luc 6
+A69147,3234,Note 0,0,Matthew 12,,Mat 12
+A69147,3235,Note 0,0,Luke 20,,Luc 20
+A69147,3243,Note 0,0,Romans 17.13,,Ro 17 13
+A69147,3250,Note 0,0,Psalms 2,,Psal 2
+A69147,3257,Note 0,0,Matthew 10,,Mat 10
+A69147,3258,Note 0,0,Psalms 20,,Psal 20
+A69147,3272,Note 0,0,Proverbs 21,,Pro 21
+A69147,3283,Note 0,0,Luke 17,,Luc 17
+A69147,3283,Note 0,1,John 4,,Ihon 4
+A69147,3285,Note 0,0,Deuteronomy 6,,Deut 6
+A69147,3286,Note 0,0,John 14,,Ioh 14
+A69147,3287,Note 0,0,Psalms 28,,Psal 28
+A69147,3288,Note 1,0,Luke 22,,Luc 22
+A69147,3289,Note 0,0,Romans 13,,Rom 13
+A69147,3291,Note 0,0,Psalms 8^,,Psa 8^
+A69147,3294,Note 0,0,Romans 13,,Ro 13
+A69147,3301,Note 0,0,Acts 5,,Act 5
+A69147,3308,Note 0,0,Matthew 5,,Mat 5
+A69147,3308,Note 0,1,Luke 8,,Luc 8
+A69147,3309,Note 0,0,Mark 5,,Mar 5
+A69147,3309,Note 0,1,Luke 8,,Luc 8
+A69147,3309,Note 0,2,Leviticus 15,,Leu^ 15
+A69147,3321,Note 0,0,Proverbs 24,,Pro 24
+A69147,3322,Note 0,0,Romans 6,,Rom 6
+A69147,3332,Note 0,0,Matthew 11,,Mat 11
+A69147,3335,Note 0,0,Matthew 5,,Mat 5
+A69147,3336,Note 0,0,Matthew 10,,Mat 10
+A69147,3346,Note 0,0,John 15,,Ioh 15
+A69147,3358,Note 0,0,Romans 1,,Rom 1
+A69147,3359,Note 0,0,Psalms 1,,Psal 1
+A69147,3365,Note 0,0,Matthew 10,,Mat 10
+A69147,3371,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,3380,Note 0,0,Jeremiah 46,,Ier 46
+A69147,3380,Note 0,1,Ezekiel 46,,Eze 46
+A69147,3383,Note 0,0,Luke 5,,Luc 5
+A69147,3388,Note 0,0,John 1,,Iohn 1
+A69147,3391,Note 0,0,Romans 3,,Rom 3
+A69147,3399,Note 0,0,1 Timothy 5,,1 Ti 5
+A69147,3407,Note 0,0,John 13,,Ioh 13
+A69147,3407,Note 1,0,1 Corinthians 1,,1 Cor 1
+A69147,3418,Note 0,0,1 Corinthians 4,,1 Cor 4
+A69147,3418,Note 1,0,1 Corinthians 4,,1 Cor 4
+A69147,3420,Note 0,0,Hebrews 5,,Hebre 5
+A69147,3423,Note 0,0,Matthew 13,,Mat 13
+A69147,3425,Note 0,0,John 8,,Iohn 8
+A69147,3425,Note 0,1,Luke 19,,Luc 19
+A69147,3426,Note 0,0,Jeremiah 16,,Iere 16
+A69147,3429,Note 0,0,1 Timothy 3,,1 Tim 3
+A69147,3429,Note 1,0,1 Corinthians 4,,1 Cor 4
+A69147,3432,Note 0,0,Isaiah ^4,,Esai ^4
+A69147,3439,Note 0,0,Matthew 26,,Mat 26
+A69147,3439,Note 0,1,Isaiah 40,,Esai 40
+A69147,3447,Note 0,0,Luke ^,,Luc ^
+A69147,3453,Note 0,0,Matthew 10,,Mat 10
+A69147,3460,Note 0,0,Matthew 5,,Mat 5
+A69147,3469,Note 0,0,John 11,,Ioh 11
+A69147,3483,Note 0,0,Luke 28,,Luc 28
+A69147,3487,Note 0,0,Isaiah 54,,Esai 54
+A69147,3489,Note 0,0,John 1,,Iohn 1
+A69147,3503,Note 0,0,Matthew 11,,Mat 11
+A69147,3519,Note 0,0,Acts 5,,Act 5
+A69147,3526,Note 0,0,Psalms 54,,Ps 54
+A69147,3528,Note 0,0,1 Corinthians 12,,1 Co 12
+A69147,3541,Note 0,0,Matthew 10,,Mat 10
+A69147,3541,Note 0,1,Luke 11,,Luc 11
+A69147,3541,Note 0,2,John 16,,Ioh 16
+A69147,3541,Note 0,3,Acts 6; Acts 7,,Act 6 & 7
+A69147,3541,Note 1,0,Genesis 3,,Gen 3
+A69147,3543,Note 0,0,Luke 13,,Luc 13
+A69147,3543,Note 1,0,Esther 4.^,,Es 4 ^
+A69147,3544,Note 0,0,Psalms 9,,Psal 9
+A69147,3545,Note 0,0,Psalms 118,,Ps 118
+A69147,3545,Note 0,1,Luke 9,,Luc 9
+A69147,3550,Note 0,0,Matthew 13,,Mat 13
+A69147,3552,Note 0,0,Romans 4,,Rom 4
+A69147,3553,Note 0,0,Psalms 16,,Psal 16
+A69147,3554,Note 0,0,Amos 8,,Amos 8
+A69147,3565,Note 0,0,Isaiah 6,,Esai 6
+A69147,3568,Note 0,0,Hosea 13,,Ose 13
+A69147,3577,Note 0,0,Acts 7,,Act 7
+A69147,3580,Note 0,0,Zechariah 2,,Zach 2
+A69147,3581,Note 0,0,Matthew 25,,Mat 25
+A69147,3589,Note 0,0,Matthew 24,,Mat 24
+A69147,3594,Note 0,0,Romans 2,,Rom 2
+A69147,3607,Note 0,0,John 13.19; John 13.20,,Iohn 13 19 & 20
+A69147,3614,Note 0,0,Psalms 22,,Psal 22
+A69147,3618,Note 0,0,Matthew 10,,Mat 10
+A69147,3627,Note 0,0,1 Corinthians 4,,1 Cor 4
+A69147,3629,Note 0,0,John 8,,Iohn 8
+A69147,3636,Note 0,0,2 Corinthians 12,,2 Co 12
+A69147,3639,Note 0,0,1 Corinthians 7,,1 Cor 7
+A69147,3655,Note 0,0,Isaiah 1,,Esai 1
+A69147,3657,Note 0,0,Luke 10,,Luc 10
+A69147,3660,Note 0,0,Exodus 4,,Exo 4
+A69147,3663,Note 0,0,Jude 13,,Iud 13
+A69147,3670,Note 0,0,John 18,,Iohn 18
+A69147,3670,Note 0,1,Luke 22,,Luc 22
+A69147,3674,Note 0,0,Hosea 11,,Osee 11
+A69147,3679,Note 0,0,Psalms 36,,Psal 36
+A69147,3686,Note 0,0,Psalms 26,,Psal 26
+A69147,3693,Note 0,0,Psalms 9,,Psal 9
+A69147,3695,Note 0,0,Revelation 3.9,,Re 3 9
+A69147,3706,Note 0,0,Jeremiah 13,,Iere 13
+A69147,3721,Note 0,0,Matthew 4,,Mat 4
+A69147,3721,Note 0,1,Mark 10,,Mar 10
+A69147,3721,Note 0,2,Luke 18,,Luc 18
+A69147,3722,Note 0,0,Luke 22,,Luc 22
+A69147,3722,Note 1,0,Deuteronomy 33,,Deut 33
+A69147,3722,Note 2,0,John 13,,Ioh 13
+A69147,3750,Note 0,0,1 Corinthians 6,,1 Cor 6
+A69147,3753,Note 0,0,1 Corinthians 2,,1 Cor 2
+A69147,3777,Note 0,0,John 6,,Iohn 6
+A69147,3777,Note 0,1,John 8,,Iohn 8
+A69147,3787,Note 0,0,Leviticus 12,,Leui 12
+A69147,3787,Note 1,0,1 Kings 2,,1 Reg 2
+A69147,3787,Note 2,0,Exodus 23; Exodus 22,,Exo 23 & 22
+A69147,3787,Note 2,1,Numbers 8,,Num 8
+A69147,3791,Note 0,0,Leviticus 12,,Leu 12
+A69147,3792,Note 0,0,Isaiah 49,,Esa 49
+A69147,3792,Note 0,1,Acts 17,,Act 17
+A69147,3798,Note 0,0,Leviticus 12,,Leu 12
+A69147,3805,Note 0,0,Romans 8,,Rom 8
+A69147,3808,Note 0,0,Romans 6,,Rom 6
+A69147,3844,Note 0,0,Philippians 1,,Phi 1
+A69147,3870,Note 0,0,Matthew 12,,Mat 12
+A69147,3870,Note 0,1,Luke 10,,Luc 10
+A69147,3870,Note 0,2,John 3,,Ioh 3
+A69147,3870,Note 1,0,John 7.8,,Ioh 7 8
+A69147,3871,Note 0,0,Ecclesiastes 6,,Eccle 6
+A69147,3872,Note 0,0,1 John 5,,1 Ioh 5
+A69147,3882,Note 0,0,Isaiah 5,,Esai 5
+A69147,3885,Note 0,0,1 Peter 5,,1 Pe 5
+A69147,3904,Note 0,0,John 14,,Ioh 14
+A69147,3912,Note 0,0,Matthew 9,,Mat 9
+A69147,3914,Note 0,0,Mark 10,,Mar 10
+A69147,3914,Note 0,1,John 20,,Ioh 20
+A69147,3922,Note 0,0,Mark 5,,Mar 5
+A69147,3925,Note 0,0,Romans 3,,Rom 3
+A69147,3932,Note 0,0,2 John 5,,2 Ioh 5
+A69147,3940,Note 0,0,Isaiah 6,,Esai 6
+A69147,3940,Note 1,0,Matthew 2,,Mat 2
+A69147,3940,Note 1,1,Luke 2,,Luc 2
+A69147,3942,Note 0,0,Isaiah 9,,Esa 9
+A69147,3942,Note 1,0,Daniel 7,,Dan 7
+A69147,3942,Note 1,1,Micah 4,,Mich 4
+A69147,3946,Note 0,0,Zechariah 8,,Zach 8
+A69147,3946,Note 0,1,Matthew 19,,Mat 19
+A69147,3946,Note 0,2,Mark 10,,Mar 10
+A69147,3946,Note 0,3,Luke 18,,Luc 18
+A69147,3965,Note 0,0,John 2,,Iohn 2
+A69147,3982,Note 0,0,Isaiah 9,,Esai 9
+A69147,3994,Note 0,0,Luke 17,,Luc 17
+A69147,3996,Note 0,0,Luke 1,,Luc 1
+A69147,4012,Note 0,0,Mark 14,,Mar 14
+A69147,4012,Note 0,1,Luke 22,,Luce 22
+A69147,4013,Note 0,0,John 13,,Ioh 13
+A69147,4014,Note 0,0,Psalms 61,,Psal 61
+A69147,4017,Note 0,0,1 Corinthians 9,,1 Cor 9
+A69147,4017,Note 0,1,Luke 22,,Luce 22
+A69147,4017,Note 0,2,Mark 18,,Mar 18
+A69147,4019,Note 0,0,Matthew 14,,Mat 14
+A69147,4031,Note 0,0,Romans 2,,Rom 2
+A69147,4033,Note 0,0,Hosea 13,,Osee 13
+A69147,4049,Note 0,0,Matthew 26,,Mat 26
+A69147,4052,Note 0,0,1 Corinthians 11,,1 Cor 11
+A69147,4054,Note 0,0,Exodus 12,,Exo 12
+A69147,4071,Note 0,0,John 6,,Iohn 6
+A69147,4088,Note 0,0,John 6,,Ioh 6
+A69147,4091,Note 0,0,1 Corinthians 11,,1 Co 11
+A69147,4101,Note 0,0,Matthew 19,,Mat 19
+A69147,4101,Note 0,1,Mark 14,,Mar 14
+A69147,4101,Note 0,2,Luke 22,,Luce 22
+A69147,4111,Note 0,0,John 17,,Ioh 17
+A69147,4114,Note 0,0,Matthew 2^,,Mat 2^
+A69147,4114,Note 0,1,Genesis 9,,Gene 9
+A69147,4122,Note 0,0,Isaiah 53,,Esai 53
+A69147,4129,Note 0,0,Romans 3,,Rom 3
+A69147,4135,Note 0,0,Romans 5,,Rom 5
+A69147,4143,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,4144,Note 0,0,1 Timothy 2,,1 Ti 2
+A69147,4148,Note 0,0,Matthew 6,,Mat 6
+A69147,4155,Note 0,0,Psalms 21,,Psa 21
+A69147,4156,Note 0,0,Luke 22,,Luc 22
+A69147,4166,Note 0,0,Matthew 24,,Mat 24
+A69147,4170,Note 0,0,Matthew 1^,,Mat 1^
+A69147,4178,Note 0,0,Isaiah 53,,Esa 53
+A69147,4179,Note 0,0,Philippians 2,,Phil 2
+A69147,4180,Note 0,0,1 Peter 2,,1 Pet 2
+A69147,4183,Note 0,0,John 17,,Ioh 17
+A69147,4188,Note 0,0,Romans 8,,Rom 8
+A69147,4193,Note 0,0,Isaiah 55,,Esa 55
+A69147,4198,Note 0,0,Ephesians 6,,Ephe 6
+A69147,4202,Note 0,0,John 17,,Ioh 17
+A69147,4203,Note 0,0,Mark 20,,Mar 20
+A69147,4203,Note 0,1,Mark 14,,Mar 14
+A69147,4203,Note 0,2,Luke 22,,Luce 22
+A69147,4208,Note 0,0,Mark 14,,Mar 14
+A69147,4208,Note 0,1,Luke 21,,Luce 21
+A69147,4211,Note 0,0,Acts 23,,Actu 23
+A69147,4216,Note 0,0,John 13,,Ioh 13
+A69147,4226,Note 0,0,Matthew 7,,Mat 7
+A69147,4228,Note 0,0,Psalms 2,,Psal 2
+A69147,4235,Note 0,0,Psalms 127,,Ps 127
+A69147,4242,Note 0,0,Psalms 115,,Ps 115
+A69147,4247,Note 0,0,Matthew 10,,Mat 10
+A69147,4250,Note 0,0,Psalms 118,,Ps 118
+A69147,4250,Note 2,0,Matthew 5,,Mat 5
+A69147,4257,Note 0,0,Titus 1,,Tit 1
+A69147,4264,Note 0,0,Psalms 117,,Ps 117
+A69147,4276,Note 0,0,Mark 6,,Mar 6
+A69147,4276,Note 0,1,Matthew 11,,Mat 11
+A69147,4288,Note 1,0,Mark 15,,Mar 15
+A69147,4288,Note 1,1,Luke 23,,Luc 23
+A69147,4294,Note 0,0,John 6,,Ihon 6
+A69147,4297,Note 0,0,Mark 27.15,,Mar 27 15
+A69147,4297,Note 0,1,Luke 23,,Luc 23
+A69147,4299,Note 0,0,Acts 3,,Act 3
+A69147,4301,Note 0,0,Hosea 4,,Ose 4
+A69147,4303,Note 0,0,Matthew 23,,Mat 23
+A69147,4308,Note 0,0,John 16,,Ioh 16
+A69147,4327,Note 0,0,John 6,,Ioh 6
+A69147,4331,Note 0,0,Romans 14,,Ro 14
+A69147,4335,Note 0,0,Romans 3,,Rom 3
+A69147,4338,Note 0,0,Romans 10,,Rom 10
+A69147,4341,Note 0,0,Luke 17,,Luc 17
+A69147,4352,Note 0,0,Deuteronomy 1,,Deu 1
+A69147,4369,Note 0,0,Romans 1,,Rom 1
+A69147,4370,Note 0,0,Acts 17,,Act 17
+A69147,4371,Note 0,0,Psalms 18,,Psa 18
+A69147,4376,Note 0,0,Mark 27.15,,Mar 27 15
+A69147,4380,Note 0,0,Matthew 27,,Mat 27
+A69147,4380,Note 0,1,Mark 15,,Mar 15
+A69147,4380,Note 0,2,Luke 23,,Luc 23
+A69147,4381,Note 0,0,Deuteronomy 24,,Deu 24
+A69147,4381,Note 1,0,John 5,,Ioh 5
+A69147,4388,Note 0,0,John 3,,Ioh 3
+A69147,4389,Note 0,0,Mark 17.15,,Mar 17 15
+A69147,4389,Note 0,1,Luke 23,,Luc 23
+A69147,4389,Note 0,2,Acts 17,,Actu 17
+A69147,4395,Note 0,0,Matthew 17,,Mat 17
+A69147,4395,Note 0,1,Mark 15,,Mar 15
+A69147,4395,Note 0,2,Luke 23,,Luc 23
+A69147,4395,Note 0,3,Hebrews 13,,Heb 13
+A69147,4397,Note 0,0,Matthew 17,,Mat 17
+A69147,4397,Note 0,1,Mark 15,,Mar 15
+A69147,4397,Note 0,2,Luke 23,,Luc 23
+A69147,4397,Note 0,3,Hebrews 13,,Heb 13
+A69147,4397,Note 1,0,Mark 17.15,,Mar 17 15
+A69147,4397,Note 1,1,Luke 23,,Luc 23
+A69147,4403,Note 0,0,Mark 17.15,,Mar 17 15
+A69147,4406,Note 0,0,Psalms 22,,Psa 22
+A69147,4409,Note 0,0,John 13,,Ioh 13
+A69147,4412,Note 0,0,Psalms 6.9,,Psa 6 9
+A69147,4413,Note 0,0,Matthew 27,,Mat 27
+A69147,4413,Note 0,1,Mark 15,,Mar 15
+A69147,4433,Note 0,0,Genesis 12,,Gen 12
+A69147,4435,Note 0,0,1 Corinthians 10,,1 Co 10
+A69147,4446,Note 0,0,Matthew 8,,Mat 8
+A69147,4446,Note 0,1,Romans 11,,Rom 11
+A69147,4449,Note 0,0,Acts 13,,Act 13
+A69147,4462,Note 0,0,1 Corinthians 2,,1 Cor 2
+A69147,4466,Note 0,0,Galatians 2,,Gala 2
+A69147,4470,Note 0,0,John 3,,Ihon 3
+A69147,4471,Note 0,0,Romans 4,,Rom 4
+A69147,4477,Note 0,0,Luke 8,,Luc 8
+A69147,4481,Note 0,0,John 6,,Ihon 6
+A69147,4488,Note 0,0,Psalms 69,,Psa 69
+A69147,4495,Note 0,0,Hebrews 11,,Heb 11
+A69147,4497,Note 0,0,1 Corinthians 15,,1 Co 15
+A69147,4510,Note 0,0,Exodus 12,,Exod 12
+A69147,4511,Note 0,0,Zechariah 12,,Zac 12
+A69147,4512,Note 0,0,Matthew 26,,Mat 26
+A69147,4512,Note 0,1,Mark 15,,Mar 15
+A69147,4512,Note 0,2,Luke 23,,Luce 23
+A69147,4520,Note 0,0,1 Peter 3,,1 Pet 3
+A69147,4527,Note 0,0,Zechariah 12,,Zac 12
+A69147,4527,Note 0,1,Psalms 21,,Psa 21
+A69147,4536,Note 0,0,John 1,,Ioh 1
+A69147,4537,Note 0,0,1 Corinthians 5,,1 Cor 5
+A69147,4539,Note 0,0,Zechariah 12,,Zach 12
+A69147,4539,Note 0,1,Revelation 1,,Apoc 1
+A69147,4547,Note 0,0,Matthew 7,,Mat 7
+A69147,4554,Note 0,0,Isaiah 44,,Esa 44
+A69147,4556,Note 0,0,John 7,,Ioh 7
+A69147,4564,Note 0,0,Romans 1,,Rom 1
+A69147,4566,Note 0,0,Deuteronomy 21,,Deu 21
+A69147,4569,Note 0,0,1 Corinthians 2,,1 Cor 2
+A69147,4572,Note 0,0,Romans 6,,Rom 6
+A69147,4575,Note 0,0,Exodus 1.2; Exodus 1.3,,Exo 1 2 3
+A69147,4576,Note 0,0,Luke 12,,Luc 12
+A69147,4579,Note 0,0,Luke 1,,Luc 1
+A69147,4593,Note 0,0,Luke 24,,Luc 24
+A69147,4593,Note 0,1,John 20,,Ioh 20
+A69147,4595,Note 0,0,Isaiah 53,,Esai 53
+A69147,4595,Note 0,1,Matthew 25,,Mat 25
+A69147,4598,Note 0,0,Genesis 19,,Gen 19
+A69147,4598,Note 0,1,Luke 14,,Luc 14
+A69147,4613,Note 0,0,Matthew 18,,Mat 18
+A69147,4615,Note 0,0,Matthew 12,,Mat 12
+A69147,4615,Note 1,0,Ephesians 4,,Ephe 4
+A69147,4624,Note 0,0,Romans 7,,Rom 7
+A69147,4630,Note 0,0,Matthew 5,,Mat 5
+A69147,4646,Note 0,0,1 Corinthians 4,,1 Cor 4
+A69147,4649,Note 0,0,1 Timothy 4,,1 Tim 4
+A69147,4652,Note 1,0,Romans 10,,Rom 10
+A69147,4653,Note 0,0,Psalms 115,,Psa 115
+A69147,4653,Note 1,0,Matthew 10,,Mat 10
+A69147,4660,Note 0,0,John 20,,Ioh 20
+A69147,4665,Note 0,0,John 21,,Ioh 21
+A69147,4668,Note 0,0,Matthew 16,,Mat 16
+A69147,4668,Note 1,0,Acts 17,,Actu 17
+A69147,4674,Note 1,0,John 15,,Ioh 15
+A69147,4675,Note 0,0,Philippians 4,,Phil 4
+A69147,4676,Note 0,0,John 14,,Ioh 14
+A69147,4678,Note 0,0,Romans 5,,Rom 5
+A69147,4684,Note 0,0,John 16,,Ioh 16
+A69147,4705,Note 0,0,Hebrews 4,,Heb 4
+A69147,4706,Note 0,0,Revelation 3,,Apoc 3
+A69147,4717,Note 1,0,Isaiah 55,,Esa 55
+A69147,4718,Note 0,0,Ephesians 4,,Ephe 4
+A69147,4737,Note 0,0,John 1.6; John 1.8; John 11,,Ihon 1 6 8 & 11
+A69147,4748,Note 0,0,Mark 21.11,,Mar 21 11
+A69147,4748,Note 0,1,Luke 9,,Luc 9
+A69147,4753,Note 0,0,Acts 14,,Act 14
+A69147,4772,Note 0,0,Matthew 20,,Mat 20
+A69147,4773,Note 0,0,John 6,,Ihon 6
+A69147,4779,Note 0,0,John 3,,Ioh 3
+A69147,4789,Note 0,0,Proverbs 12,,Pro 12
+A69147,4797,Note 0,0,Psalms 115,,psa 115
+A69147,4799,Note 0,0,John 17,,Ioh 17
+A69147,4799,Note 0,1,Psalms 118,,psa 118
+A69147,4800,Note 0,0,Romans 1,,Rom 1
+A69147,4802,Note 0,0,John 1,,Ihon 1
+A69147,4806,Note 0,0,Psalms 8,,Psal 8
+A69147,4825,Note 0,0,Matthew 28,,Mat 28
+A69147,4827,Note 0,0,Acts 4.11; Acts 4.20,,Actu 4 11 20
+A69147,4827,Note 1,0,Acts 2; Acts 19,,Act 2 & 19
+A69147,4827,Note 2,0,Luke 10; Luke 18,,Luc 10 & 18
+A69147,4830,Note 0,0,Leviticus 24,,Lu 24
+A69147,4830,Note 0,1,Acts 1,,Actu 1
+A69147,4831,Note 0,0,Hebrews 2,,Heb 2
+A69147,4840,Note 0,0,Romans 8,,Rom 8
+A69147,4850,Note 0,0,Matthew 24,,Mat 24
+A69147,4853,Note 0,0,Matthew 6,,Mat 6
+A69147,4854,Note 0,0,Romans 10,,Ro 10
+A69147,4855,Note 0,0,John 16,,Ioh 16
+A69147,4867,Note 0,0,Matthew 20,,Mat 20
+A69147,4871,Note 0,0,1 Corinthians 3,,1 Co 3
+A69147,4907,Note 0,0,Matthew 8,,Mat 8
+A69147,4910,Note 0,0,Mark 16,,Mar 16
+A69147,4912,Note 0,0,Psalms 67,,Ps 67
+A69147,4918,Note 0,0,Luke 19,,Luce 19
+A69147,4921,Note 0,0,John 1; John 12,,Iohn 1 & 12
+A69147,4922,Note 0,0,Ephesians 5,,Eph 5
+A69147,4924,Note 0,0,John 4,,Ioh 4
+A69147,4924,Note 0,1,Matthew 3,,Mat 3
+A69147,4924,Note 0,2,Mark 1,,Mar 1
+A69147,4924,Note 0,3,Luke 3,,Luc 3
+A69147,4924,Note 0,4,Mark 4,,Mar 4
+A69147,4957,Note 1,0,Isaiah 63,,Esai 63
+A69147,4958,Note 0,0,John 1,,Ihon 1
+A69147,4960,Note 0,0,Isaiah 42,,Esai 42
+A69147,4973,Note 0,0,John 8,,Ioh 8
+A69147,4979,Note 0,0,John 1,,Iohn 1
+A69147,4993,Note 0,0,Proverbs 10,,Pro 10
+A69147,5009,Note 0,0,Acts 9,,Actu 9
+A69147,5010,Note 0,0,Acts 1,,Actu 1
+A69147,5012,Note 0,0,John 7,,Iohn 7
+A69147,5038,Note 0,0,Matthew 2^,,Mat 2^
+A69147,5040,Note 0,0,Jeremiah 23,,Iere 23
+A69147,5046,Note 0,0,Matthew 10,,Mat 10
+A69147,5048,Note 0,0,Luke 11,,Luc 11
+A69147,5063,Note 0,0,Genesis 17; Genesis 21,,Ge 17 & 21
+A69147,5063,Note 0,1,Leviticus 12,,Leui 12
+A69147,5092,Note 0,0,John 10,,Ihon 10
+A69147,5124,Note 0,0,Matthew 20,,Mat 20
+A69147,5148,Note 0,0,Mark 8,,Mar 8
+A69147,5148,Note 0,1,Luke 9,,Luc 9
+A69147,5151,Note 0,0,Luke 9,,Luce 9
+A69147,5151,Note 0,1,John 6,,Iohn 6
+A69147,5152,Note 0,0,John 6,,Iohn 6
+A69147,5153,Note 0,0,1 Corinthians 10,,1 Co 10
+A69147,5153,Note 0,1,Isaiah 28,,Esa 28
+A69147,5155,Note 0,0,Matthew 18,,mat 18
+A69147,5166,Note 0,0,Isaiah 55,,Esai 55
+A69147,5170,Note 0,0,Colossians 2,,Collo 2
+A69147,5177,Note 0,0,John 1,,Ihon 1
+A69147,5194,Note 0,0,Matthew 7,,Mat 7
+A69147,5195,Note 0,0,Ephesians 5,,Ephe 5
+A69147,5201,Note 0,0,Matthew 18,,Mat 18
+A69147,5201,Note 0,1,John 20,,Ioh 20
+A69147,5218,Note 0,0,Matthew 26,,Mat 26
+A69147,5218,Note 0,1,Mark 14,,Mar 14
+A69147,5218,Note 0,2,John 11,,Iohn 11
+A69147,5233,Note 0,0,Matthew 5,,Mat 5
+A69147,5238,Note 0,0,Exodus 14,,Exo 14
+A69147,5238,Note 1,0,Luke 16,,Luc 16
+A69147,5263,Note 0,0,Romans 3,,Rom 3
+A69147,5265,Note 0,0,Luke 12,,Luc 12
+A69147,5299,Note 0,0,Mark 10,,Mar 10
+A69147,5306,Note 0,0,Matthew 25,,Mat 25
+A69147,5317,Note 0,0,1 Corinthians 1,,1 Cor 1
+A69147,5319,Note 0,0,Luke 24,,Luc 24
+A69147,5319,Note 0,1,Isaiah 53,,Esa 53
+A69147,5363,Note 0,0,Matthew 20,,Mat 20
+A69147,5367,Note 0,0,Matthew 19,,Mat 19
+A69147,5376,Note 0,0,John 6,,Iohn 6
+A69147,5377,Note 0,0,Matthew 10,,Mat 10
+A69147,5379,Note 0,0,John 2,,Iohn 2
+A69147,5379,Note 0,1,1 Corinthians 15,,1 Co 15
+A69147,5381,Note 0,0,Romans 8,,Rom 8
+A69147,5392,Note 0,0,Romans 13,,Rom 13
+A69147,5393,Note 0,0,Peter 2,,Pet 2
+A69147,5394,Note 0,0,Luke 3,,Luce 3
+A69147,5404,Note 0,0,Philippians 2,,Phil 2
+A69147,5409,Note 0,0,1 Corinthians 7,,1 Co 7
+A69147,5417,Note 0,0,Philippians 1,,Phi 1
+A69147,5439,Note 0,0,Hosea 6,,Osee 6
+A69147,5439,Note 0,1,Matthew 11,,Mat 11
+A69147,5444,Note 0,0,Exodus 3,,Exo 3
+A69147,5446,Note 0,0,Acts 9,,Act 9
+A69147,5467,Note 0,0,Matthew 19,,Mat 19
+A69147,5474,Note 0,0,Genesis 2,,Gen 2
+A69147,5476,Note 0,0,2 Peter 5,,2 Pet 5
+A69147,5489,Note 0,0,Micah 7,,Mich 7
+A69147,5511,Note 0,0,Hosea 6,,Osee 6
+A69147,5518,Note 0,0,Mark 9,,Mar 9
+A69147,5518,Note 0,1,Luke 9,,Luc 9
+A69147,5519,Note 0,0,Mark 10,,Mar 10
+A69147,5519,Note 1,0,Luke 18,,Luc 18
+A69147,5519,Note 1,1,Acts 2,,Actu 2
+A69147,5522,Note 0,0,Acts 9,,Actu 9
+A69147,5522,Note 0,1,Luke 17,,Luc 17
+A69147,5523,Note 0,0,1 Corinthians 11,,1 Co 11
+A69147,5524,Note 0,0,Matthew 5,,Mat 5
+A69147,5538,Note 0,0,Matthew 5,,Mat 5
+A69147,5556,Note 0,0,1 Corinthians 14,,1 Co 14
+A69147,5556,Note 1,0,1 Peter 2,,1 Pe 2
+A69147,5558,Note 0,0,Matthew 25,,Mat 25
+A69147,5558,Note 1,0,Zechariah 2,,Zacha 2
+A69147,5573,Note 0,0,1 Corinthians 11,,1 Co 11
+A69147,5577,Note 0,0,Galatians 1,,Gal 1
+A69147,5587,Note 0,0,Matthew ^7,,Mat ^7
+A69147,5595,Note 0,0,Psalms 19,,Psal 19
+A69147,5634,Note 0,0,1 Corinthians 14,,1 Co 14
+A69147,5638,Note 0,0,Romans 11,,Rom 11
+A69147,5638,Note 0,1,Galatians 3,,Gala 3
+A69147,5639,Note 1,0,1 Corinthians 13,,1 Co 13
+A69147,5640,Note 0,0,1 Timothy 1,,1 Tim 1
+A69147,5644,Note 0,0,John 1,,Iohn 1
+A69147,5649,Note 0,0,John 12,,Ioh 12
+A69147,5656,Note 0,0,Galatians 1,,Gala 1
+A69147,5670,Note 0,0,Romans 8,,Rom 8
+A69147,5674,Note 0,0,Psalms 129,,Ps 129
+A69147,5675,Note 0,0,Matthew 10,,Mat 10
+A69147,5686,Note 0,0,Luke 6,,Luc 6
+A69147,5686,Note 1,0,Isaiah 66,,Esa 66
+A69147,5688,Note 0,0,Jeremiah 31,,Iere 31
+A69147,5692,Note 0,0,1 Peter 2.3; 1 Peter 2.100; 1 Peter 2.4; 1 Peter 2.100,,1 Pet 2 3 100 4 100
+A69147,5692,Note 1,0,Acts 5,,Actu 5
+A69147,5703,Note 0,0,Isaiah 66,,Esa 66
+A69147,5703,Note 0,1,Matthew 11,,Mat 11
+A69147,5710,Note 0,0,John 16,,Ioh 16
+A69147,5711,Note 1,0,John 16,,Ioh 16
+A69147,5714,Note 0,0,John 4,,Ioh 4
+A69147,5721,Note 0,0,Psalms 4,,Psal 4
+A69147,5723,Note 0,0,Ephesians ^,,Ephe ^
+A69147,5724,Note 0,0,Ephesians 4,,Ephe 4
+A69147,5728,Note 0,0,Matthew 11,,Mat 11
+A69147,5731,Note 0,0,Numbers 22,,Nu 22
+A69147,5735,Note 0,0,Luke 24,,Luc 24
+A69147,5744,Note 0,0,Luke 5,,Luc 5
+A69147,5746,Note 0,0,Psalms 13,,Psal 13
+A69147,5746,Note 0,1,Mark 10,,Mar 10
+A69147,5747,Note 0,0,Romans 7,,Rom 7
+A69147,5748,Note 0,0,Acts 15,,Actu 15
+A69147,5749,Note 0,0,Romans 8,,Rom 8
+A69147,5751,Note 0,0,Romans 5,,Rom 5
+A69147,5771,Note 0,0,Ecclesiastes 24,,Eccl 24
+A69147,5772,Note 0,0,Acts 15,,Act 15
+A69147,5777,Note 0,0,Matthew 21,,Mat 21
+A69147,5777,Note 0,1,John 3,,Iohn 3
+A69147,5780,Note 0,0,Matthew 20; Matthew 21,,Mat 20 & 21
+A69147,5880,Note 0,0,Ezekiel 16,,Ezec 16
+A69147,5883,Note 0,0,Mark 9.1,,Mar 9 1
+A69147,5883,Note 0,1,Isaiah 66,,Esa 66
+A69147,5905,Note 0,0,Matthew 9,,Mat 9
+A69147,5907,Note 0,0,Matthew 10,,Mat 10
+A69147,5907,Note 1,0,Revelation 4.4,,Re 4 4
+A69147,5907,Note 1,1,Matthew 20,,Mat 20
+A69147,5907,Note 1,2,Luke 9,,Luc 9
+A69147,5949,Note 0,0,Matthew 10,,Mat 10
+A69147,5949,Note 1,0,Mark 13,,Mar 13
 A72490,275,In-Text,0,Luke 16,,Luke 16
 A72490,359,In-Text,0,Hebrews 9,,Hebrues 9
 A72490,432,In-Text,0,Luke 16.1,,Luke 16 1
 A72490,594,In-Text,0,Deuteronomy 18,,Deute 18
 A72490,600,In-Text,0,1 Samuel 18,,1 Sam 18
+A73502,915,In-Text,0,Matthew 5,,Math 5
+A73502,1107,In-Text,0,Galatians 5,,Gal 5
+A73502,1547,In-Text,0,Hebrews 10,,Hebrues 10
+A73502,1555,In-Text,0,Genesis 9,,Gen 9
+A73502,1562,In-Text,0,Matthew 19,,Mat 19
+A73502,1563,In-Text,0,Matthew 18,,Mathew 18
+A73502,1646,In-Text,0,Romans 6,,Rom 6
+A73502,1706,In-Text,0,Acts 7,,act 7
+A73502,1828,In-Text,0,Luke 6,,Luc 6
+A73502,1893,In-Text,0,Peter 5,,Peter 5
+A73502,2475,In-Text,0,Corinthians 10,,Corin 10
+A73502,2786,In-Text,0,Corinthians 15,,Corin 15
 A73502,8,Note 0,0,1 Corinthians 15,,1 cor 15
 A73502,11,Note 0,0,Psalms 71,,psa 71
 A73502,12,Note 2,0,John 20,,Ioh 20
@@ -5200,3 +6390,122 @@ A73502,85,Note 0,0,Psalms 36,,Psalm 36
 A73502,87,Note 0,0,Mark 6,,Mar 6
 A73502,87,Note 1,0,Romans 5,,Rom 5
 A73502,89,Note 1,0,1 Corinthians 5,,1 cor 5
+A73502,103,Note 0,0,1 Corinthians 10,,1 cor 10
+A73502,127,Note 1,0,1 John 5,,1 Ioh 5
+A73502,148,Note 0,0,Isaiah 61,,Esa 61
+A73502,148,Note 0,1,Matthew 11,,Mat 11
+A73502,148,Note 0,2,John 17,,Ioh 17
+A73502,160,Note 0,0,John 21,,Ioh 21
+A73502,293,Note 0,0,Galatians 5,,Gala 5
+A73502,293,Note 2,0,Matthew 5,,Mat 5
+A73502,311,Note 0,0,1 Peter 5,,1 pet 5
+A73502,316,Note 0,0,Corinthians 5,,cor 5
+A73502,332,Note 0,0,Matthew 5,,Mat 5
+A73502,360,Note 0,0,Matthew 25,,Math 25
+A73502,368,Note 0,0,John 20,,Ioh 20
+A73502,381,Note 0,0,Psalms 109,,Psa 109
+A73502,384,Note 0,0,1 Timothy 2,,1 tim 2
+A73502,405,Note 0,0,Psalms 120,,Psa 120
+A73502,424,Note 0,0,Luke 6,,Luc 6
+A73502,459,Note 0,0,Romans 6,,Rom 6
+A73502,469,Note 0,0,Romans 10,,Rom 10
+A73502,618,Note 0,0,John 15,,Iohan 15
+A73502,622,Note 0,0,Matthew 5,,Math 5
+A73502,684,Note 0,0,John 20,,Ioh 20
+A73502,686,Note 1,0,John 15,,Ioh 15
+A73502,687,Note 0,0,Mark 16,,Mar 16
+A73502,706,Note 0,0,Matthew 5,,Math 5
+A73502,710,Note 0,0,Matthew 5,,Math 5
+A73502,774,Note 0,0,Galatians 6,,Gal 6
+A73502,803,Note 0,0,John 16,,Ioh 16
+A73502,828,Note 0,0,Acts 9,,Actu 9
+A73502,914,Note 0,0,Matthew 5,,Math 5
+A73502,954,Note 0,0,Acts 5,,Act 5
+A73502,962,Note 0,0,Isaiah 55,,Esa 55
+A73502,1007,Note 0,0,Ephesians 1.1,,Ephe 1 1
+A73502,1029,Note 0,0,1 Corinthians 11,,1 cor 11
+A73502,1129,Note 0,0,John 10,,Ioh 10
+A73502,1165,Note 0,0,Romans 51,,Ro 51
+A73502,1174,Note 0,0,Acts 10,,Actu 10
+A73502,1217,Note 0,0,Romans 5,,Rom 5
+A73502,1227,Note 0,0,Matthew 5,,Math 5
+A73502,1229,Note 0,0,John 5,,Ioh 5
+A73502,1251,Note 0,0,Matthew 23,,Math 23
+A73502,1276,Note 0,0,Romans 15,,Ro 15
+A73502,1282,Note 0,0,Matthew 10,,Math 10
+A73502,1295,Note 0,0,Mark 16,,mar 16
+A73502,1332,Note 0,0,Acts 20,,Act 20
+A73502,1354,Note 0,0,Matthew 16,,Mat 16
+A73502,1355,Note 2,0,John 11,,Ioh 11
+A73502,1517,Note 4,0,John 20,,Ioh 20
+A73502,1517,Note 4,1,Luke 10,,Luce 10
+A73502,1544,Note 0,0,Deuteronomy 5,,Deu 5
+A73502,1559,Note 0,0,Numbers 11,,Nu 11
+A73502,1559,Note 0,1,Acts 20,,Act 20
+A73502,1562,Note 0,0,1 Corinthians 6,,1 cor 6
+A73502,1569,Note 0,0,Isaiah 11.1,,Esa 11 1
+A73502,1585,Note 0,0,Isaiah 6,,Esa 6
+A73502,1620,Note 0,0,Matthew 10,,Math 10
+A73502,1631,Note 0,0,Jeremiah 5,,Iere 5
+A73502,1643,Note 0,0,Psalms 115,,psa 115
+A73502,1661,Note 0,0,Numbers 21,,Nu 21
+A73502,1704,Note 0,0,Exodus 33,,Exod 33
+A73502,1731,Note 0,0,Matthew 26,,Math 26
+A73502,1767,Note 0,0,Matthew 25,,Math 25
+A73502,1786,Note 0,0,Luke 16,,Luc 16
+A73502,1813,Note 0,0,Romans 6,,Rom 6
+A73502,1829,Note 0,0,1 Timothy 1,,1 tim 1
+A73502,1832,Note 0,0,Psalms 1,,psal 1
+A73502,1872,Note 0,0,1 Peter 5,,1 pet 5
+A73502,1872,Note 1,0,Psalms 36,,Psalm 36
+A73502,1875,Note 0,0,Matthew 25,,Math 25
+A73502,1875,Note 1,0,Matthew 19,,mat 19
+A73502,1876,Note 0,0,1 Timothy 6,,1 tim 6
+A73502,1946,Note 0,0,Isaiah 40,,Esa 40
+A73502,1962,Note 0,0,Matthew 5,,Math 5
+A73502,1992,Note 0,0,John 16,,Ioh 16
+A73502,1993,Note 0,0,Matthew 9,,Mat 9
+A73502,1994,Note 0,0,Acts 9,,Act 9
+A73502,1999,Note 0,0,Matthew ^,,Math ^
+A73502,2020,Note 0,0,Romans 8,,Ro 8
+A73502,2022,Note 0,0,Corinthians 5,,cor 5
+A73502,2022,Note 1,0,Ephesians 6,,Eph 6
+A73502,2057,Note 0,0,Matthew 5,,Math 5
+A73502,2075,Note 0,0,Matthew 5,,Math 5
+A73502,2077,Note 0,0,Corinthians 9,,cor 9
+A73502,2095,Note 0,0,1 Timothy 5,,1 tim 5
+A73502,2166,Note 0,0,Matthew 6,,Mat 6
+A73502,2224,Note 0,0,Romans 6,,Rom 6
+A73502,2224,Note 1,0,Romans 9,,Rom 9
+A73502,2231,Note 0,0,Romans 6,,Rom 6
+A73502,2231,Note 0,1,1 Corinthians 1,,1 cor 1
+A73502,2236,Note 0,0,Hebrews 11,,Heb 11
+A73502,2239,Note 0,0,Galatians 5,,Gal 5
+A73502,2242,Note 0,0,Matthew 10,,mathe 10
+A73502,2383,Note 0,0,Matthew 19,,Mat 19
+A73502,2449,Note 0,0,John 10,,Ioh 10
+A73502,2455,Note 0,0,Romans 8,,Ro 8
+A73502,2457,Note 0,0,Romans 6,,Rom 6
+A73502,2497,Note 0,0,Numbers 25,,Nu 25
+A73502,2551,Note 1,0,Matthew 25,,mat 25
+A73502,2577,Note 0,0,Luke 10,,Luce 10
+A73502,2577,Note 1,0,Matthew 16,,Mat 16
+A73502,2630,Note 0,0,Matthew 5,,Math 5
+A73502,2742,Note 1,0,Psalms 76,,Psalm 76
+A73502,2804,Note 0,0,Revelation 20,,Apo 20
+A73502,2857,Note 1,0,Matthew 6,,Math 6
+A73502,3050,Note 0,0,Deuteronomy 6,,Deut 6
+A73502,3058,Note 0,0,Matthew 5,,Math 5
+A73502,3061,Note 0,0,Matthew 5,,Math 5
+A73502,3133,Note 0,0,1 Corinthians 9,,1 cor 9
+A73502,3153,Note 0,0,Numbers 5,,Num 5
+A73502,3195,Note 0,0,1 Corinthians 10,,1 cor 10
+A73502,3200,Note 0,0,Corinthians 10,,cor 10
+A73502,3201,Note 0,0,Matthew 16,,Mat 16
+A73502,3308,Note 0,0,John 11,,Ioh 11
+A73502,3354,Note 1,0,Matthew 6,,math 6
+A73502,3387,Note 0,0,Matthew 6,,math 6
+A73502,3426,Note 0,0,Psalms 19,,Psal 19
+A73502,3462,Note 0,0,Corinthians 5,,cor 5
+A73502,3482,Note 1,0,Jeremiah 5,,Iere 5
+A73502,3509,Note 0,0,Matthew 15,,Mat 15

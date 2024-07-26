@@ -191,7 +191,7 @@ def get_all():
                 else: 
                     variants[orig[0]] = True 
         if len(verse_id) > 0: 
-            verse_text, lemmatized,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
+            verse_text, _,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
             actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
             for a in actual_qp:
                 if a[2] == "In-Text": 
@@ -211,10 +211,10 @@ def get_all():
                     if not found: 
                         qp_candidates[key] = phrase
                     if entry.loc == "In-Text": 
-                        qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].lemmatized 
+                        qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].standardized 
                     else:
                         nidx = int(entry.loc.split(" ")[-1])
-                        qp_segments[key] =  Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].lemmatized
+                        qp_segments[key] =  Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].standardized
     return render_template('scriptural_index.html',
                            verse_ids=verse_ids,
                            book=book,
@@ -248,7 +248,7 @@ def get_all_redirect(book,verse_id):
             else: 
                 variants[orig[0]] = True 
     if verse_id != "None": 
-        verse_text, lemmatized,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
+        verse_text, _,phrases,indices = QuoteParaphrase.get_bible_verse(verse_id)
         actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
         for a in actual_qp:
             if a[2] == "In-Text": 
@@ -268,10 +268,10 @@ def get_all_redirect(book,verse_id):
                 if not found: 
                     qp_candidates[key] = phrase
                 if entry.loc == "In-Text": 
-                    qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].lemmatized
+                    qp_segments[key] = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].standardized
                 else:
                     nidx = int(entry.loc.split(" ")[-1])
-                    qp_segments[key] = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].lemmatized
+                    qp_segments[key] = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].standardized
     return render_template('scriptural_index.html',
                            verse_ids=verse_ids,
                            book=book,
@@ -293,10 +293,10 @@ def get_segment_and_notes(tcpID,sidx):
     s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
     unique_aut = Metadata.get_aut_by_tcpID(tcpID)
     sidx,loc_type,loc = s.sidx,s.loc_type,s.loc
-    segment.append((s.tokens, s.lemmatized,"In-Text"))
+    segment.append((s.tokens, s.standardized,"In-Text"))
     notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
     for n in notes: 
-        segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
+        segment.append((n.tokens, n.standardized,f"Note {n.nidx}"))
         locations.append(f"Note {n.nidx}")
     nextsegment = len(Text.get_by_tcpID_sidx(tcpID,sidx+1))
 
@@ -372,7 +372,7 @@ def semantic_search():
     verse_ids = sorted(verse_ids)
     if request.method == 'POST':
         verse_id = request.form['verse']
-        verse_text, lemmatized,phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)  
+        verse_text, standardized,phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)  
         actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
         qp_segments = {}
         for entry in actual_qp: 
@@ -387,7 +387,7 @@ def semantic_search():
         return render_template('search.html',
                                verse_ids=verse_ids,
                                verse_id=verse_id,
-                               lemmatized=lemmatized,
+                               standardized=standardized,
                                vindices=vindices,
                                verse_text=verse_text,
                                actual_qp=actual_qp,
@@ -401,13 +401,13 @@ def remove_bible_phrase(vidx):
     if request.method == 'POST':
         verse_id = request.form['verse_id']
         QuoteParaphrase.remove_bible_phrase(vidx)
-        verse_text, lemmatized, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)                
+        verse_text, standardized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)                
         return render_template('search.html',
                                verse_ids=verse_ids,
                                verse_id=verse_id,
                                vindices=vindices,
                                verse_text=verse_text, 
-                               lemmatized=lemmatized,
+                               standardized=standardized,
                                phrases=phrases)
     return render_template('search.html',verse_ids=verse_ids)
 
@@ -415,7 +415,7 @@ def remove_bible_phrase(vidx):
 def semantic_search_verse_get(verse_id):
     verse_ids = QuoteParaphrase.get_bible_verse_ids()
     verse_ids = sorted(verse_ids)
-    verse_text, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)
+    verse_text, standardized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)
     actual_qp = QuoteParaphrase.get_actual_verse_id(verse_id)
     qp_segments = {}
     for entry in actual_qp: 
@@ -433,7 +433,7 @@ def semantic_search_verse_get(verse_id):
                                actual_qp=actual_qp,
                                qp_segments=qp_segments,
                                vindices=vindices,
-                               lemmatized=lemmatized,
+                               standardized=standardized,
                                verse_text=verse_text,
                                phrases=phrases)
 
@@ -444,9 +444,9 @@ def semantic_search_verse():
     if request.method == 'POST':
         verse_id = request.form['verse_id']
         if len(verse_id) == 0: 
-            verse_text, lemmatized, phrases,vindices = None,None,[],[]
+            verse_text, standardized, phrases,vindices = None,None,[],[]
         else: 
-            verse_text, lemmatized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)    
+            verse_text, standardized, phrases,vindices = QuoteParaphrase.get_bible_verse(verse_id)    
         phrase = request.form['phrase']
         k = int(request.form['k'])
         results = QuoteParaphrase.search_bible_phrase('pre-Elizabethan',phrase,'text',k)
@@ -483,7 +483,7 @@ def semantic_search_verse():
         return render_template('search.html',
                                verse_ids=verse_ids,
                                results=t_results,
-                               lemmatized=lemmatized,
+                               standardized=standardized,
                                phrase=phrase,
                                actual_qp = actual_qp,
                                qp_segments = qp_segments,
@@ -504,10 +504,10 @@ def search_in_bible(tcpID, sidx,phrase=None):
         s = Text.get_by_tcpID_sidx(tcpID,sidx)[0]
         unique_aut = Metadata.get_aut_by_tcpID(tcpID)
         sidx,loc_type,pagenum = s.sidx,s.loc_type,s.loc
-        segment.append((s.tokens, s.lemmatized,"In-Text"))
+        segment.append((s.tokens, s.standardized,"In-Text"))
         notes = Marginalia.get_by_tcpID_sidx(tcpID,sidx)
         for n in notes: 
-            segment.append((n.tokens, n.lemmatized,f"Note {n.nidx}"))
+            segment.append((n.tokens, n.standardized,f"Note {n.nidx}"))
             locations.append(f"Note {n.nidx}")
         search = request.form['phrase']
         loc = request.form['loc']

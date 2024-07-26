@@ -233,7 +233,7 @@
   <br>
   <h3>Possible Quotations or Paraphrases</h3>
   <form action="{{ url_for('sermon.search_in_bible',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
-    <label for="phrase"><b>Search within the Bible (for better results, use short phrases of the lemmatized text): </b></label>
+    <label for="phrase"><b>Search within the Bible: </b></label>
     <p>{{segment[0][1]}}</p>
     <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>
     <input type="hidden" id="page" name="page" value="segment">
@@ -264,7 +264,7 @@
         <th scope="col">Location in Segment</th>
         <th scope="col">Verse of Bible</th>
         <th scope="col">Full Verse Text</th>
-        <th scope="col">Subphrase of Verse (lemmatized)</th>
+        <th scope="col">Subphrase of Verse (Standardized)</th>
         <th scope="col">Similarity Score</th>
         <th scope="col">Remove from Candidates</th>
         <th scope="col">Add As Actual Reference</th>
