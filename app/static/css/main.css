@@ -4,6 +4,12 @@ body {
     /* font-family: "Lucida Handwriting", cursive; */
     font-family: Cambria, Cochin, 'Times New Roman', Times, serif;
 }
+p {
+  text-indent: 25px;
+  margin-left: 25px;
+  margin-right:25px;
+  font-size: 18px;
+}
 
 a {
     color:#7b7d85;
@@ -32,11 +38,38 @@ a:hover {
   color:#7b7d85;
 }
 
+tfoot input {
+  width: 100%;
+  padding: 3px;
+  box-sizing: border-box;
+}
+
+.input-wrapper { 
+    position: relative; 
+    display: inline-block; 
+} 
+
+.input-wrapper input { 
+    padding-right: 40px; 
+    width: 600px;
+} 
+
+.input-wrapper button { 
+    position: absolute; 
+    bottom: 0; 
+    right: 0; 
+    border: none; 
+    background-color: transparent; 
+    cursor: pointer; 
+} 
+
 .site_body {
+  width: 100%;
   padding-top: 25px;
   padding-left: 75px;
   padding-right: 75px;
-  padding-bottom: 25px
+  padding-bottom: 25px;
+  overflow-x: auto;
 }
 .site_body img {
   width: 50%;

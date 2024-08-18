@@ -151,14 +151,14 @@ function filterOptions3() {
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>
   <br>
-  <h3>Actual Quotations or Paraphrases of {{verse_id}}</h3>
+  <h3>Quotations or Paraphrases of {{verse_id}}</h3>
   <h5><b>Full Verse:</b> &VeryThinSpace; {{verse_text}}</h5>
+  
   <table class='table is-striped' id="sort_qp">
     <thead class="grey_table" >
       <tr>
         <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
-        <th scope="col">Verse of Bible</th>
         <th scope="col">Phrase of Segment</th>
         <th scope="col">Remove Reference</th>
       </tr>
@@ -167,17 +167,14 @@ function filterOptions3() {
       {% for q in actual_qp %}
         <tr>
           <td>{{q[0]}}</td>
-          <td>{{q[1]}}<br>{{q[2]}}</td>
-          <td>{{q[3]}}</td>
-          <td>{{q[4]}}
+          <td>{{q[1]}}<br>{{q[2]}}
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
+          <td>{{q[5]}}</td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="index">
-              <input type="hidden" id="searchlabel" name="searchlabel" value="{{book}}">
-              <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
+              <input type="hidden" id="page" name="page" value="segment">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
           </td>  
@@ -185,47 +182,7 @@ function filterOptions3() {
       {% endfor %}
     </tbody>
   </table>
-  
   <br>
-    
-     <h3>Possible Quotations or Paraphrases of {{verse_id}}</h3>
-     <h5>
-      <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=verse_id) }}"><u>Search for Verse</u></a>
-     </h5>
-  <table class='table is-striped' id="sort_tcpID">
-    <thead class="grey_table" >
-      <tr>
-        <th scope="col">TCP ID</th>
-        <th scope="col">Index and Location of Segment</th>
-        <th scope="col">Segment Text (Standardized)</th>
-        <!-- <th scope="col">Candidate Phrase of Verse</th> -->
-        <th scope="col">Add As Actual Reference</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for q in qp_candidates %}
-        <tr>
-          <td>{{q[0]}}</td>
-          <td>{{q[1]}} <br> {{q[2]}}</td>
-          <td>{{qp_segments[(q[0],q[1],q[2])]}}
-            <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
-          </td>
-          <!-- <td>{{qp_candidates[q]}}</td> -->
-          <td> 
-            <form action="{{ url_for('sermon.add_qp',tcpID=q[0], sidx=q[1], verse_id=verse_id,loc=q[2])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="index">
-              <input type="hidden" id="searchlabel" name="searchlabel" value="{{book}}">
-              <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
-              <label for="phrase">Phrase of Text</label>
-              <input type="text" id="phrase" name="phrase">
-              <input type="submit" value="Add As Reference" class="btn-gray"/> 
-             </form> 
-          </td> 
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
 {% endif %}
 </div>
 

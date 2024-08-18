@@ -57,7 +57,7 @@
     <tbody>
     {% for s in segments %}
         <tr>
-            <td>{{s.tokens}}</td> 
+            <td>{{s.tokens | safe}}</td> 
             <td>{{s.sidx}}</td>
             <td>{{s.section}}</td>
             <td>{{s.pidx}}</td>
@@ -88,7 +88,7 @@
                 <td>{{n.sidx}}
                 </td>
                 <td>{{n.nidx}}</td>
-                <td>{{n.tokens}}</td> 
+                <td>{{n.tokens | safe}}</td> 
                 <td>
                   <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=n.tcpID,sidx=n.sidx) }}"><u><b>View</b></u></a>
                 </td>
@@ -96,6 +96,8 @@
         {% endfor %}
         </tbody>
     </table>
+
+    
 </div>
 
 </div>

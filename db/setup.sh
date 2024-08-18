@@ -21,3 +21,11 @@ createdb $dbname
 psql -af create.sql $dbname
 cd $datadir
 psql -af $mybase/load.sql $dbname
+for i in {2..9}; do
+   psql -d $dbname -c "\COPY Segment FROM 'CivilWar/A${i}_body.csv' WITH DELIMITER ',' NULL '' CSV"
+   psql -d $dbname -c "\COPY Marginalia FROM 'CivilWar/A${i}_margin.csv' WITH DELIMITER ',' NULL '' CSV"
+   psql -d $dbname -c "\COPY Citation FROM 'CivilWar/A${i}_citations.csv' WITH DELIMITER ',' NULL '' CSV"
+done
+psql -d $dbname -c "\COPY Segment FROM 'CivilWar/B_body.csv' WITH DELIMITER ',' NULL '' CSV"
+psql -d $dbname -c "\COPY Marginalia FROM 'CivilWar/B_margin.csv' WITH DELIMITER ',' NULL '' CSV"
+psql -d $dbname -c "\COPY Citation FROM 'CivilWar/B_citations.csv' WITH DELIMITER ',' NULL '' CSV"

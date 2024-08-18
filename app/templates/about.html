@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<br>
+<div class="site_body">
+
+<h2 style="text-align:center;">The <i>Early English Printed Sermons</i> (EEPS) Project:  A Reference Index</h2>
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div>
+<br>
+<h3 style="text-align:center;">Overview</h3>
+<br>
+
+<p >
+In the adaptation of a sermon from its initial oral performance to printed circulation, the preparer of the text—who may be the preacher himself or another man relying upon sermon notes—frequently revised and formalized the sermon’s copious storehouse of intertexts. In both the margin and text of these publications, there are a multitude of references to the Bible, the Apocrypha, biblical commentaries, histories, philosophy, systematic theologies, and even literary texts from patristic, classical, medieval, and contemporary sources. Lectures saturated with learning abound with Latin and Greek quotations specially demarcated in print with italicization, whereas English proverbs and colloquialisms might be found in texts that deliberately retain a plain style. 
+</p>
+
+<p>
+  Intertextual elements offer valuable insights into the linguistic style and intellectual frameworks of these authors, but only rarely are these early books also accompanied with a convenient index. Moreover, these sources appear in such a vast variety of formatting and spellings that simply searching by a list of keywords in plain text transcriptions is inadequate for comprehensively identifying any reference, whether it be a highly structured citation of a biblical proof text, an abbreviated mention to the work of a Greek author, or an aphorism quoted in didactic commonplace books of the time. Illegible words and characters, the lack of citations for certain quotations and paraphrases, foreign language <i>sententiae</i>, and variable title and authorial abbreviations further complicate this task of reference identification. 
+</p>
+
+<p>
+	In this endeavor to explore the interconnections between source texts in a genre so crucial to the theological, ethical, and political discourses of Renaissance and Early Modern England, I complement close reading with text mining to diachronically uncover the distribution, density, and structure of references in nearly six thousand sermons printed between 1495 and 1700. The prodigious developments in natural language processing enable interdisciplinary and cross-domain applications of large language models, classical statistical approaches, and rules-based analysis to these sermons. I developed my methodology iteratively based on qualitative assumptions and experimental experiences gleaned from my pipeline of sermon identification, text extraction, spelling standardization, token annotation, text segmentation, heuristic citation parsing, and machine learning-based paraphrase detection. I have extensively refined each step as I increasingly comprehended a greater extent of its complexity. 
+</p>
+
+<p>
+  These objectives are enabled above all by the transcriptions manually produced and published by the Text Creation Partnership for the Early English Books Online database, and fortunately these texts are publicly available for download as XML files. To process earlier English, I rely on the specialized software of MorphAdorner, which is a historical English text annotator, MacBERTh, a BERT-based model pre-trained on massive English historical corpora. I also use OpenAI’s GPT 3.5 to mass-correct frequently occurring spelling variations. Since current databases for early texts support only lexical search with a known list of spelling variations, this project also involves the development of a semantic search engine using a vector database of text embeddings generated with a model customized for these sermons. To avoid the time-consuming and laborious task of manually labeling a large and representative enough training dataset, I iteratively mine a sizable corpus of paraphrases using pre-existing encoders on six Bible versions and sermon segments that have parsed citations. I then use my fine-tuned model for paraphrase mining and information retrieval. Moreover, I publicize my running record of references on this website which I manually built using Flask, PostgreSQL, and HTML/CSS to offer an interactive research tool of indexed intertexts, searchable texts, dynamic visualizations, and aggregated metadata. 
+</p>
+
+<p>
+  At this initial stage, the project catalogs scriptural citations from all the texts and a vector database containing textual segments from ones published during the Civil War. To investigate English preachers’ reliance on scripture for their teachings over time, I quantify the distribution and granularity of citations and compare them to the currently identified paraphrases. These scriptural references provide a snapshot of preachers’ exegetical and typological foci, as well as hints to the Bible version(s) that they most likely used. I also analyze the presence of foreign language and italicization or other typographical emphases. Finally, I will construct authorial networks based on shared referencing styles, topics, publication years, and preaching occasions. Similar referencing habits are informative of potential ideological alignment, which is particularly interesting for examining deviations from established material like the Book of Homilies and tracing continuities across blurry denominational divides. Further research is required for the likeliest preaching place of a sermon in order to investigate and map the existence of communities with similar sermon cultures. 
+</p>
+
+<p>
+  In later stages of this project, I shall tackle non-scriptural references by training an asymmetrical retrieval system for passages relevant to biblical entities, theologians, contemporary figures, canonical references, and other entities. The exploration of theologians is particularly important because there may be false-positive biblical citations that belong actually to references to commentaries. Prefatory materials, which are currently omitted from the website, may provide insights into the attitudes and purposes of preachers in print dissemination. 
+</p>
+
+<!-- <h3>Acknowledgements</h3> -->
+
+
+</div>
+
+{% endblock %}

@@ -94,35 +94,39 @@
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>  
-
+ 
   <br>
-  <h3>Actual Quotations or Paraphrases</h3>
+  <h3>Quotations or Paraphrases</h3>
   <table class='table is-striped' id="sort_qp">
     <thead class="grey_table" >
       <tr>
+        <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
-        <th scope="col">Verse of Bible</th>
+        <th scope="col">Verse & Version</th>
         <th scope="col">Full Verse Text</th>
-        <th scope="col">Phrase of Segment</th>
+        <th scope="col">Phrase(s) of Segment</th>
+        <th scope="col">Score(s)</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
     <tbody>
       {% for q in actual_qp %}
         <tr>
-          <td>{{q[1]}}<br>{{q[2]}}
+          <td>{{q.tcpID}}</td>
+          <td>{{q.sidx}}<br>{{q.loc}}
             <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
-          <td>{{q[3]}}
+          <td>{{q.verse_id}}
             <br>
-              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u>Search for Verse</u></a>
+              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q.verse_id) }}"><u><b>Search for Verse</b></u></a>
           </td>
-          <td>{{q[5]}}</td>
-          <td>{{q[4]}}</td>
+          <td>{{q.verse_text}}</td>
+          <td>{{q.phrase | safe}}</td>
+          <td>{{q.score | safe}}</td>
           <td>
-            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="allref">
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
+              <input type="hidden" id="page" name="page" value="segment">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
           </td>  
@@ -131,26 +135,6 @@
     </tbody>
   </table>
   <br>
-  <h4>Possible Quotations or Paraphrases</h4>
-  <table class='table is-striped' id="sort_sidx2">
-    <thead class="grey_table" >
-      <tr>
-        <th scope="col">Index and Location of Segment</th>
-        <th scope="col">Segment Text</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for q in qp_candidates %}
-        <tr>
-          <td>{{q[1]}} <br> {{q[2]}}</td>
-          <td>{{qp_segments[q]}}
-            <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
 </div>
 
 </div>

@@ -23,6 +23,12 @@ CREATE TABLE Pubplace(
   pubplace text NOT NULL
 );
 
+CREATE TABLE SubjectHeading(
+  tcpID TEXT NOT NULL, 
+  subject_heading text NOT NULL,
+  primary key (tcpID, subject_heading)
+);
+
 CREATE TABLE Segment(
   -- Primary key is the TCP id and segment index 
   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID), -- foreign key
@@ -31,14 +37,16 @@ CREATE TABLE Segment(
   loc INT, -- page number or the image reference number on which this segment begins 
   loc_type VARCHAR(30), -- whether location is a page or image
   pidx INT NOT NULL, -- index of the paragraph in which this segment is located  
-  tokens TEXT NOT NULL, -- the tokenized segment 
+  tokens TEXT, -- the tokenized segment 
+  standardized TEXT,
   PRIMARY KEY (tcpID, sidx)
 );
 
 CREATE TABLE Section( -- see the plain_all folder 
-  tcpID VARCHAR(30) NOT NULL PRIMARY KEY REFERENCES Sermon(tcpID), -- foreign key
+  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID), -- foreign key
   section_idx INT NOT NULL,-- index of the section within the book 
   section_name TEXT NOT NULL, -- name of the section 
+  PRIMARY KEY (tcpID, section_idx)
 );
 
 CREATE TABLE Marginalia(
@@ -47,7 +55,8 @@ CREATE TABLE Marginalia(
   sidx INT NOT NULL, -- segment in which the note is located 
   nidx INT NOT NULL, -- index of the note within the segment  
   tokens TEXT NOT NULL, -- the tokenized segment 
-  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
+  standardized TEXT,
+  -- FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, nidx)
 );
 
@@ -65,41 +74,20 @@ CREATE TABLE Citation(
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
 
-CREATE TABLE BibleVersion(
-  tcpID VARCHAR(30) NOT NULL PRIMARY KEY REFERENCES Sermon(tcpID),
-  ver TEXT NOT NULL -- version of the Bible   
-);
 
 CREATE TABLE Bible(
-  verse_id VARCHAR(500) NOT NULL PRIMARY KEY,
+  verse_id VARCHAR(100) NOT NULL PRIMARY KEY,
   bible_version VARCHAR(30) NOT NULL, 
-  part VARCHAR(500) NOT NULL,
+  part VARCHAR(100) NOT NULL,
   book VARCHAR(100) NOT NULL,
   chapter INT NOT NULL,
   verse INT NOT NULL,
   verse_text TEXT NOT NULL
 );
 
-CREATE TABLE BiblePhrase(
-  vidx INT NOT NULL PRIMARY KEY,  
-  phrase TEXT NOT NULL
-);
-
-CREATE TABLE BiblePhraseLabel(
-  vidx INT NOT NULL REFERENCES BiblePhrase(vidx),  
-  verse_id VARCHAR(500) NOT NULL REFERENCES Bible(verse_id),
-  PRIMARY KEY (vidx,verse_id)
-);
-
-CREATE TABLE PossibleQuoteParaphrase(
-  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
-  sidx INT NOT NULL, -- segment in which the hit is located 
-  loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
-  vidx INT NOT NULL REFERENCES BiblePhrase(vidx), -- verse phrase index   
-  score DECIMAL NOT NULL, -- cross attention score 
-  freq INT NOT NULL,
-  PRIMARY KEY (tcpID, sidx, loc, vidx), 
-  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
+CREATE TABLE BibleVersion(
+  tcpID VARCHAR(30) NOT NULL PRIMARY KEY REFERENCES Sermon(tcpID),
+  ver TEXT NOT NULL -- version of the Bible   
 );
 
 CREATE TABLE QuoteParaphrase( -- certain, verified quotations/paraphrases 
@@ -107,10 +95,19 @@ CREATE TABLE QuoteParaphrase( -- certain, verified quotations/paraphrases
   sidx INT NOT NULL, -- segment in which the hit is located 
   loc TEXT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
   verse_id TEXT NOT NULL REFERENCES Bible(verse_id), -- verse identifier  
-  phrase TEXT NOT NULL, 
-  PRIMARY KEY (tcpID, sidx, loc, verse_id), 
-  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
+  score TEXT NOT NULL, -- separated by "<br>--<br>"
+  phrase TEXT NOT NULL, -- separated by "<br>--<br>"
+  PRIMARY KEY (tcpID, sidx, loc, verse_id) 
+  -- FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
 );
+
+CREATE TABLE CrossReferences(
+  verse_id_1 VARCHAR(100) NOT NULL REFERENCES Bible(verse_id),
+  verse_id_2 VARCHAR(100) NOT NULL REFERENCES Bible(verse_id),
+  similarity DECIMAL NOT NULL,
+  PRIMARY KEY (verse_id_1, verse_id_2)
+);
+
 ----------------------------------------------------------------------
 
 CREATE FUNCTION MarginalConstraint() RETURNS TRIGGER AS $$

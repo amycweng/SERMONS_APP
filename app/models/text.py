@@ -1,7 +1,7 @@
 from flask import current_app as app
 
 class Text:
-    def __init__(self,tcpID,sidx,section,loc,loc_type,pidx,tokens,lemmatized):
+    def __init__(self,tcpID,sidx,section,loc,loc_type,pidx,tokens,standardized):
         self.tcpID = tcpID 
         self.sidx = sidx
         self.section = section
@@ -9,7 +9,7 @@ class Text:
         self.loc_type = loc_type
         self.pidx = pidx
         self.tokens = tokens 
-        self.lemmatized = lemmatized
+        self.standardized = standardized
 
     @staticmethod
     def get_by_tcpID(tcpID):
@@ -34,13 +34,13 @@ class Text:
         return [Text(*row) for row in rows]
 
 class Marginalia:
-    def __init__(self,tcpID,sidx,nidx,tokens,lemmatized):
+    def __init__(self,tcpID,sidx,nidx,tokens,standardized):
         self.tcpID = tcpID 
         self.sidx = sidx
         self.nidx = nidx
         self.tokens = tokens 
-        self.lemmatized = lemmatized
-    
+        self.standardized = standardized
+            
     @staticmethod
     def get_by_tcpID(tcpID):
         rows = app.db.execute('''

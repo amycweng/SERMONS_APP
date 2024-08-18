@@ -29,7 +29,7 @@ def download():
                 if c.tcpID not in metadata:        
                     metadata[c.tcpID] = meta
                     book_counts[c.tcpID] = 0
-                    phase = Metadata.get_phase(c.tcpID)
+                    phase = meta.phase
                     if phase == 2: links[c.tcpID] = f'https://quod.lib.umich.edu/e/eebo2/{c.tcpID}.0001.001?'
                     elif phase == 1: links[c.tcpID] = f'https://quod.lib.umich.edu/e/eebo/{c.tcpID}.0001.001?'
                     else: links[c.tcpID] = None

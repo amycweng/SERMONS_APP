@@ -1,8 +1,7 @@
 from flask import current_app as app
 
 class Metadata:
-    def __init__(self,tcpID,estc,stc,title,authors,publisher,pubplace,subject_headings,pubyear):
-        # id,estc,stc,title,authors,publisher,pubplace,subject_headings,date
+    def __init__(self,tcpID,estc,stc,title,authors,publisher,pubplace,subject_headings,pubyear,phase):
         self.tcpID = tcpID 
         self.estc = estc 
         self.stc = stc
@@ -12,6 +11,7 @@ class Metadata:
         self.pubplace = pubplace
         self.subject_headings = subject_headings
         self.pubyear = pubyear 
+        self.phase = phase 
 
     @staticmethod
     def all_tcpIDs(): 
@@ -29,10 +29,10 @@ class Metadata:
     
     @staticmethod
     def get_all():
-        # current user's ratings and reviews for all products 
         rows = app.db.execute('''
         SELECT *
         FROM Sermon as s 
+        ORDER BY s.pubyear, s.title
         ''')
         return [Metadata(*row) for row in rows]
     
@@ -114,12 +114,3 @@ class Metadata:
         ''',
         tcpID=tcpID)
         return rows 
-    
-    @staticmethod
-    def get_phase(tcpID):
-        rows = app.db.execute('''
-        SELECT phase
-        FROM Phase
-        WHERE tcpID = :tcpID 
-        ''',tcpID=tcpID)
-        return rows[0][0]

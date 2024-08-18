@@ -175,28 +175,127 @@ class Citation:
         citation=citation,
         replaced=replaced)
 
+class Bible: 
+    def __init__(self,verse_id,bible_version,part,book,chapter,verse,verse_text):
+        self.verse_id = verse_id 
+        self.bible_version = bible_version
+        self.part = part 
+        self.book = book
+        self.chapter = chapter 
+        self.verse = verse
+        self.verse_text = verse_text
+    
+    @staticmethod
+    def get_bible_verse_ids(verse_id):
+        rows = app.db.execute('''
+        SELECT * 
+        FROM Bible
+        WHERE Bible.verse_id = :verse_id
+        ''',
+        verse_id=verse_id)
+        return [Bible(*row) for row in rows]
+    
+    @staticmethod
+    def get_bible_verse_by_ids(verse_ids):
+        rows = app.db.execute('''
+        SELECT * 
+        FROM Bible
+        WHERE Bible.verse_id IN :verse_ids
+        ''',
+        verse_ids=verse_ids)
+        return [Bible(*row) for row in rows]   
+    
+    @staticmethod
+    def get_bible_verse_by_id(verse_id):
+        rows = app.db.execute('''
+        SELECT * 
+        FROM Bible
+        WHERE Bible.verse_id  = :verse_ids
+        ''',
+        verse_ids=verse_id)
+        return [Bible(*row) for row in rows]  
+    
+    @staticmethod
+    def get_bible_verse_by_part(verse_id,part):
+        rows = app.db.execute('''
+        SELECT * 
+        FROM Bible
+        WHERE Bible.verse_id = :verse_id
+        AND Bible.part = :part
+        ''',
+        verse_id=verse_id,
+        part=part)
+        return [Bible(*row) for row in rows]
+
+    @staticmethod
+    def search_bible_phrase(era,phrase,loc,k):
+        results = app.vectordb.search(era,phrase,loc,k)
+        return results
+    
+    @staticmethod
+    def search_in_bible(phrase,k):
+        results = app.vectordb.search_bible(phrase,k)
+        return results
+    
+
 class QuoteParaphrase:
-    def __init__(self,tcpID,sidx,loc,vidx,score,freq,label,phrase,full):
+    def __init__(self,tcpID,sidx,loc,verse_id,score,phrase,verse_text):
         self.tcpID = tcpID 
         self.sidx = sidx
         self.loc = loc 
-        self.label = label
-        self.vidx = vidx
+        self.verse_id = verse_id
         self.score = score
-        self.freq = freq
         self.phrase = phrase
-        self.full = full
+        self.verse_text = verse_text
 
     @staticmethod
-    def add_qp(tcpID, sidx,loc,verse_id,phrase):
-        app.db.execute("""
-        INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:phrase)  
-        """,
+    def add_qp(tcpID, sidx,loc,verse_id,score,phrase):
+        check = app.db.execute('''
+        SELECT EXISTS (
+            SELECT * 
+            FROM QuoteParaphrase as p, Bible as b 
+            WHERE p.tcpID = :tcpID
+            AND b.verse_id = p.verse_id
+            AND p.verse_id = :verse_id,
+            AND p.sidx = :sidx,
+            AND p.loc = :loc
+        )
+        ''',
         tcpID = tcpID,
         sidx=sidx,
         verse_id=verse_id,
-        loc=loc,
-        phrase=phrase)
+        loc=loc
+        )
+        if not check: 
+            app.db.execute("""
+            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:phrase)  
+            """,
+            tcpID = tcpID,
+            sidx=sidx,
+            verse_id=verse_id,
+            loc=loc,
+            score=score,
+            phrase=phrase)
+        else: 
+            score = f"<br>--<br>{score}"
+            phrase = f"<br>--<br>{phrase}"
+            app.db.execute("""
+            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:phrase)
+            UPDATE QuoteParaphrase
+            SET score = CONCAT(score, :score),
+                phrase = CONCAT(phrase,:phrase)
+            WHERE p.tcpID = :tcpID
+            AND b.verse_id = p.verse_id
+            AND p.verse_id = :verse_id,
+            AND p.sidx = :sidx,
+            AND p.loc = :loc 
+            """,
+            tcpID = tcpID,
+            sidx=sidx,
+            verse_id=verse_id,
+            loc=loc,
+            score=score,
+            phrase=phrase)
 
     @staticmethod
     def remove_actual_qp(tcpID, sidx,loc,verse_id):
@@ -214,40 +313,40 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_verse_id(verse_id):
         rows = app.db.execute('''
-        SELECT *
+        SELECT p.verse_id
         FROM QuoteParaphrase as p
         WHERE p.verse_id = :verse_id
         ''',
         verse_id = verse_id)
-        return rows 
+        return [QuoteParaphrase(*row) for row in rows] 
         
     @staticmethod
     def get_actual_by_tcpID(tcpID):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.phrase,b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
         ''',
         tcpID = tcpID)
-        return rows 
+        return [QuoteParaphrase(*row) for row in rows]  
     
     @staticmethod
     def get_actual_by_aut(aut):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text,p.phrase
-        FROM QuoteParaphrase as p, Bible as b,Author as a  
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
+        FROM QuoteParaphrase as p, Bible as b, Author as a  
         WHERE b.verse_id = p.verse_id
         AND p.tcpID = a.tcpID 
         AND a.author = :aut 
         ''',
         aut = aut)
-        return rows 
+        return [QuoteParaphrase(*row) for row in rows]  
     
     @staticmethod
     def get_actual_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, b.verse_text,p.phrase
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
@@ -255,133 +354,7 @@ class QuoteParaphrase:
         ''',
         tcpID = tcpID,
         sidx=sidx)
-        return rows 
-    @staticmethod
-    def get_all():
-        rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
-        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE p.vidx = b.vidx 
-        AND Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        ''')
-        return [QuoteParaphrase(*row) for row in rows]
+        return [QuoteParaphrase(*row) for row in rows]  
     
-    @staticmethod
-    def get_by_tcpID(tcpID):
-        rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
-        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE p.tcpID = :tcpID 
-        AND p.vidx = b.vidx 
-        AND Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        ''',
-        tcpID=tcpID)
-        return [QuoteParaphrase(*row) for row in rows]
     
-    @staticmethod
-    def get_by_vidx(vidx):
-        rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
-        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE p.vidx = :vidx 
-        AND p.vidx = b.vidx 
-        AND Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        ''',
-        vidx=vidx)
-        return [QuoteParaphrase(*row) for row in rows]
     
-    @staticmethod
-    def get_by_tcpID_sidx(tcpID,sidx):
-        rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.vidx, p.score, p.freq, b.verse_id,bp.phrase,Bible.verse_text
-        FROM PossibleQuoteParaphrase as p, BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE p.tcpID = :tcpID 
-        AND p.vidx = b.vidx 
-        AND Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        AND p.sidx = :sidx
-        ''',
-        tcpID=tcpID,
-        sidx=sidx)
-        return [QuoteParaphrase(*row) for row in rows]
-    
-    @staticmethod
-    def remove_by_tcpID_sidx_vidx(tcpID,sidx,vidx):
-        app.db.execute('''
-        DELETE FROM PossibleQuoteParaphrase as p
-        WHERE p.tcpID = :tcpID 
-        AND p.vidx = :vidx
-        AND p.sidx = :sidx
-        ''',
-        tcpID=tcpID,
-        sidx=sidx,
-        vidx=vidx)
-    
-    @staticmethod
-    def get_bible_verse_ids():
-        rows = app.db.execute('''
-        SELECT DISTINCT b.verse_id
-        FROM BiblePhraseLabel as b
-        ''')
-        return rows 
-    
-    @staticmethod
-    def get_bible_verse(verse_id):
-        rows = app.db.execute('''
-        SELECT b.verse_id,bp.phrase,Bible.verse_text,b.vidx,Bible.lemmatized
-        FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        AND b.verse_id = :verse_id
-        ''',
-        verse_id=verse_id)
-        if len(rows) == 0: return None 
-        verse_text = rows[0][2]
-        lemmatized = rows[0][4]
-        vindices = [row[3] for row in rows]
-        phrases = [(row[1],idx) for idx,row in enumerate(rows)]
-        return verse_text,lemmatized, phrases,vindices 
-   
-    @staticmethod
-    def get_bible_verse_by_vidx(vidx):
-        rows = app.db.execute('''
-        SELECT b.verse_id,bp.phrase,Bible.verse_text
-        FROM BiblePhraseLabel as b, BiblePhrase as bp, Bible
-        WHERE Bible.verse_id = b.verse_id 
-        AND b.vidx = bp.vidx
-        AND b.vidx = :vidx
-        ''',
-        vidx=vidx)
-        return rows 
-
-    @staticmethod
-    def search_bible_phrase(era,phrase,loc,k):
-        results = app.vectordb.search(era,phrase,loc,k)
-        return results
-    
-    @staticmethod
-    def search_in_bible(phrase,k):
-        results = app.vectordb.search_bible(phrase,k)
-        return results
-    
-    @staticmethod
-    def remove_bible_phrase(vidx):
-        app.db.execute('''
-        DELETE FROM PossibleQuoteParaphrase as p
-        WHERE p.vidx = :vidx
-        ''',
-        vidx=vidx)
-        app.db.execute('''
-        DELETE FROM BiblePhraseLabel as p
-        WHERE p.vidx = :vidx
-        ''',
-        vidx=vidx)
-        app.db.execute('''
-        DELETE FROM BiblePhrase as p
-        WHERE p.vidx = :vidx
-        ''',
-        vidx=vidx)
-        

@@ -37,7 +37,7 @@ def find_pubplace_metadata(pubplace):
                         standard = standard)
 
 @bp.route('/pubplace/<pubplace>/edit', methods=['POST','GET'])
-def edit_pubplace(pubplace):
+def edit_pubplace():
     if request.method == "POST": 
         new = request.form["new"]
         old = request.form['old']
@@ -50,7 +50,7 @@ def find_author_references(author):
     aut_tcpIDs = Metadata.get_tcpIDs_by_aut(author)
     segment = []
     metadata = []
-    possible_qp = {}
+    actual_qp,qp_candidates,qp_segments = {},{},{}
     c_dict = {'in-text':{0:[]},'marginal':{},'t_outlier':{0:[]},'m_outlier':{}}
     citations = []
     citations_list = Citation.get_by_aut(author)
@@ -71,8 +71,8 @@ def find_author_references(author):
                 c_dict["m_outlier"][nidx].append(c.outlier)
     for author, tcpID in aut_tcpIDs:
         metadata.append(Metadata.get_by_tcpID(tcpID)[0])
-        qp = QuoteParaphrase.get_by_tcpID(tcpID)
-        possible_qp[tcpID] = qp
+        # qp = QuoteParaphrase.get_by_tcpID(tcpID)
+        # possible_qp[tcpID] = qp
 
     has_citations_text, has_citations_margin = False, False
     if len(c_dict["in-text"][0]) > 0: has_citations_text = True 
@@ -83,36 +83,36 @@ def find_author_references(author):
         if len(c_list) > 0:
             m_outlier = True 
     
-    actual_qp = QuoteParaphrase.get_actual_by_aut(author)
-    qp_segments = {}
-    for a in actual_qp:
-        if a[2] == "In-Text": 
-            key = (a[0],a[1],a[2])
-            segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
-            qp_segments[key] = segment 
-        else:
-            nidx = int(a[2].split(" ")[-1])
-            segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
-            qp_segments[key] = segment 
+    # actual_qp = QuoteParaphrase.get_actual_by_aut(author)
+    # qp_segments = {}
+    # for a in actual_qp:
+    #     if a[2] == "In-Text": 
+    #         key = (a[0],a[1],a[2])
+    #         segment = Text.get_by_tcpID_sidx(a[0],a[1])[0].tokens
+    #         qp_segments[key] = segment 
+    #     else:
+    #         nidx = int(a[2].split(" ")[-1])
+    #         segment = Marginalia.get_by_tcpID_sidx_nidx(a[0],a[1],nidx)[0].tokens
+    #         qp_segments[key] = segment 
     
-    qp_candidates = []
-    for tcpID, items in possible_qp.items(): 
-        for entry in items: 
-            key = (entry.tcpID,entry.sidx,entry.loc)
-            found = False 
-            for a in actual_qp: 
-                if a[0] == entry.tcpID and a[1] == entry.sidx and a[2] == entry.loc and a[3] == entry.label: 
-                    found = True 
-                    break
-            if not found: 
-                qp_candidates.append(entry)
-            if entry.loc == "In-Text": 
-                segment = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].tokens
-                qp_segments[key] = segment 
-            else:
-                nidx = int(entry.loc.split(" ")[-1])
-                segment = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].tokens
-                qp_segments[key] = segment
+    # qp_candidates = []
+    # for tcpID, items in possible_qp.items(): 
+    #     for entry in items: 
+    #         key = (entry.tcpID,entry.sidx,entry.loc)
+    #         found = False 
+    #         for a in actual_qp: 
+    #             if a[0] == entry.tcpID and a[1] == entry.sidx and a[2] == entry.loc and a[3] == entry.label: 
+    #                 found = True 
+    #                 break
+    #         if not found: 
+    #             qp_candidates.append(entry)
+    #         if entry.loc == "In-Text": 
+    #             segment = Text.get_by_tcpID_sidx(entry.tcpID,entry.sidx)[0].tokens
+    #             qp_segments[key] = segment 
+    #         else:
+    #             nidx = int(entry.loc.split(" ")[-1])
+    #             segment = Marginalia.get_by_tcpID_sidx_nidx(entry.tcpID,entry.sidx,nidx)[0].tokens
+    #             qp_segments[key] = segment
 
     return render_template('author.html',
                         author=author,

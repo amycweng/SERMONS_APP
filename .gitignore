@@ -3,5 +3,5 @@ logfile
 .sermons_app
 db_info
 install.sh
-/Quokkazon
-/db
+/db/data
+/SERMONS_APP/db/data/chromadb

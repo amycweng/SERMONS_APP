@@ -3,8 +3,8 @@ from io import BytesIO
 from wordcloud import WordCloud 
 import base64
 from matplotlib.figure import Figure 
-import numpy as np 
-import re 
+ 
+import re,json
 from collections import Counter 
 
 from .models.metadata import Metadata
@@ -13,18 +13,21 @@ from .lib import *
 from flask import Blueprint
 bp = Blueprint('index', __name__)
 
-def grey_color_func(word, font_size, position, orientation, random_state=None,
-                    **kwargs):
-    grey_value = int(150 - font_size)  
-    grey_value = max(50, min(grey_value, 200))  
-    return "rgb({0}, {0}, {0})".format(grey_value)
-
 
 @bp.route('/')
+def about():
+    return render_template('about.html')
+
+@bp.route('/sermons')
 def index():
     sermons = Metadata.get_all()
     pubplaces = Metadata.get_pubplace()
     pubplaces = {s[0]:s[1] for s in pubplaces}
+    for s in sermons: 
+        # if s.subject_headings is not None: 
+        #     s.subject_headings = "<br><br>".join(s.subject_headings.split("; "))
+        if s.phase == 2: s.phase = f'https://quod.lib.umich.edu/e/eebo2/{s.tcpID}.0001.001?'
+        elif s.phase == 1: s.phase = f'https://quod.lib.umich.edu/e/eebo/{s.tcpID}.0001.001?'
     return render_template('index.html',
                         sermons = sermons,
                         pubplaces = pubplaces)
@@ -62,21 +65,16 @@ def visualize():
     years = [(year,idx) for idx,year in enumerate(x)]
     num_sermons = y
 
-    subjects = []
-    exclude = ['Sermons, English','Bible','Sermons','Early works to 1800']
-    for s in sermons: 
-        words = s.subject_headings.split("; ")
-        for w in words: 
-            if w == "No Keywords": continue
-            if w.strip(".") not in exclude: 
-                if w != 'O.T.' and w!= 'N.T.': 
-                    w = w.strip(".")
-                subjects.append(w)
-    subjects = Counter(subjects)
-    word_cloud = WordCloud(background_color = "white",font_path='Times New Roman', width=1200, height=800, max_words=2000,color_func=grey_color_func).generate_from_frequencies(subjects)
+    with open("/Users/amycweng/DH/SERMONS_APP/db/data/subjects.json","r") as file: 
+        subjects = json.load(file) 
+    wc_subjects = subjects[:502]  
+    exclude = ["Sermons, English",
+               "Early works to 1800"]
+    wc_subjects = Counter({subject[0]:subject[1] for subject in wc_subjects if subject[0] not in exclude})
+    
+    word_cloud = WordCloud(background_color = "white",font_path='Times New Roman', width=1200, height=800, max_words=2000,colormap=blue_cmap).generate_from_frequencies(wc_subjects)
     img_buffer = BytesIO()
     word_cloud.to_image().save(img_buffer, format="png")
-    subjects = sorted(subjects.items(),key = lambda x:x[1],reverse=True)
     data2 = base64.b64encode(img_buffer.getvalue()).decode("ascii")
 
     # authors
@@ -107,26 +105,20 @@ def visualize():
     london = []
     for s in sermons:
         found = False 
+        if s.tcpID not in pubplaces: continue 
         place = pubplaces[s.tcpID]
-        if re.search(r"London",place):
+        if place == "London":
             london.append('London')
-            places.append('London')
-            found = True 
         else: 
             london.append('Not London')
-        if re.search(r"Oxford",place):
-            places.append('Oxford')
-            found=True
-        if re.search('Boston',place):
-            places.append('Boston')
-            found = True 
-        if not found: 
-            places.append(place)
+        
+        places.append(place)
     
     fig = Figure(figsize=(15, 8))
     london_ax,ax= fig.subplots(1,2)
     london = Counter(london)
-    london_ax.pie(london.values(), labels=london.keys(), autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':20})
+    colors_london = ['#1f77b4', '#4b9cd3'] 
+    london_ax.pie(london.values(), labels=london.keys(), autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':20},colors=colors_london)
     london_ax.axis('equal')
     
     x,y = [],[]

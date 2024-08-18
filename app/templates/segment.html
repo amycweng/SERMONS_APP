@@ -32,7 +32,20 @@
     });
   })
 </script>
+<script>
+  // Function to scroll to the section
+  function scrollToSection() {
+      const section = document.getElementById('mySection');
+      if (section) {
+          section.scrollIntoView({ behavior: 'smooth' });
+      }
+  }
 
+  // Scroll to section on page load
+  window.onload = function() {
+      scrollToSection();
+  }
+</script>
 <br>
 <div class="site_body">
   <h4><i>{{metadata[0].title}}</i></h4>
@@ -78,7 +91,7 @@
       {% for s in segment %}
       <tr>
           <td>{{s[2]}}</td> 
-          <td>{{s[0]}}</td>
+          <td>{{s[0] | safe}}</td>
         </tr>
       {% endfor %}
     </tbody>
@@ -89,15 +102,14 @@
   </div>
   <br>
     <h3>Citations </h3>
-    </h5>
-    <p>The index of citation indicates its position within the text of the segment or a particular note of the segment.
+    <p style="margin-left: 0px; margin-right:0px;">The index of citation indicates its position within the text of the segment or a particular note of the segment.
       For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
       inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
       'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
       If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
       and Roman numerals have been converted to integers.
     </p>
-    <p>
+    <p style="margin-left: 0px; margin-right:0px;">
       To edit a parsed citation, please follow the standard format of a period between chapter and verse, 
       semi-colons to separate components, and no extra spaces. For consecutive citations, use a hyphen between verses,
       such as '1 Chronicles 26.1-16'.
@@ -105,7 +117,8 @@
       the indices of the other citations within the body text or particular note must first be shifted to ensure 
       that each index is unique for each location. To only update a citation's index, leave the first text box blank.
     </p>
-    <h5>Version of Bible: {{biblever}}</h5>
+    <h5>Likeliest Bible Version: {{biblever}}</h5>
+    <br>
     <table class='table is-striped' id="sort_citation">
       <thead class="grey_table" >
         <tr>
@@ -163,63 +176,73 @@
        &VeryThinSpace;
         <select id="ver" name="ver" REQUIRED>
           <option value="" disabled selected></option>
-          <option value="King James Version">King James Version</option>
-          <option value="King James Version">Geneva Version</option>
-          <option value="Douay–Rheims Bible">Douay–Rheims Bible</option>
+          <option value="KJV">KJV</option>
+          <option value="Geneva">Geneva</option>
+          <option value="Douay-Rheims">Douay-Rheims</option>
           <option value="Vulgate">Vulgate</option>
+          <option value="Wycliffe">Wycliffe</option>
+          <option value="Tyndale">Tyndale</option>
       </select>
       <input type="submit" value="Submit" class="btn-gray"/>
     </form>
 
     <h5><b>Add New Citation:</b> </h5>
+   
     <form action="{{ url_for('sermon.add_citation',tcpID=tcpID,sidx=sidx)}}" method="POST" >
-      <label for="loc">Location of new citation: </label>
-      <select id="loc" name="loc" REQUIRED>
-        {% for v in locations%}
-        <option value="{{v}}">{{v}}</option>
-        {% endfor %}
-    </select>
-    &VeryThinSpace;
-    <label for="cidx">Index of new citation: </label>
-    <input type="number" id="cidx" name="cidx" cols="2" REQUIRED>
-    <br>
-    <label for="orig">Phrase: </label>
-      <input type="text" id="orig" name="orig" REQUIRED>
-      <br>
-      <label for="parsed">Parsed Citation: </label>
-      <input type="text" id="parsed" name="parsed" REQUIRED>
-      <input type="submit" value="Submit" class="btn-gray"/> 
-     </form> 
+          <label for="loc">Location of new citation: </label>
+          <select id="loc" name="loc" REQUIRED>
+            {% for v in locations%}
+            <option value="{{v}}">{{v}}</option>
+            {% endfor %}
+        </select>
+        &VeryThinSpace;
+        <label for="cidx">Index of new citation: </label>
+        <input type="number" id="cidx" name="cidx" cols="2" REQUIRED>
+        <br>
+        <label for="orig">Phrase: </label>
+          <input type="text" id="orig" name="orig" REQUIRED>
+          <br>
+          <label for="parsed">Parsed Citation: </label>
+          <input type="text" id="parsed" name="parsed" REQUIRED>
+          <input type="submit" value="Submit" class="btn-gray"/> 
+          
+        </form> 
   <br>
 
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-  </div>
+  </div>  
   <br>
-  
-  <h3>Actual Quotations or Paraphrases</h3>
+  <h3>Quotations or Paraphrases</h3>
   <table class='table is-striped' id="sort_qp">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Location in Segment</th>
-        <th scope="col">Verse of Bible</th>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Verse & Version</th>
         <th scope="col">Full Verse Text</th>
-        <th scope="col">Phrase of Segment</th>
+        <th scope="col">Phrase(s) of Segment</th>
+        <th scope="col">Score(s)</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
     <tbody>
       {% for q in actual_qp %}
         <tr>
-          <td>{{q[2]}}</td>
-          <td>{{q[3]}}
+          <td>{{q.tcpID}}</td>
+          <td>{{q.sidx}}<br>{{q.loc}}
             <br>
-              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[3]) }}"><u>Search for Verse</u></a>
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
-          <td>{{q[4]}}</td>
-          <td>{{q[5]}}</td>
+          <td>{{q.verse_id}}
+            <br>
+              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q.verse_id) }}"><u><b>Search for Verse</b></u></a>
+          </td>
+          <td>{{q.verse_text}}</td>
+          <td>{{q.phrase | safe}}</td>
+          <td>{{q.score | safe}}</td>
           <td>
-            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=tcpID, sidx=sidx, loc=q[2],verse_id=q[3])}}" method="POST" >
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
@@ -228,14 +251,12 @@
       {% endfor %}
     </tbody>
   </table>
-      
-  
   <br>
-  <h3>Possible Quotations or Paraphrases</h3>
+  <h3 id="semantic_search">Semantic Search</h3>
   <form action="{{ url_for('sermon.search_in_bible',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
     <label for="phrase"><b>Search within the Bible: </b></label>
-    <p>{{segment[0][1]}}</p>
-    <textarea id="phrase" name="phrase" rows="2" cols="10"></textarea>
+    <br>
+    <textarea id="phrase" name="phrase" rows="2" cols="20">{{segment[0][1]}}</textarea>
     <input type="hidden" id="page" name="page" value="segment">
     <br>
    <label for="loc">Location of phrase: </label>
@@ -245,61 +266,60 @@
       {% endfor %}
     </select>
    <br>
-   <label for="collection">Select a version: </label>
+   <!-- <label for="collection">Select a version: </label>
         <select id="version" name="version" REQUIRED>
-            <option value="King James Version">King James Version</option>
+            <option value="KJV">KJV</option>
+            <option value="Geneva">Geneva</option>
+            <option value="Douay-Rheims">Douay-Rheims</option>
+            <option value="Vulgate">Vulgate</option>
+            <option value="Wycliffe">Wycliffe</option>
+            <option value="Tyndale">Tyndale</option>
         </select>
-       <br>
+       <br> -->
    <label for="k">Number of desired results: </label>
     <input type="number" name="k" value="20" REQUIRED>
     <br>
-   <input type="submit" value="Submit" class="btn-gray"> 
+   <input type="submit" value="Search" class="btn-gray"> 
    </form>
 
-  <br>
-  {% if qp_candidates %}
-  <table class='table is-striped' id="sort_sim">
-    <thead class="grey_table" >
+  
+{% if qp_candidates %}
+<br>
+<h4 id="search_results"><b>Search phrase:</b> &VeryThinSpace; {{phrase}}</h4>
+<h5><b>Location in segment:</b> &VeryThinSpace; {{loc}}</h4>
+<br>
+<table class='table is-striped' id="sort_qp">
+  <thead class="grey_table" >
+    <tr>
+      <th scope="col">Verse & Version</th>
+      <th scope="col">Full Verse Text</th>
+      <th scope="col">Score</th>
+      <th scope="col">Add Reference</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for q in qp_candidates %}
       <tr>
-        <th scope="col">Location in Segment</th>
-        <th scope="col">Verse of Bible</th>
-        <th scope="col">Full Verse Text</th>
-        <th scope="col">Subphrase of Verse (Standardized)</th>
-        <th scope="col">Similarity Score</th>
-        <th scope="col">Remove from Candidates</th>
-        <th scope="col">Add As Actual Reference</th>
+        <td>{{q.verse_id}}
+          <br>
+            <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q.verse_id)}}"><u><b>Search for Verse</b></u></a>
+        </td>
+        <td>{{q.verse_text}}</td>
+        <td>{{q.score}}</td>
+        <td>
+          <form action="{{ url_for('sermon.add_qp',tcpID=tcpID, sidx=sidx, loc=q.loc, verse_id=q.tcpID)}}" method="POST" >
+            <input type="hidden" id="page" name="page" value="segment">
+            <input type="text" id="phrase" name="phrase">
+            <input type="text" id="score" name="score">
+            <input type="submit" value="Add As Reference" class="btn-gray"/> 
+           </form>    
+        </td>  
       </tr>
-    </thead>
-    <tbody>
-      {% for q in qp_candidates %}
-        <tr>
-          <td>{{q[0]}}</td>
-          <td>{{q[1]}}
-            <br>
-              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q[1]) }}"><u>Search for Verse</u></a>
-          </td>
-          <td>{{q[2]}}</td>
-          <td>{{q[3]}}</td>
-          <td>{{q[4]}}</td>
-          <td>
-            <form action="{{ url_for('sermon.remove_qp',tcpID=tcpID, sidx=sidx, vidx=q[5])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
-              <input type="submit" value="Remove" class="btn-gray"/> 
-             </form>   
-          </td>  
-          <td> 
-            <form action="{{ url_for('sermon.add_qp',tcpID=tcpID, sidx=sidx, verse_id=q[1],loc=q[0])}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
-              <label for="phrase">Phrase of Text</label>
-              <input type="text" id="phrase" name="phrase">
-              <input type="submit" value="Add As Reference" class="btn-gray"/> 
-             </form> 
-          </td> 
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-     {% endif %} 
+    {% endfor %}
+  </tbody>
+</table>
+<br>
+{% endif %}
 </div>
 
 </div>

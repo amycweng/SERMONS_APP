@@ -63,12 +63,13 @@
             <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
           </div>
           <div class="banner-header"> 
+            <a href="{{ url_for('index.about') }}" type="button" class="btn tab-banner" style="align-items: center;">Overview</a>
             <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Sermons</a>
             <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata</a>
             <a href="{{ url_for('sermon.get_all') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
             <a href="{{ url_for('index.visualize_citations') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Citations</a>
             <a href="{{ url_for('sermon.semantic_search') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a>
+            <!-- <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a> -->
             <a href="{{ url_for('download.download') }}" type="button" class="btn tab-banner" style="align-items: center;">Download</a>
 
 
@@ -89,8 +90,8 @@
     <div class="row">
       <div class="col-sm-12 col-md-7">
         <h6>About</h6>
-        <p class="text-justify">This site is dedicated to exploring scriptural references in English printed sermons from the sixteenth and seventeenth centuries.</p>
-        <p class="text-justify">Images courtesy of Proquest LLC. All decorative motifs come from the scan of William Fenner's <a href="https://login.proxy.lib.duke.edu/login?url=https://www.proquest.com/eebo/books/treatise-affections-souls-pulse-whereby-christian/docview/2248543368/sem-2?accountid=10598"><i>A treatise of the affections</i></a> (1650) reproduced on Early English Books Online by the courtesy of the Burke Library of Union Theological Seminary.</p>
+        This site is dedicated to exploring references in English printed sermons from the sixteenth and seventeenth centuries.
+        <br><br>Images courtesy of Proquest LLC. All decorative motifs come from the scan of William Fenner's <a href="https://login.proxy.lib.duke.edu/login?url=https://www.proquest.com/eebo/books/treatise-affections-souls-pulse-whereby-christian/docview/2248543368/sem-2?accountid=10598"><i>A treatise of the affections</i></a> (1650) reproduced on Early English Books Online by the courtesy of the Burke Library of Union Theological Seminary.
       </div>
 
       <div class="col-sm-12 col-md-4">
@@ -101,7 +102,6 @@
           <li><a href="https://sites.duke.edu/earlymodernlondon/">The Early Modern London Project</a></li>
           <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/">Sermons and the Public</a></li>
           <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/marginalia/">Biblical Citations in Sermon Marginalia</a></li>
-          <li><a href="https://morphadorner.northwestern.edu/">MorphAdorner (Software for textual annotation of early texts)</a></li>
         </ul>
       </div>
     </div>
@@ -110,7 +110,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12">
-        <p class="copyright-text">&copy; 2024 Amy Weng
+        &copy; 2024 Amy Weng
         </p>
       </div>
     </div>
