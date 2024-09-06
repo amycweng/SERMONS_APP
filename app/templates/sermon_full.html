@@ -33,7 +33,7 @@
       <h6><b>Publisher:</b> {{metadata.publisher}}</h6>
       <h6><b>Place of Publication:</b> {{metadata.pubplace}}</h6>
       <h6><b>Publication Year:</b> {{metadata.pubyear}}</h6>
-      <h6><b>TCP ID:</b> {{metadata.tcpID}} <b>ESTC ID:</b> {{metadata.estc}} <b>STC ID:</b> {{metadata.stc}}</h6>
+      <h6><b>TCP ID:</b> <a href="{{metadata.phase}}"><u>{{metadata.tcpID}}</u></a> <b>ESTC ID:</b> {{metadata.estc}} <b>STC ID:</b> {{metadata.stc}}</h6>
       <h6><b>Subject Headings:</b> {{metadata.subject_headings}}</h6>
       <h6>   
         <!-- <a href="{{ url_for('sermon.full_text',tcpID=metadata.tcpID) }}"><u>View Full Text</u></a> -->
@@ -42,13 +42,13 @@
        <div class="full_break">
         <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
       </div>  <br>
-  <h4>Full Text</h4>
+  <h4>Full Text of Relevant Sections</h4>
   <table class='table is-striped' id='sort_sidx'>
     <thead class="grey_table" >
       <tr>
         <th scope="col">Text (tokenized)</th>
         <th scope="col">Index of Segment</th>
-        <th scope="col">Index of Sermon</th>
+        <th scope="col">Name & Index of Section</th>
         <th scope="col">Index of Paragraph</th>
         <th scope="col">Page or Reference Image Number</th>
         <th scope="col">References</th>
@@ -59,7 +59,7 @@
         <tr>
             <td>{{s.tokens | safe}}</td> 
             <td>{{s.sidx}}</td>
-            <td>{{s.section}}</td>
+            <td>{{names[s.section]}} ({{s.section}})</td>
             <td>{{s.pidx}}</td>
             <td>{{s.loc_type.lower().capitalize()}} {{s.loc}}</td>
             <td>

@@ -10,6 +10,53 @@ p {
   margin-right:25px;
   font-size: 18px;
 }
+.info-circle {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  background-color: #7b7d85;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip {
+  display: none;
+  width: 300px;
+  background-color: #7b7d85;
+  color: #fff;
+  font-size:12px;
+  text-align: match-parent;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; 
+  left: 50%;
+  margin-left: -80px; 
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #333 transparent transparent transparent;
+}
+
+.info-circle:hover .tooltip {
+  display: block;
+  opacity: 1;
+}
 
 a {
     color:#7b7d85;
@@ -111,8 +158,15 @@ tfoot input {
 }
 
 .btn-black {
+    border: none;
     background-color: #000 !important;
     color: #fff;
+}
+
+.btn-grey {
+  border: none;
+  background-color: gray !important;
+  color: #fff;
 }
 
 .btn-gray {
@@ -536,7 +590,7 @@ section {
     margin-right: 20px;
   }
 
-.add-product-form {
+.add-form {
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
@@ -545,9 +599,9 @@ section {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.add-product-form input[type="text"],
-.add-product-form textarea,
-.add-product-form select {
+.add-form input[type="text"],
+.add-form textarea,
+.add-form select {
     width: 100%;
     padding: 8px;
     margin-bottom: 15px;
@@ -556,12 +610,12 @@ section {
     border-radius: 4px;
 }
 
-.add-product-form input[type="file"] {
+.add-form input[type="file"] {
     width: 100%;
     margin-bottom: 15px;
 }
 
-.add-product-form input[type="submit"] {
+.add-form input[type="submit"] {
     background-color: #a76c20;
     color: #fff;
     padding: 10px 15px;
@@ -570,16 +624,16 @@ section {
     cursor: pointer;
 }
 
-.add-product-form input[type="submit"]:hover {
+.add-form input[type="submit"]:hover {
     background-color: #804a03;
 }
 
-.add-product-form h1 {
+.add-form h1 {
     text-align: center;
     color: #333;
 }
 
-.add-product-form label {
+.add-form label {
     display: block;
     margin-bottom: 8px;
     color: #555;

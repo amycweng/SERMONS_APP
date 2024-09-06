@@ -34,26 +34,58 @@
             });
         }
     });
+    new DataTable('#no_sorting', {
+      "ordering": false,
+      "pageLength": 5,
+      initComplete: function () {
+        this.api()
+            .columns()
+            .every(function () {
+                let column = this;
+                let title = column.footer().textContent;
+ 
+                let input = document.createElement('input');
+                input.placeholder = title;
+                column.footer().replaceChildren(input);
+ 
+                input.addEventListener('keyup', () => {
+                    if (column.search() !== this.value) {
+                        column.search(input.value).draw();
+                    }
+                });
+            });
+        }
+    });
   })
   
 </script>
 <div class="site_body">
-  <div class="full_break">
+  <!-- <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-  </div>
+  </div> -->
   <h5>Semantic Search Within Titles:</h5>
    <div class="input-wrapper"> 
-      <input type="text"/>
-      <button type="submit"> 
-          🔍 
-      </button> 
+      <form action="{{ url_for('index.index') }}" method="POST">
+        <input type="text" name="search"/>
+        <button type="submit"> 
+            🔍 
+        </button> 
+      </form>
     </div> 
     <br><br>
-    <h6>(Scroll to the bottom for lexical search on each column)</h6>
+    <h6>(Returns the top 20 results. Scroll to the bottom for lexical search on each column)</h6>
     <div class="full_break">
       <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
     </div>
+    {% if search %}
+    <h4>Search phrase: {{search}}</h4>
+    {% endif %}
+
+  {% if search %}
+  <table class="table is-striped" id="no_sorting">
+  {% else %}
   <table class='table is-striped' id="sort_date">
+  {% endif %}
     <thead class="grey_table" >
       <tr>
         <th scope="col">Title & IDs</th>

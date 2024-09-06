@@ -2,11 +2,11 @@ import os
 
 
 class Config(object):
-    SECRET_KEY = os.environ.get('SECRET_KEY')
     with open('.sermons_app', 'r') as file:
         for line in file:
             key, value = line.strip().split('=', 1)
             os.environ[key] = value
+    SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql://{}:{}@{}:{}/{}'\
         .format(os.environ.get('DB_USER'),
                 os.environ.get('DB_PASSWORD'),

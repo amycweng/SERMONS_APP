@@ -11,6 +11,14 @@ class Citation:
         self.replaced = replaced 
 
     @staticmethod
+    def get_all():
+        rows = app.db.execute('''
+        SELECT *
+        FROM Citation as c
+        ''')
+        return [Citation(*row) for row in rows]
+    
+    @staticmethod
     def get_by_tcpID(tcpID):
         rows = app.db.execute('''
         SELECT *
@@ -67,13 +75,6 @@ class Citation:
         label=label)
         return [Citation(*row) for row in rows]
     
-    @staticmethod
-    def get_all():
-        rows = app.db.execute('''
-        SELECT *
-        FROM Citation as c
-        ''')
-        return [Citation(*row) for row in rows]
 
     @staticmethod
     def get_ver_by_tcpID(tcpID):
@@ -186,13 +187,11 @@ class Bible:
         self.verse_text = verse_text
     
     @staticmethod
-    def get_bible_verse_ids(verse_id):
+    def get_bible_verse_ids():
         rows = app.db.execute('''
-        SELECT * 
+        SELECT *
         FROM Bible
-        WHERE Bible.verse_id = :verse_id
-        ''',
-        verse_id=verse_id)
+        ''')
         return [Bible(*row) for row in rows]
     
     @staticmethod
@@ -210,9 +209,9 @@ class Bible:
         rows = app.db.execute('''
         SELECT * 
         FROM Bible
-        WHERE Bible.verse_id  = :verse_ids
+        WHERE Bible.verse_id  = :verse_id
         ''',
-        verse_ids=verse_id)
+        verse_id=verse_id)
         return [Bible(*row) for row in rows]  
     
     @staticmethod
@@ -239,7 +238,7 @@ class Bible:
     
 
 class QuoteParaphrase:
-    def __init__(self,tcpID,sidx,loc,verse_id,score,phrase,verse_text):
+    def __init__(self,tcpID,sidx,loc,verse_id,score,phrase,verse_text,scope):
         self.tcpID = tcpID 
         self.sidx = sidx
         self.loc = loc 
@@ -247,9 +246,18 @@ class QuoteParaphrase:
         self.score = score
         self.phrase = phrase
         self.verse_text = verse_text
+        self.scope = scope 
 
     @staticmethod
-    def add_qp(tcpID, sidx,loc,verse_id,score,phrase):
+    def get_all():
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
+        FROM QuoteParaphrase as p, Bible as b 
+        ''')
+        return [QuoteParaphrase(*row) for row in rows]
+    
+    @staticmethod
+    def add_qp(tcpID, sidx,loc,verse_id,score,phrase,scope):
         check = app.db.execute('''
         SELECT EXISTS (
             SELECT * 
@@ -268,7 +276,7 @@ class QuoteParaphrase:
         )
         if not check: 
             app.db.execute("""
-            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:phrase)  
+            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:scope,:phrase)  
             """,
             tcpID = tcpID,
             sidx=sidx,
@@ -279,8 +287,9 @@ class QuoteParaphrase:
         else: 
             score = f"<br>--<br>{score}"
             phrase = f"<br>--<br>{phrase}"
+            scope = f"<br>--<br>{phrase}"
             app.db.execute("""
-            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:phrase)
+            INSERT INTO QuoteParaphrase VALUES (:tcpID, :sidx, :loc, :verse_id,:score,:scope,:phrase)
             UPDATE QuoteParaphrase
             SET score = CONCAT(score, :score),
                 phrase = CONCAT(phrase,:phrase)
@@ -294,6 +303,7 @@ class QuoteParaphrase:
             sidx=sidx,
             verse_id=verse_id,
             loc=loc,
+            scope=scope,
             score=score,
             phrase=phrase)
 
@@ -323,7 +333,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_tcpID(tcpID):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
@@ -334,7 +344,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_aut(aut):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
         FROM QuoteParaphrase as p, Bible as b, Author as a  
         WHERE b.verse_id = p.verse_id
         AND p.tcpID = a.tcpID 
@@ -346,7 +356,7 @@ class QuoteParaphrase:
     @staticmethod
     def get_actual_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
-        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id

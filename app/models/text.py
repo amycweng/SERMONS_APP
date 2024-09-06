@@ -32,6 +32,17 @@ class Text:
         tcpID=tcpID,
         sidx=sidx)
         return [Text(*row) for row in rows]
+    
+    @staticmethod
+    def get_section_names(tcpID):
+        names = app.db.execute('''
+        SELECT s.section_idx, s.section_name
+        FROM Section as s
+        WHERE s.tcpID = :tcpID
+        ''',
+        tcpID=tcpID)
+
+        return {s[0]:s[1] for s in names}
 
 class Marginalia:
     def __init__(self,tcpID,sidx,nidx,tokens,standardized):
@@ -76,3 +87,4 @@ class Marginalia:
         sidx=sidx,
         nidx=nidx)
         return [Marginalia(*row) for row in rows]
+

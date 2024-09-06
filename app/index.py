@@ -1,4 +1,5 @@
 from flask import render_template,send_file,request
+from flask_login import current_user
 from io import BytesIO
 from wordcloud import WordCloud 
 import base64
@@ -18,30 +19,36 @@ bp = Blueprint('index', __name__)
 def about():
     return render_template('about.html')
 
-@bp.route('/sermons')
+@bp.route('/sermons', methods=['POST','GET'])
 def index():
     sermons = Metadata.get_all()
+    sermons_dict = {s.tcpID:s for s in sermons}
+    search = None 
     pubplaces = Metadata.get_pubplace()
-    pubplaces = {s[0]:s[1] for s in pubplaces}
+    pubplaces = {s[0]:s[1] for s in pubplaces} 
     for s in sermons: 
         # if s.subject_headings is not None: 
         #     s.subject_headings = "<br><br>".join(s.subject_headings.split("; "))
         if s.phase == 2: s.phase = f'https://quod.lib.umich.edu/e/eebo2/{s.tcpID}.0001.001?'
         elif s.phase == 1: s.phase = f'https://quod.lib.umich.edu/e/eebo/{s.tcpID}.0001.001?'
+    if request.method == "POST": 
+        search_sermons = []
+        search = request.form["search"]
+        results = Metadata.search_in_titles(search)
+        for tcpID, score in results: 
+            if score >= 0.1: 
+                search_sermons.append(sermons_dict[tcpID])
+        sermons = search_sermons
+
     return render_template('index.html',
                         sermons = sermons,
+                        search=search,
                         pubplaces = pubplaces)
 
 
 @bp.route('/metadata_visualization')
 def visualize():
     # publication year 
-    fig = Figure(figsize=(15, 10))
-    ax = fig.subplots()
-    color='grey'
-    title='Sermons in EEBO-TCP'
-    xlabel= 'Year of Publication'
-    ylabel='Count of Sermons'
     sermons = Metadata.get_all()
     years = [s.pubyear for s in sermons]
     x,y = [],[]
@@ -52,16 +59,22 @@ def visualize():
             date = date.split("-")[0]
         x.append(int(date))
         y.append(date_counts[date])
-    ax.tick_params(axis='both', which='major', labelsize=12, labelfontfamily='serif')  # Set fontsize to 12 for both x and y ticks
-    ax.bar(x,y,color=color)
-    ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
-    ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
-    ax.set_xticks(np.arange(min(x), max(x)+1, 10.0))
-    ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'})
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    data = base64.b64encode(buf.getbuffer()).decode("ascii")
-    fig.clear()
+    # fig = Figure(figsize=(15, 10))
+    # ax = fig.subplots()
+    # color='grey'
+    # title='Sermons in EEBO-TCP'
+    # xlabel= 'Year of Publication'
+    # ylabel='Count of Sermons'
+    # ax.tick_params(axis='both', which='major', labelsize=12, labelfontfamily='serif')  # Set fontsize to 12 for both x and y ticks
+    # ax.bar(x,y,color=color)
+    # ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
+    # ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
+    # ax.set_xticks(np.arange(min(x), max(x)+1, 10.0))
+    # ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'})
+    # buf = BytesIO()
+    # fig.savefig(buf, format="png")
+    # data = base64.b64encode(buf.getbuffer()).decode("ascii")
+    # fig.clear()
     years = [(year,idx) for idx,year in enumerate(x)]
     num_sermons = y
 
@@ -72,31 +85,31 @@ def visualize():
                "Early works to 1800"]
     wc_subjects = Counter({subject[0]:subject[1] for subject in wc_subjects if subject[0] not in exclude})
     
-    word_cloud = WordCloud(background_color = "white",font_path='Times New Roman', width=1200, height=800, max_words=2000,colormap=blue_cmap).generate_from_frequencies(wc_subjects)
-    img_buffer = BytesIO()
-    word_cloud.to_image().save(img_buffer, format="png")
-    data2 = base64.b64encode(img_buffer.getvalue()).decode("ascii")
+    # word_cloud = WordCloud(background_color = "white",font_path='Times New Roman', width=1200, height=800, max_words=2000,colormap=blue_cmap).generate_from_frequencies(wc_subjects)
+    # img_buffer = BytesIO()
+    # word_cloud.to_image().save(img_buffer, format="png")
+    # data2 = base64.b64encode(img_buffer.getvalue()).decode("ascii")
 
     # authors
-    fig = Figure(figsize=(15, 10))
-    ax = fig.subplots()
-    color='grey'
-    title='Most Frequent Authors of Sermons in EEBO-TCP'
-    xlabel= 'Count of Sermons'
-    ylabel='Author'
     author_counts = Metadata.get_author_counts()
     author_counts = sorted(author_counts,key = lambda x:x[1],reverse=True)
-    x,y = [a[0] for a in author_counts][:25][::-1],[a[1] for a in author_counts][:25][::-1]
-    ax.tick_params(axis='both', which='major', labelsize=12, labelfontfamily='serif')  # Set fontsize to 12 for both x and y ticks
-    ax.barh(x,y,color=color)
-    ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
-    ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
-    ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'},rotation=90)
-    fig.tight_layout()
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    data3 = base64.b64encode(buf.getbuffer()).decode("ascii")
-    fig.clear()
+    # fig = Figure(figsize=(15, 10))
+    # ax = fig.subplots()
+    # color='grey'
+    # title='Most Frequent Authors of Sermons in EEBO-TCP'
+    # xlabel= 'Count of Sermons'
+    # ylabel='Author'
+    # x,y = [a[0] for a in author_counts][:25][::-1],[a[1] for a in author_counts][:25][::-1]
+    # ax.tick_params(axis='both', which='major', labelsize=12, labelfontfamily='serif')  # Set fontsize to 12 for both x and y ticks
+    # ax.barh(x,y,color=color)
+    # ax.set_title(title, fontsize=20,fontdict={'family': 'serif'})
+    # ax.set_xlabel(xlabel, fontsize=15,fontdict={'family': 'serif'})
+    # ax.set_ylabel(ylabel, fontsize=15,fontdict={'family': 'serif'},rotation=90)
+    # fig.tight_layout()
+    # buf = BytesIO()
+    # fig.savefig(buf, format="png")
+    # data3 = base64.b64encode(buf.getbuffer()).decode("ascii")
+    # fig.clear()
 
     # publication place 
     pubplaces = Metadata.get_pubplace()
@@ -104,7 +117,6 @@ def visualize():
     places = []
     london = []
     for s in sermons:
-        found = False 
         if s.tcpID not in pubplaces: continue 
         place = pubplaces[s.tcpID]
         if place == "London":
@@ -113,29 +125,63 @@ def visualize():
             london.append('Not London')
         
         places.append(place)
-    
-    fig = Figure(figsize=(15, 8))
-    london_ax,ax= fig.subplots(1,2)
-    london = Counter(london)
-    colors_london = ['#1f77b4', '#4b9cd3'] 
-    london_ax.pie(london.values(), labels=london.keys(), autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':20},colors=colors_london)
-    london_ax.axis('equal')
-    
-    x,y = [],[]
     places = sorted(Counter(places).items(),key = lambda x:x[1],reverse=True)
-    x,y = [a[0] for a in places][1:26][::-1],[a[1] for a in places][1:26][::-1]
-    ax.pie(y, labels=x, autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':10})
-    ax.axis('equal')
-    buf = BytesIO()
-    fig.savefig(buf, format="png")
-    data4 = base64.b64encode(buf.getbuffer()).decode("ascii")
-    fig.clear()
+
+    # fig = Figure(figsize=(15, 8))
+    # london_ax,ax= fig.subplots(1,2)
+    # london = Counter(london)
+    # colors_london = ['#1f77b4', '#4b9cd3'] 
+    # london_ax.pie(london.values(), labels=london.keys(), autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':20},colors=colors_london)
+    # london_ax.axis('equal')
+    # x,y = [],[]
+    # x,y = [a[0] for a in places][1:26][::-1],[a[1] for a in places][1:26][::-1]
+    # ax.pie(y, labels=x, autopct='%1.1f%%',textprops={'fontname':'Times New Roman','fontsize':10})
+    # ax.axis('equal')
+    # buf = BytesIO()
+    # fig.savefig(buf, format="png")
+    # data4 = base64.b64encode(buf.getbuffer()).decode("ascii")
+    # fig.clear()
+
+    # topic words 
+    topics = Metadata.get_topics()
+    all_topics = {}
+    for tlist in topics.values(): 
+        for t in tlist.split("; "): 
+            if t not in all_topics: all_topics[t] = 0
+            all_topics[t] += 1 
+    topic_counts = sorted(all_topics.items(),key = lambda x:x[1],reverse=True)
+    topic_counts = topic_counts[:502]
+    topic_counts = Counter({t[0]:t[1] for t in topic_counts})
+    # word_cloud = WordCloud(background_color = "white",font_path='Times New Roman', width=1200, height=800, max_words=2000,colormap=blue_cmap).generate_from_frequencies(topic_counts)
+    # img_buffer = BytesIO()
+    # word_cloud.to_image().save(img_buffer, format="png")
+    # data_topics = base64.b64encode(img_buffer.getvalue()).decode("ascii")
+
+    # sections 
+    section_counts = Metadata.get_section_counts()
+    section_counts = sorted(section_counts,key = lambda x:x[1],reverse=True)
+    fig = Figure(figsize=(15, 5))
+    ax = fig.subplots()
+    # print(sum([s[1] for s in section_counts]))
+    # x,y = [a[0] for a in section_counts][:10][::-1],[a[1] for a in section_counts][:10][::-1]
+    # ax.tick_params(axis='both', which='major', labelsize=12, labelfontfamily='serif')  # Set fontsize to 12 for both x and y ticks
+    # ax.barh(x,y,color=color)
+    # ax.set_xlabel('Count of Sections', fontsize=15,fontdict={'family': 'serif'})
+    # ax.set_ylabel('Section Title', fontsize=15,fontdict={'family': 'serif'},rotation=90)
+    # fig.tight_layout()
+    # buf = BytesIO()
+    # fig.savefig(buf, format="png")
+    # data_sections = base64.b64encode(buf.getvalue()).decode("ascii")
 
     return render_template('metadata.html', 
-                           data=data, 
-                           data2=data2,
-                           data3=data3,
-                           data4=data4,
+                        #    data=data, 
+                        #    data2=data2,
+                        #    data3=data3,
+                        #    data4=data4,
+                        #    data_topics=data_topics,
+                        #    data_sections=data_sections,
+                           section_counts=section_counts,
+                           topics=topics,
                            years=years,
                            num_sermons=num_sermons,
                            author_counts=author_counts,
@@ -143,6 +189,7 @@ def visualize():
                            subjects=subjects)
 
 def parse_citations(citations, loc="all"): 
+
     all_books = {}
     all_chapters = {}
     all_verses = {}

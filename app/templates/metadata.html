@@ -20,6 +20,10 @@
       order: [[1, 'desc']], 
       pageLength: 5,
     });
+    new DataTable($('#sections'), {
+      order: [[1, 'desc']], 
+      pageLength: 5,
+    });
     new DataTable($('#subjects'), {
       order: [[1, 'desc']], 
       pageLength: 5,
@@ -28,10 +32,16 @@
       order: [[1, 'desc']], 
       pageLength: 5,
     });
+    new DataTable($('#topics'), {
+      order: [[0, 'desc']], 
+      pageLength: 5,
+    });
   })
 </script>
 </div>
-<img src='data:image/png;base64,{{data}}' style="width: 100%;"/>
+ 
+<!-- <img src='data:image/png;base64,{{data}}' style="width: 100%;"/> -->
+<img src='/static/images/sermons.png' style="width: 100%;"/>
 
 <div class="site_body">
 
@@ -51,12 +61,15 @@
           {% endfor %}
         </tbody>
       </table>
-</div>
 
-<div class="site_body">
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div> 
+
     <h3>Subject Headings</h3>
     <br>
-    <img src='data:image/png;base64,{{data2}}' style="width: 100%;"/>
+    <!-- <img src='data:image/png;base64,{{data2}}' style="width: 100%;"/> -->
+    <img src='/static/images/subjects.png' style="width: 100%;"/>
     <br>
     <table class='table is-striped' id="subjects">
       <thead class="grey_table" >
@@ -74,12 +87,14 @@
         {% endfor %}
       </tbody>
     </table>
-</div>
 
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div> 
 
-<div class="site_body">
     <h3>Preachers</h3>
-    <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/>
+    <!-- <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/> -->
+    <img src='/static/images/authors.png' style="width: 100%;"/>
       <table class='table is-striped' id="author">
           <thead class="grey_table" >
             <tr>
@@ -99,11 +114,14 @@
             {% endfor %}
           </tbody>
         </table>
-</div>
 
-<div class="site_body">
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div>  
+
     <h3>Publication Places</h3>
-    <img src='data:image/png;base64,{{data4}}' style="width: 100%;"/>
+    <!-- <img src='data:image/png;base64,{{data4}}' style="width: 100%;"/> -->
+    <img src='/static/images/pubplaces.png' style="width: 100%;"/>
     <table class='table is-striped' id="pubplace">
       <thead class="grey_table" >
         <tr>
@@ -123,7 +141,56 @@
         {% endfor %}
       </tbody>
     </table>
-</div>
 
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div>  
+
+  <h3>Primary Sections in TCP Transcriptions</h3>
+  <h5>These are the sections demarcated as a DIV1 tag in the XML transcriptions. There are 35,131 sections in total.</h5>
+  <!-- <img src='data:image/png;base64,{{data_sections}}' style="width: 100%;"/> -->
+  <img src='/static/images/sections.png' style="width: 100%;"/>
+    <table class='table is-striped' id="sections">
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Section</th>
+            <th scope="col">Frequency</th>    
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in section_counts %}
+          <tr>
+              <td>{{t[0]}}</b></a></td> 
+              <td>{{t[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div>  
+
+  <h3>Topic Words In Titles</h3>
+  <!-- <h5>(Excluding the commonly occurring variants of "sermon" and "preached")</h5> -->
+  <!-- <img src='data:image/png;base64,{{data_topics}}' style="width: 100%;"/> -->
+  <img src='/static/images/topics.png' style="width: 100%;"/>
+    <table class='table is-striped' id="topics">
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">TCP ID</th>
+            <th scope="col">Topic Words</th>    
+          </tr>
+        </thead>
+        <tbody>
+          {% for t in topics %}
+          <tr>
+              <td><a href="{{ url_for('sermon.get_citations',tcpID=t) }}"><b>{{t}}</b></a></td> 
+              <td>{{topics[t]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
 
 {% endblock %}

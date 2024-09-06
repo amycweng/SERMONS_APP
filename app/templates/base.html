@@ -61,7 +61,16 @@
         <header>
           <div class = "header-content">
             <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
+            <div style="color: aliceblue; text-align: right;">
+              {% if current_user.is_authenticated %}
+                Hello {{current_user.username}}! <a href="{{ url_for('users.logout') }}" type="button" class="btn tab-banner"><i>Log out</i></a>
+                <a href="{{ url_for('users.profile') }}" type="button" class="btn tab-banner"><i>Profile</i></a>
+              {% else %}
+                <a href="{{ url_for('users.login') }}" type=type="button" class="btn tab-banner"><i>Log in or Register</i></a>
+              {% endif %}
+            </div>
           </div>
+          
           <div class="banner-header"> 
             <a href="{{ url_for('index.about') }}" type="button" class="btn tab-banner" style="align-items: center;">Overview</a>
             <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Sermons</a>

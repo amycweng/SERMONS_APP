@@ -146,7 +146,9 @@ function filterOptions3() {
         <th scope="col">TCP ID</th>
         <th scope="col">Index and Location of Segment</th>
         <th scope="col">Phrase of Segment</th>
+        {% if current_user.is_authenticated %}
         <th scope="col">Remove Reference</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
@@ -158,12 +160,14 @@ function filterOptions3() {
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
+          {% if current_user.is_authenticated %}
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id = verse_id)}}" method="POST" >
               <input type="hidden" id="page" name="page" value="search">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
           </td>  
+          {% endif %}
         </tr>
       {% endfor %}
     </tbody>
@@ -185,7 +189,9 @@ function filterOptions3() {
           <th scope="col">TCP ID</th>
           <th scope="col">Index and Location of Covering Segment</th> 
           <th scope="col">Search results (standardized sub-phrases of segments)</th>  
+          {% if current_user.is_authenticated %}
           <th scope="col"></th>   
+          {% endif %}
         </tr>
       </thead>
       <tbody>
@@ -197,6 +203,7 @@ function filterOptions3() {
                 <br>
                 <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=result[1],sidx=result[2]) }}"><u><b>View Segment Information</b></u></a>
             </td>
+            {% if current_user.is_authenticated %}
             <td>
               <form action="{{ url_for('sermon.add_qp',tcpID=result[1],sidx=result[2],loc=result[3],verse_id=verse_id)}}" method="POST" >
                   <input type="hidden" id="verse_id" name="verse_id" value="{{verse_id}}">
@@ -206,6 +213,7 @@ function filterOptions3() {
                   <input type="submit" value="Add As Reference" class="btn-gray"/> 
                  </form>
               </td>
+            {% endif %}
           </tr>
         {% endfor %}
       </tbody>

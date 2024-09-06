@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="page-div">
+<br>    
+  <h3>Username: {{ current_user.username }}</h3>
+  <p><strong>Email:</strong> {{ current_user.email }}</p>
+<br>
+
+  <!-- Show table of changes -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script>
+  $(document).ready(function(){
+    // initialize a DataTable sorted by the 'Last Updated' column 
+    // in reverse chronological order by default. Break ties alphabetically by name. 
+    new DataTable($('#sortable'), {
+    order: [[0,'asc']]
+  });
+  })
+</script>
+
+<p><b>Activity</b></p>
+<table class='table table-hover table-bordered container'>
+  <thead class="grey_table">
+    <tr>
+      <th scope="col">Modified Category</th>
+      <th scope="col">Operation</th>
+      <th scope="col">Original</th>
+      <th scope="col">New</th>
+      <th scope="col">Last Updated</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for item in activity %}
+      <tr>
+        <td>{{item[0]}}</td>
+        <td>{{item[1]}}</td>
+        <td>{{item[2]}}</td>
+        <td>{{item[3]}}</td>
+        <td>{{item[4]}} <p style = "color:#4b4c4d;">{{humanize_time(item.date_time)}}</p></td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

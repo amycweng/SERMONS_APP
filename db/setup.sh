@@ -21,11 +21,70 @@ createdb $dbname
 psql -af create.sql $dbname
 cd $datadir
 psql -af $mybase/load.sql $dbname
-for i in {2..9}; do
-   psql -d $dbname -c "\COPY Segment FROM 'CivilWar/A${i}_body.csv' WITH DELIMITER ',' NULL '' CSV"
-   psql -d $dbname -c "\COPY Marginalia FROM 'CivilWar/A${i}_margin.csv' WITH DELIMITER ',' NULL '' CSV"
-   psql -d $dbname -c "\COPY Citation FROM 'CivilWar/A${i}_citations.csv' WITH DELIMITER ',' NULL '' CSV"
+
+# paraphrases 
+directory="paraphrases"
+table_name="QuoteParaphrase"
+for file in "$directory"/*.csv; do
+    if [[ -f "$file" ]]; then
+        echo "Loading $file into $table_name"
+        psql -d $dbname -c "\COPY $table_name FROM '$file' WITH DELIMITER ',' NULL '' CSV"
+    else
+        echo "No CSV files found in $directory!"
+    fi
 done
-psql -d $dbname -c "\COPY Segment FROM 'CivilWar/B_body.csv' WITH DELIMITER ',' NULL '' CSV"
-psql -d $dbname -c "\COPY Marginalia FROM 'CivilWar/B_margin.csv' WITH DELIMITER ',' NULL '' CSV"
-psql -d $dbname -c "\COPY Citation FROM 'CivilWar/B_citations.csv' WITH DELIMITER ',' NULL '' CSV"
+
+# directories=("CivilWar" "pre-Elizabethan" "Elizabethan" "Carolinian" "Jacobean" "Interregnum" "CharlesII" "JamesII" "WilliamAndMary")
+directories=("CivilWar" "pre-Elizabethan")
+
+for dir in "${directories[@]}"; do
+    echo "Processing directory: $dir"
+    for i in {0..9}; do
+        body_file="${dir}/A${i}_body.csv"
+        margin_file="${dir}/A${i}_margin.csv"
+        citations_file="${dir}/A${i}_citations.csv"
+
+        if [[ -f "$body_file" ]]; then
+            psql -d $dbname -c "\COPY Segment FROM '$body_file' WITH DELIMITER ',' NULL '' CSV"
+        else
+            echo "File $body_file not found!"
+        fi
+        
+        if [[ -f "$margin_file" ]]; then
+            psql -d $dbname -c "\COPY Marginalia FROM '$margin_file' WITH DELIMITER ',' NULL '' CSV"
+        else
+            echo "File $margin_file not found!"
+        fi
+        
+        if [[ -f "$citations_file" ]]; then
+            psql -d $dbname -c "\COPY Citation FROM '$citations_file' WITH DELIMITER ',' NULL '' CSV"
+        else
+            echo "File $citations_file not found!"
+        fi
+    done
+
+    # Handle B files
+    body_file="${dir}/B_body.csv"
+    margin_file="${dir}/B_margin.csv"
+    citations_file="${dir}/B_citations.csv"
+
+    if [[ -f "$body_file" ]]; then
+        psql -d $dbname -c "\COPY Segment FROM '$body_file' WITH DELIMITER ',' NULL '' CSV"
+    else
+        echo "File $body_file not found!"
+    fi
+
+    if [[ -f "$margin_file" ]]; then
+        psql -d $dbname -c "\COPY Marginalia FROM '$margin_file' WITH DELIMITER ',' NULL '' CSV"
+    else
+        echo "File $margin_file not found!"
+    fi
+
+    if [[ -f "$citations_file" ]]; then
+        psql -d $dbname -c "\COPY Citation FROM '$citations_file' WITH DELIMITER ',' NULL '' CSV"
+    else
+        echo "File $citations_file not found!"
+    fi
+done
+
+

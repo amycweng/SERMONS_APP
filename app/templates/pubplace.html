@@ -36,8 +36,11 @@
           <tr>
             <th scope="col">Publication Place</th>
             <th scope="col">Number of Sermons in EEBO-TCP</th>    
-            <th scope="col">Standard</th>  
+            <th scope="col">Standard</th>
+            {% if current_user.is_authenticated %}
             <th scope="col">Edit Standard</th>
+            {% endif %}  
+
             <th scope="col"></th>
           </tr>
         </thead>
@@ -56,14 +59,17 @@
                 {% endif %}
                 {% endfor %}
             </td>
+            {% if current_user.is_authenticated %}
             <td>
-               <form action="{{ url_for('author.edit_pubplace',pubplace=pubplace)}}" method="POST" >
-                <input type="hidden" id="old" name="old" value="{{'; '.join(standard[place])}}">
-                <input type="text" id="new" name="new">
-               </td><td> 
-                <input type="submit" value="Submit" class="btn-gray"/> 
-               </form> 
-              </td>
+              <form action="{{ url_for('author.edit_pubplace',pubplace=pubplace)}}" method="POST" >
+               <input type="hidden" id="old" name="old" value="{{'; '.join(standard[place])}}">
+               <input type="text" id="new" name="new">
+              </td><td> 
+               <input type="submit" value="Submit" class="btn-gray"/> 
+              </form> 
+             </td>
+            {% endif %}  
+            
             </tr>
           {% endfor %}
         </tbody>

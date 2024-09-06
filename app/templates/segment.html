@@ -19,7 +19,8 @@
 
     });
     new DataTable($('#sort_sim'), {
-      order: [[4, 'desc']],
+      order: [[3, 'desc']],
+      pageLength: 5
 
     });
     new DataTable($('#sort_qp'), {
@@ -32,20 +33,17 @@
     });
   })
 </script>
-<script>
-  // Function to scroll to the section
-  function scrollToSection() {
-      const section = document.getElementById('mySection');
-      if (section) {
-          section.scrollIntoView({ behavior: 'smooth' });
-      }
-  }
-
-  // Scroll to section on page load
-  window.onload = function() {
-      scrollToSection();
-  }
-</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const requestMethod = "{{ method }}";  // This is passed from Flask
+            if (requestMethod === "POST") {
+                $('html, body').animate({
+                    scrollTop: $("#search_results").offset().top
+                }, 1000);
+            }
+        });
+    </script>
 <br>
 <div class="site_body">
   <h4><i>{{metadata[0].title}}</i></h4>
@@ -59,16 +57,20 @@
   <h6><b>Publisher:</b> {{metadata[0].publisher}}</h6>
   <h6><b>Place of Publication:</b> {{metadata[0].pubplace}}</h6>
   <h6><b>Publication Year:</b> {{metadata[0].pubyear}}</h6>
-  <h6><b>TCP ID:</b> {{metadata[0].tcpID}} <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
+  <h6><b>TCP ID:</b> <a href="{{metadata[0].phase}}"><u>{{metadata[0].tcpID}}</u></a> <b>ESTC ID:</b> {{metadata[0].estc}} <b>STC ID:</b> {{metadata[0].stc}}</h6>
   <h6><b>Subject Headings:</b> {{metadata[0].subject_headings}}</h6>
   <h6>   
-     <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View Full Text</u></a>
+     <a href="{{ url_for('sermon.full_text',tcpID=metadata[0].tcpID) }}"><u>View the Full Text of Relevant Sections</u></a>
      &ThickSpace;
      <a href="{{ url_for('sermon.get_citations',tcpID=metadata[0].tcpID) }}"><u>View All References</u></a>
     </h6>  
-    <div class="full_break">
-      <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-    </div>  
+    <br>
+    <h5>Likeliest Bible Version: {{biblever}}</h5>
+
+<div class="full_break">
+  <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+</div>  
+
   <br>
   <h4>Segment {{sidx}} located on {{loc_type.lower().capitalize()}} {{loc}}</h4>
   {% if sidx > 0 %}
@@ -101,24 +103,28 @@
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>
   <br>
-    <h3>Citations </h3>
-    <p style="margin-left: 0px; margin-right:0px;">The index of citation indicates its position within the text of the segment or a particular note of the segment.
-      For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
-      inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
-      'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
-      If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
-      and Roman numerals have been converted to integers.
-    </p>
-    <p style="margin-left: 0px; margin-right:0px;">
-      To edit a parsed citation, please follow the standard format of a period between chapter and verse, 
-      semi-colons to separate components, and no extra spaces. For consecutive citations, use a hyphen between verses,
-      such as '1 Chronicles 26.1-16'.
-      If the citation index requires an update, 
-      the indices of the other citations within the body text or particular note must first be shifted to ensure 
-      that each index is unique for each location. To only update a citation's index, leave the first text box blank.
-    </p>
-    <h5>Likeliest Bible Version: {{biblever}}</h5>
-    <br>
+  <h3>Citations
+    <div class="info-circle"> i
+      <div class="tooltip">
+        The index of citation indicates its position within the text of the segment or a particular note of the segment.
+          For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
+          inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
+          'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
+          If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
+          and Roman numerals have been converted to integers.
+        </div>
+    </div>  
+  </h3>
+  {% if current_user.is_authenticated %}
+  <p style="margin-left: 0px; margin-right:0px;">
+    To edit a parsed citation, please follow the standard format of a period between chapter and verse, 
+    semi-colons to separate components, and no extra spaces. For consecutive citations, use a hyphen between verses,
+    such as '1 Chronicles 26.1-16'.
+    If the citation index requires an update, 
+    the indices of the other citations within the body text or particular note must first be shifted to ensure 
+    that each index is unique for each location. To only update a citation's index, leave the first text box blank.
+  </p>
+  {% endif %}
     <table class='table is-striped' id="sort_citation">
       <thead class="grey_table" >
         <tr>
@@ -126,11 +132,11 @@
           <th scope="col">Index of Citation</th>
           <th scope="col">Phrase</th>
           <th scope="col">Parsed Citations </th>
-          {% if t_outlier %}
-          <th scope="col">Unparsable Citations</th>
-          {% endif %}
+          <th scope="col">Proximal Paraphrases (either within the same segment or a window of four segments)</th>
+          {% if current_user.is_authenticated %}
           <th scope="col">Modify</th>
           <th scope="col"></th>
+          {% endif %}
         </tr>
       </thead>
       <tbody>
@@ -138,12 +144,10 @@
           <tr>
             <td>{{c[2]}}</td>
             <td>{{c[3]}}</td>
-            <td>{{c[1]}} <br>
-            <td>{{c[0]}} <br>
-            </td>   
-            {% if t_outlier %}
-                <td>{{"; ".join(c_dict['t_outlier'][0])}}</td> 
-            {% endif %}
+            <td>{{c[1]}} <br></td> 
+            <td>{{c[0]}} <br></td>   
+            <td>{{proximal | safe}}</td> 
+            {% if current_user.is_authenticated %}
             <td>
               <form action="{{ url_for('sermon.edit_citation',tcpID=tcpID,sidx=sidx,loc=c[2])}}" method="POST" >
                 <input type="hidden" id="orig_cidx" name="orig_cidx" value="{{c[3]}}">
@@ -166,10 +170,14 @@
                 <input type="submit" value="Remove" class="btn-gray"/> 
                </form>   
             </td>
+            {% endif %}
           </tr>
         {% endfor %}
       </tbody>
     </table>
+
+
+    {% if current_user.is_authenticated %}
     <form action="{{ url_for('sermon.edit_version',tcpID=tcpID)}}" method="POST" >
       <input type="hidden" id="sidx" name="sidx" value="{{sidx}}">
       <label for="ver"><h5><b>Edit Version of Bible:</b> </h5></label>
@@ -207,6 +215,7 @@
           <input type="submit" value="Submit" class="btn-gray"/> 
           
         </form> 
+    {% endif %}
   <br>
 
   <div class="full_break">
@@ -214,23 +223,25 @@
   </div>  
   <br>
   <h3>Quotations or Paraphrases</h3>
+  <h6>Scopes: 1 (Complete Segment, Complete Verse), 2 (Complete Segment, Partial Verse), 3 (Partial Verse, Complete Segment), 4 (Partial Segment, Partial Verse)</h6>
   <table class='table is-striped' id="sort_qp">
     <thead class="grey_table" >
       <tr>
-        <th scope="col">TCP ID</th>
-        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Index of Phrase</th>
+        <th scope="col">Location of Phrase</th>
         <th scope="col">Verse & Version</th>
         <th scope="col">Full Verse Text</th>
         <th scope="col">Phrase(s) of Segment</th>
         <th scope="col">Score(s)</th>
+        <th scope="col">Scope(s)</th>
         <th scope="col">Remove Reference</th>
       </tr>
     </thead>
     <tbody>
       {% for q in actual_qp %}
         <tr>
-          <td>{{q.tcpID}}</td>
-          <td>{{q.sidx}}<br>{{q.loc}}
+          <td>{{q.sidx}}</td>
+          <td>{{q.loc}}
             <br>
             <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment, Notes, and References</b></u></a>
           </td>
@@ -241,6 +252,7 @@
           <td>{{q.verse_text}}</td>
           <td>{{q.phrase | safe}}</td>
           <td>{{q.score | safe}}</td>
+          <td>{{q.scope | safe}}</td>
           <td>
             <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
@@ -251,9 +263,12 @@
       {% endfor %}
     </tbody>
   </table>
+  <br><div class="full_break" id="search_results">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>  
   <br>
   <h3 id="semantic_search">Semantic Search</h3>
-  <form action="{{ url_for('sermon.search_in_bible',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
+  <form action="{{ url_for('sermon.get_segment_and_notes',tcpID=tcpID,sidx=sidx) }}" method="POST" class="my_button">
     <label for="phrase"><b>Search within the Bible: </b></label>
     <br>
     <textarea id="phrase" name="phrase" rows="2" cols="20">{{segment[0][1]}}</textarea>
@@ -285,32 +300,32 @@
   
 {% if qp_candidates %}
 <br>
-<h4 id="search_results"><b>Search phrase:</b> &VeryThinSpace; {{phrase}}</h4>
-<h5><b>Location in segment:</b> &VeryThinSpace; {{loc}}</h4>
+<h4><b>Search phrase:</b> &VeryThinSpace; {{phrase}}</h4>
+<h5><b>Location in segment:</b> &VeryThinSpace; {{phrase_loc}}</h4>
 <br>
-<table class='table is-striped' id="sort_qp">
+<table class='table is-striped' id="sort_sim">
   <thead class="grey_table" >
     <tr>
       <th scope="col">Verse & Version</th>
       <th scope="col">Full Verse Text</th>
-      <th scope="col">Score</th>
+      <th scope="col">Cosine Similarity</th>
       <th scope="col">Add Reference</th>
     </tr>
   </thead>
   <tbody>
     {% for q in qp_candidates %}
       <tr>
-        <td>{{q.verse_id}}
+        <td>{{q["verse_id"]}}
           <br>
             <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q.verse_id)}}"><u><b>Search for Verse</b></u></a>
         </td>
-        <td>{{q.verse_text}}</td>
-        <td>{{q.score}}</td>
+        <td>{{q["verse_text"]}}</td>
+        <td>{{q["score"]}}</td>
         <td>
           <form action="{{ url_for('sermon.add_qp',tcpID=tcpID, sidx=sidx, loc=q.loc, verse_id=q.tcpID)}}" method="POST" >
             <input type="hidden" id="page" name="page" value="segment">
-            <input type="text" id="phrase" name="phrase">
-            <input type="text" id="score" name="score">
+            <input type="hidden" id="phrase" name="phrase">
+            <input type="hidden" id="score" name="score">
             <input type="submit" value="Add As Reference" class="btn-gray"/> 
            </form>    
         </td>  

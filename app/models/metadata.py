@@ -39,15 +39,11 @@ class Metadata:
     @staticmethod
     def get_author_counts():
         rows = app.db.execute('''
-        SELECT *
+        SELECT author, COUNT(author)
         FROM Author 
+        GROUP BY author
         ''')
-        author_counts = {}
-        for a,t in rows: 
-            if a not in author_counts: author_counts[a] = 0 
-            author_counts[a] += 1 
-        author_counts = [(a,num) for a,num in author_counts.items()]
-        return author_counts
+        return rows
 
     @staticmethod
     def get_author_tcpIDs():
@@ -114,3 +110,30 @@ class Metadata:
         ''',
         tcpID=tcpID)
         return rows 
+    
+    @staticmethod
+    def get_topics():
+        rows = app.db.execute('''
+        SELECT t.tcpID, tw.topic_words
+        FROM Topics as t 
+        INNER JOIN TopicWords as tw 
+        ON t.topic = tw.topic_idx                
+        ''')
+        rows = {t[0]:t[1] for t in rows}
+        return rows 
+    
+    @staticmethod
+    def get_section_counts():
+        rows = app.db.execute('''
+        SELECT section_name, COUNT(*)
+        FROM Section 
+        GROUP BY section_name
+        ''')
+        return rows
+    
+    @staticmethod
+    def search_in_titles(phrase):
+        k=50
+        results = app.vectordb.search_title(phrase,k)
+        return results
+
