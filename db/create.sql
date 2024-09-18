@@ -88,7 +88,7 @@ CREATE TABLE Citation(
   citation TEXT, -- parsed citation  
   outlier TEXT, -- parts that cannot be parsed
   replaced TEXT, -- the cleaned tokens that were standardized and parsed  
-  FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
+  -- FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx),
   PRIMARY KEY (tcpID, sidx, loc, cidx)
 );
 
@@ -121,17 +121,17 @@ CREATE TABLE QuoteParaphrase( -- certain, verified quotations/paraphrases
   -- FOREIGN KEY (tcpID, sidx) REFERENCES Segment(tcpID,sidx)
 );
 
-CREATE TABLE ChromaIndices( -- certain, verified quotations/paraphrases 
-  collection_name TEXT NOT NULL,
-  idx INT NOT NULL, 
-  tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
-  sidx INT NOT NULL, -- segment in which the hit is located 
-  loc INT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
-  PRIMARY KEY (tcpID,sidx,loc) 
-);
+-- CREATE TABLE ChromaIndices( -- certain, verified quotations/paraphrases 
+--   collection_name TEXT NOT NULL,
+--   idx INT NOT NULL, 
+--   tcpID VARCHAR(30) NOT NULL REFERENCES Sermon(tcpID),
+--   sidx INT NOT NULL, -- segment in which the hit is located 
+--   loc INT NOT NULL, -- Whether the hit is in the text or margins; if the latter, then indicate 'Note #'
+--   PRIMARY KEY (tcpID,sidx,loc) 
+-- );
 
-CREATE INDEX ChromaIndices_collection_idx 
-ON ChromaIndices (collection_name, idx);
+-- CREATE INDEX ChromaIndices_collection_idx 
+-- ON ChromaIndices (collection_name, idx);
 
 CREATE TABLE CrossReferences(
   verse_id_1 VARCHAR(100) NOT NULL REFERENCES Bible(verse_id),
@@ -171,18 +171,24 @@ CREATE TABLE audit_log (
 
 CREATE OR REPLACE FUNCTION log_table_changes()
 RETURNS TRIGGER AS $$
+DECLARE
+    user_id INTEGER;  -- Variable to hold the user id from Users table
 BEGIN
-    -- Only log if the current user is not 'postgres' or another system user
-    IF current_user NOT IN ('postgres', 'initializer_user') THEN
+    IF current_user NOT IN ('postgres', 'initializer_user', 'amycweng') THEN
+
+        SELECT id INTO user_id
+        FROM Users
+        WHERE username = current_user;
+
         IF TG_OP = 'INSERT' THEN
             INSERT INTO audit_log (table_name, operation, new_data, changed_by)
-            VALUES (TG_TABLE_NAME, 'INSERT', row_to_json(NEW), current_user.id);
+            VALUES (TG_TABLE_NAME, 'INSERT', row_to_json(NEW), user_id);
         ELSIF TG_OP = 'UPDATE' THEN
             INSERT INTO audit_log (table_name, operation, old_data, new_data, changed_by)
-            VALUES (TG_TABLE_NAME, 'UPDATE', row_to_json(OLD), row_to_json(NEW), current_user.id);
+            VALUES (TG_TABLE_NAME, 'UPDATE', row_to_json(OLD), row_to_json(NEW), user_id);
         ELSIF TG_OP = 'DELETE' THEN
             INSERT INTO audit_log (table_name, operation, old_data, changed_by)
-            VALUES (TG_TABLE_NAME, 'DELETE', row_to_json(OLD), current_user.id);
+            VALUES (TG_TABLE_NAME, 'DELETE', row_to_json(OLD), user_id);
         END IF;
     END IF;
     RETURN NULL;
