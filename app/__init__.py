@@ -3,7 +3,7 @@ from flask_login import LoginManager
 from .config import Config
 from .db import DB
 from .vectordb import Vector_DB
-
+from .dash import create_dash 
 login = LoginManager()
 login.login_view = 'users.login'
 
@@ -15,6 +15,7 @@ def create_app():
     app.db = DB(app)
     app.vectordb = Vector_DB()
     login.init_app(app)
+    app.dash = create_dash(app)
 
     from .index import bp as index_bp
     app.register_blueprint(index_bp)
@@ -30,4 +31,8 @@ def create_app():
 
     from .download import bp as download_bp
     app.register_blueprint(download_bp)
+
+    from .dash import bp as dash_bp
+    app.register_blueprint(dash_bp)
+    
     return app

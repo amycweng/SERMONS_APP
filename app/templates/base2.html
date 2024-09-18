@@ -56,31 +56,29 @@
 <body>
     <div class="sidenav">
       {% block msg %}
-        <!-- <img class = "header-image" src="/static/images/decoration.png" alt = "Printed decoration from a sermon (see bottom of website for citation)"> -->
-        <br><br>
+      <!-- <img class = "header-image" src="/static/images/decoration.png" alt = "Printed decoration from a sermon (see bottom of website for citation)"> -->
+      <br><br>
         <header>
           <div class = "header-content">
             <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
             <div style="color: aliceblue; text-align: right;">
               {% if current_user.is_authenticated %}
-                Hello {{current_user.username}}! <a href="{{ url_for('users.logout') }}" type="button" class="btn tab-banner"><i>Log out</i></a>
+                Hello {{current_user.username}}! 
                 <a href="{{ url_for('users.profile') }}" type="button" class="btn tab-banner"><i>Profile</i></a>
+                <a href="{{ url_for('users.logout') }}" type="button" class="btn tab-banner"><i>Log out</i></a>
               {% else %}
-                <a href="{{ url_for('users.login') }}" type=type="button" class="btn tab-banner"><i>Log in or Register</i></a>
+                <!-- <a href="{{ url_for('users.login') }}" type=type="button" class="btn tab-banner"><i>Log in or Register</i></a> -->
               {% endif %}
             </div>
           </div>
           
           <div class="banner-header"> 
             <a href="{{ url_for('index.about') }}" type="button" class="btn tab-banner" style="align-items: center;">Overview</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Sermons</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Catalog</a>
             <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata</a>
-            <a href="{{ url_for('sermon.get_all') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
-            <a href="{{ url_for('index.visualize_citations') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Citations</a>
+            <a href="{{ url_for('index.scriptural_index') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index and Prominence</a>
             <a href="{{ url_for('sermon.semantic_search') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
-            <!-- <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a> -->
-            <a href="{{ url_for('download.download') }}" type="button" class="btn tab-banner" style="align-items: center;">Download</a>
-
+            <a href="{{ url_for('dash.clusters') }}" type="button" class="btn tab-banner" style="align-items: center;">Author Clusters</a>
 
           </div>
       </header>
@@ -94,37 +92,36 @@
   </div>
 
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12 col-md-7">
-          <h6>About</h6>
-          This site is dedicated to exploring references in English printed sermons from the sixteenth and seventeenth centuries.
-          <br><br>Images courtesy of Proquest LLC. All decorative motifs come from the scan of William Fenner's <a href="https://login.proxy.lib.duke.edu/login?url=https://www.proquest.com/eebo/books/treatise-affections-souls-pulse-whereby-christian/docview/2248543368/sem-2?accountid=10598"><i>A treatise of the affections</i></a> (1650) reproduced on Early English Books Online by the courtesy of the Burke Library of Union Theological Seminary.
-        </div>
-  
-        <div class="col-sm-12 col-md-4">
-          <h6>More Information</h6>
-          <ul>
-            <li><a href="https://quod.lib.umich.edu/e/eebogroup/">Early English Books Online (EEBO)</a></li>
-            <li><a href="https://textcreationpartnership.org/tcp-texts/eebo-tcp-early-english-books-online/">Text Creation Partnership (TCP)</a></li>
-            <li><a href="https://sites.duke.edu/earlymodernlondon/">The Early Modern London Project</a></li>
-            <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/">Sermons and the Public</a></li>
-            <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/marginalia/">Biblical Citations in Sermon Marginalia</a></li>
-          </ul>
-        </div>
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12 col-md-7">
+        <h6>About</h6>
+        This site is dedicated to exploring references in English printed sermons from the sixteenth and seventeenth centuries.
+        <br><br>Images courtesy of Proquest LLC. All decorative motifs come from the scan of William Fenner's <a href="https://login.proxy.lib.duke.edu/login?url=https://www.proquest.com/eebo/books/treatise-affections-souls-pulse-whereby-christian/docview/2248543368/sem-2?accountid=10598"><i>A treatise of the affections</i></a> (1650) reproduced on Early English Books Online by the courtesy of the Burke Library of Union Theological Seminary.
       </div>
-      <hr>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-sm-6 col-xs-12">
-          &copy; 2024 Amy Weng
-          </p>
-        </div>
+
+      <div class="col-sm-12 col-md-4">
+        <h6>More Information</h6>
+        <ul>
+          <li><a href="https://quod.lib.umich.edu/e/eebogroup/">Early English Books Online (EEBO)</a></li>
+          <li><a href="https://textcreationpartnership.org/tcp-texts/eebo-tcp-early-english-books-online/">Text Creation Partnership (TCP)</a></li>
+          <li><a href="https://sites.duke.edu/earlymodernlondon/">The Early Modern London Project</a></li>
+          <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/">Sermons and the Public</a></li>
+          <li><a href="https://sites.duke.edu/earlymodernlondon/sermons-and-the-public/marginalia/">Biblical Citations in Sermon Marginalia</a></li>
+        </ul>
       </div>
     </div>
-  </footer>
-  
+    <hr>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-sm-6 col-xs-12">
+        &copy; 2024 Amy C. Weng
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
 
 </html>

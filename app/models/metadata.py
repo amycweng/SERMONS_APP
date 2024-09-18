@@ -37,6 +37,29 @@ class Metadata:
         return [Metadata(*row) for row in rows]
     
     @staticmethod
+    def get_all_for_ORCP():
+        rows = app.db.execute('''
+        SELECT m.tcpID, a.author, p.pubplace, s.subject_heading
+        FROM Sermon as m, Author as a, Pubplace as p, SubjectHeading as s 
+        WHERE m.tcpID = a.tcpID 
+        AND a.tcpID = p.tcpID
+        AND p.tcpID = s.tcpID
+        ''')
+        return [{'tcpID':m[0],'author': m[1],'pubplace':m[2],'subject_heading':m[3]} for m in rows]
+    
+
+    @staticmethod
+    def get_by_author(author):
+        rows = app.db.execute('''
+        SELECT m.tcpID,m.estc,m.stc,m.title,m.authors,m.publisher,m.pubplace,m.subject_headings,m.pubyear,m.phase
+        FROM Sermon as m, Author as a
+        WHERE m.tcpID = a.tcpID 
+        AND a.author = :author
+        ORDER BY m.pubyear ASC
+        ''', author=author)
+        return [Metadata(*row) for row in rows]
+    
+    @staticmethod
     def get_author_counts():
         rows = app.db.execute('''
         SELECT author, COUNT(author)
@@ -94,9 +117,10 @@ class Metadata:
     @staticmethod
     def get_tcpIDs_by_aut(author):
         rows = app.db.execute('''
-        SELECT *
-        FROM Author
-        WHERE author = :author 
+        SELECT a.author, s.tcpID, s.
+        FROM Author as a, Sermon as s
+        WHERE a.author = :author 
+        AND s.tcpID = a.tcpID
         ''',
         author=author)
         return rows 

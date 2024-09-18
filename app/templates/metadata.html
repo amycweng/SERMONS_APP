@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 
 {% block content %}
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
@@ -55,7 +55,9 @@
         <tbody>
           {% for year,idx in years %}
           <tr>
-              <td>{{year}}</td> 
+              <td>
+                <a href="{{ url_for('author.pubyear',pubyear=year)}}"><u>{{year}}</u></a>
+              </td> 
               <td>{{num_sermons[idx]}}</td>
             </tr>
           {% endfor %}
@@ -81,7 +83,9 @@
       <tbody>
         {% for item,count in subjects %}
         <tr>
-            <td>{{item}}</td> 
+            <td>
+              <a href="{{ url_for('author.subject_headings',subject=item)}}"><u>{{item}}</u></a>
+            </td> 
             <td>{{count}}</td>
           </tr>
         {% endfor %}
@@ -92,7 +96,7 @@
   <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
 </div> 
 
-    <h3>Preachers</h3>
+    <h3>Authors</h3>
     <!-- <img src='data:image/png;base64,{{data3}}' style="width: 100%;"/> -->
     <img src='/static/images/authors.png' style="width: 100%;"/>
       <table class='table is-striped' id="author">
@@ -171,10 +175,10 @@
   <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
 </div>  
 
-  <h3>Topic Words In Titles</h3>
+  <!-- <h3>Topic Words In Titles</h3> -->
   <!-- <h5>(Excluding the commonly occurring variants of "sermon" and "preached")</h5> -->
   <!-- <img src='data:image/png;base64,{{data_topics}}' style="width: 100%;"/> -->
-  <img src='/static/images/topics.png' style="width: 100%;"/>
+  <!-- <img src='/static/images/topics.png' style="width: 100%;"/>
     <table class='table is-striped' id="topics">
         <thead class="grey_table" >
           <tr>
@@ -190,7 +194,7 @@
             </tr>
           {% endfor %}
         </tbody>
-      </table>
+      </table> -->
 </div>
 
 {% endblock %}

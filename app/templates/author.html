@@ -8,14 +8,67 @@
   $(document).ready(function(){
     new DataTable($('#sort_sidx'), {
       order: [[0, 'asc']],
+      pageLength:5
+    });
+    new DataTable($('#sort_date'), {
+      order: [[3, 'asc'],[1,'asc']],
+        pageLength:3
     });
     new DataTable($('#sort_sidx2'), {
       order: [[0, 'asc']],
       pageLength:5
     });
     new DataTable($('#sort_qp'), {
-      order: [[6, 'desc'],[0, 'asc'],[1, 'asc']],
+      order: [[0, 'asc'],[5, 'desc']],
       pageLength:5
+    });
+    new DataTable($('#book_citation'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#part_citation'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#chapter_citation'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#verse_citation'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#book_QP'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#part_QP'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#chapter_QP'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
+    });
+    new DataTable($('#verse_QP'), {
+      order: [[1, 'desc']],
+      pageLength:1,
+      "lengthChange": false,
+      "pagingType": "simple"
     });
   })
 
@@ -25,103 +78,292 @@
 
 <div class="site_body">
  <h3><b>{{author}}</b></h3>
-  <br>
-  <h4>Citations
-    <div class="info-circle"> i
-      <div class="tooltip">
-        The index of citation indicates its position within the text of the segment or a particular note of the segment.
-          For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
-          inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
-          'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
-          If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
-          and Roman numerals have been converted to integers.
-         </div>
-    </div>  
-  </h4>
-  
-  <table class='table is-striped' id="sort_sidx">
-    <thead class="grey_table" >
-      <tr>
-        <th scope="col">TCP ID</th>
-        <th scope="col">Index of Segment</th>
-        <th scope="col">Location</th>
-        <th scope="col">Index of Citation in Segment</th>
-        <th scope="col">Parsed Citation(s)</th>
-        <th scope="col">Proximal Paraphrases (either within the same segment or a window of four segments)</th>
-        <th scope="col">Phrase</th>
-        <th scope="col">Text of Segment and Notes</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for c in citations%}
-        <tr>
-          <td>{{c.tcpID}}</td>
-          <td>{{c.sidx}}</td>
-          <td>{{c.loc}}</td>
-          <td>{{c.cidx}}</td>
-          <td>{{c.citation}}</td>
-          <td>
-              {{proximal[c.sidx] | safe}}
-          </td> 
-          <td>{{c.replaced}}</td>
-          <td>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}"><u><b>View</b></u></a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>  
-  <br>
-  <h3>Quotations or Paraphrases</h3>
-  <table class='table is-striped' id="sort_qp">
-    <thead class="grey_table" >
-      <tr>
-        <th scope="col">TCP ID</th>
-        <th scope="col">Index of Phrase</th>
-        <th scope="col">Location of Phrase</th>
-        <th scope="col">Verse & Version</th>
-        <th scope="col">Full Verse Text</th>
-        <th scope="col">Phrase(s) of Segment</th>
-        <th scope="col">Score(s)</th>
-        <th scope="col">Scope(s)</th>
-        {% if current_user.is_authenticated %}
-        <th scope="col">Remove Reference</th>
-        {% endif %}
-      </tr>
-    </thead>
-    <tbody>
-      {% for q in actual_qp %}
+    <br>
+  
+    <h4><b>Citations</b>
+      <div class="info-circle"> i
+        <div class="tooltip">
+          The index of citation indicates its position within the text of the segment or a particular note of the segment.
+            For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
+            inclusive of all its parsed components. 
+           </div>
+      </div>  
+    </h4>
+    <div>
+      <p2>Rather than examine the frequency or proportion of references, it is far more useful to determine which 
+        references are most prominent for a citing actor.   
+        Prominence is measured using the metric of Outgoing Relative 
+        Citational Prominence (ORCP) proposed by <a href="https://aclanthology.org/2023.emnlp-main.797/" style="color:#0000EE;"><b>Wahle et al. (2023)</b></a>. 
+        In this case, a positive prominence value for a reference <i>R</i> by author <i>A</i> means that 
+        <i>R</i> constitutes a greater percentage of all the references mentioned by <i>A</i>
+        than the average citation percentage that other publications mention <i>R</i>. 
+        A negative value indicates that a given reference constitutes a proportion lesser than average. 
+        </p2>
+    </div>
+  
+    <br>
+    <div style="display: inline-block; width:25%;">
+      <table class='table is-striped' id="part_citation" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Part</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in C_P[0] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:25%;">
+      <table class='table is-striped' id="book_citation" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Book</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in C_P[1] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:24%;">
+      <table class='table is-striped' id="chapter_citation" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Chapter</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in C_P[2] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:24%;">
+      <table class='table is-striped' id="verse_citation" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Verse</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in C_P[-1] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <table class='table is-striped' id="sort_sidx">
+      <thead class="grey_table" >
         <tr>
-          <td>{{q.tcpID}}</td>
-          <td>{{q.sidx}}</td>
-          <td>{{q.loc}}
-            <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}"><u><b>View Segment, Notes, and References</b></u></a>
-          </td>
-          <td>{{q.verse_id}}
-            <br>
-              <a href="{{ url_for('sermon.semantic_search_verse_get',verse_id=q.verse_id) }}"><u><b>Search for Verse</b></u></a>
-          </td>
-          <td>{{q.verse_text}}</td>
-          <td>{{q.phrase | safe}}</td>
-          <td>{{q.score | safe}}</td>
-          <td>{{q.scope | safe}}</td>
-          {% if current_user.is_authenticated %}
-          <td>
-            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
-              <input type="hidden" id="page" name="page" value="segment">
-              <input type="submit" value="Remove" class="btn-gray"/> 
-             </form>   
-          </td>  
-          {% endif %}
+          <th scope="col">TCP ID</th>
+          <th scope="col">Index of Segment</th>
+          <th scope="col">Location</th>
+          <th scope="col">Index of Citation in Segment</th>
+          <th scope="col">Parsed Citation</th>
+          <th scope="col">Proximal Paraphrases (either within the same segment or a window of four segments)</th>
+          <th scope="col">Phrase</th>
+          <th scope="col">Text of Segment and Notes</th>
         </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-
-</div>
-
-{% endblock %}
+      </thead>
+      <tbody>
+        {% for c in citations%}
+          <tr>
+            <td><a href="{{ url_for('sermon.get_citations',tcpID=c.tcpID) }}"><u>{{c.tcpID}}</u></a></td>
+            <td>{{c.sidx}}</td>
+            <td>{{c.loc}}</td>
+            <td>{{c.cidx}}</td>
+            <td>{{c.citation}}</td>
+            <td>
+                {{proximal[c.sidx] | safe}}
+            </td> 
+            <td>{{c.replaced}}</td>
+            <td>
+              <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}">
+                <button type="submit" style="border: none; background-color: transparent;">
+                  <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+              </button>
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <div class="full_break">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>  
+    <br>
+      <h4><b>Quotations or Paraphrases</b></h4>
+      <div>
+        <p2>For quotational prominence, only the predictions with the highest cosine similarity scores per verse of the different Bibles 
+          are included for consideration. These are either complete or partial quotations with scores >= 0.9 or paraphrases with scores >= 0.8.
+          Lower scoring paraphrases (score >= 0.7) are also included if they are from a book cited nearby in the text. 
+          For now, the Tyndale and Wycliffe Bibles have been excluded from consideration, but they will be included in the future after 
+          I refine my training corpus and retrain my models. 
+        </p2> 
+      </div>
+      <br>
+    <div style="display: inline-block; width:25%;">
+      <table class='table is-striped' id="part_QP" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Part</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in QP_P[0] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:25%;">
+      <table class='table is-striped' id="book_QP" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Book</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in QP_P[1] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:24%;">
+      <table class='table is-striped' id="chapter_QP" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Chapter</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in QP_P[2] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div style="display: inline-block; width:24%;">
+      <table class='table is-striped' id="verse_QP" >
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">Verse</th>
+            <th scope="col">Prominence</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for ref in QP_P[-1] %}
+          <tr>
+              <td>
+                {{ref[0]}}
+              </td> 
+              <td>{{ref[1]}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+      <h6>Scopes: 1 (Complete Segment, Complete Verse), 2 (Complete Segment, Partial Verse), 3 (Partial Verse, Complete Segment), 4 (Partial Segment, Partial Verse)</h6>
+  
+      <table class='table is-striped' id="sort_qp">
+        <thead class="grey_table" >
+          <tr>
+            <th scope="col">TCP ID</th>
+            <th scope="col">Index of Phrase</th>
+            <th scope="col">Location of Phrase</th>
+            <th scope="col">Verse & Version</th>
+            <th scope="col">Full Verse Text</th>
+            <th scope="col">Phrase of Segment</th>
+            <th scope="col">Score</th>
+            <th scope="col">Scope</th>
+            <th scope="col">Text of Segment and Notes</th>
+            <!-- <th scope="col">Remove Reference</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for q in actual_qp %}
+            <tr>
+              <td><a href="{{ url_for('sermon.get_citations',tcpID=q.tcpID) }}"><u>{{q.tcpID}}</u></a></td>
+              <td>{{q.sidx}}</td>
+              <td>{{q.loc}}
+              </td>
+              <td>{{q.verse_id}}</td>
+              <td>{{q.verse_text}}</td>
+              <td>{{q.phrase | safe}}</td>
+              <td>{{q.score | safe}}</td>
+              <td>{{q.scope | safe}}</td>
+              <td>
+                <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}">
+                  <button type="submit" style="border: none; background-color: transparent;">
+                    <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+                </button>
+                </a>
+              </td>
+              <!-- <td>
+                <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
+                  <input type="hidden" id="page" name="page" value="segment">
+                  <input type="submit" value="Remove" class="btn-gray"/> 
+                 </form>   
+              </td>   -->
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    <br>
+  </div>
+  
+  </div>
+  
+  {% endblock %}

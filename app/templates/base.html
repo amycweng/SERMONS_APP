@@ -63,23 +63,23 @@
             <h3 style="color:rgb(255, 255, 255)">Early English Printed Sermons</h3>
             <div style="color: aliceblue; text-align: right;">
               {% if current_user.is_authenticated %}
-                Hello {{current_user.username}}! <a href="{{ url_for('users.logout') }}" type="button" class="btn tab-banner"><i>Log out</i></a>
+                Hello {{current_user.username}}! 
                 <a href="{{ url_for('users.profile') }}" type="button" class="btn tab-banner"><i>Profile</i></a>
+                <a href="{{ url_for('users.logout') }}" type="button" class="btn tab-banner"><i>Log out</i></a>
               {% else %}
-                <a href="{{ url_for('users.login') }}" type=type="button" class="btn tab-banner"><i>Log in or Register</i></a>
+                <!-- <a href="{{ url_for('users.login') }}" type=type="button" class="btn tab-banner"><i>Log in or Register</i></a> -->
               {% endif %}
             </div>
           </div>
           
           <div class="banner-header"> 
             <a href="{{ url_for('index.about') }}" type="button" class="btn tab-banner" style="align-items: center;">Overview</a>
-            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Sermons</a>
+            <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Catalog</a>
             <a href="{{ url_for('index.visualize') }}" type="button" class="btn tab-banner" style="align-items: center;">Metadata</a>
-            <a href="{{ url_for('sermon.get_all') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index</a>
-            <a href="{{ url_for('index.visualize_citations') }}" type="button" class="btn tab-banner" style="align-items: center;">Visualizations of Citations</a>
+            <a href="{{ url_for('index.scriptural_index') }}" type="button" class="btn tab-banner" style="align-items: center;">Scriptural Index and Prominence</a>
             <a href="{{ url_for('sermon.semantic_search') }}" type="button" class="btn tab-banner" style="align-items: center;">Semantic Search</a>
-            <!-- <a href="{{ url_for('index.index') }}" type="button" class="btn tab-banner" style="align-items: center;">Methodology</a> -->
-            <a href="{{ url_for('download.download') }}" type="button" class="btn tab-banner" style="align-items: center;">Download</a>
+            <a href="{{ url_for('dash.clusters') }}" type="button" class="btn tab-banner" style="align-items: center;">Author Clusters</a>
+            <!-- <a href="{{ url_for('download.download') }}" type="button" class="btn tab-banner" style="align-items: center;">Download</a> -->
 
 
           </div>
@@ -119,7 +119,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-sm-6 col-xs-12">
-        &copy; 2024 Amy Weng
+        &copy; 2024 Amy C. Weng
         </p>
       </div>
     </div>

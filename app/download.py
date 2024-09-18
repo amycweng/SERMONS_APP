@@ -10,9 +10,8 @@ import csv,zipfile
 from io import StringIO,BytesIO
 bp = Blueprint('download', __name__)
 
-@bp.route('/citations/download',methods=['GET','POST'])
+@bp.route('/citations/download',methods=['POST'])
 def download():
-    labels = get_books_citations()
     if request.method == 'POST':
         label = request.form['item']
         if len(label) > 0: 
@@ -23,6 +22,7 @@ def download():
             print(len(citations), 'citations')
             segments,metadata,other_cited = {},{},{}
             book_counts,aut_counts,year_counts,links = {},{},{},{}
+            actual_qp = {}
             verses = {}
             for c in citations: 
                 meta = Metadata.get_by_tcpID(c.tcpID)[0]   
@@ -81,10 +81,6 @@ def download():
             aut_counts =  sorted(aut_counts.items(),key = lambda x:x[1],reverse=True)
             year_counts =  sorted(year_counts.items(),key = lambda x:x[1],reverse=True)
             other_cited = sorted(other_cited.items(),key=lambda x: (x[1], x[0][0],x[0][1]),reverse=True)
-            # print(book_counts[:10])
-            # print(aut_counts[:10])
-            # print(year_counts[:10])
-            # print(other_cited[:10])
             
             meta_data = StringIO()
             meta_csv = csv.writer(meta_data)
@@ -130,8 +126,6 @@ def download():
             
             return Response(zip_memory.getvalue(), headers=headers)
         
-    return render_template('download.html',
-                           labels=labels
-                        )
+    return render_template('scriptural_index.html')
 
     

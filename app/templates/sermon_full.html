@@ -46,12 +46,12 @@
   <table class='table is-striped' id='sort_sidx'>
     <thead class="grey_table" >
       <tr>
-        <th scope="col">Text (tokenized)</th>
+        <th scope="col">Text</th>
         <th scope="col">Index of Segment</th>
         <th scope="col">Name & Index of Section</th>
         <th scope="col">Index of Paragraph</th>
         <th scope="col">Page or Reference Image Number</th>
-        <th scope="col">References</th>
+        <th scope="col">Click for Marginalia and References</th>
       </tr>
     </thead>
     <tbody>
@@ -63,8 +63,12 @@
             <td>{{s.pidx}}</td>
             <td>{{s.loc_type.lower().capitalize()}} {{s.loc}}</td>
             <td>
-                <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=s.tcpID,sidx=s.sidx) }}"><u><b>View</b></u></a>
-              </td>
+                <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=s.tcpID,sidx=s.sidx) }}">
+                  <button type="submit" style="border: none; background-color: transparent;">
+                    <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+                </button>
+                </a>
+              </td> 
          </tr>
     {% endfor %}
     </tbody>
@@ -79,7 +83,7 @@
             <th scope="col">Index of Segment</th>
             <th scope="col">Index of Note</th>
             <th scope="col">Text (tokenized)</th>
-            <th scope="col">Full Segment and References</th>
+            <th scope="col">Click for Full Segment and References</th>
         </tr>
         </thead>
         <tbody >
@@ -90,7 +94,12 @@
                 <td>{{n.nidx}}</td>
                 <td>{{n.tokens | safe}}</td> 
                 <td>
-                  <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=n.tcpID,sidx=n.sidx) }}"><u><b>View</b></u></a>
+                  <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=n.tcpID,sidx=n.sidx) }}">
+                    <!-- <u><b>View</b></u> -->
+                    <button type="submit" style="border: none; background-color: transparent;">
+                      <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+                  </button>
+                  </a>
                 </td>
             </tr>
         {% endfor %}

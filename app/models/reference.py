@@ -24,6 +24,7 @@ class Citation:
         SELECT *
         FROM Citation as c
         WHERE c.tcpID = :tcpID 
+        ORDER BY c.sidx ASC 
         ''',
         tcpID=tcpID)
         return [Citation(*row) for row in rows]
@@ -40,12 +41,44 @@ class Citation:
         return [Citation(*row) for row in rows]
     
     @staticmethod
+    def get_by_pubplace(pubplace):
+        rows = app.db.execute('''
+        SELECT c.tcpID,sidx,loc,cidx,citation,outlier,replaced
+        FROM Citation as c, Pubplace as pp 
+        WHERE c.tcpID = pp.tcpID 
+        AND pp.pubplace LIKE :pubplace 
+        ''',
+        pubplace = pubplace)
+        return [Citation(*row) for row in rows]
+    
+    @staticmethod
+    def get_by_pubyear(pubyear):
+        rows = app.db.execute('''
+        SELECT c.tcpID,sidx,loc,cidx,citation,outlier,replaced
+        FROM Citation as c, Sermon as s 
+        WHERE c.tcpID = s.tcpID 
+        AND s.pubyear LIKE :pubyear 
+        ''',
+        pubyear = pubyear)
+        return [Citation(*row) for row in rows]
+    @staticmethod
+    def get_by_subject(subject):
+        rows = app.db.execute('''
+        SELECT c.tcpID,sidx,loc,cidx,citation,outlier,replaced
+        FROM Citation as c, SubjectHeading as s 
+        WHERE c.tcpID = s.tcpID 
+        AND s.subject_heading = :subject 
+        ''',
+        subject = subject)
+        return [Citation(*row) for row in rows]
+    @staticmethod
     def get_by_tcpID_sidx(tcpID,sidx):
         rows = app.db.execute('''
         SELECT *
         FROM Citation as c
         WHERE c.tcpID = :tcpID 
         AND c.sidx = :sidx
+        ORDER BY c.sidx 
         ''',
         tcpID=tcpID,
         sidx=sidx)
@@ -193,7 +226,14 @@ class Bible:
         FROM Bible
         ''')
         return [Bible(*row) for row in rows]
-    
+    @staticmethod
+    def get_bible_verse_ids_only():
+        rows = app.db.execute('''
+        SELECT verse_id
+        FROM Bible
+        ORDER BY verse_id
+        ''')
+        return [r[0] for r in rows]
     @staticmethod
     def get_bible_verse_by_ids(verse_ids):
         rows = app.db.execute('''
@@ -227,8 +267,8 @@ class Bible:
         return [Bible(*row) for row in rows]
 
     @staticmethod
-    def search_bible_phrase(era,phrase,loc,k):
-        results = app.vectordb.search(era,phrase,loc,k)
+    def search_bible_phrase(phrase,loc,k):
+        results = app.vectordb.search(phrase,loc,k)
         return results
     
     @staticmethod
@@ -248,12 +288,17 @@ class QuoteParaphrase:
         self.verse_text = verse_text
         self.scope = scope 
 
+    
     @staticmethod
-    def get_all():
+    def get_by_label(label):
         rows = app.db.execute('''
         SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
-        FROM QuoteParaphrase as p, Bible as b 
-        ''')
+        FROM QuoteParaphrase as p, Bible as b
+        WHERE b.verse_id LIKE :label
+        AND b.verse_id = p.verse_id
+        ORDER BY p.score DESC
+        ''',
+        label=label)
         return [QuoteParaphrase(*row) for row in rows]
     
     @staticmethod
@@ -337,6 +382,7 @@ class QuoteParaphrase:
         FROM QuoteParaphrase as p, Bible as b 
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
+        ORDER BY p.tcpID ASC, p.sidx ASC 
         ''',
         tcpID = tcpID)
         return [QuoteParaphrase(*row) for row in rows]  
@@ -349,8 +395,48 @@ class QuoteParaphrase:
         WHERE b.verse_id = p.verse_id
         AND p.tcpID = a.tcpID 
         AND a.author = :aut 
+        ORDER BY p.tcpID ASC, p.sidx ASC 
         ''',
         aut = aut)
+        return [QuoteParaphrase(*row) for row in rows]  
+    
+    @staticmethod
+    def get_actual_by_pubplace(pubplace):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
+        FROM QuoteParaphrase as p, Bible as b, Pubplace as pp 
+        WHERE b.verse_id = p.verse_id
+        AND p.tcpID = pp.tcpID 
+        AND pp.pubplace LIKE :pubplace 
+        ORDER BY p.tcpID ASC, p.sidx ASC 
+        ''',
+        pubplace = pubplace)
+        return [QuoteParaphrase(*row) for row in rows]  
+    
+    @staticmethod
+    def get_actual_by_pubyear(pubyear):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
+        FROM QuoteParaphrase as p, Bible as b, Sermon as s 
+        WHERE b.verse_id = p.verse_id
+        AND p.tcpID = s.tcpID 
+        AND s.pubyear LIKE :pubyear 
+        ORDER BY p.tcpID ASC, p.sidx ASC 
+        ''',
+        pubyear = pubyear)
+        return [QuoteParaphrase(*row) for row in rows]  
+    
+    @staticmethod
+    def get_actual_by_subject(subject):
+        rows = app.db.execute('''
+        SELECT p.tcpID, p.sidx, p.loc, p.verse_id, p.score,p.phrase,b.verse_text,p.scope
+        FROM QuoteParaphrase as p, Bible as b, SubjectHeading as s 
+        WHERE b.verse_id = p.verse_id
+        AND p.tcpID = s.tcpID 
+        AND s.subject_heading = :subject 
+        ORDER BY p.tcpID ASC, p.sidx ASC 
+        ''',
+        subject = subject)
         return [QuoteParaphrase(*row) for row in rows]  
     
     @staticmethod
@@ -361,10 +447,73 @@ class QuoteParaphrase:
         WHERE p.tcpID = :tcpID
         AND b.verse_id = p.verse_id
         AND p.sidx = :sidx
+        ORDER BY p.sidx
         ''',
         tcpID = tcpID,
         sidx=sidx)
         return [QuoteParaphrase(*row) for row in rows]  
     
+    @staticmethod
+    def get_text_hits_by_ids(tcpID, sidx):
+        rows = app.db.execute('''
+        SELECT s.tokens 
+        FROM Segment as s 
+        WHERE tcpID = :tcpID
+        AND sidx = :sidx 
+        ''',
+        tcpID = tcpID, sidx = sidx)
+        return rows[0]
     
+    @staticmethod
+    def get_marginal_hits_by_ids(tcpID, sidx, nidx):
+        rows = app.db.execute('''
+        SELECT s.tokens 
+        FROM Marginalia as s 
+        WHERE tcpID = :tcpID
+        AND sidx = :sidx 
+        AND nidx = :nidx 
+        ''',
+        tcpID = tcpID, sidx = sidx, nidx =nidx)
+        return rows[0]
+    # @staticmethod
+    # def get_text_hits_by_ids(keys):
+    #     rows = app.db.execute('''
+    #     WITH CIndices (cid,tcpID,sidx) AS (
+    #         SELECT collection_name || '_' || idx, tcpID, sidx
+    #         FROM ChromaIndices
+    #         WHERE loc = -1 
+    #     )
+    #     SELECT CI.cid, s.tcpID, s.sidx, s.tokens 
+    #     FROM CIndices as CI, Segment as s         
+    #     WHERE CI.cid IN :keys  
+    #     AND CI.tcpID = s.tcpID 
+    #     AND CI.sidx = s.sidx 
+    #     ''',
+    #     keys=keys)
+    #     hits = {}
+    #     for r in rows: 
+    #         if r[0] not in hits: hits[r[0]] = []
+    #         hits[r[0]].append({"tcpID": r[1], "sidx":r[2], "loc": -1,"text": r[3]})
+    #     return hits
     
+    # @staticmethod
+    # def get_marginal_hits_by_ids(keys):
+    #     rows = app.db.execute('''
+    #     WITH CIndices (cid,tcpID,sidx,loc) AS (
+    #         SELECT collection_name || '_' || idx, tcpID, sidx
+    #         FROM ChromaIndices
+    #         WHERE loc <> -1  
+    #     )
+    #     SELECT s.tcpID, s.sidx, s.loc, s.tokens 
+    #     FROM CIndices as CI, Marginalia as s 
+    #     WHERE CI.cid IN :keys 
+    #     AND CI.tcpID = s.tcpID 
+    #     AND CI.sidx = s.sidx 
+    #     AND CI.loc = s.nidx  
+    #     ''',
+    #     keys=keys)
+    #     hits = {}
+    #     for r in rows: 
+    #         if r[0] not in hits: hits[r[0]] = []
+    #         hits[r[0]].append({"tcpID": r[1], "sidx":r[2], "loc": r[3],"text": r[4]})
+    #     return hits

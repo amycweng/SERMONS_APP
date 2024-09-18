@@ -4,12 +4,21 @@ body {
     /* font-family: "Lucida Handwriting", cursive; */
     font-family: Cambria, Cochin, 'Times New Roman', Times, serif;
 }
+select {
+    font-family: Cambria, Cochin, 'Times New Roman', Times, serif;
+}
 p {
   text-indent: 25px;
   margin-left: 25px;
   margin-right:25px;
   font-size: 18px;
 }
+p2 {
+  text-indent: 25px;
+  margin-left: 0.01px;
+  font-size: 18px;
+}
+
 .info-circle {
   display: inline-block;
   width: 24px;
@@ -59,7 +68,8 @@ p {
 }
 
 a {
-    color:#7b7d85;
+    /* color:#7b7d85; */
+    color: #26272b;
 }
 a:hover {
   color:#7b7d85;
@@ -69,10 +79,19 @@ a:hover {
     background: #FFF;
 }
 
+button:hover img {
+  opacity: 0.5; /* Set the desired transparency level (0 is fully transparent, 1 is fully opaque) */
+}
+
+button:hover {
+  opacity: 0.5; /* Set the desired transparency level (0 is fully transparent, 1 is fully opaque) */
+}
+
 .link-button {
   background: none;
   border: none;
-  color: #7b7d85;
+  /* color: #7b7d85; */
+  color:#26272b;
   text-decoration: underline;
   cursor: pointer;
   font-size: 1em;
@@ -138,7 +157,8 @@ tfoot input {
 
 .sidenav {
     height: 100%;
-    background-color: #4b4c4d;
+    /* background-color: #4b4c4d; */
+    background-color:#26272b;
     overflow-x: hidden;
     /* padding-top: 40px; */
 }
@@ -181,20 +201,9 @@ tfoot input {
   background-color: rgb(70, 70, 70);
 }
 
-.btn-red-feedback{
-  border: none;
-  color: white;
-  background-color: darkred;
-}
-
-.btn-red-feedback:hover {
-  color:white;
-  text-decoration: none;
-  background-color: rgb(70, 70, 70);
-}
 
 .grey_table{
-  background-color: #4b4c4d;
+  background-color: #26272b;
   color: white;
 }
 
@@ -204,10 +213,6 @@ tfoot input {
   display: block; /* Ensure the image is treated as a block-level element */
 }
 
-.btn-red {
-    background-color: #FF0000 !important;
-    color: #fff;
-}
 
 section {
     color: #fff;
@@ -218,7 +223,7 @@ section {
     display: table;
     width: 100%;
     font-size: 18px;
-    color:#a4a3a3;
+    color:#c5c5c5;
 }
 
 
@@ -501,19 +506,24 @@ section {
 .banner-header{
     display: flex;
     justify-content: center;
-    background-color: #4b4c4d;
-    margin: auto;
+    /* background-color: #4b4c4d; */
+    background-color:#26272b;
+    flex-wrap: wrap;
+    align-items: center; 
 }
+
 .tab-banner {
     margin: auto;
     color: white;
     align-items: center;
-    background-color: #4b4c4d;
+    /* background-color: #4b4c4d; */
+    background-color:#26272b;
     margin: 15px;
     margin-top: 0px;
 }
 .tab-banner:hover{
     background-color: #4b4c4d;
+    /* background-color:#26272b; */
     color: white;
 }
 
@@ -704,11 +714,14 @@ section {
 
 .site-footer
 {
+  padding-top: 45px;
+  padding-left: 75px;
+  padding-right: 75px;
   background-color:#26272b;
-  padding:45px 0 20px;
+  /* padding:45px 0 20px; */
   font-size:15px;
   line-height:24px;
-  color:#cccaca;
+  color:c5c5c5;
   min-height: 50vh;
   display: flex;
   flex-direction: column; 
@@ -724,7 +737,7 @@ section {
 }
 .site-footer h6
 {
-  color:#fff;
+  color:white;
   font-size:20px;
   text-transform:uppercase;
   margin-top:5px;
@@ -732,7 +745,8 @@ section {
 }
 .site-footer a
 {
-  color:#a4a3a3;
+  /* color:#a4a3a3; */
+  color: #c5c5c5
 }
 .site-footer a:hover
 {
@@ -872,7 +886,8 @@ section {
 .footer-basic {
     padding:40px 0;
     background-color:#ffffff;
-    color:#4b4c4d;
+    /* color:#4b4c4d; */
+    color:white;
   }
   
   .footer-basic ul {

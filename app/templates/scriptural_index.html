@@ -1,26 +1,76 @@
-{% extends "base.html" %}
+{% extends "base2.html" %}
 
 {% block content %}
 
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.css" />
 <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            const requestMethod = "{{ get_prominence }}";  // This is passed from Flask
+            if (requestMethod === "get_prominence") {
+                $('html, body').animate({
+                    scrollTop: $("#prominence").offset().top
+                }, 1000);
+            }
+        });
+    </script>
 <script>
   
   $(document).ready(function(){
-    new DataTable($('#sort_sidx'), {
-      order: [[0, 'asc']],
-
-    });
-  })
-  $(document).ready(function(){
     new DataTable($('#sort_tcpID'), {
       order: [[0, 'asc']],
-
+      pageLength: 5
     });
     new DataTable($('#sort_qp'), {
       order: [[0, 'asc']],
-
+      pageLength: 3
     });
+    new DataTable($('#sort_sidx'), {
+      order: [[0, 'asc']],
+      pageLength: 5
+    });
+    new DataTable($('#tcpIDs'), {
+      order: [[1, 'desc']],
+      pageLength: 2 
+    });
+    new DataTable($('#authors'), {
+      order: [[1, 'desc']],
+      pageLength: 5
+    });
+    new DataTable($('#subjects'), {
+      order: [[1, 'desc']],
+      pageLength: 5 
+    });
+    new DataTable($('#pubyears'), {
+      order: [[1, 'desc']],
+      pageLength: 5
+    });
+    new DataTable($('#pubplaces'), {
+      order: [[1, 'desc']],
+      pageLength: 5 
+    });
+    new DataTable($('#authors'), {
+      order: [[1, 'desc']],
+      pageLength: 5
+    });
+    new DataTable($('#tcpIDs2'), {
+      order: [[1, 'desc']],
+      pageLength: 2 
+    });
+    new DataTable($('#pubyears2'), {
+      order: [[1, 'desc']],
+      pageLength: 5
+    });
+    new DataTable($('#pubplaces2'), {
+      order: [[1, 'desc']],
+      pageLength: 5 
+    });
+    new DataTable($('#subjects2'), {
+      order: [[1, 'desc']],
+      pageLength: 5
+    });
+
   })
 </script>
 <script>
@@ -31,22 +81,6 @@
 		}
 	};
 })();
-function filterOptions3() {
-    var input, filter, select, option, i;
-    input = document.getElementById('searchInput3');
-    filter = input.value.toUpperCase();
-    select = document.getElementById('verse');
-    option = select.getElementsByTagName('option');
-
-    // Loop through all options and hide those that don't match the search query
-    for (i = 0; i < option.length; i++) {
-        if (option[i].innerHTML.toUpperCase().indexOf(filter) > -1) {
-            option[i].style.display = '';
-        } else {
-            option[i].style.display = 'none';
-        }
-    }
-}
 </script>
 <script>
   function filterOptions2() {
@@ -65,131 +99,498 @@ function filterOptions3() {
           }
       }
   }
+
+ 
   </script>
 <br>
 
 <div class="site_body">
-  <h3><b>Scriptural Index</b></h3>
-  <form action="{{ url_for('sermon.get_all') }}" method="POST">
-    <input type="hidden" id="search" name="search" value="c">
-    <label for="searchInput2" >Find citations by typing a label here: </label>
-    <input type="text" id="searchInput2" onkeyup="filterOptions2()" placeholder="Book, chapter, or verse">
-    <label for="item">Then select from the options in the dropdown menu:</label>
-  <select id="item" name="item">
-    <option value=""></option>
-    {% for v in books%}
-    <option value="{{v}}">{{v}}</option>
-    {% endfor %}
-  </select>
-  <br>
-  <label for="searchInput3">Find quotations and paraphrases: </label>
-  <input type="text" id="searchInput3" onkeyup="filterOptions3()" placeholder="Verse">
-  <label for="verse">Then select from the options in the dropdown menu: </label>
-  <select id="verse" name="verse">
-      <option value=""></option>
-      {% for v in verse_ids%}
-      <option value="{{v[0]}}">{{v[0]}}</option>
+  <h3><b>Scriptural Index and Prominence</b></h3>
+  <h6>Note: Verses are formatted with periods, i.e., "Genesis 1.1." 
+    These are the book spellings that this site uses: 
+    <select>
+      <option class="option" value="">{{refs[0]}}</option>
+      {% for v in refs[1:] %}
+      <option class="option" value="{{v}}">{{v}}</option>
       {% endfor %}
-  </select>  
-  <input type="submit" value="Search" class="btn-gray"> 
-  </form>
+    </select>
+  </h6>
 
-  {% if citations %}
+  <div class="input-wrapper"> 
+    <form action="{{ url_for('index.scriptural_index') }}" method="POST">
+      Search for a book, chapter, or verse: 
+      <input type="text" name="item" style="width: 500px;"/>
+      <input type="hidden" name = "citing_entity" value="tcpIDs"/>
+      <input type="hidden" name="get_prominence" value="get_references"/>
+      <button type="submit"> 
+          🔍 
+      </button> 
+    </form>
+  </div> 
+  <!-- <form action="{{ url_for('index.scriptural_index') }}" method="POST">
+    <input type="hidden" id="search" name="search" value="c">
+    <label for="searchInput2" >Filter: </label>
+    <input type="text" id="searchInput2" onkeyup="filterOptions2()" placeholder="Book, chapter, or verse">
+    <label for="item">Select from the options in the dropdown menu:</label>
+    <select id="item" name="item">
+      <option value=""></option>
+      {% for v in refs%}
+      <option value="{{v}}">{{v}}</option>
+      {% endfor %}
+    </select>
+    <button type="submit" style="border: none; background-color: transparent;"> 
+      🔍 
+    </button> 
+  </form> -->
+
+
   <div class="full_break">
     <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
   </div>
+  {% if not citations %}
   <br>
-  <h4><b>Citations of {{book}}</b>
+  <h4><b>Reference prominence</b></h4>
+  <br>
+  <p2>Rather than examine the frequency or proportion of references, it is far more useful to determine which 
+    references are most prominent for a citing actor.  
+    The visualizations below show the most prominent scriptural references within all publications per year. 
+    Prominence, displayed as the value below each label, is measured using the metric of Outgoing Relative 
+    Citational Prominence (ORCP) proposed by <a href="https://aclanthology.org/2023.emnlp-main.797/" style="color:#0000EE;"><b>Wahle et al. (2023)</b></a>. 
+    In this case, a positive prominence value for a reference <i>R</i> in a given year means that 
+    <i>R</i> constitutes a greater percentage of all the references cited by publications in that year 
+    than the average citation percentage of <i>R</i> per year. 
+    A negative value indicates that a given reference constitutes a proportion lesser than average.
+    For instance, the citation percentage of 3 Kings among all citations in 1497 is 48.9% more than average across all years, 
+    which makes sense because 3 Kings is a book numbering only present among older Bibles. 
+    However, note that the number of TCP transcriptions varies widely and may be very sparse for certain years, so this metric only reflects reference prominence 
+    for limited subsets of publications.  
+    To see the publications, authors, years, publication places, and subject headings that mention a reference most prominently, search for that reference above.
+    More research is forthcoming on the most prominent references for different preaching occasions, preaching locations, and publishers after these data are cleaned or annotated.  
+  </p2>
+  <br><br>
+  <p2>For quotational prominence, only the predictions with the highest cosine similarity scores per verse of the different Bibles 
+    are included for consideration. These are either complete or partial quotations with scores >= 0.9 or paraphrases with scores >= 0.8.
+    Lower scoring paraphrases (score >= 0.7) are also included if they are from a book cited nearby in the text. 
+    For now, the Tyndale and Wycliffe Bibles have been excluded from consideration, but they will be included in the future after 
+    I refine my training corpus and retrain my models. 
+  </p2>
+  <br><br>
+  <p2>
+    Due to their large amounts of data, the charts below take a while to load.
+    Press the play button on the time slider to view the animation, and filter using the dropdown menu on the top left 
+    to see the prominence of different books, chapters, verses, and parts of the Bible over time. 
+  </p2> 
+  <br><br> 
+  <div class="flourish-embed flourish-chart" data-src="visualisation/19410609"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/19410609/thumbnail" width="100%" alt="chart visualization" /></noscript></div>  
+  <div class="flourish-embed flourish-chart" data-src="visualisation/19416194"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/19416194/thumbnail" width="100%" alt="chart visualization" /></noscript></div>  
+  {% endif %}
+  {% if citations %}
+    <form  action="{{ url_for('download.download') }}" method="POST">
+      <input type="hidden" id="download_item" name="download_item" value={{ref}}>
+      <h3><i>References to {{ref}}</i>    
+        <!-- <button type="submit" style="border: none; background-color: transparent;"> 
+          <h5>Export References ⬇</h5> 
+          </button> 
+        </h3> -->
+    </form> 
+
+  </form>
+
+  <h4><b>Citations</b>
     <div class="info-circle"> i
       <div class="tooltip">
         The index of citation indicates its position within the text of the segment or a particular note of the segment.
           For example, if 'Note 0' (i.e., the first note) of this segment has three citations, the citation with index 0 is its first citation, 
-          inclusive of all its parsed components. Each citation unit is a book and chapter. Hence, a phrase 
-          'Ro. 1.3-5' in the text counts as a single citation with components "Romans 1.3; Romans 1.4; Romans 1.5."
-          If the citation unit is preprocessed, then all of its punctuation besides commas and hyphens have been removed 
-          and Roman numerals have been converted to integers.
+          inclusive of all its parsed components. 
          </div>
     </div>  </h4>
     
   <h5><b>Variant spellings:</b> {{"; ".join(variants)}}</h5>
-  <form action="{{ url_for('download.download') }}" method="POST">
-    <input type="hidden" id="item" name="item" value={{book}}>
-<input type="submit" value="Export" class="btn-gray"> 
-</form>
 
- <table class='table is-striped' id="sort_sidx">
-    <thead class="grey_table" >
+
+<table class='table is-striped' id="sort_sidx">
+  <thead class="grey_table" >
+    <tr>
+      <th scope="col">TCP ID</th>
+      <th scope="col">Index of Segment</th>
+      <th scope="col">Location</th>
+      <th scope="col">Index of Citation in Segment</th>
+      <th scope="col">Parsed Citation</th>
+      <th scope="col">Proximal Paraphrases (either within the same segment or a window of four segments)</th>
+      <th scope="col">Phrase</th>
+      <th scope="col">Text of Segment and Notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for c in citations%}
       <tr>
-        <th scope="col">TCP ID</th>
-        <th scope="col">Index of Segment</th>
-        <th scope="col">Location</th>
-        <th scope="col">Index of Citation in Segment</th>
-        <th scope="col">Parsed Citation(s)</th>
-        <th scope="col">Unparsable Citation(s)</th>
-        <th scope="col">Phrase</th>
-        <th scope="col">Text of Segment and Notes</th>
+        <td><a href="{{ url_for('sermon.get_citations',tcpID=c.tcpID) }}"><u>{{c.tcpID}}</u></a></td>
+        <td>{{c.sidx}}</td>
+        <td>{{c.loc}}</td>
+        <td>{{c.cidx}}</td>
+        <td>{{c.citation}}</td>
+        <td>
+            {{proximal[c.sidx] | safe}}
+        </td> 
+        <td>{{c.replaced}}</td>
+        <td>
+          <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}">
+            <button type="submit" style="border: none; background-color: transparent;">
+              <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+          </button>
+          </a>
+        </td>
       </tr>
-    </thead>
-    <tbody>
-      {% for c in citations%}
-        <tr>
-          <td>{{c.tcpID}}</td>
-          <td>{{c.sidx}}</td>
-          <td>{{c.loc}}</td>
-          <td>{{c.cidx}}</td>
-          <td>{{c.citation}}</td>
-          <td>{{c.outlier}}</td>
-          <td>{{c.replaced}}</td>
-          <td>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=c.tcpID,sidx=c.sidx) }}"><u><b>View</b></u></a>
-          </td>
-        </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-  {% endif %}
+    {% endfor %}
+  </tbody>
+</table>
   
-  {% if verse_id %}
-  <div class="full_break">
-    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
-  </div>
-  <br>
-  <h3>Quotations or Paraphrases of {{verse_id}}</h3>
-  <h5><b>Full Verse:</b> &VeryThinSpace; {{verse_text}}</h5>
-  
+<br>
+  <h4><b>Quotations or Paraphrases</b></h4>
+  <h6>Scopes: 1 (Complete Segment, Complete Verse), 2 (Complete Segment, Partial Verse), 3 (Partial Verse, Complete Segment), 4 (Partial Segment, Partial Verse)</h5>
   <table class='table is-striped' id="sort_qp">
     <thead class="grey_table" >
       <tr>
         <th scope="col">TCP ID</th>
-        <th scope="col">Index and Location of Segment</th>
+        <th scope="col">Index of Phrase</th>
+        <th scope="col">Location of Phrase</th>
+        <th scope="col">Verse and Version</th>
+        <th scope="col">Full Verse Text</th>
         <th scope="col">Phrase of Segment</th>
-        {% if current_user.is_authenticated %}
-        <th scope="col">Remove Reference</th>
-        {% endif %}
+        <th scope="col">Score</th>
+        <th scope="col">Scope</th>
+        <th scope="col">Text of Segment and Notes</th>
+        <!-- <th scope="col">Remove Reference</th> -->
       </tr>
     </thead>
     <tbody>
       {% for q in actual_qp %}
         <tr>
-          <td>{{q[0]}}</td>
-          <td>{{q[1]}}<br>{{q[2]}}
-            <br>
-            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q[0],sidx=q[1]) }}"><u><b>View Segment, Notes, and References</b></u></a>
+          <td><a href="{{ url_for('sermon.get_citations',tcpID=q.tcpID) }}"><u>{{q.tcpID}}</u></a></td>
+          <td>{{q.sidx}}</td>
+          <td>{{q.loc}}
           </td>
-          <td>{{q[5]}}</td>
-          {% if current_user.is_authenticated %}
+          <td>{{q.verse_id}}</td>
+          <td>{{q.verse_text}}</td>
+          <td>{{q.phrase | safe}}</td>
+          <td>{{q.score | safe}}</td>
+          <td>{{q.scope | safe}}</td>
           <td>
-            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q[0], sidx=q[1], loc=q[2],verse_id=q[3])}}" method="POST" >
+            <a href="{{ url_for('sermon.get_segment_and_notes',tcpID=q.tcpID,sidx=q.sidx) }}">
+              <button type="submit" style="border: none; background-color: transparent;">
+                <img src="{{ url_for('static', filename='images/manicule double.png') }}" style="width: 100px; height: auto;">
+            </button>
+            </a>
+          </td>
+          <!-- <td>
+            <form action="{{ url_for('sermon.remove_actual_qp',tcpID=q.tcpID, sidx=q.sidx, loc=q.loc,verse_id=q.verse_id)}}" method="POST" >
               <input type="hidden" id="page" name="page" value="segment">
               <input type="submit" value="Remove" class="btn-gray"/> 
              </form>   
-          </td> 
-          {% endif %} 
+          </td>   -->
         </tr>
       {% endfor %}
     </tbody>
   </table>
+
+  <!-- visualizations START  -->
+
+  <div class="full_break" id="prominence">
+    <img src="/static/images/border4.png"><img src="/static/images/border4.png"><img src="/static/images/border4.png">
+  </div>
   <br>
+  <h4><b>Reference prominence</b></h4>
+  <form action="{{ url_for('index.scriptural_index') }}" method="POST">
+    <input type="hidden" id="item" name="item" value="{{ref}}">
+    <input type="hidden" name="get_prominence" value="get_prominence">
+    <b>Visualize and browse the reference prominence for a type of citing actor: </b>
+    <select id="citing_entity" name="citing_entity">
+      <option class="option" value="tcpIDs">Publications</option>
+      <option class="option" value="Authors">Authors</option>
+      <option class="option" value="Subjects">Subject Headings</option>
+      <option class="option" value="Pubyear">Publication Years</option>
+      <option class="option" value="Pubplace">Publication Places</option>
+    </select>
+    <button class="btn-gray" type="submit"> 
+       Submit 
+    </button> 
+  </form>
+
+  <br>
+  <p2>Rather than examine the frequency or proportion of references, it is far more useful to determine which 
+    references are most prominent for a citing actor.   
+    Prominence is measured using the metric of Outgoing Relative 
+    Citational Prominence (ORCP) proposed by <a href="https://aclanthology.org/2023.emnlp-main.797/" style="color:#0000EE;"><b>Wahle et al. (2023)</b></a>. 
+    In this case, a positive prominence value for a reference <i>R</i> by a citing actor <i>C</i> means that 
+    <i>R</i> constitutes a greater percentage of all the references mentioned by <i>C</i>
+    than the average citation percentage that other entities of the same type mention <i>C</i>. 
+    A negative value indicates that a given reference constitutes a proportion lesser than average. 
+    </p2>
+  <br><br>
+  <p2>For Quotational Prominence, only the predictions with the highest cosine similarity scores per verse of the different Bibles 
+    are included for consideration. These are either complete or partial quotations with scores >= 0.9 or paraphrases with scores >= 0.8.
+    Lower scoring paraphrases (score >= 0.7) are also included if they are from a book cited nearby in the text. 
+    For now, the Tyndale and Wycliffe Bibles have been excluded from consideration, but they will be included in the future after 
+    I refine my training corpus and retrain my models. 
+  </p2>
+  <br><br>
+
+  {% if book_vis %}
+  <h5><b>Publications</b></h5>
+  <img src='data:image/png;base64,{{book_vis}}' style="width: 100%;"/>
+  <table class='table is-striped' id="tcpIDs" style="display: inline-block; margin-right: 20px;">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Citational Prominence</th>
+        <!-- <th scope="col">Citation Count</th> -->
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <!-- <th scope="col">Publisher</th> -->
+        <th scope="col">Publication Year</th>
+        <!-- <th scope="col">Publication Place</th> -->
+        <th scope="col">Subjects</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for tcpID in tcpIDs[0] %}
+      <tr>
+          <td><a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}" target="_blank"><u>{{tcpID}}</u></a></td>
+          <td>{{tcpIDs[0][tcpID]}}</td>
+          <td>
+              {{metadata[tcpID].title}}
+                        </td>
+          <td>
+              {{metadata[tcpID].authors}}
+          </td>
+          <!-- <td>{{metadata[tcpID].publisher}}</td> -->
+          <td>{{metadata[tcpID].pubyear}}</td>
+          <!-- <td>{{metadata[tcpID].pubplace}}</td> -->
+          <td>{{metadata[tcpID].subject_headings}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <table class='table is-striped' id="tcpIDs2" style="display: inline-block; margin-right: 20px;">
+    <thead class="grey_table" >
+      <tr>
+        <th scope="col">TCP ID</th>
+        <th scope="col">Quotational Prominence</th>
+        <!-- <th scope="col">Citation Count</th> -->
+        <th scope="col">Title</th>
+        <th scope="col">Authors</th>
+        <!-- <th scope="col">Publisher</th> -->
+        <th scope="col">Publication Year</th>
+        <!-- <th scope="col">Publication Place</th> -->
+        <th scope="col">Subjects</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key in tcpIDs[1] %}
+      <tr>
+          <td><a href="{{ url_for('sermon.get_citations',tcpID=tcpID) }}" target="_blank"><u>{{key}}</u></a></td>
+          <td>{{tcpIDs[1][key]}}</td>
+          <td>
+              {{metadata[tcpID_QP_meta[key]].title}}
+                        </td>
+          <td>
+              {{metadata[tcpID_QP_meta[key]].authors}}
+          </td>
+          <!-- <td>{{metadata[tcpID_QP_meta[key]].publisher}}</td> -->
+          <td>{{metadata[tcpID_QP_meta[key]].pubyear}}</td>
+          <!-- <td>{{metadata[tcpID_QP_meta[key]].pubplace}}</td> -->
+          <td>{{metadata[tcpID_QP_meta[key]].subject_headings}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% endif %}
+
+  {% if author_vis %}
+  <h5><b>Authors</b></h5>
+  <img src='data:image/png;base64,{{author_vis}}' style="width: 100%; "/>
+  
+  <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="authors" >
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Author</th>
+          <th scope="col">Citational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for aut in authors[0] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_author_references',author=aut)}}" target="_blank"><u>{{aut}}</u></a>
+            </td> 
+            <td>{{authors[0][aut]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="authors2">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Author</th>
+          <th scope="col">Quotational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for aut in authors[1] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_author_references',author=aut)}}" target="_blank"><u>{{aut}}</u></a>
+            </td> 
+            <td>{{authors[1][aut]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+  {% endif %}
+
+
+  {% if pubyear_vis %}
+  <h5><b>Publication Years</b></h5>
+  <img src='data:image/png;base64,{{pubyear_vis}}' style="width: 100%; "/>
+  
+  <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="pubyears" >
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Publication Place</th>
+          <th scope="col">Citational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in pubyears[0] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{pubyears[0][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="pubyears2">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Publication Place</th>
+          <th scope="col">Quotational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in pubyears[1] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{pubyears[1][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+  {% endif %}
+
+  {% if pubplace_vis %}
+  <h5><b>Publication Places</b></h5>
+  <img src='data:image/png;base64,{{pubplace_vis}}' style="width: 100%; "/>
+  
+  <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="pubplaces" >
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Publication Place</th>
+          <th scope="col">Citational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in pubplaces[0] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{pubplaces[0][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="pubplaces2">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Publication Place</th>
+          <th scope="col">Quotational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in pubplaces[1] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{pubplaces[1][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+  {% endif %}
+  
+  {% if subjects_vis %}
+  <h5><b>Subject Headings</b></h5>
+  <img src='data:image/png;base64,{{subjects_vis}}' style="width: 100%; "/>
+  
+  <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="subjects" >
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Subject Heading</th>
+          <th scope="col">Citational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in subjects[0] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{subjects[0][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+    <div style="display: inline-block; width:49%;">
+    <table class='table is-striped' id="subjects2">
+      <thead class="grey_table" >
+        <tr>
+          <th scope="col">Subject Headings</th>
+          <th scope="col">Quotational Prominence</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for p in subjects[1] %}
+        <tr>
+            <td>
+              <a href="{{ url_for('author.find_pubplace_metadata',pubplace=p)}}" target="_blank"><u>{{p}}</u></a>
+            </td> 
+            <td>{{subjects[1][p]}}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+</div>
+  {% endif %}
+<!-- visualizations END  -->
 {% endif %}
 </div>
 
