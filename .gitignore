@@ -4,4 +4,4 @@ logfile
 db_info
 install.sh
 /db/data
-/SERMONS_APP/db/data/chromadb
+/app/static/data

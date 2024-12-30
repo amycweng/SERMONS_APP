@@ -7,3 +7,9 @@ email_validator
 nltk
 wordcloud
 humanize
+nbformat==5.10.4
+dash
+plotly
+scikit-learn
+scipy
+numpy
